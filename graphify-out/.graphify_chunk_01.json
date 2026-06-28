@@ -1,0 +1,1065 @@
+{
+  "nodes": [
+    {
+      "id": "idea_ai_automation_intake_app",
+      "label": "AI Automation Intake Application",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_ai_intake_agent",
+      "label": "AI Intake Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_information_extraction_agent",
+      "label": "Information Extraction Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_process_analysis_agent",
+      "label": "Process Analysis Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_roi_extraction_agent",
+      "label": "ROI Extraction Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_engineering_effort_estimation_agent",
+      "label": "Engineering Effort Estimation Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_duplicate_detection_agent",
+      "label": "Duplicate Detection Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_categorization_agent",
+      "label": "Categorization Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_priority_recommendation_agent",
+      "label": "Priority Recommendation Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_summary_generation_agent",
+      "label": "Summary Generation Agent",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_deterministic_calculation_engine",
+      "label": "Deterministic Calculation Engine",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 6",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_roi_calculation_architecture",
+      "label": "ROI Calculation Architecture",
+      "file_type": "rationale",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 6",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_priority_framework",
+      "label": "Priority Framework (Multi-Factor Score)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 7",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_staged_intake_flow",
+      "label": "AI-Guided Staged Intake Flow",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 8",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_department_question_templates",
+      "label": "Department-Aware Question Templates",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_document_media_uploads",
+      "label": "Document & Media Upload Support",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_confidence_scoring",
+      "label": "Confidence Scoring System",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_analytics_dashboard",
+      "label": "Analytics Dashboard",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_data_model",
+      "label": "Data Model (Core Entities)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_request_entity",
+      "label": "Request Entity",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_request_summary_entity",
+      "label": "RequestSummary Entity",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_request_estimate_entity",
+      "label": "RequestEstimate Entity",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_audit_log_entity",
+      "label": "AuditLog Entity",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.2",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_rbac",
+      "label": "Role-Based Access Control (RBAC)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 14",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_company_wide_ledger",
+      "label": "Company-Wide Request Ledger",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 15",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_engineering_dashboard",
+      "label": "Engineering Dashboard",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 16",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_status_lifecycle",
+      "label": "Request Status Lifecycle",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 17",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_future_integrations",
+      "label": "Future Integrations (Jira, Slack, SSO, etc.)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 18",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_technical_stack",
+      "label": "Technical Stack (Next.js, Postgres, Claude API)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_mvp_scope",
+      "label": "MVP Scope (3 Phases)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 22",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_role_requester",
+      "label": "Requester Role (Employee)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 4",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_role_engineering_admin",
+      "label": "Engineering Admin Role",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 4",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_role_system_admin",
+      "label": "System Admin Role",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 4",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_intake_template_config",
+      "label": "IntakeTemplateConfig (Editable via Config)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 9, 13.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_priority_weights_config",
+      "label": "PriorityWeightsConfig (Configurable Weights)",
+      "file_type": "concept",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 7.2, 13.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_ai_agent_pipeline",
+      "label": "AI Agent Orchestration Pipeline",
+      "file_type": "rationale",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2, 5.3",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_missing_features",
+      "label": "Missing Features & Weak Areas",
+      "file_type": "document",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 26",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "idea_open_questions",
+      "label": "Open Questions (For Boss)",
+      "file_type": "document",
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 25",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "idea_ai_automation_intake_app",
+      "target": "idea_ai_agent_pipeline",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_agent_pipeline",
+      "target": "idea_ai_intake_agent",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_information_extraction_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_process_analysis_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_roi_extraction_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_engineering_effort_estimation_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_duplicate_detection_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_categorization_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_intake_agent",
+      "target": "idea_priority_recommendation_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_information_extraction_agent",
+      "target": "idea_deterministic_calculation_engine",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2, 6",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_roi_extraction_agent",
+      "target": "idea_deterministic_calculation_engine",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 6",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_deterministic_calculation_engine",
+      "target": "idea_summary_generation_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_deterministic_calculation_engine",
+      "target": "idea_roi_calculation_architecture",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 6",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_deterministic_calculation_engine",
+      "target": "idea_priority_framework",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 7.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_priority_framework",
+      "target": "idea_priority_weights_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 7.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_priority_framework",
+      "target": "idea_confidence_scoring",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 7.1, 11",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_staged_intake_flow",
+      "target": "idea_ai_intake_agent",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 8",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_staged_intake_flow",
+      "target": "idea_department_question_templates",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 8, 9",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_staged_intake_flow",
+      "target": "idea_document_media_uploads",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 8, 10",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_department_question_templates",
+      "target": "idea_intake_template_config",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 9",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_document_media_uploads",
+      "target": "idea_process_analysis_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 10.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_document_media_uploads",
+      "target": "idea_roi_extraction_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 10.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_document_media_uploads",
+      "target": "idea_information_extraction_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 10.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_confidence_scoring",
+      "target": "idea_roi_extraction_agent",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 11",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_confidence_scoring",
+      "target": "idea_engineering_effort_estimation_agent",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 11",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_engineering_dashboard",
+      "target": "idea_analytics_dashboard",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 16",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_engineering_dashboard",
+      "target": "idea_priority_framework",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 16",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_engineering_dashboard",
+      "target": "idea_company_wide_ledger",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 15, 16",
+      "weight": 0.85
+    },
+    {
+      "source": "idea_data_model",
+      "target": "idea_request_entity",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_data_model",
+      "target": "idea_request_summary_entity",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_data_model",
+      "target": "idea_request_estimate_entity",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_data_model",
+      "target": "idea_audit_log_entity",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_request_entity",
+      "target": "idea_request_summary_entity",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.3",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_request_entity",
+      "target": "idea_request_estimate_entity",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.3",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_request_estimate_entity",
+      "target": "idea_deterministic_calculation_engine",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 13.1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_rbac",
+      "target": "idea_role_requester",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 4, 14",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_rbac",
+      "target": "idea_role_engineering_admin",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 4, 14",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_rbac",
+      "target": "idea_role_system_admin",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 4, 14",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_rbac",
+      "target": "idea_company_wide_ledger",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 15",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_audit_log_entity",
+      "target": "idea_rbac",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 14",
+      "weight": 0.85
+    },
+    {
+      "source": "idea_status_lifecycle",
+      "target": "idea_request_entity",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 17",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_technical_stack",
+      "target": "idea_ai_agent_pipeline",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 19",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_technical_stack",
+      "target": "idea_data_model",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 19",
+      "weight": 0.85
+    },
+    {
+      "source": "idea_mvp_scope",
+      "target": "idea_staged_intake_flow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 22",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_mvp_scope",
+      "target": "idea_engineering_dashboard",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 22",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_mvp_scope",
+      "target": "idea_duplicate_detection_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 22 Phase 2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_mvp_scope",
+      "target": "idea_analytics_dashboard",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 22 Phase 2",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_mvp_scope",
+      "target": "idea_future_integrations",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 22 Phase 3",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_missing_features",
+      "target": "idea_duplicate_detection_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 26",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_missing_features",
+      "target": "idea_priority_framework",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 26",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_missing_features",
+      "target": "idea_engineering_effort_estimation_agent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 26",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_open_questions",
+      "target": "idea_company_wide_ledger",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 25",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_open_questions",
+      "target": "idea_rbac",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 25",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_roi_extraction_agent",
+      "target": "idea_information_extraction_agent",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1",
+      "weight": 0.75
+    },
+    {
+      "source": "idea_priority_recommendation_agent",
+      "target": "idea_priority_framework",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 5.1, 7",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_automation_intake_app",
+      "target": "idea_staged_intake_flow",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 1, 8",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_automation_intake_app",
+      "target": "idea_engineering_dashboard",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_automation_intake_app",
+      "target": "idea_company_wide_ledger",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_ai_automation_intake_app",
+      "target": "idea_rbac",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md",
+      "source_location": "Section 1",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "ai_agent_pipeline_core",
+      "label": "Core AI Agent Processing Pipeline",
+      "nodes": [
+        "idea_ai_intake_agent",
+        "idea_information_extraction_agent",
+        "idea_roi_extraction_agent",
+        "idea_engineering_effort_estimation_agent",
+        "idea_duplicate_detection_agent",
+        "idea_categorization_agent",
+        "idea_priority_recommendation_agent",
+        "idea_summary_generation_agent"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md"
+    },
+    {
+      "id": "data_model_core_entities",
+      "label": "Core Data Model Entities Anchored to Request",
+      "nodes": [
+        "idea_request_entity",
+        "idea_request_summary_entity",
+        "idea_request_estimate_entity",
+        "idea_audit_log_entity"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md"
+    },
+    {
+      "id": "priority_score_factors",
+      "label": "Priority Score Contributing Factors",
+      "nodes": [
+        "idea_roi_extraction_agent",
+        "idea_engineering_effort_estimation_agent",
+        "idea_priority_recommendation_agent",
+        "idea_confidence_scoring",
+        "idea_priority_framework"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/rishu/Desktop/AI Automation/idea.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
