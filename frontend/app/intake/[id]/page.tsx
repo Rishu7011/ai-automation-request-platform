@@ -19,6 +19,28 @@ interface RequestInfo {
   status: string;
 }
 
+interface ReviewData {
+  priorityScore: number;
+  roiConfidence: string;
+  estimate: {
+    annualHoursSaved: number;
+    annualDollarsSaved: number;
+    buildCostMid: number;
+    simpleROI: number;
+    effortSize: string;
+    riskFlags: string[];
+  };
+  narratives: {
+    requester: string;
+    engineering: string;
+  };
+  categorization: {
+    automationType: string;
+    departmentTags: string[];
+    systemsTouched: string[];
+  };
+}
+
 // ─── Stage Progress Bar ───────────────────────────────────────────────────────
 
 function StageProgressBar({
@@ -128,10 +150,12 @@ function StageCompleteBanner({
   stageName,
   onNext,
   isLastStage,
+  isSubmitting,
 }: {
   stageName: string;
   onNext: () => void;
   isLastStage: boolean;
+  isSubmitting?: boolean;
 }) {
   return (
     <div className="mx-4 mb-4 p-4 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/30 text-center">
@@ -145,10 +169,142 @@ function StageCompleteBanner({
       </p>
       <button
         onClick={onNext}
-        className="px-5 py-2 rounded-lg bg-[#6366f1] hover:bg-[#5558e0] text-white text-sm font-medium transition-colors"
+        disabled={isSubmitting}
+        className="px-5 py-2 rounded-lg bg-[#6366f1] hover:bg-[#5558e0] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
       >
-        {isLastStage ? '📤 Submit Request' : 'Next Section →'}
+        {isLastStage
+          ? isSubmitting
+            ? '⏳ Processing…'
+            : '📤 Submit Request'
+          : 'Next Section →'}
       </button>
+    </div>
+  );
+}
+
+// ─── Submitting Overlay ───────────────────────────────────────────────────────
+
+function SubmittingOverlay() {
+  const steps = [
+    { icon: '🔍', text: 'Extracting process information…' },
+    { icon: '💰', text: 'Calculating ROI estimates…' },
+    { icon: '⚙️', text: 'Estimating engineering effort…' },
+    { icon: '🏷️', text: 'Categorizing automation type…' },
+    { icon: '📊', text: 'Scoring priority…' },
+    { icon: '✍️', text: 'Generating summaries…' },
+  ];
+  const [stepIdx, setStepIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStepIdx((i) => (i + 1) % steps.length);
+    }, 2200);
+    return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div className="fixed inset-0 bg-[#0a0a12]/90 backdrop-blur-sm flex items-center justify-center z-50">
+      <div className="bg-[#0f0f1e] border border-[#2a2a4e] rounded-2xl p-8 max-w-sm w-full mx-4 text-center">
+        <div className="w-14 h-14 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto mb-5" />
+        <h3 className="text-white font-semibold text-base mb-2">Running AI Analysis</h3>
+        <p className="text-[#9ca3af] text-sm mb-5">
+          Our AI agents are processing your request. This takes 20–40 seconds.
+        </p>
+        <div className="bg-[#1a1a2e] rounded-xl px-4 py-3 flex items-center gap-3">
+          <span className="text-lg flex-shrink-0">{steps[stepIdx].icon}</span>
+          <span className="text-[#d1d5db] text-sm text-left">{steps[stepIdx].text}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Review Summary Card (Stage 8) ───────────────────────────────────────────
+
+function ConfidenceBadge({ level }: { level: string }) {
+  const map: Record<string, { color: string; label: string }> = {
+    HIGH:   { color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30', label: '🟢 High' },
+    MEDIUM: { color: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',   label: '🟡 Medium' },
+    LOW:    { color: 'text-red-400 bg-red-400/10 border-red-400/30',             label: '🔴 Low' },
+  };
+  const cfg = map[level.toUpperCase()] ?? map.LOW;
+  return (
+    <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${cfg.color}`}>
+      {cfg.label} Confidence
+    </span>
+  );
+}
+
+function ReviewSummaryCard({ data, requestTitle }: { data: ReviewData; requestTitle: string }) {
+  const fmt = (n: number) =>
+    n >= 1000 ? `$${(n / 1000).toFixed(0)}K` : `$${n.toFixed(0)}`;
+
+  const roiPct = data.estimate.simpleROI * 100;
+  const roiLabel = roiPct >= 0 ? `+${roiPct.toFixed(0)}%` : `${roiPct.toFixed(0)}%`;
+
+  return (
+    <div className="mx-4 mb-4 space-y-3">
+      {/* Header */}
+      <div className="p-4 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/30">
+        <p className="text-[#6366f1] font-semibold text-xs uppercase tracking-widest mb-1">Review Summary</p>
+        <p className="text-white font-medium text-sm">{requestTitle}</p>
+        <p className="text-[#9ca3af] text-xs mt-1">{data.narratives.requester}</p>
+      </div>
+
+      {/* ROI & Effort */}
+      <div className="grid grid-cols-2 gap-3">
+        <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
+          <p className="text-[#6b7280] text-xs mb-1">Annual Savings</p>
+          <p className="text-white font-bold text-lg">{fmt(data.estimate.annualDollarsSaved)}</p>
+          <p className="text-[#9ca3af] text-xs">{data.estimate.annualHoursSaved.toLocaleString()} hrs saved</p>
+          <div className="mt-2">
+            <ConfidenceBadge level={data.roiConfidence} />
+          </div>
+        </div>
+        <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
+          <p className="text-[#6b7280] text-xs mb-1">Effort Estimate</p>
+          <p className="text-white font-bold text-lg">{data.estimate.effortSize}</p>
+          <p className="text-[#9ca3af] text-xs">Build cost ~{fmt(data.estimate.buildCostMid)}</p>
+          <p className="text-[#9ca3af] text-xs">ROI: {roiLabel}</p>
+        </div>
+      </div>
+
+      {/* Priority Score */}
+      <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e] flex items-center justify-between">
+        <div>
+          <p className="text-[#6b7280] text-xs mb-0.5">Priority Score</p>
+          <p className="text-white font-bold text-2xl">{data.priorityScore}<span className="text-[#6b7280] text-sm font-normal">/100</span></p>
+        </div>
+        <div className="text-right">
+          <p className="text-[#6b7280] text-xs mb-0.5">Type</p>
+          <p className="text-[#d1d5db] text-xs font-medium">{data.categorization.automationType}</p>
+        </div>
+      </div>
+
+      {/* Tags */}
+      {data.categorization.systemsTouched.length > 0 && (
+        <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
+          <p className="text-[#6b7280] text-xs mb-2">Systems Involved</p>
+          <div className="flex flex-wrap gap-1.5">
+            {data.categorization.systemsTouched.map((s) => (
+              <span key={s} className="text-xs bg-[#2a2a4e] text-[#d1d5db] px-2 py-0.5 rounded-md">{s}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Risk Flags */}
+      {data.estimate.riskFlags.length > 0 && (
+        <div className="p-3 rounded-xl bg-amber-400/5 border border-amber-400/20">
+          <p className="text-amber-400 text-xs font-medium mb-2">⚠️ Risk Flags</p>
+          <ul className="space-y-1">
+            {data.estimate.riskFlags.map((r) => (
+              <li key={r} className="text-[#d1d5db] text-xs">• {r}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -170,6 +326,10 @@ export default function IntakeChatPage() {
   const [stageComplete, setStageComplete] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
+
+  // Stage 8 submit state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [reviewData, setReviewData] = useState<ReviewData | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -347,12 +507,32 @@ export default function IntakeChatPage() {
     }
   };
 
-  // ── Advance to next stage ──
-  const handleNextStage = () => {
+  // ── Advance to next stage (or submit on last stage) ──
+  const handleNextStage = async () => {
     const isLastStage = currentStage === INTAKE_STAGES.length;
     if (isLastStage) {
-      // TODO: Task 2.12 — submission flow
-      router.push(`/my-requests`);
+      // Task 2.12 — run the full agent pipeline
+      setIsSubmitting(true);
+      setError('');
+      try {
+        const res = await fetch('/api/intake/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ requestId }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error ?? 'Submission failed. Please try again.');
+          setIsSubmitting(false);
+          return;
+        }
+        // Show review data briefly then redirect
+        setReviewData(data as ReviewData);
+        setTimeout(() => router.push(`/requests/${requestId}`), 3000);
+      } catch {
+        setError('Network error during submission. Please try again.');
+        setIsSubmitting(false);
+      }
       return;
     }
 
@@ -413,6 +593,8 @@ export default function IntakeChatPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] flex flex-col">
+      {/* Submission processing overlay */}
+      {isSubmitting && !reviewData && <SubmittingOverlay />}
       {/* ── Top Header ── */}
       <div className="border-b border-[#1e1e3a] bg-[#0f0f1e]/80 backdrop-blur-md px-6 py-3 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-3 min-w-0">
@@ -473,12 +655,31 @@ export default function IntakeChatPage() {
 
           {isAiTyping && <TypingIndicator />}
 
-          {stageComplete && !isAiTyping && (
+          {/* Stage 8 Review Card — shown after submission completes */}
+          {reviewData && (
+            <div className="mb-4">
+              <div className="mx-4 mb-3 p-3 rounded-xl bg-emerald-400/10 border border-emerald-400/30 text-center">
+                <p className="text-emerald-400 font-semibold text-sm">✅ Request Submitted Successfully!</p>
+                <p className="text-[#9ca3af] text-xs mt-1">Redirecting to your request…</p>
+              </div>
+              <ReviewSummaryCard data={reviewData} requestTitle={requestInfo?.title ?? 'Your Request'} />
+            </div>
+          )}
+
+          {stageComplete && !isAiTyping && !reviewData && (
             <StageCompleteBanner
               stageName={currentStageName}
               onNext={handleNextStage}
               isLastStage={isLastStage}
+              isSubmitting={isSubmitting}
             />
+          )}
+
+          {/* Stage 8 Review Card shown inline while still chatting */}
+          {isLastStage && !stageComplete && !reviewData && messages.length > 0 && (
+            <div className="mx-4 mb-4 p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e] text-xs text-[#6b7280] text-center">
+              💡 When you are ready, complete this section and click Submit to run the AI analysis.
+            </div>
           )}
 
           {error && (

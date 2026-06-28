@@ -1,93 +1,106 @@
-# Graph Report - .  (2026-07-24)
+# Graph Report - AI Automation  (2026-07-24)
 
 ## Corpus Check
-- Corpus is ~6,731 words - fits in a single context window. You may not need a graph.
+- 41 files · ~13,361 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 38 nodes · 59 edges · 7 communities
-- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.82)
+- 113 nodes · 112 edges · 14 communities (12 shown, 2 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
+## Graph Freshness
+- Built from commit: `0f5366ec`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
 ## Community Hubs (Navigation)
-- Role-Based Access Control (RBAC)
-- AI Intake Agent
-- Data Model (Core Entities)
-- Engineering Dashboard
-- Confidence Scoring System
-- Deterministic Calculation Engine
-- Priority Framework (Multi-Factor Score)
+- dependencies
+- devDependencies
+- intake-agent.ts
+- package.json
+- page.tsx
+- User.ts
+- page.tsx
+- page.tsx
+- page.tsx
+- page.tsx
+- proxy.ts
 
 ## God Nodes (most connected - your core abstractions)
-1. `AI Intake Agent` - 9 edges
-2. `Role-Based Access Control (RBAC)` - 7 edges
-3. `Deterministic Calculation Engine` - 6 edges
-4. `Priority Framework (Multi-Factor Score)` - 6 edges
-5. `AI Automation Intake Application` - 5 edges
-6. `ROI Extraction Agent` - 5 edges
-7. `AI-Guided Staged Intake Flow` - 5 edges
-8. `Data Model (Core Entities)` - 5 edges
-9. `Engineering Dashboard` - 5 edges
-10. `MVP Scope (3 Phases)` - 5 edges
+1. `callLlm()` - 5 edges
+2. `runIntakeAgent()` - 5 edges
+3. `scripts` - 5 edges
+4. `generateStageOpener()` - 4 edges
+5. `POST()` - 3 edges
+6. `ignoreScripts` - 3 edges
+7. `trustedDependencies` - 3 edges
+8. `getGroqKeys()` - 2 edges
+9. `getNextGroqKey()` - 2 edges
+10. `extractJson()` - 2 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Technical Stack (Next.js, Postgres, Claude API)` --conceptually_related_to--> `Data Model (Core Entities)`  [INFERRED]
-  /Users/rishu/Desktop/AI Automation/idea.md → /Users/rishu/Desktop/AI Automation/idea.md  _Bridges community 2 → community 0_
-- `Engineering Dashboard` --conceptually_related_to--> `Company-Wide Request Ledger`  [INFERRED]
-  /Users/rishu/Desktop/AI Automation/idea.md → /Users/rishu/Desktop/AI Automation/idea.md  _Bridges community 0 → community 3_
-- `AI Automation Intake Application` --conceptually_related_to--> `AI-Guided Staged Intake Flow`  [EXTRACTED]
-  /Users/rishu/Desktop/AI Automation/idea.md → /Users/rishu/Desktop/AI Automation/idea.md  _Bridges community 0 → community 1_
-- `AI Intake Agent` --references--> `Duplicate Detection Agent`  [EXTRACTED]
-  /Users/rishu/Desktop/AI Automation/idea.md → /Users/rishu/Desktop/AI Automation/idea.md  _Bridges community 1 → community 4_
-- `AI Intake Agent` --references--> `Priority Recommendation Agent`  [EXTRACTED]
-  /Users/rishu/Desktop/AI Automation/idea.md → /Users/rishu/Desktop/AI Automation/idea.md  _Bridges community 1 → community 6_
+- `POST()` --calls--> `generateStageOpener()`  [EXTRACTED]
+  frontend/app/api/intake/chat/route.ts → frontend/lib/agents/intake-agent.ts
+- `POST()` --calls--> `runIntakeAgent()`  [EXTRACTED]
+  frontend/app/api/intake/chat/route.ts → frontend/lib/agents/intake-agent.ts
 
-## Hyperedges (group relationships)
-- **Core AI Agent Processing Pipeline** — idea_ai_intake_agent, idea_information_extraction_agent, idea_roi_extraction_agent, idea_engineering_effort_estimation_agent, idea_duplicate_detection_agent, idea_categorization_agent, idea_priority_recommendation_agent, idea_summary_generation_agent [EXTRACTED 1.00]
-- **Core Data Model Entities Anchored to Request** — idea_request_entity, idea_request_summary_entity, idea_request_estimate_entity, idea_audit_log_entity [EXTRACTED 1.00]
-- **Priority Score Contributing Factors** — idea_roi_extraction_agent, idea_engineering_effort_estimation_agent, idea_priority_recommendation_agent, idea_confidence_scoring, idea_priority_framework [EXTRACTED 1.00]
+## Import Cycles
+- None detected.
 
-## Communities (7 total, 0 thin omitted)
+## Communities (14 total, 2 thin omitted)
 
-### Community 0 - "Role-Based Access Control (RBAC)"
-Cohesion: 0.28
-Nodes (9): AI Agent Orchestration Pipeline, AI Automation Intake Application, Company-Wide Request Ledger, Open Questions (For Boss), Role-Based Access Control (RBAC), Engineering Admin Role, Requester Role (Employee), System Admin Role (+1 more)
+### Community 0 - "dependencies"
+Cohesion: 0.10
+Nodes (21): @anthropic-ai/sdk, bcryptjs, clsx, dependencies, @anthropic-ai/sdk, bcryptjs, clsx, lucide-react (+13 more)
 
-### Community 1 - "AI Intake Agent"
+### Community 1 - "devDependencies"
+Cohesion: 0.10
+Nodes (21): eslint, eslint-config-next, devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, tsx (+13 more)
+
+### Community 2 - "intake-agent.ts"
+Cohesion: 0.27
+Nodes (10): POST(), callLlm(), ConversationMessage, DepartmentQuestionSet, extractJson(), generateStageOpener(), getGroqKeys(), getNextGroqKey() (+2 more)
+
+### Community 3 - "package.json"
+Cohesion: 0.18
+Nodes (12): ignoreScripts, name, private, scripts, build, dev, lint, start (+4 more)
+
+### Community 4 - "page.tsx"
+Cohesion: 0.22
+Nodes (3): ChatMessage, TODO: Task 2.12 — submission flow, RequestInfo
+
+### Community 5 - "User.ts"
+Cohesion: 0.25
+Nodes (3): IUser, UserSchema, envPath
+
+### Community 6 - "page.tsx"
 Cohesion: 0.33
-Nodes (9): AI Intake Agent, Categorization Agent, Department-Aware Question Templates, Document & Media Upload Support, Information Extraction Agent, IntakeTemplateConfig (Editable via Config), Process Analysis Agent, ROI Extraction Agent (+1 more)
+Nodes (4): ConversationTurn, DEPARTMENT_ICONS, RequestDetail, STATUS_BADGES
 
-### Community 2 - "Data Model (Core Entities)"
-Cohesion: 0.47
-Nodes (6): AuditLog Entity, Data Model (Core Entities), Request Entity, RequestEstimate Entity, RequestSummary Entity, Request Status Lifecycle
+### Community 7 - "page.tsx"
+Cohesion: 0.40
+Nodes (3): AdminRequestItem, DEPARTMENT_ICONS, STATUS_BADGES
 
-### Community 3 - "Engineering Dashboard"
-Cohesion: 0.67
-Nodes (4): Analytics Dashboard, Engineering Dashboard, Future Integrations (Jira, Slack, SSO, etc.), MVP Scope (3 Phases)
-
-### Community 4 - "Confidence Scoring System"
-Cohesion: 0.50
-Nodes (4): Confidence Scoring System, Duplicate Detection Agent, Engineering Effort Estimation Agent, Missing Features & Weak Areas
-
-### Community 5 - "Deterministic Calculation Engine"
-Cohesion: 0.67
-Nodes (3): Deterministic Calculation Engine, ROI Calculation Architecture, Summary Generation Agent
-
-### Community 6 - "Priority Framework (Multi-Factor Score)"
-Cohesion: 0.67
-Nodes (3): Priority Framework (Multi-Factor Score), Priority Recommendation Agent, PriorityWeightsConfig (Configurable Weights)
+### Community 8 - "page.tsx"
+Cohesion: 0.40
+Nodes (3): DEPARTMENT_ICONS, RequestItem, STATUS_BADGES
 
 ## Knowledge Gaps
-- **9 isolated node(s):** `Categorization Agent`, `Summary Generation Agent`, `Request Status Lifecycle`, `Future Integrations (Jira, Slack, SSO, etc.)`, `Requester Role (Employee)` (+4 more)
+- **48 isolated node(s):** `AdminRequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS`, `ChatMessage`, `RequestInfo` (+43 more)
   These have ≤1 connection - possible missing edges or undocumented components.
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `AI Intake Agent` connect `AI Intake Agent` to `Role-Based Access Control (RBAC)`, `Confidence Scoring System`, `Priority Framework (Multi-Factor Score)`?**
-  _High betweenness centrality (0.250) - this node is a cross-community bridge._
-- **Why does `Deterministic Calculation Engine` connect `Deterministic Calculation Engine` to `AI Intake Agent`, `Data Model (Core Entities)`, `Priority Framework (Multi-Factor Score)`?**
-  _High betweenness centrality (0.234) - this node is a cross-community bridge._
-- **Why does `Role-Based Access Control (RBAC)` connect `Role-Based Access Control (RBAC)` to `Data Model (Core Entities)`?**
-  _High betweenness centrality (0.221) - this node is a cross-community bridge._
-- **What connects `Categorization Agent`, `Summary Generation Agent`, `ROI Calculation Architecture` to the rest of the system?**
-  _10 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `dependencies` connect `dependencies` to `package.json`?**
+  _High betweenness centrality (0.138) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
+  _High betweenness centrality (0.138) - this node is a cross-community bridge._
+- **What connects `AdminRequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS` to the rest of the system?**
+  _49 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `dependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+- **Should `devDependencies` be split into smaller, more focused modules?**
+  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
