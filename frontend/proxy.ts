@@ -15,7 +15,12 @@ export default auth((req) => {
   }
 
   if (isLoggedIn && (pathname === '/login' || pathname === '/register')) {
-    return NextResponse.redirect(new URL('/admin/users', req.nextUrl));
+    // Admins go to the admin panel; all other users go to My Requests
+    const role = (req.auth?.user as { role?: string } | null)?.role;
+    const isAdmin = role === 'sys_admin' || role === 'eng_admin';
+    return NextResponse.redirect(
+      new URL(isAdmin ? '/admin/users' : '/my-requests', req.nextUrl)
+    );
   }
 
   return NextResponse.next();
