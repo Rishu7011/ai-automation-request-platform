@@ -5,7 +5,7 @@ import connectToDatabase from '@/lib/db';
 import Request from '@/models/Request';
 import User from '@/models/User';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const session = await auth();
   if (!session?.user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

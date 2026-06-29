@@ -1,16 +1,16 @@
-# Graph Report - AI Automation  (2026-07-24)
+# Graph Report - AI Automation  (2026-07-25)
 
 ## Corpus Check
-- 68 files · ~31,434 words
+- 71 files · ~32,559 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 245 nodes · 302 edges · 28 communities (23 shown, 5 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
+- 276 nodes · 338 edges · 28 communities (24 shown, 4 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `641fde67`
+- Built from commit: `28bd4641`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,12 +45,12 @@
 2. `parseJsonSafe()` - 14 edges
 3. `POST()` - 9 edges
 4. `calculatePriorityScore()` - 7 edges
-5. `runCategorizationAgent()` - 5 edges
-6. `runEffortEstimationAgent()` - 5 edges
-7. `runExtractionAgent()` - 5 edges
-8. `runPriorityRecommendationAgent()` - 5 edges
-9. `runROIExtractionAgent()` - 5 edges
-10. `runSummaryGenerationAgent()` - 5 edges
+5. `scripts` - 5 edges
+6. `runCategorizationAgent()` - 5 edges
+7. `runEffortEstimationAgent()` - 5 edges
+8. `runExtractionAgent()` - 5 edges
+9. `runPriorityRecommendationAgent()` - 5 edges
+10. `runROIExtractionAgent()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `POST()` --calls--> `writeAuditLog()`  [EXTRACTED]
@@ -61,25 +61,25 @@
   frontend/app/api/intake/submit/route.ts → frontend/lib/calculations.ts
 - `POST()` --calls--> `calculateROI()`  [EXTRACTED]
   frontend/app/api/intake/submit/route.ts → frontend/lib/calculations.ts
-- `PATCH()` --calls--> `calculatePriorityScore()`  [EXTRACTED]
-  frontend/app/api/admin/requests/[id]/estimate/route.ts → frontend/lib/calculations.ts
+- `POST()` --calls--> `runIntakeAgent()`  [EXTRACTED]
+  frontend/app/api/intake/chat/route.ts → frontend/lib/agents/intake-agent.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (28 total, 5 thin omitted)
+## Communities (28 total, 4 thin omitted)
 
 ### Community 0 - "dependencies"
-Cohesion: 0.10
-Nodes (21): @anthropic-ai/sdk, bcryptjs, clsx, dependencies, @anthropic-ai/sdk, bcryptjs, clsx, lucide-react (+13 more)
+Cohesion: 0.06
+Nodes (33): @anthropic-ai/sdk, @auth/mongodb-adapter, bcryptjs, clsx, dependencies, @anthropic-ai/sdk, @auth/mongodb-adapter, bcryptjs (+25 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.10
 Nodes (21): eslint, eslint-config-next, devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, tsx (+13 more)
 
 ### Community 2 - "intake-agent.ts"
-Cohesion: 0.27
-Nodes (10): POST(), callLlm(), ConversationMessage, DepartmentQuestionSet, extractJson(), generateStageOpener(), getGroqKeys(), getNextGroqKey() (+2 more)
+Cohesion: 0.11
+Nodes (17): POST(), { handlers, auth, signIn, signOut }, generateStageOpener(), runIntakeAgent(), ConversationMessage, createChatModel(), DepartmentQuestionSet, generateStageOpenerWithLangGraph() (+9 more)
 
 ### Community 3 - "package.json"
 Cohesion: 0.18
@@ -104,6 +104,10 @@ Nodes (4): AdminRequestItem, BULK_STATUSES, DEPARTMENT_ICONS, STATUS_BADGES
 ### Community 8 - "page.tsx"
 Cohesion: 0.40
 Nodes (3): DEPARTMENT_ICONS, RequestItem, STATUS_BADGES
+
+### Community 13 - "proxy.ts"
+Cohesion: 0.29
+Nodes (3): geistMono, geistSans, metadata
 
 ### Community 14 - "route.ts"
 Cohesion: 0.17
@@ -146,22 +150,24 @@ Cohesion: 0.83
 Nodes (3): GET(), PATCH(), requireAdmin()
 
 ## Knowledge Gaps
-- **98 isolated node(s):** `AuditLogEntry`, `Engineer`, `Comment`, `PriorityInputs`, `Estimate` (+93 more)
+- **108 isolated node(s):** `geistSans`, `geistMono`, `metadata`, `{ handlers, auth, signIn, signOut }`, `IntakeGraphState` (+103 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **What connects `AuditLogEntry`, `Engineer`, `Comment` to the rest of the system?**
-  _98 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `geistSans`, `geistMono`, `metadata` to the rest of the system?**
+  _108 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+- **Should `intake-agent.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.11396011396011396 - nodes in this community are weakly interconnected._
 - **Should `page.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._

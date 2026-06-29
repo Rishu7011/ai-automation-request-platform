@@ -18,10 +18,6 @@ function canViewRequest(session: { user?: { id?: string; role?: string } | null 
   );
 }
 
-function isAdmin(session: { user?: { role?: string } | null } | null) {
-  const role = (session?.user as unknown as { role?: string })?.role;
-  return role === 'eng_admin' || role === 'sys_admin';
-}
 
 // GET — load all comments for a request
 export async function GET(

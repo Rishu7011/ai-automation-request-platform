@@ -179,6 +179,7 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
     }
   }, [requestId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const submit = async () => {
@@ -389,6 +390,7 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
     }
   }, [requestId]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   // ── Override submit ──
@@ -843,7 +845,7 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                             </span>
                           </div>
                           {h.reasonNote && (
-                            <p className="text-[#9ca3af] text-xs mt-1 italic">"{h.reasonNote}"</p>
+                            <p className="text-[#9ca3af] text-xs mt-1 italic">&quot;{h.reasonNote}&quot;</p>
                           )}
                         </div>
                       </div>

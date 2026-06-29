@@ -80,14 +80,18 @@ export async function PATCH(
 
   await connectToDatabase();
 
-  const [existing, weightsDoc] = await Promise.all([
+  const [existing, weightsDoc, summaryDoc] = await Promise.all([
     RequestEstimate.findOne({ requestId: id }),
     PriorityWeightsConfig.findOne().sort({ updatedAt: -1 }).lean(),
+    // Fetch in parallel so we have prior values for both the merge block and the audit diff
+    RequestSummary.findOne({ requestId: id }).lean(),
   ]);
 
   if (!existing) return NextResponse.json({ error: 'Estimate not found' }, { status: 404 });
 
-  // Track what changed for audit diff
+  // Track what changed for audit diff.
+  // Signature: track(key, previousValue, incomingOverrideValue)
+  // An entry is only recorded when `after` is provided AND differs from `before`.
   const overriddenFields: Record<string, { before: unknown; after: unknown }> = {};
   const track = <T>(key: string, before: T, after: T | undefined) => {
     if (after !== undefined && after !== before) {
@@ -95,17 +99,9 @@ export async function PATCH(
     }
   };
 
-  // Merge overrides onto existing values
-  const merged = {
-    hoursPerOccurrence: hoursPerOccurrence ?? (existing.priorityInputs?.estimatedRoi ?? 0),
-    frequencyPerYear: frequencyPerYear ?? 12,
-    peopleInvolved: peopleInvolved ?? 1,
-    blendedHourlyCost: blendedHourlyCost ?? 75,
-    effortSize: effortSize ?? existing.effortSize,
-  };
-
-  // Build ROI summary to get annualDollarsSaved for priority score
-  const summaryDoc = await RequestSummary.findOne({ requestId: id }).lean();
+  // Resolve the effective values used in the ROI recalculation.
+  // For each field: use the admin's override if provided, else fall back to the
+  // extracted summary value, else fall back to a safe default.
   const roiInputs = {
     hoursPerOccurrence: hoursPerOccurrence ?? (summaryDoc?.hoursPerOccurrence ?? 1),
     frequencyPerYear: frequencyPerYear ?? (summaryDoc?.frequencyPerYear ?? 12),
@@ -114,10 +110,18 @@ export async function PATCH(
     effortSize: effortSize ?? existing.effortSize,
   };
 
+  // Build audit diff against the prior summary/estimate values (not the incoming values).
+  // Bug fix: blendedHourlyCost previously used the incoming value as both before and after,
+  // so a change could never be recorded. The prior value is the default rate (75) since
+  // blendedHourlyCost is not stored on the summary document itself.
   track('hoursPerOccurrence', summaryDoc?.hoursPerOccurrence, hoursPerOccurrence);
   track('frequencyPerYear', summaryDoc?.frequencyPerYear, frequencyPerYear);
   track('peopleInvolved', summaryDoc?.peopleInvolved, peopleInvolved);
-  track('blendedHourlyCost', blendedHourlyCost, blendedHourlyCost);
+  // Note: blendedHourlyCost is not stored on RequestSummary or RequestEstimate, so we
+  // treat the system default (75) as the canonical "before" value for audit purposes.
+  // A more complete implementation would read it from SystemSettings.blendedRates.
+  const RATE_BEFORE = 75;
+  track('blendedHourlyCost', RATE_BEFORE, blendedHourlyCost);
   track('effortSize', existing.effortSize, effortSize);
   track('strategicValue', existing.priorityInputs?.strategicValue, strategicValue);
   track('urgency', existing.priorityInputs?.urgency, urgency);
@@ -155,7 +159,7 @@ export async function PATCH(
         annualHoursSaved: roiCalc.annualHoursSaved,
         annualDollarsSaved: roiCalc.annualDollarsSaved,
         buildCostEstimate: roiCalc.buildCostMid,
-        effortSize: merged.effortSize,
+        effortSize: effortSize ?? existing.effortSize,
         priorityScore: newPriorityScore,
         isOverridden: true,
         overriddenBy: new mongoose.Types.ObjectId(session.user.id),
@@ -168,7 +172,7 @@ export async function PATCH(
         'priorityInputs.orgImpact': orgImpact ?? existing.priorityInputs?.orgImpact,
         'priorityInputs.riskLevel': riskLevel ?? existing.priorityInputs?.riskLevel,
         'priorityInputs.estimatedRoi': roiCalc.annualDollarsSaved,
-        'priorityInputs.effortSize': merged.effortSize,
+        'priorityInputs.effortSize': effortSize ?? existing.effortSize,
       },
     },
     { new: true }
@@ -184,7 +188,7 @@ export async function PATCH(
     entityType: 'RequestEstimate',
     entityId: existing._id,
     beforeState: { priorityScore: existing.priorityScore, effortSize: existing.effortSize },
-    afterState: { priorityScore: newPriorityScore, effortSize: merged.effortSize, overriddenFields },
+    afterState: { priorityScore: newPriorityScore, effortSize: effortSize ?? existing.effortSize, overriddenFields },
     timestamp: new Date(),
   });
 

@@ -328,6 +328,7 @@ export default function LedgerPage() {
   }, [department, status, priorityTier, dateFrom, dateTo, sortBy, page, router]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchLedger();
   }, [fetchLedger]);
 
