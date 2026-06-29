@@ -4,8 +4,12 @@ export interface IRequestAttachment extends Document {
   requestId: mongoose.Types.ObjectId;
   fileType: string;
   fileName: string;
+  originalName?: string;
+  fileSize?: number;
+  filePath?: string;
   storageUrl: string;
   uploadedBy: mongoose.Types.ObjectId;
+  stage?: number;
   extractedContentSummary?: string;
   scanStatus: 'pending' | 'clean' | 'infected' | 'failed';
   createdAt: Date;
@@ -17,8 +21,12 @@ const RequestAttachmentSchema = new Schema<IRequestAttachment>(
     requestId: { type: Schema.Types.ObjectId, ref: 'Request', required: true },
     fileType: { type: String, required: true },
     fileName: { type: String, required: true },
+    originalName: { type: String },
+    fileSize: { type: Number },
+    filePath: { type: String },
     storageUrl: { type: String, required: true },
     uploadedBy: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    stage: { type: Number, default: 1 },
     extractedContentSummary: { type: String },
     scanStatus: {
       type: String,

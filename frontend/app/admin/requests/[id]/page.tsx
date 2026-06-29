@@ -307,10 +307,17 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
   const [engineers, setEngineers] = useState<Engineer[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
   const [currentUserId, setCurrentUserId] = useState('');
+  const [attachments, setAttachments] = useState<Array<{
+    _id: string;
+    originalName: string;
+    fileSize: number;
+    filePath: string;
+    createdAt: string;
+  }>>([]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
-  const [activeTab, setActiveTab] = useState<'overview' | 'estimate' | 'comments' | 'history'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'estimate' | 'comments' | 'history' | 'attachments'>('overview');
 
   // Override form state
   const [overrideMode, setOverrideMode] = useState(false);
@@ -338,10 +345,11 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
   const load = useCallback(async () => {
     setIsLoading(true);
     try {
-      const [reviewRes, engineerRes, sessionRes] = await Promise.all([
+      const [reviewRes, engineerRes, sessionRes, attachRes] = await Promise.all([
         fetch(`/api/admin/requests/${requestId}/estimate`),
         fetch(`/api/admin/requests/${requestId}/assign`),
         fetch('/api/auth/session'),
+        fetch(`/api/requests/${requestId}/attachments`),
       ]);
 
       if (!reviewRes.ok) {
@@ -515,10 +523,11 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
             {/* Tab bar */}
             <div className="flex items-center gap-1 p-1 bg-[#0f0f1e] border border-[#1e1e3a] rounded-xl w-fit">
               {([
-                ['overview',  '📋 Overview'],
-                ['estimate',  '💰 Estimate & Override'],
-                ['comments',  '💬 Comments'],
-                ['history',   '📜 History'],
+                ['overview',    '📋 Overview'],
+                ['estimate',    '💰 Estimate & Override'],
+                ['comments',    '💬 Comments'],
+                ['history',     '📜 History'],
+                ['attachments', '📎 Attachments'],
               ] as const).map(([tab, label]) => (
                 <button
                   key={tab}
@@ -848,6 +857,43 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                             <p className="text-[#9ca3af] text-xs mt-1 italic">&quot;{h.reasonNote}&quot;</p>
                           )}
                         </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ── Attachments Tab ── */}
+            {activeTab === 'attachments' && (
+              <div className="p-5 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl space-y-4">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6366f1]">
+                  Uploaded Documentation & Attachments ({attachments.length})
+                </h2>
+                {attachments.length === 0 ? (
+                  <p className="text-xs text-[#6b7280] italic">No files attached to this request.</p>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {attachments.map((att) => (
+                      <div
+                        key={att._id}
+                        className="flex items-center justify-between p-3 rounded-xl bg-[#16162a] border border-[#2a2a4e]"
+                      >
+                        <div className="min-w-0 pr-3">
+                          <p className="text-xs font-semibold text-white truncate">{att.originalName}</p>
+                          <p className="text-[10px] text-[#6b7280]">
+                            {(att.fileSize / 1024).toFixed(1)} KB · {new Date(att.createdAt).toLocaleDateString()}
+                          </p>
+                        </div>
+                        <a
+                          href={att.filePath}
+                          download={att.originalName}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 rounded-lg bg-[#6366f1]/20 hover:bg-[#6366f1]/30 text-[#6366f1] text-xs font-medium transition-colors border border-[#6366f1]/30 shrink-0"
+                        >
+                          ⬇ Download
+                        </a>
                       </div>
                     ))}
                   </div>

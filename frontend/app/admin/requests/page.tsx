@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { DEPARTMENTS } from '@/constants';
+import DuplicateComparisonModal from '@/components/DuplicateComparisonModal';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -14,6 +15,7 @@ interface AdminRequestItem {
   status: string;
   priorityScore: number;
   roiConfidence?: string;
+  isDuplicateFlagged?: boolean;
   createdAt: string;
   updatedAt: string;
   requesterId?: { _id: string; name: string; email: string; department: string };
@@ -58,8 +60,14 @@ export default function AdminRequestsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
+  const [showDuplicatesOnly, setShowDuplicatesOnly] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
+  const [duplicateModalData, setDuplicateModalData] = useState<{
+    requestId: string;
+    title: string;
+    department: string;
+  } | null>(null);
 
   // Bulk select state (Task 4.4)
   const [selected, setSelected] = useState<Set<string>>(new Set());
@@ -95,7 +103,8 @@ export default function AdminRequestsPage() {
       req.requesterId?.email.toLowerCase().includes(q);
     const matchesDept = selectedDepartment === 'all' || req.department === selectedDepartment;
     const matchesStatus = selectedStatus === 'all' || req.status === selectedStatus;
-    return matchesSearch && matchesDept && matchesStatus;
+    const matchesDuplicates = !showDuplicatesOnly || req.isDuplicateFlagged === true;
+    return matchesSearch && matchesDept && matchesStatus && matchesDuplicates;
   });
 
   // Bulk select helpers
@@ -203,6 +212,16 @@ export default function AdminRequestsPage() {
             <option value="all">All Statuses</option>
             {Object.entries(STATUS_BADGES).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
           </select>
+          <button
+            onClick={() => setShowDuplicatesOnly(!showDuplicatesOnly)}
+            className={`px-4 py-2.5 rounded-xl text-xs font-semibold border transition-all ${
+              showDuplicatesOnly
+                ? 'bg-amber-500/20 text-amber-400 border-amber-500/40'
+                : 'bg-[#0f0f1e] text-gray-400 border-[#1e1e3a] hover:text-white'
+            }`}
+          >
+            ⚠️ Duplicates Only
+          </button>
         </div>
 
         {/* ── Bulk Action Bar (Task 4.4) ── */}
@@ -317,7 +336,22 @@ export default function AdminRequestsPage() {
                           )}
                         </td>
                         <td className="px-4 py-3.5 text-[#9ca3af]">{updatedDate}</td>
-                        <td className="px-4 py-3.5 text-right">
+                        <td className="px-4 py-3.5 text-right flex items-center justify-end gap-2">
+                          {req.isDuplicateFlagged && (
+                            <button
+                              onClick={() =>
+                                setDuplicateModalData({
+                                  requestId: req._id,
+                                  title: req.title,
+                                  department: req.department,
+                                })
+                              }
+                              className="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 hover:bg-amber-500/30 text-xs font-semibold transition-colors flex items-center gap-1"
+                              title="Compare duplicate candidates"
+                            >
+                              ⚠️ Duplicate
+                            </button>
+                          )}
                           <Link
                             href={`/admin/requests/${req._id}`}
                             className="px-3 py-1.5 rounded-lg bg-[#1a1a2e] border border-[#2a2a4e] hover:bg-[#6366f1] hover:border-[#6366f1] hover:text-white text-[#e0e0e0] font-medium text-xs transition-colors inline-block whitespace-nowrap"
@@ -332,6 +366,22 @@ export default function AdminRequestsPage() {
               </table>
             </div>
           </div>
+        )}
+
+        {duplicateModalData && (
+          <DuplicateComparisonModal
+            requestId={duplicateModalData.requestId}
+            requestTitle={duplicateModalData.title}
+            requestDepartment={duplicateModalData.department}
+            onClose={() => setDuplicateModalData(null)}
+            onResolved={() => {
+              setDuplicateModalData(null);
+              // Refetch requests
+              fetch('/api/admin/requests')
+                .then((res) => res.json())
+                .then((data) => setRequests(data.requests || []));
+            }}
+          />
         )}
       </div>
     </div>

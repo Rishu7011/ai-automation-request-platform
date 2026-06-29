@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { INTAKE_STAGES } from '@/constants';
+import FileUpload from '@/components/FileUpload';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -546,6 +547,20 @@ export default function IntakeChatPage() {
     router.push('/my-requests');
   };
 
+  const handleUploadSuccess = (_attachment: unknown, analysis?: unknown) => {
+    const analysisObj = analysis as { suggestedMessage?: string } | undefined;
+    const aiText = analysisObj?.suggestedMessage || 'Document uploaded and analyzed successfully.';
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: `ai-${Date.now()}`,
+        role: 'ai',
+        content: aiText,
+        timestamp: new Date(),
+      },
+    ]);
+  };
+
   // ── Enter key to send (Shift+Enter for newline) ──
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -708,7 +723,13 @@ export default function IntakeChatPage() {
               </p>
             </div>
           ) : (
-            <div className="flex gap-3 items-end">
+            <div>
+              <FileUpload
+                requestId={requestId}
+                stage={currentStage}
+                onUploadSuccess={handleUploadSuccess}
+              />
+              <div className="flex gap-3 items-end">
               <textarea
                 ref={inputRef}
                 value={input}
@@ -745,6 +766,7 @@ export default function IntakeChatPage() {
                 ↑
               </button>
             </div>
+          </div>
           )}
         </div>
       </div>

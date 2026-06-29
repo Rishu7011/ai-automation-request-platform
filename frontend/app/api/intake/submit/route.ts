@@ -33,6 +33,7 @@ import { runEffortEstimationAgent } from '@/lib/agents/effort-estimation-agent';
 import { runCategorizationAgent } from '@/lib/agents/categorization-agent';
 import { runPriorityRecommendationAgent } from '@/lib/agents/priority-recommendation-agent';
 import { runSummaryGenerationAgent } from '@/lib/agents/summary-generation-agent';
+import { runDuplicateDetectionAgent } from '@/lib/agents/duplicate-detection-agent';
 import { calculateROI, calculatePriorityScore } from '@/lib/calculations';
 
 export async function POST(req: NextRequest) {
@@ -319,6 +320,9 @@ export async function POST(req: NextRequest) {
       },
     },
   });
+
+  // ── 9.5. Run Duplicate Detection Agent ────────────────────────────────────────
+  await runDuplicateDetectionAgent(requestId);
 
   // ── 10. Write AuditLog ────────────────────────────────────────────────────────
 

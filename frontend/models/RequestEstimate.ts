@@ -69,8 +69,6 @@ const RequestEstimateSchema = new Schema<IRequestEstimate>(
   { timestamps: true }
 );
 
-RequestEstimateSchema.index({ requestId: 1 });
-
 export const RequestEstimate: Model<IRequestEstimate> =
   mongoose.models.RequestEstimate ||
   mongoose.model<IRequestEstimate>('RequestEstimate', RequestEstimateSchema);

@@ -31,8 +31,6 @@ const RequestSummarySchema = new Schema<IRequestSummary>(
   { timestamps: true }
 );
 
-RequestSummarySchema.index({ requestId: 1 });
-
 export const RequestSummary: Model<IRequestSummary> =
   mongoose.models.RequestSummary ||
   mongoose.model<IRequestSummary>('RequestSummary', RequestSummarySchema);
