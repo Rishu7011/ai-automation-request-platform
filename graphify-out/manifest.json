@@ -1,7 +1,7 @@
 {
   "frontend/app/admin/requests/page.tsx": {
-    "mtime": 1784907374.524901,
-    "ast_hash": "69388d22b370b1b00c0b4f8b5da249ce",
+    "mtime": 1784912113.0858011,
+    "ast_hash": "1eb5ef18c85ed069164dcf508a76815b",
     "semantic_hash": ""
   },
   "frontend/app/admin/users/page.tsx": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "frontend/app/intake/[id]/page.tsx": {
-    "mtime": 1784904354.9692512,
-    "ast_hash": "c8fbbb86bdd0b8f9f9c4919380a94b8c",
+    "mtime": 1784911418.5799758,
+    "ast_hash": "8c60a4164509f84625507424341aba4d",
     "semantic_hash": ""
   },
   "frontend/app/intake/new/page.tsx": {
@@ -185,7 +185,7 @@
     "semantic_hash": ""
   },
   "frontend/proxy.ts": {
-    "mtime": 1784905260.8510625,
+    "mtime": 1784912880.5731294,
     "ast_hash": "0f37993e5a6fc0b77fa389e988509d40",
     "semantic_hash": ""
   },
@@ -202,6 +202,141 @@
   "frontend/CLAUDE.md": {
     "mtime": 1784877161.5601764,
     "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": ""
+  },
+  "frontend/app/admin/audit-log/page.tsx": {
+    "mtime": 1784913315.6982164,
+    "ast_hash": "6b23c2544e05536647156923b545901a",
+    "semantic_hash": ""
+  },
+  "frontend/app/admin/requests/[id]/page.tsx": {
+    "mtime": 1784912052.797534,
+    "ast_hash": "273b0a42f8155c0a82ee891e06bb3a2f",
+    "semantic_hash": ""
+  },
+  "frontend/app/admin/settings/effort-ranges/page.tsx": {
+    "mtime": 1784913346.1655385,
+    "ast_hash": "37c8cee94491039730e0668a056671b4",
+    "semantic_hash": ""
+  },
+  "frontend/app/admin/settings/priority-weights/page.tsx": {
+    "mtime": 1784913339.2470644,
+    "ast_hash": "e889e32a0b68786043294fa509bd31e6",
+    "semantic_hash": ""
+  },
+  "frontend/app/admin/settings/rates/page.tsx": {
+    "mtime": 1784913352.5142052,
+    "ast_hash": "750c0b6a311668c8f2fe185bf6c6ee25",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/audit-log/route.ts": {
+    "mtime": 1784913307.214197,
+    "ast_hash": "eee9f4775b8f424d05277c0b96a80725",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/requests/[id]/assign/route.ts": {
+    "mtime": 1784912141.8278224,
+    "ast_hash": "db0542d3864fb7634e168df4fc1f0aab",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/requests/[id]/estimate/route.ts": {
+    "mtime": 1784912141.826649,
+    "ast_hash": "4fd1d5b7274b7b3d7a392f0ef0b3b03a",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/requests/[id]/status/route.ts": {
+    "mtime": 1784912141.8272266,
+    "ast_hash": "6a6018baeaa2e1da2a6d5031db5f8bfe",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/requests/bulk-status/route.ts": {
+    "mtime": 1784912141.8284106,
+    "ast_hash": "b4fa2e7f2402f657de1f498ae4c55c6b",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/settings/priority-weights/route.ts": {
+    "mtime": 1784913367.7537153,
+    "ast_hash": "70eae4e959d3bbd0e526e6f5aa5d5c68",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/admin/settings/system/route.ts": {
+    "mtime": 1784913372.9667041,
+    "ast_hash": "f133ed9bda841afabf0b04321a44e823",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/intake/submit/route.ts": {
+    "mtime": 1784911348.6874833,
+    "ast_hash": "0ed728daf6c16d9e7c94dec6013049ee",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/ledger/route.ts": {
+    "mtime": 1784911684.6959114,
+    "ast_hash": "2f10d59fe44c5f5bd16257469b522294",
+    "semantic_hash": ""
+  },
+  "frontend/app/api/requests/[id]/comments/route.ts": {
+    "mtime": 1784912170.5508053,
+    "ast_hash": "e7644fdfaa3bfd73909bb473b1f4dc24",
+    "semantic_hash": ""
+  },
+  "frontend/app/ledger/layout.tsx": {
+    "mtime": 1784911657.3582299,
+    "ast_hash": "a70abb2c91cd4d4c2b7561e291869ff3",
+    "semantic_hash": ""
+  },
+  "frontend/app/ledger/page.tsx": {
+    "mtime": 1784911648.0219839,
+    "ast_hash": "c36d5d60a8fd3ffad51ae16c97c7ec78",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/categorization-agent.ts": {
+    "mtime": 1784911228.9465778,
+    "ast_hash": "3a0fd75f556df8aea3b63c2ad7bb6e49",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/effort-estimation-agent.ts": {
+    "mtime": 1784911214.0801027,
+    "ast_hash": "89c357008f57e561d1c77f07095f61d0",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/extraction-agent.ts": {
+    "mtime": 1784911188.9326866,
+    "ast_hash": "1f43ec46d9925315ea41c96bc78ddc31",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/llm-client.ts": {
+    "mtime": 1784911150.9044397,
+    "ast_hash": "00a0402e57364377e94084d0383ed76c",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/priority-recommendation-agent.ts": {
+    "mtime": 1784911230.9804614,
+    "ast_hash": "11dee6c669cd3f8ac439df0876573b94",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/roi-extraction-agent.ts": {
+    "mtime": 1784911202.6279387,
+    "ast_hash": "2d73f343b1d8147e007db2b63b4839c3",
+    "semantic_hash": ""
+  },
+  "frontend/lib/agents/summary-generation-agent.ts": {
+    "mtime": 1784911286.194197,
+    "ast_hash": "e890ac551333b9a9d3481b0974c4deef",
+    "semantic_hash": ""
+  },
+  "frontend/lib/audit.ts": {
+    "mtime": 1784913362.4222226,
+    "ast_hash": "0d55c398c10d2fa415d4109636a1d730",
+    "semantic_hash": ""
+  },
+  "frontend/lib/calculations.ts": {
+    "mtime": 1784911284.15002,
+    "ast_hash": "40b8987d7218dde0c6e51be65ef3ee26",
+    "semantic_hash": ""
+  },
+  "frontend/models/RequestComment.ts": {
+    "mtime": 1784911908.9560428,
+    "ast_hash": "8f72b834c2bd07361c569be5c8ab64e2",
     "semantic_hash": ""
   }
 }
