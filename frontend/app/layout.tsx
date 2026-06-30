@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import Sidebar, { MobileTopBarSpacer } from "@/components/Sidebar";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "AI Automation Platform — Enterprise Intake & Prioritization",
@@ -16,22 +22,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={cn("h-full antialiased", "font-sans", geist.variable)}
     >
-      <body className="h-full bg-[#0a0a12] text-[#e0e0e0]">
+      <body className="enterprise-theme h-full bg-background text-foreground">
         <Providers>
-          {/*
-            Sidebar returns null on /login & /register so those pages stay
-            full-screen. MobileTopBarSpacer pushes content below the fixed
-            mobile top bar only when authenticated.
-          */}
-          <div className="flex h-full min-h-screen">
-            <Sidebar />
-            <main className="flex-1 overflow-y-auto min-w-0 flex flex-col">
-              <MobileTopBarSpacer />
-              {children}
-            </main>
-          </div>
+          <TooltipProvider>
+            <SidebarProvider>
+              <AppSidebar />
+              <div className="flex min-h-svh w-full flex-col">
+                {children}
+              </div>
+            </SidebarProvider>
+          </TooltipProvider>
         </Providers>
       </body>
     </html>

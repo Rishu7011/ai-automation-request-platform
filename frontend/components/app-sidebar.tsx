@@ -1,0 +1,179 @@
+"use client"
+
+import * as React from "react"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+
+  SidebarMenuButton,
+  SidebarTrigger,
+  SidebarMenuItem,
+  useSidebar,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarGroupContent,
+  SidebarMenu
+} from "@/components/ui/sidebar"
+import { Users, Shield, Settings, BarChart2, LayoutDashboard, FileText, Eye, ChevronUp, ChevronDown, LogOut } from "lucide-react"
+import Image from 'next/image'
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { signOut, useSession } from "next-auth/react"
+import NotificationBell from "./NotificationBell"
+
+
+interface NavItem {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+  exact?: boolean;
+}
+
+const employeeItems: NavItem[] = [
+  { href: '/my-requests', label: 'My Requests', icon: <FileText />, exact: true },
+  { href: '/ledger', label: 'Company Ledger', icon: <Eye />, exact: true },
+];
+
+const engineeringItems: NavItem[] = [
+  { href: '/admin/requests', label: 'Pipeline', icon: <LayoutDashboard /> },
+  { href: '/admin/analytics', label: 'Analytics', icon: <BarChart2 /> },
+];
+
+const systemItems: NavItem[] = [
+  { href: '/admin/users', label: 'Users', icon: <Users /> },
+  { href: '/admin/audit-log', label: 'Audit Log', icon: <Shield /> },
+];
+
+// const settingsItems: NavItem[] = [
+//   { href: '/admin/settings/priority-weights', label: 'Priority Weights', icon: <Settings /> },
+//   { href: '/admin/settings/effort-ranges', label: 'Effort Ranges', icon: <Settings /> },
+//   { href: '/admin/settings/rates', label: 'Blended Rates', icon: <Settings /> },
+// ];
+
+
+
+function isActive(pathname: string, href: string, exact?: boolean) {
+  return exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+}
+function NavigationItem({ item }: { item: NavItem }) {
+  const pathname = usePathname();
+  const { isMobile, setOpenMobile } = useSidebar();
+  return (
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        render={<Link href={item.href} />}
+        isActive={isActive(pathname, item.href, item.exact)}
+        tooltip={item.label}
+        onClick={() => isMobile && setOpenMobile(false)}
+        className="h-10 rounded-lg text-[#5f6470] hover:bg-[#f1f5f9] hover:text-[#191c1e] data-active:bg-[#dbeafe] data-active:text-[#004ac6]"
+      >
+        {item.icon}
+        <span>{item.label}</span>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  );
+}
+
+function NavigationGroup({ label, items }: { label?: string; items: NavItem[] }) {
+  return (
+    <SidebarGroup className="px-3 py-1.5">
+      {label && <SidebarGroupLabel className="px-2 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#737686]">{label}</SidebarGroupLabel>}
+      <SidebarGroupContent>
+        <SidebarMenu className="gap-1">
+          {items.map((item) => <NavigationItem key={item.href} item={item} />)}
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
+  );
+}
+
+
+
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { data: session, status } = useSession();
+  const pathname = usePathname();
+  const { state } = useSidebar();
+  // const [settingsOpen, setSettingsOpen] = React.useState(pathname.startsWith('/admin/settings'));
+
+
+  if (status === 'loading' || !session || pathname === '/login' || pathname === '/register') return null;
+
+
+  const role = (session.user as { role?: string } | undefined)?.role;
+  const department = (session.user as { department?: string } | undefined)?.department || 'Employee';
+  const isSysAdmin = role === 'sys_admin';
+  const isAnyAdmin = isSysAdmin || role === 'eng_admin';
+  const userName = session.user?.name || session.user?.email?.split('@')[0] || 'User';
+  const roleLabel = isSysAdmin ? 'System Admin' : role === 'eng_admin' ? 'Engineering Admin' : department;
+
+
+
+  return (
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <div className="flex justify-between">
+          {
+            state === 'expanded'
+            &&
+            <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-10 w-10 shrink-0 rounded-lg object-cover" priority />
+
+          }
+
+          <SidebarTrigger className='h-10 w-10' />
+        </div>
+      </SidebarHeader>
+
+      <SidebarContent>
+        <NavigationGroup items={employeeItems} />
+        {isAnyAdmin && <NavigationGroup label="Engineering Admin" items={engineeringItems} />}
+        {isSysAdmin && <NavigationGroup label="System Admin" items={systemItems} />}
+        {isAnyAdmin && (
+          <SidebarGroup className="mt-3 border-t border-[#eef0f2] px-3 pt-3">
+            {/* <button
+              type="button"
+              onClick={() => setSettingsOpen((value) => !value)}
+              className="flex h-8 w-full items-center justify-between rounded-md px-2 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#737686] hover:text-[#004ac6] group-data-[collapsible=icon]:hidden"
+            >
+              Settings
+              {settingsOpen ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+            </button> */}
+            <SidebarGroupContent>
+              {/* <SidebarMenu className="gap-1">
+                {(state === 'collapsed' || settingsOpen) && settingsItems.map((item) => <NavigationItem key={item.href} item={item} />)}
+              </SidebarMenu> */}
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
+      </SidebarContent>
+
+
+
+      <SidebarFooter className="border-t border-[#dfe3e8] p-3">
+        <div className="flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
+          <NotificationBell />
+          <span className="text-xs font-medium text-[#5f6470] group-data-[collapsible=icon]:hidden">Notifications</span>
+        </div>
+        <div className="flex items-center gap-2 rounded-lg border border-[#dfe3e8] bg-white p-2 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:border-0 group-data-[collapsible=icon]:p-0">
+          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-xs font-semibold text-[#004ac6]">
+            {userName.charAt(0).toUpperCase()}
+          </div>
+          <div className="min-w-0 flex-1 group-data-[collapsible=icon]:hidden">
+            <p className="truncate text-[11px] font-semibold text-[#191c1e]">{userName}</p>
+            <p className="truncate text-[10px] text-[#5f6470]">{roleLabel}</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => signOut({ callbackUrl: '/login' })}
+            className="rounded-md p-1 text-[#737686] hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004ac6] group-data-[collapsible=icon]:hidden"
+            aria-label="Sign out"
+            title="Sign out"
+          >
+            <LogOut className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      </SidebarFooter>
+    </Sidebar>
+  )
+}

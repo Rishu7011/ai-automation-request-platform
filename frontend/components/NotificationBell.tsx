@@ -85,7 +85,7 @@ export default function NotificationBell() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-colors focus:outline-none"
+        className="relative rounded-lg p-2 text-[#5f6470] transition-colors hover:bg-[#f1f5f9] hover:text-[#191c1e] focus:outline-none"
         aria-label="Notifications"
       >
         <Bell className="w-5 h-5" />
@@ -97,11 +97,11 @@ export default function NotificationBell() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-[#0f0f1e] border border-[#2a2a4e] rounded-2xl shadow-2xl z-50 overflow-hidden">
+        <div className="absolute left-2 bottom-10 z-50 mt-2 w-80 overflow-hidden rounded-xl border border-[#dfe3e8] bg-white shadow-lg sm:w-96">
           {/* Header */}
-          <div className="px-4 py-3 border-b border-[#1e1e3a] flex items-center justify-between bg-[#16162a]">
+          <div className="flex items-center justify-between border-b border-[#dfe3e8] bg-[#f1f5f9] px-4 py-3">
             <div className="flex items-center space-x-2">
-              <span className="text-xs font-semibold text-white">Notifications</span>
+              <span className="text-xs font-semibold text-[#191c1e]">Notifications</span>
               {unreadCount > 0 && (
                 <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
                   {unreadCount} new
@@ -111,7 +111,7 @@ export default function NotificationBell() {
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
-                className="text-[11px] text-indigo-400 hover:underline flex items-center gap-1"
+                className="flex items-center gap-1 text-[11px] font-medium text-[#004ac6] hover:underline"
               >
                 <Check className="w-3 h-3" /> Mark all read
               </button>
@@ -119,7 +119,7 @@ export default function NotificationBell() {
           </div>
 
           {/* List */}
-          <div className="max-h-80 overflow-y-auto divide-y divide-[#1e1e3a]">
+          <div className="max-h-80 divide-y divide-[#dfe3e8] overflow-y-auto">
             {notifications.length === 0 ? (
               <div className="py-8 text-center text-xs text-gray-500">
                 No notifications yet.
@@ -130,15 +130,15 @@ export default function NotificationBell() {
                   key={n._id}
                   onClick={() => !n.isRead && markAsRead(n._id)}
                   className={`p-3.5 transition-colors flex items-start justify-between gap-3 ${
-                    n.isRead ? 'opacity-60 bg-[#0f0f1e]' : 'bg-indigo-500/[0.03] hover:bg-indigo-500/[0.08]'
+                    n.isRead ? 'bg-white opacity-60' : 'bg-blue-50/40 hover:bg-blue-50'
                   }`}
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center space-x-2">
                       {!n.isRead && <span className="w-2 h-2 rounded-full bg-indigo-400 shrink-0" />}
-                      <p className="text-xs font-semibold text-white truncate">{n.title}</p>
+                      <p className="truncate text-xs font-semibold text-[#191c1e]">{n.title}</p>
                     </div>
-                    <p className="text-xs text-gray-300 mt-1 line-clamp-2">{n.message}</p>
+                    <p className="mt-1 line-clamp-2 text-xs text-[#5f6470]">{n.message}</p>
                     <span className="text-[10px] text-gray-500 mt-1 block">
                       {new Date(n.createdAt).toLocaleDateString(undefined, {
                         month: 'short',
@@ -153,7 +153,7 @@ export default function NotificationBell() {
                     <Link
                       href={n.link}
                       onClick={() => setIsOpen(false)}
-                      className="p-1 text-indigo-400 hover:text-indigo-300 hover:bg-white/5 rounded-lg shrink-0 mt-1"
+                      className="mt-1 shrink-0 rounded-lg p-1 text-[#004ac6] hover:bg-blue-50 hover:text-[#003ea8]"
                       title="View item"
                     >
                       <ExternalLink className="w-4 h-4" />

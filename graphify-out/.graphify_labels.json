@@ -31,5 +31,11 @@
   "29": "calculations.test.ts",
   "30": "vitest.config.ts",
   "31": "duplicate-detection-agent.ts",
-  "32": "document-analysis-agent.ts"
+  "32": "document-analysis-agent.ts",
+  "33": "DuplicateComparisonModal.tsx",
+  "34": "page.tsx",
+  "35": "page.tsx",
+  "36": "FileUpload.tsx",
+  "37": "page.tsx",
+  "38": "Navbar.tsx"
 }
