@@ -4,6 +4,7 @@ import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import NotificationBell from './NotificationBell';
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -27,6 +28,7 @@ export default function Navbar() {
 
   const adminLinks = [
     { href: '/admin/requests', label: 'Pipeline', icon: '📊' },
+    { href: '/admin/analytics', label: 'Analytics', icon: '📈' },
     { href: '/admin/users', label: 'User Admin', icon: '👥' },
     { href: '/admin/audit-log', label: 'Audit Log', icon: '📜' },
   ];
@@ -141,6 +143,7 @@ export default function Navbar() {
 
         {/* Action Button & User Badge */}
         <div className="flex items-center gap-3">
+          <NotificationBell />
           <Link
             href="/intake/new"
             className="

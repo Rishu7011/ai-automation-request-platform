@@ -7,6 +7,7 @@ import connectToDatabase from '@/lib/db';
 import { Request } from '@/models/Request';
 import { AuditLog } from '@/models/AuditLog';
 import { REQUEST_STATUSES, RequestStatus } from '@/constants';
+import { createNotification } from '@/lib/notifications';
 import mongoose from 'mongoose';
 
 // Statuses that require a reason note
@@ -92,6 +93,18 @@ export async function PATCH(
     afterState: { status: target, reasonNote: reasonNote?.trim() },
     timestamp: new Date(),
   });
+
+  // Trigger in-app notification to requester
+  if (request.requesterId.toString() !== session.user.id) {
+    await createNotification({
+      userId: request.requesterId,
+      title: `Status Updated: ${request.title}`,
+      message: `Your request status was updated to "${target}".${reasonNote ? ` Note: ${reasonNote}` : ''}`,
+      type: 'status_change',
+      link: `/requests/${request._id}`,
+      requestId: request._id,
+    });
+  }
 
   return NextResponse.json({ status: target, statusHistory: request.statusHistory });
 }
