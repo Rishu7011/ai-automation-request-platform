@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Navbar from "@/components/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Sidebar, { MobileTopBarSpacer } from "@/components/Sidebar";
 
 export const metadata: Metadata = {
   title: "AI Automation Platform — Enterprise Intake & Prioritization",
@@ -27,12 +16,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col bg-[#0a0a12] text-[#e0e0e0]">
+      <body className="h-full bg-[#0a0a12] text-[#e0e0e0]">
         <Providers>
-          <Navbar />
-          <main className="flex-1">{children}</main>
+          {/*
+            Sidebar returns null on /login & /register so those pages stay
+            full-screen. MobileTopBarSpacer pushes content below the fixed
+            mobile top bar only when authenticated.
+          */}
+          <div className="flex h-full min-h-screen">
+            <Sidebar />
+            <main className="flex-1 overflow-y-auto min-w-0 flex flex-col">
+              <MobileTopBarSpacer />
+              {children}
+            </main>
+          </div>
         </Providers>
       </body>
     </html>

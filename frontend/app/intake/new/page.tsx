@@ -2,19 +2,14 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { DEPARTMENTS } from '@/constants';
+import { ArrowLeft, Rocket, ArrowRight, Sparkles, Loader2 } from 'lucide-react';
 
 const DEPARTMENT_ICONS: Record<string, string> = {
-  Recruitment: '🤝',
-  HR: '🧑‍💼',
-  Finance: '💵',
-  Compliance: '⚖️',
-  IT: '💻',
-  Operations: '⚙️',
-  Engineering: '🔧',
-  Legal: '📜',
-  Sales: '📈',
-  Marketing: '🎯',
+  Recruitment: '🤝', HR: '🧑‍💼', Finance: '💵', Compliance: '⚖️',
+  IT: '💻', Operations: '⚙️', Engineering: '🔧', Legal: '📜',
+  Sales: '📈', Marketing: '🎯',
 };
 
 const DEPARTMENT_DESCRIPTIONS: Record<string, string> = {
@@ -38,30 +33,21 @@ export default function NewIntakePage() {
   const [error, setError] = useState('');
   const [step, setStep] = useState<'department' | 'title'>('department');
 
-  const handleDepartmentSelect = (dept: string) => {
-    setSelectedDept(dept);
-    setStep('title');
-  };
-
   const handleStart = async () => {
     if (!selectedDept || !title.trim()) return;
-
     setIsCreating(true);
     setError('');
-
     try {
       const res = await fetch('/api/intake/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ department: selectedDept, title: title.trim() }),
       });
-
       if (!res.ok) {
         const data = await res.json();
         setError(data.error ?? 'Failed to create request');
         return;
       }
-
       const { requestId } = await res.json();
       router.push(`/intake/${requestId}`);
     } catch {
@@ -72,162 +58,159 @@ export default function NewIntakePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0]">
-      {/* Header */}
-      <div className="border-b border-[#1e1e3a] bg-[#0f0f1e]/80 backdrop-blur-md px-6 py-4">
-        <div className="max-w-4xl mx-auto flex items-center gap-3">
-          <button
-            onClick={() => router.back()}
-            className="text-[#6b7280] hover:text-[#e0e0e0] transition-colors text-sm flex items-center gap-1"
-          >
-            ← Back
-          </button>
-          <span className="text-[#2a2a4e]">|</span>
-          <h1 className="text-lg font-semibold text-[#e0e0e0]">New Automation Request</h1>
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
 
-      <div className="max-w-4xl mx-auto px-6 py-12">
+        {/* Page header */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => (step === 'title' ? setStep('department') : router.back())}
+              className="p-2 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e] text-[#9ca3af] hover:text-white transition-colors cursor-pointer"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <div>
+              <h1 className="text-base font-bold text-white">New Automation Proposal</h1>
+              <p className="text-[11px] text-[#6b7280] font-medium">
+                {step === 'department' ? 'Step 1 of 2 — Select department' : 'Step 2 of 2 — Name your proposal'}
+              </p>
+            </div>
+          </div>
+          <Link href="/my-requests" className="text-xs font-bold text-[#6b7280] hover:text-[#818cf8] transition-colors">
+            Cancel
+          </Link>
+        </div>
+
+        {/* Progress bar */}
+        <div className="w-full h-1 bg-[#1a1a2e] rounded-full mb-10">
+          <div
+            className="h-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] rounded-full transition-all duration-500"
+            style={{ width: step === 'department' ? '50%' : '100%' }}
+          />
+        </div>
+
         {step === 'department' ? (
-          <>
-            {/* Department selection */}
-            <div className="text-center mb-10">
-              <div className="text-4xl mb-4">🚀</div>
-              <h2 className="text-3xl font-bold text-white mb-3">
+          <div className="space-y-8">
+            {/* Intro */}
+            <div className="text-center max-w-xl mx-auto space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#6366f1]/15 border border-[#6366f1]/25 text-[#818cf8] flex items-center justify-center mx-auto">
+                <Rocket className="h-6 w-6" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 Submit an Automation Idea
               </h2>
-              <p className="text-[#9ca3af] text-lg max-w-xl mx-auto">
-                Our AI will guide you through a short interview to capture everything engineering
-                needs to evaluate and prioritize your request.
+              <p className="text-[#9ca3af] text-sm leading-relaxed">
+                Our AI will guide you through a structured intake to calculate ROI, engineering effort, and priority tier.
               </p>
             </div>
 
-            <p className="text-sm font-semibold text-[#6366f1] uppercase tracking-widest mb-5 text-center">
-              Step 1 of 2 — Select your department
-            </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-              {DEPARTMENTS.map((dept) => (
-                <button
-                  key={dept}
-                  onClick={() => handleDepartmentSelect(dept)}
-                  className={`
-                    flex flex-col items-center gap-2 p-4 rounded-xl border transition-all duration-200
-                    text-center cursor-pointer group
-                    ${
-                      selectedDept === dept
-                        ? 'border-[#6366f1] bg-[#6366f1]/10 text-white'
-                        : 'border-[#1e1e3a] bg-[#0f0f1e] text-[#9ca3af] hover:border-[#6366f1]/50 hover:bg-[#1a1a2e] hover:text-white'
-                    }
-                  `}
-                >
-                  <span className="text-2xl">{DEPARTMENT_ICONS[dept]}</span>
-                  <span className="text-xs font-medium leading-tight">{dept}</span>
-                </button>
-              ))}
+            {/* Department grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+              {DEPARTMENTS.map((dept) => {
+                const isSelected = selectedDept === dept;
+                return (
+                  <button
+                    key={dept}
+                    onClick={() => { setSelectedDept(dept); setStep('title'); }}
+                    className={`flex flex-col items-center gap-2.5 p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer group ${
+                      isSelected
+                        ? 'border-[#6366f1] bg-[#6366f1]/10 ring-2 ring-[#6366f1]/20'
+                        : 'border-[#1e1e3a] bg-[#0f0f1e] hover:border-[#6366f1]/50 hover:bg-[#1a1a2e]'
+                    }`}
+                  >
+                    <span className="text-2xl sm:text-3xl group-hover:scale-110 transition-transform">
+                      {DEPARTMENT_ICONS[dept]}
+                    </span>
+                    <span className="text-xs font-bold text-[#d1d5db]">{dept}</span>
+                  </button>
+                );
+              })}
             </div>
 
+            {/* Selected dept info */}
             {selectedDept && (
-              <div className="mt-8 p-5 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
-                <p className="text-sm text-[#6b7280]">Selected department focus:</p>
-                <p className="text-[#e0e0e0] font-medium mt-1">
-                  {DEPARTMENT_ICONS[selectedDept]} {selectedDept} —{' '}
-                  <span className="text-[#9ca3af] font-normal">
-                    {DEPARTMENT_DESCRIPTIONS[selectedDept]}
-                  </span>
-                </p>
+              <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#6366f1]/30 max-w-xl mx-auto space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">{DEPARTMENT_ICONS[selectedDept]}</span>
+                  <div>
+                    <p className="text-xs font-bold text-[#6b7280] uppercase tracking-wider">Selected</p>
+                    <p className="text-sm font-bold text-white mt-0.5">{selectedDept}</p>
+                    <p className="text-xs text-[#6b7280] font-medium mt-1">
+                      {DEPARTMENT_DESCRIPTIONS[selectedDept]}
+                    </p>
+                  </div>
+                </div>
                 <button
                   onClick={() => setStep('title')}
-                  className="mt-4 px-6 py-2.5 rounded-lg bg-[#6366f1] hover:bg-[#5558e0] text-white text-sm font-medium transition-colors"
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] text-white font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  Continue →
+                  Continue to Title <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             )}
-          </>
+          </div>
         ) : (
-          <>
-            {/* Title entry */}
-            <div className="max-w-xl mx-auto">
+          <div className="max-w-md mx-auto space-y-6">
+            {/* Selected dept badge */}
+            <div className="flex justify-center">
               <button
                 onClick={() => setStep('department')}
-                className="text-[#6b7280] hover:text-[#e0e0e0] transition-colors text-sm flex items-center gap-1 mb-8"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6366f1]/15 border border-[#6366f1]/30 text-xs font-bold text-[#818cf8] hover:bg-[#6366f1]/25 transition-colors cursor-pointer"
               >
-                ← Change department
+                <span>{DEPARTMENT_ICONS[selectedDept!]}</span>
+                <span>{selectedDept}</span>
+                <span className="text-[#4b5563] text-[10px]">← change</span>
               </button>
+            </div>
 
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a1a2e] border border-[#2a2a4e] text-sm text-[#9ca3af] mb-6">
-                  {DEPARTMENT_ICONS[selectedDept!]} {selectedDept}
-                </div>
-                <h2 className="text-2xl font-bold text-white mb-2">
-                  Give your idea a title
-                </h2>
-                <p className="text-[#9ca3af] text-sm">
-                  A short, descriptive name for the process you want to automate.
+            <div className="text-center space-y-2">
+              <h2 className="text-2xl font-extrabold text-white tracking-tight">
+                Name Your Proposal
+              </h2>
+              <p className="text-[#9ca3af] text-xs font-medium">
+                A concise title describing the manual process or workflow bottleneck.
+              </p>
+            </div>
+
+            <div className="bg-[#0f0f1e] border border-[#1e1e3a] p-6 rounded-2xl space-y-4">
+              <div>
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#6b7280] mb-2">
+                  Request Title
+                </label>
+                <input
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && title.trim()) handleStart(); }}
+                  placeholder={`e.g. Automated ${selectedDept} Invoice Matching`}
+                  autoFocus
+                  className="w-full bg-[#0a0a12] border border-[#2a2a4e] rounded-xl px-4 py-3 text-[#e0e0e0] placeholder-[#4b5563] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] transition-all"
+                />
+                <p className="text-[11px] text-[#4b5563] font-medium mt-1.5">
+                  You can refine the details with AI during the intake interview.
                 </p>
               </div>
 
-              <p className="text-sm font-semibold text-[#6366f1] uppercase tracking-widest mb-5 text-center">
-                Step 2 of 2 — Name your request
-              </p>
+              {error && (
+                <p className="text-rose-400 text-xs bg-rose-500/10 px-4 py-3 rounded-xl border border-rose-500/30 font-bold">
+                  {error}
+                </p>
+              )}
 
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-[#9ca3af] mb-2">
-                    Request title
-                  </label>
-                  <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' && title.trim()) handleStart();
-                    }}
-                    placeholder={`e.g. Automate ${selectedDept} report generation`}
-                    autoFocus
-                    className="
-                      w-full bg-[#0f0f1e] border border-[#2a2a4e] rounded-xl px-4 py-3
-                      text-[#e0e0e0] placeholder-[#4b5563] text-sm
-                      focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-transparent
-                      transition-all
-                    "
-                  />
-                  <p className="text-xs text-[#6b7280] mt-1.5">
-                    Don&apos;t worry about making it perfect — you can refine it during the interview.
-                  </p>
-                </div>
-
-                {error && (
-                  <p className="text-red-400 text-sm bg-red-400/10 px-4 py-3 rounded-lg border border-red-400/20">
-                    {error}
-                  </p>
+              <button
+                onClick={handleStart}
+                disabled={!title.trim() || isCreating}
+                className="w-full py-3 px-6 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[#6366f1]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                {isCreating ? (
+                  <><Loader2 className="h-4 w-4 animate-spin" /><span>Creating Proposal…</span></>
+                ) : (
+                  <><span>Start AI Intake Assessment</span><Sparkles className="h-4 w-4" /></>
                 )}
-
-                <button
-                  onClick={handleStart}
-                  disabled={!title.trim() || isCreating}
-                  className="
-                    w-full py-3 px-6 rounded-xl font-semibold text-sm
-                    bg-gradient-to-r from-[#6366f1] to-[#8b5cf6]
-                    hover:from-[#5558e0] hover:to-[#7c4fdb]
-                    disabled:opacity-50 disabled:cursor-not-allowed
-                    text-white transition-all duration-200
-                    flex items-center justify-center gap-2
-                  "
-                >
-                  {isCreating ? (
-                    <>
-                      <span className="animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
-                      Creating…
-                    </>
-                  ) : (
-                    <>Start AI Intake Interview →</>
-                  )}
-                </button>
-              </div>
+              </button>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

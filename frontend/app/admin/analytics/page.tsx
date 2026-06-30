@@ -39,9 +39,9 @@ export default function AnalyticsDashboardPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-10 h-10 border-2 text-indigo-500 animate-spin mx-auto mb-4" />
-          <p className="text-gray-400 text-sm">Loading enterprise analytics…</p>
+        <div className="text-center space-y-3">
+          <Loader2 className="w-10 h-10 text-[#6366f1] animate-spin mx-auto" />
+          <p className="text-[#6b7280] text-sm font-medium">Loading enterprise analytics…</p>
         </div>
       </div>
     );
@@ -49,10 +49,10 @@ export default function AnalyticsDashboardPage() {
 
   if (error || !data) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] p-8 flex items-center justify-center">
-        <div className="p-6 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-center max-w-md">
-          <p className="font-semibold text-sm mb-2">{error || 'Analytics unavailable'}</p>
-          <Link href="/admin/requests" className="text-xs text-indigo-400 underline">
+      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center p-8">
+        <div className="p-6 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-center max-w-md space-y-3">
+          <p className="font-bold text-base">{error || 'Analytics unavailable'}</p>
+          <Link href="/admin/requests" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#818cf8] hover:underline">
             ← Return to Pipeline
           </Link>
         </div>
@@ -64,157 +64,157 @@ export default function AnalyticsDashboardPage() {
   const maxDeptCount = Math.max(...departmentBreakdown.map((d) => d.count), 1);
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] p-6 sm:p-8 space-y-8">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1e1e3a] pb-6">
-        <div>
-          <div className="flex items-center space-x-2">
-            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
-              Admin Analytics
-            </span>
+    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+        {/* Page header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-extrabold text-white tracking-tight">Enterprise Automation Performance</h1>
+            <p className="text-sm text-[#9ca3af] mt-1">
+              ROI metrics, department velocity, and request approval rollups. eng_admin / sys_admin only.
+            </p>
           </div>
-          <h1 className="text-2xl font-bold text-white mt-1">Enterprise Automation Performance</h1>
-          <p className="text-xs text-gray-400">ROI metrics, department velocity, and request approval rollups</p>
+          <Link
+            href="/admin/requests"
+            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] text-white font-bold text-xs transition-all shadow-md shadow-[#6366f1]/20 flex items-center gap-2 w-fit"
+          >
+            <span>View Backlog</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        <Link
-          href="/admin/requests"
-          className="px-4 py-2 rounded-xl bg-[#16162a] border border-[#2a2a4e] hover:border-indigo-500/40 text-xs font-semibold text-white transition-all flex items-center gap-2 self-start sm:self-auto"
-        >
-          <span>View Pipeline</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
+        {/* Confidence Exclusion Alert */}
+        {overview.excludedLowConfidenceCount > 0 && (
+          <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-start sm:items-center gap-3">
+              <div className="p-2 rounded-xl bg-amber-500/15 text-amber-400 shrink-0">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-amber-300">Confidence Exclusion Notice</p>
+                <p className="text-xs text-amber-300/80 leading-relaxed">
+                  {overview.excludedLowConfidenceCount} unreviewed low-confidence estimates excluded from monetary ROI totals.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/admin/requests"
+              className="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 text-xs font-bold transition-all border border-amber-500/30 shrink-0 self-start sm:self-auto"
+            >
+              Review Low Confidence →
+            </Link>
+          </div>
+        )}
 
-      {/* Task 9.3 Exclusion Alert Banner */}
-      {overview.excludedLowConfidenceCount > 0 && (
-        <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-4">
-          <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-xl bg-amber-500/20 text-amber-400">
-              <AlertTriangle className="w-5 h-5" />
+        {/* Overview Metric Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
+            <div className="h-11 w-11 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/20 flex items-center justify-center text-[#818cf8] shrink-0">
+              <Layers className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs font-bold text-amber-300">Confidence Exclusion Notice (Task 9.3)</p>
-              <p className="text-xs text-gray-300">
-                {overview.excludedLowConfidenceCount} unreviewed low-confidence request estimate(s) are excluded from total monetary ROI metrics to preserve financial accuracy.
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Total Requests</p>
+              <p className="text-2xl font-bold text-white mt-0.5">{overview.totalRequests}</p>
+              <p className="text-[11px] text-[#4b5563] font-medium">{overview.submittedCount} active</p>
+            </div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
+            <div className="h-11 w-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+              <DollarSign className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Annual $ Saved</p>
+              <p className="text-2xl font-bold text-emerald-400 mt-0.5">
+                ${overview.totalAnnualDollarsSaved.toLocaleString()}
+              </p>
+              <p className="text-[11px] text-[#4b5563] font-medium">High-confidence only</p>
+            </div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
+            <div className="h-11 w-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Hours Saved / yr</p>
+              <p className="text-2xl font-bold text-white mt-0.5">{overview.totalAnnualHoursSaved.toLocaleString()}</p>
+              <p className="text-[11px] text-[#4b5563] font-medium">Automated capacity</p>
+            </div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
+            <div className="h-11 w-11 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+              <CheckCircle2 className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Approval Rate</p>
+              <p className="text-2xl font-bold text-white mt-0.5">{overview.approvalRate}%</p>
+              <p className="text-[11px] text-[#4b5563] font-medium">
+                {overview.approvedCount} approved · {overview.rejectedCount} rejected
               </p>
             </div>
           </div>
-
-          <Link
-            href="/admin/requests"
-            className="px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 text-xs font-semibold transition-colors border border-amber-500/30 shrink-0"
-          >
-            Review Low Confidence →
-          </Link>
-        </div>
-      )}
-
-      {/* Overview Metric Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Total Requests */}
-        <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-2">
-          <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Total Requests</span>
-            <Layers className="w-4 h-4 text-indigo-400" />
-          </div>
-          <p className="text-3xl font-extrabold text-white">{overview.totalRequests}</p>
-          <p className="text-[11px] text-gray-500">{overview.submittedCount} active in pipeline</p>
         </div>
 
-        {/* Total Annual Dollars Saved */}
-        <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-2">
-          <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Annual $ Saved</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
-          </div>
-          <p className="text-3xl font-extrabold text-emerald-400">
-            ${overview.totalAnnualDollarsSaved.toLocaleString()}
-          </p>
-          <p className="text-[11px] text-emerald-500/80">Confirmed / High-Medium confidence</p>
-        </div>
+        {/* Department Breakdown & Status Distribution */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Department Volume Bar Chart */}
+          <div className="lg:col-span-2 p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-6">
+            <div>
+              <h2 className="text-base font-bold text-white">Department Request Volume & Approvals</h2>
+              <p className="text-xs text-[#6b7280] mt-0.5">Breakdown of automation requests by department</p>
+            </div>
 
-        {/* Total Annual Hours Saved */}
-        <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-2">
-          <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Hours Saved / Year</span>
-            <Clock className="w-4 h-4 text-indigo-400" />
-          </div>
-          <p className="text-3xl font-extrabold text-white">
-            {overview.totalAnnualHoursSaved.toLocaleString()} hrs
-          </p>
-          <p className="text-[11px] text-gray-500">Automated capacity gain</p>
-        </div>
-
-        {/* Approval Rate */}
-        <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-2">
-          <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-semibold uppercase tracking-wider">Approval Rate</span>
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-          </div>
-          <p className="text-3xl font-extrabold text-white">{overview.approvalRate}%</p>
-          <p className="text-[11px] text-gray-500">
-            {overview.approvedCount} approved · {overview.rejectedCount} rejected
-          </p>
-        </div>
-      </div>
-
-      {/* Department Breakdown & Status Distribution */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Department Volume Bar Chart (2 cols) */}
-        <div className="lg:col-span-2 p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-6">
-          <div>
-            <h2 className="text-sm font-semibold text-white">Department Request Volume & Approvals</h2>
-            <p className="text-xs text-gray-400">Breakdown of automation requests by business department</p>
-          </div>
-
-          <div className="space-y-4">
-            {departmentBreakdown.length === 0 ? (
-              <p className="text-xs text-gray-500 italic py-8 text-center">No department request data yet.</p>
-            ) : (
-              departmentBreakdown.map((dept) => {
-                const percent = Math.round((dept.count / maxDeptCount) * 100);
-                return (
-                  <div key={dept.department} className="space-y-1.5">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-semibold text-white">{dept.department}</span>
-                      <span className="text-gray-400">
-                        {dept.count} total · <span className="text-emerald-400">{dept.approvedCount} approved</span>
-                      </span>
+            <div className="space-y-5">
+              {departmentBreakdown.length === 0 ? (
+                <p className="text-xs text-[#4b5563] italic py-8 text-center">No department request data yet.</p>
+              ) : (
+                departmentBreakdown.map((dept) => {
+                  const percent = Math.round((dept.count / maxDeptCount) * 100);
+                  return (
+                    <div key={dept.department} className="space-y-1.5">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-white">{dept.department}</span>
+                        <span className="text-[#6b7280] font-medium">
+                          {dept.count} total ·{' '}
+                          <span className="text-emerald-400 font-bold">{dept.approvedCount} approved</span>
+                        </span>
+                      </div>
+                      <div className="w-full h-3 bg-[#1a1a2e] rounded-full overflow-hidden">
+                        <div
+                          className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] h-full transition-all duration-500 rounded-full"
+                          style={{ width: `${percent}%` }}
+                        />
+                      </div>
                     </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
 
-                    <div className="w-full h-3 bg-[#16162a] rounded-full overflow-hidden flex">
-                      <div
-                        className="bg-indigo-500 h-full transition-all duration-500 rounded-full"
-                        style={{ width: `${percent}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })
-            )}
+          {/* Status Distribution */}
+          <div className="p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-5">
+            <div>
+              <h2 className="text-base font-bold text-white">Pipeline Status Distribution</h2>
+              <p className="text-xs text-[#6b7280] mt-0.5">Current state of all active requests</p>
+            </div>
+
+            <div className="space-y-2">
+              {statusDistribution.map((st) => (
+                <div key={st.status} className="flex items-center justify-between p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
+                  <span className="text-xs font-bold text-[#d1d5db] capitalize">{st.status.replace(/_/g, ' ')}</span>
+                  <span className="px-3 py-0.5 rounded-full text-xs font-extrabold bg-[#6366f1]/15 text-[#818cf8] border border-[#6366f1]/25">
+                    {st.count}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* Status Distribution (1 col) */}
-        <div className="p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-6">
-          <div>
-            <h2 className="text-sm font-semibold text-white">Pipeline Status Distribution</h2>
-            <p className="text-xs text-gray-400">Current state of all active requests</p>
-          </div>
-
-          <div className="space-y-3">
-            {statusDistribution.map((st) => (
-              <div key={st.status} className="flex items-center justify-between p-3 rounded-xl bg-[#141426] border border-[#2a2a4e]">
-                <span className="text-xs font-semibold text-gray-200 capitalize">{st.status.replace(/_/g, ' ')}</span>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
-                  {st.count}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      </main>
     </div>
   );
 }

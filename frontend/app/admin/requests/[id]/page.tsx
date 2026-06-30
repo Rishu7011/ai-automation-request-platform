@@ -4,6 +4,27 @@ import { useEffect, useState, use, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { INTAKE_STAGES, REQUEST_STATUSES, RequestStatus } from '@/constants';
+import {
+  Sliders,
+  FileText,
+  Users,
+  BarChart2,
+  Shield,
+  Settings,
+  ArrowLeft,
+  User,
+  Clock,
+  DollarSign,
+  CheckCircle2,
+  AlertTriangle,
+  Send,
+  MessageSquare,
+  Paperclip,
+  Download,
+  Edit3,
+  Check,
+  ChevronRight
+} from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -82,26 +103,26 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  draft: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
-  submitted: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
-  ai_reviewing: 'bg-violet-500/10 text-violet-400 border-violet-500/30',
-  needs_more_info: 'bg-orange-500/10 text-orange-400 border-orange-500/30',
-  engineering_review: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30',
-  approved: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
-  rejected: 'bg-rose-500/10 text-rose-400 border-rose-500/30',
-  planned: 'bg-teal-500/10 text-teal-400 border-teal-500/30',
-  in_development: 'bg-blue-600/10 text-blue-300 border-blue-600/30',
-  testing: 'bg-violet-500/10 text-violet-400 border-violet-500/30',
-  completed: 'bg-green-500/10 text-green-400 border-green-500/30',
-  archived: 'bg-gray-500/10 text-gray-400 border-gray-500/30',
+  draft: 'bg-amber-100 text-amber-800 border-amber-200',
+  submitted: 'bg-blue-100 text-blue-800 border-blue-200',
+  ai_reviewing: 'bg-purple-100 text-purple-800 border-purple-200',
+  needs_more_info: 'bg-orange-100 text-orange-800 border-orange-200',
+  engineering_review: 'bg-indigo-100 text-indigo-800 border-indigo-200',
+  approved: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+  rejected: 'bg-rose-100 text-rose-800 border-rose-200',
+  planned: 'bg-teal-100 text-teal-800 border-teal-200',
+  in_development: 'bg-blue-100 text-blue-800 border-blue-200',
+  testing: 'bg-purple-100 text-purple-800 border-purple-200',
+  completed: 'bg-green-100 text-green-800 border-green-200',
+  archived: 'bg-slate-100 text-slate-700 border-slate-200',
 };
 
 const REASON_REQUIRED: RequestStatus[] = ['rejected', 'needs_more_info'];
 
 const CONFIDENCE_COLORS: Record<string, string> = {
-  HIGH:   'text-emerald-400 bg-emerald-400/10 border-emerald-400/30',
-  MEDIUM: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',
-  LOW:    'text-red-400 bg-red-400/10 border-red-400/30',
+  HIGH:   'text-emerald-800 bg-emerald-100 border-emerald-200',
+  MEDIUM: 'text-amber-800 bg-amber-100 border-amber-200',
+  LOW:    'text-rose-800 bg-rose-100 border-rose-200',
 };
 
 const DEPT_ICONS: Record<string, string> = {
@@ -114,13 +135,13 @@ const DEPT_ICONS: Record<string, string> = {
 
 function ScoreGauge({ score }: { score: number }) {
   const clamped = Math.max(0, Math.min(100, score));
-  const color = clamped >= 70 ? '#ef4444' : clamped >= 50 ? '#f97316' : clamped >= 30 ? '#eab308' : '#6b7280';
+  const color = clamped >= 70 ? '#dc2626' : clamped >= 50 ? '#ea580c' : clamped >= 30 ? '#d97706' : '#64748b';
   const tierLabel = clamped >= 70 ? 'Critical' : clamped >= 50 ? 'High' : clamped >= 30 ? 'Medium' : 'Low';
   return (
     <div className="flex flex-col items-center gap-1">
       <div className="relative w-20 h-20">
         <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
-          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#1e1e3a" strokeWidth="3.5" />
+          <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e2e8f0" strokeWidth="3.5" />
           <circle
             cx="18" cy="18" r="15.9" fill="none"
             stroke={color} strokeWidth="3.5"
@@ -128,11 +149,11 @@ function ScoreGauge({ score }: { score: number }) {
             strokeLinecap="round"
           />
         </svg>
-        <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">
+        <span className="absolute inset-0 flex items-center justify-center text-slate-900 font-extrabold text-sm">
           {clamped.toFixed(0)}
         </span>
       </div>
-      <span className="text-xs font-medium" style={{ color }}>{tierLabel}</span>
+      <span className="text-xs font-bold" style={{ color }}>{tierLabel}</span>
     </div>
   );
 }
@@ -145,17 +166,17 @@ function ScoreSlider({
   return (
     <div>
       <div className="flex justify-between items-center mb-1">
-        <label className="text-[#9ca3af] text-xs">{label}</label>
-        <span className="text-white text-xs font-semibold">{value}/5</span>
+        <label className="text-slate-600 text-xs font-bold">{label}</label>
+        <span className="text-slate-900 text-xs font-extrabold">{value}/5</span>
       </div>
       <input
         type="range" min={1} max={5} step={1}
         value={value}
         onChange={(e) => onChange(parseInt(e.target.value))}
         disabled={disabled}
-        className="w-full accent-[#6366f1] cursor-pointer disabled:cursor-not-allowed"
+        className="w-full accent-blue-600 cursor-pointer disabled:cursor-not-allowed"
       />
-      <div className="flex justify-between text-[10px] text-[#4b5563] mt-0.5">
+      <div className="flex justify-between text-[10px] text-slate-400 font-semibold mt-0.5">
         <span>Low</span><span>High</span>
       </div>
     </div>
@@ -179,8 +200,9 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
     }
   }, [requestId]);
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    queueMicrotask(() => { void load(); });
+  }, [load]);
 
   const submit = async () => {
     if (!newComment.trim()) return;
@@ -215,27 +237,27 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
   return (
     <div className="space-y-4">
       {comments.length === 0 && (
-        <p className="text-[#6b7280] text-xs text-center py-4">No comments yet.</p>
+        <p className="text-slate-400 text-xs text-center py-4 font-medium">No comments yet.</p>
       )}
       {comments.map((c) => {
         const isOwn = c.authorId._id === currentUserId;
         return (
           <div key={c._id} className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-[#1a1a2e] border border-[#2a2a4e] flex items-center justify-center text-xs text-[#9ca3af] flex-shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-xs font-bold text-blue-600 flex-shrink-0">
               {c.authorId.name[0]?.toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span className="text-white text-xs font-semibold">{c.authorId.name}</span>
-                <span className="text-[#4b5563] text-[10px]">{c.authorId.department}</span>
-                <span className="text-[#4b5563] text-[10px]">
+                <span className="text-slate-900 text-xs font-bold">{c.authorId.name}</span>
+                <span className="text-slate-400 text-[10px] font-semibold">{c.authorId.department}</span>
+                <span className="text-slate-400 text-[10px] font-medium">
                   {new Date(c.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                   {c.editedAt && ' (edited)'}
                 </span>
                 {!isOwn && (
                   <button
                     onClick={() => mention(c.authorId.username)}
-                    className="text-[10px] text-[#6366f1] hover:underline"
+                    className="text-[10px] text-blue-600 font-bold hover:underline cursor-pointer"
                   >
                     @mention
                   </button>
@@ -244,11 +266,11 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
                   <div className="flex gap-2 ml-auto">
                     <button
                       onClick={() => { setEditingId(c._id); setEditContent(c.content); }}
-                      className="text-[10px] text-[#6b7280] hover:text-white"
+                      className="text-[10px] text-slate-500 font-bold hover:text-slate-800 cursor-pointer"
                     >Edit</button>
                     <button
                       onClick={() => softDelete(c._id)}
-                      className="text-[10px] text-red-400 hover:text-red-300"
+                      className="text-[10px] text-rose-600 font-bold hover:text-rose-700 cursor-pointer"
                     >Delete</button>
                   </div>
                 )}
@@ -258,16 +280,16 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
                   <textarea
                     value={editContent}
                     onChange={(e) => setEditContent(e.target.value)}
-                    className="w-full bg-[#1a1a2e] border border-[#2a2a4e] rounded-lg px-3 py-2 text-xs text-white resize-none focus:outline-none focus:ring-1 focus:ring-[#6366f1]"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-600"
                     rows={2}
                   />
                   <div className="flex gap-2">
-                    <button onClick={() => saveEdit(c._id)} className="px-3 py-1 rounded-lg bg-[#6366f1] text-white text-xs">Save</button>
-                    <button onClick={() => setEditingId(null)} className="px-3 py-1 rounded-lg bg-[#1a1a2e] border border-[#2a2a4e] text-[#9ca3af] text-xs">Cancel</button>
+                    <button onClick={() => saveEdit(c._id)} className="px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-bold cursor-pointer">Save</button>
+                    <button onClick={() => setEditingId(null)} className="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold cursor-pointer">Cancel</button>
                   </div>
                 </div>
               ) : (
-                <p className="text-[#d1d5db] text-xs leading-relaxed whitespace-pre-wrap">{c.content}</p>
+                <p className="text-slate-700 text-xs leading-relaxed whitespace-pre-wrap font-medium">{c.content}</p>
               )}
             </div>
           </div>
@@ -275,18 +297,18 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
       })}
 
       {/* New comment box */}
-      <div className="border-t border-[#1e1e3a] pt-4 space-y-2">
+      <div className="border-t border-slate-200 pt-4 space-y-2">
         <textarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Write a comment… use @username to mention someone"
-          className="w-full bg-[#1a1a2e] border border-[#2a2a4e] rounded-xl px-4 py-3 text-xs text-white placeholder-[#4b5563] resize-none focus:outline-none focus:ring-1 focus:ring-[#6366f1]"
+          className="w-full bg-slate-100/70 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-800 placeholder-slate-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all"
           rows={3}
         />
         <button
           onClick={submit}
           disabled={isSending || !newComment.trim()}
-          className="px-4 py-2 rounded-xl text-xs font-semibold bg-[#6366f1] hover:bg-[#5558e0] disabled:opacity-50 disabled:cursor-not-allowed text-white transition-colors"
+          className="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white transition-all cursor-pointer shadow-sm"
         >
           {isSending ? 'Posting…' : 'Post Comment'}
         </button>
@@ -338,9 +360,6 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
   // Assignee state
   const [selectedAssignee, setSelectedAssignee] = useState('');
   const [isAssigning, setIsAssigning] = useState(false);
-
-  // Bulk select state (for header back to list page)
-  const [selectedRequests, setSelectedRequests] = useState<string[]>([]);
 
   const load = useCallback(async () => {
     setIsLoading(true);
@@ -398,8 +417,9 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
     }
   }, [requestId]);
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    queueMicrotask(() => { void load(); });
+  }, [load]);
 
   // ── Override submit ──
   const handleSaveOverride = async () => {
@@ -460,10 +480,10 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-[#9ca3af] text-sm">Loading engineering review…</p>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
+        <div className="text-center space-y-3">
+          <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-slate-500 text-sm font-medium">Loading engineering review…</p>
         </div>
       </div>
     );
@@ -471,11 +491,11 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
 
   if (error || !request) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center p-6">
-        <div className="text-center max-w-sm bg-[#0f0f1e] p-6 rounded-2xl border border-[#1e1e3a]">
-          <p className="text-red-400 text-sm mb-4">{error || 'Request not found'}</p>
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 font-sans">
+        <div className="text-center max-w-sm bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <p className="text-rose-600 font-bold text-sm">{error || 'Request not found'}</p>
           <button onClick={() => router.push('/admin/requests')}
-            className="px-4 py-2 bg-[#6366f1] text-white text-xs rounded-xl">
+            className="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl shadow-sm cursor-pointer">
             ← Back to Pipeline
           </button>
         </div>
@@ -483,45 +503,53 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
     );
   }
 
-  const badge = STATUS_COLORS[request.status] ?? 'bg-gray-500/10 text-gray-400 border-gray-500/30';
+  const badge = STATUS_COLORS[request.status] ?? 'bg-slate-100 text-slate-700 border-slate-200';
   const deptIcon = DEPT_ICONS[request.department] ?? '💼';
   const needsReason = REASON_REQUIRED.includes(selectedStatus as RequestStatus);
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0]">
-      {/* ── Header ── */}
-      <div className="border-b border-[#1e1e3a] bg-[#0f0f1e]/80 backdrop-blur-md px-6 py-4 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 min-w-0">
-            <button onClick={() => router.push('/admin/requests')}
-              className="text-[#6b7280] hover:text-white transition-colors text-sm flex-shrink-0">← Pipeline</button>
-            <span className="text-[#2a2a4e]">|</span>
-            <span className="text-xl flex-shrink-0">{deptIcon}</span>
-            <h1 className="text-lg font-bold text-white truncate">{request.title}</h1>
-            <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium border flex-shrink-0 ${badge}`}>
-              {STATUS_LABELS[request.status] ?? request.status}
-            </span>
-            {estimate?.isOverridden && (
-              <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/30 flex-shrink-0">
-                ✏️ Overridden
-              </span>
-            )}
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
+      {/* Admin Top Navigation */}
+      <header className="sticky top-0 z-40 bg-white border-b border-slate-200 px-6 py-3 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <button onClick={() => router.push('/admin/requests')} className="p-2 rounded-xl hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer">
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+            <div className="flex items-center gap-3">
+              <div className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-600/20">
+                <Sliders className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h1 className="text-base font-bold text-slate-900 tracking-tight leading-tight truncate max-w-md">{request.title}</h1>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${badge}`}>
+                    {STATUS_LABELS[request.status] ?? request.status}
+                  </span>
+                </div>
+                <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">{request.department} Department</p>
+              </div>
+            </div>
           </div>
-          <Link href={`/requests/${requestId}`}
-            className="text-xs text-[#9ca3af] hover:text-white px-3 py-1.5 rounded-lg border border-[#2a2a4e] transition-colors flex-shrink-0">
-            👤 Requester View
-          </Link>
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex items-center gap-3">
+            <Link href={`/requests/${requestId}`}
+              className="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 hover:bg-blue-100 px-3.5 py-2 rounded-xl transition-all">
+              Requester Portal View →
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-6 py-8 flex-1 w-full space-y-6">
         <div className="grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-6">
 
-          {/* ── Left: Main content ── */}
+          {/* Left: Main details */}
           <div className="space-y-6">
 
-            {/* Tab bar */}
-            <div className="flex items-center gap-1 p-1 bg-[#0f0f1e] border border-[#1e1e3a] rounded-xl w-fit">
+            {/* Tab navigation */}
+            <div className="flex items-center gap-1.5 p-1.5 bg-white border border-slate-200 rounded-2xl shadow-xs w-fit">
               {([
                 ['overview',    '📋 Overview'],
                 ['estimate',    '💰 Estimate & Override'],
@@ -532,10 +560,10 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === tab
-                      ? 'bg-[#6366f1] text-white'
-                      : 'text-[#9ca3af] hover:text-white'
+                      ? 'bg-blue-600 text-white shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {label}
@@ -543,177 +571,85 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
               ))}
             </div>
 
-            {/* ── Overview Tab ── */}
+            {/* Overview Tab */}
             {activeTab === 'overview' && (
-              <div className="space-y-4">
-                {/* Requester info */}
-                <div className="p-5 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                  <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6366f1] mb-3">Requester</h2>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div><p className="text-[#6b7280] text-xs">Name</p><p className="text-white mt-0.5">{request.requesterId?.name ?? '—'}</p></div>
-                    <div><p className="text-[#6b7280] text-xs">Email</p><p className="text-white mt-0.5">{request.requesterId?.email ?? '—'}</p></div>
-                    <div><p className="text-[#6b7280] text-xs">Department</p><p className="text-white mt-0.5">{request.department}</p></div>
-                    <div><p className="text-[#6b7280] text-xs">Submitted</p><p className="text-white mt-0.5">{request.submittedAt ? new Date(request.submittedAt).toLocaleDateString() : '—'}</p></div>
+              <div className="space-y-5">
+                <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+                  <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-600">Requester Profile</h2>
+                  <div className="grid grid-cols-2 gap-4 text-xs font-medium">
+                    <div><p className="text-slate-400 font-semibold">Name</p><p className="text-slate-900 font-bold text-sm mt-0.5">{request.requesterId?.name ?? '—'}</p></div>
+                    <div><p className="text-slate-400 font-semibold">Email</p><p className="text-slate-900 font-bold text-sm mt-0.5">{request.requesterId?.email ?? '—'}</p></div>
+                    <div><p className="text-slate-400 font-semibold">Department</p><p className="text-slate-900 font-bold text-sm mt-0.5">{request.department}</p></div>
+                    <div><p className="text-slate-400 font-semibold">Submitted Date</p><p className="text-slate-900 font-bold text-sm mt-0.5">{request.submittedAt ? new Date(request.submittedAt).toLocaleDateString() : '—'}</p></div>
                   </div>
                 </div>
 
-                {/* Summary */}
                 {summary && (
-                  <div className="p-5 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl space-y-4">
-                    <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6366f1]">Process Summary</h2>
+                  <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-5">
+                    <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-600">Process Intake Summary</h2>
                     {summary.processDescription && (
                       <div>
-                        <p className="text-[#6b7280] text-xs mb-1">Description</p>
-                        <p className="text-[#d1d5db] text-sm leading-relaxed">{summary.processDescription}</p>
+                        <p className="text-slate-400 text-xs font-semibold mb-1">Process Description</p>
+                        <p className="text-slate-800 text-xs leading-relaxed font-medium">{summary.processDescription}</p>
                       </div>
                     )}
                     {summary.desiredOutcome && (
                       <div>
-                        <p className="text-[#6b7280] text-xs mb-1">Desired Outcome</p>
-                        <p className="text-[#d1d5db] text-sm leading-relaxed">{summary.desiredOutcome}</p>
+                        <p className="text-slate-400 text-xs font-semibold mb-1">Desired Automation Outcome</p>
+                        <p className="text-slate-800 text-xs leading-relaxed font-medium">{summary.desiredOutcome}</p>
                       </div>
                     )}
                     {summary.painPoints?.length ? (
                       <div>
-                        <p className="text-[#6b7280] text-xs mb-2">Pain Points</p>
+                        <p className="text-slate-400 text-xs font-semibold mb-2">Key Pain Points</p>
                         <ul className="space-y-1">
-                          {summary.painPoints.map((p) => <li key={p} className="text-[#d1d5db] text-xs flex gap-2"><span>•</span>{p}</li>)}
+                          {summary.painPoints.map((p) => <li key={p} className="text-slate-700 text-xs font-medium flex gap-2"><span>•</span>{p}</li>)}
                         </ul>
                       </div>
                     ) : null}
                     {summary.toolsUsed?.length ? (
                       <div>
-                        <p className="text-[#6b7280] text-xs mb-2">Tools Used</p>
+                        <p className="text-slate-400 text-xs font-semibold mb-2">Systems & Tools Involved</p>
                         <div className="flex flex-wrap gap-1.5">
-                          {summary.toolsUsed.map((t) => <span key={t} className="text-xs bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] px-2 py-0.5 rounded-md">{t}</span>)}
+                          {summary.toolsUsed.map((t) => <span key={t} className="text-xs bg-slate-100 border border-slate-200 text-slate-700 font-bold px-2.5 py-1 rounded-lg">{t}</span>)}
                         </div>
                       </div>
                     ) : null}
-                    {summary.risks?.length ? (
-                      <div>
-                        <p className="text-amber-400 text-xs mb-2">⚠️ Risks</p>
-                        <ul className="space-y-1">
-                          {summary.risks.map((r) => <li key={r} className="text-[#d1d5db] text-xs flex gap-2"><span>•</span>{r}</li>)}
-                        </ul>
-                      </div>
-                    ) : null}
                   </div>
                 )}
-
-                {/* Narratives */}
-                {estimate?.requesterNarrative && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                      <p className="text-xs font-semibold text-[#6366f1] uppercase tracking-wider mb-2">Requester Narrative</p>
-                      <p className="text-[#d1d5db] text-xs leading-relaxed">{estimate.requesterNarrative}</p>
-                    </div>
-                    <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                      <p className="text-xs font-semibold text-[#6366f1] uppercase tracking-wider mb-2">Engineering Narrative</p>
-                      <p className="text-[#d1d5db] text-xs leading-relaxed">{estimate.engineeringNarrative}</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Tags */}
-                {request.tags?.length ? (
-                  <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                    <p className="text-[#6b7280] text-xs mb-2">Tags & Systems</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {request.tags.map((t) => <span key={t} className="text-xs bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] px-2 py-0.5 rounded-md">{t}</span>)}
-                    </div>
-                  </div>
-                ) : null}
               </div>
             )}
 
-            {/* ── Estimate & Override Tab ── */}
+            {/* Estimate & Override Tab */}
             {activeTab === 'estimate' && estimate && (
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {overrideSuccess && (
-                  <div className="p-3 rounded-xl bg-emerald-400/10 border border-emerald-400/30 text-emerald-400 text-xs text-center">
+                  <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold text-center">
                     ✅ Estimate overridden successfully. Priority score recalculated.
                   </div>
                 )}
 
-                {/* Current estimates grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { label: 'Annual Savings', value: `$${(estimate.annualDollarsSaved ?? 0).toLocaleString()}` },
                     { label: 'Hours Saved/yr', value: (estimate.annualHoursSaved ?? 0).toLocaleString() },
                     { label: 'Effort Size', value: estimate.effortSize },
                     { label: 'Build Cost', value: `~$${((estimate.buildCostEstimate ?? 0)).toLocaleString()}` },
                   ].map(({ label, value }) => (
-                    <div key={label} className="p-3 bg-[#0f0f1e] border border-[#1e1e3a] rounded-xl">
-                      <p className="text-[#6b7280] text-xs mb-1">{label}</p>
-                      <p className="text-white font-bold text-base">{value}</p>
+                    <div key={label} className="p-4 bg-white border border-slate-200 rounded-2xl shadow-sm">
+                      <p className="text-slate-400 text-xs font-semibold uppercase">{label}</p>
+                      <p className="text-slate-900 font-extrabold text-lg mt-1">{value}</p>
                     </div>
                   ))}
                 </div>
 
-                {/* Confidence badges */}
-                <div className="flex gap-3 flex-wrap">
-                  {[
-                    { label: 'ROI Confidence', level: estimate.roiConfidence },
-                    { label: 'Effort Confidence', level: estimate.effortConfidence },
-                  ].map(({ label, level }) => (
-                    <div key={label} className="flex items-center gap-2">
-                      <span className="text-[#6b7280] text-xs">{label}:</span>
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${CONFIDENCE_COLORS[level] ?? CONFIDENCE_COLORS.LOW}`}>
-                        {level}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Priority inputs breakdown */}
-                {estimate.priorityInputs && (
-                  <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                    <p className="text-[#6366f1] text-xs font-semibold uppercase tracking-wider mb-3">Priority Factor Breakdown</p>
-                    <div className="space-y-3">
-                      {([
-                        ['Strategic Value', estimate.priorityInputs.strategicValue],
-                        ['Urgency',         estimate.priorityInputs.urgency],
-                        ['Org Impact',      estimate.priorityInputs.orgImpact],
-                        ['Risk Level',      estimate.priorityInputs.riskLevel],
-                      ] as [string, number | undefined][]).map(([label, val]) => (
-                        <div key={label} className="flex items-center gap-3">
-                          <span className="text-[#9ca3af] text-xs w-28 flex-shrink-0">{label}</span>
-                          <div className="flex-1 bg-[#1a1a2e] rounded-full h-1.5">
-                            <div
-                              className="bg-[#6366f1] h-1.5 rounded-full"
-                              style={{ width: `${((val ?? 1) - 1) / 4 * 100}%` }}
-                            />
-                          </div>
-                          <span className="text-white text-xs font-semibold w-6 text-right">{val ?? '—'}</span>
-                        </div>
-                      ))}
-                    </div>
-                    {estimate.priorityInputs.rationale && (
-                      <p className="text-[#9ca3af] text-xs mt-3 italic">{estimate.priorityInputs.rationale}</p>
-                    )}
-                    {estimate.priorityInputs.urgencySignals?.length ? (
-                      <div className="mt-3">
-                        <p className="text-[#6b7280] text-xs mb-1">Urgency Signals</p>
-                        <ul className="space-y-0.5">
-                          {estimate.priorityInputs.urgencySignals.map((s) => (
-                            <li key={s} className="text-[#d1d5db] text-xs">• {s}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : null}
-                  </div>
-                )}
-
-                {/* Override section */}
-                <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                  <div className="flex items-center justify-between mb-4">
-                    <p className="text-[#6366f1] text-xs font-semibold uppercase tracking-wider">
-                      {overrideMode ? '✏️ Override Inputs' : 'Admin Override'}
-                    </p>
+                <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-600">Admin Override Controls</h2>
                     {!overrideMode && (
                       <button
                         onClick={() => setOverrideMode(true)}
-                        className="px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 transition-colors"
+                        className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-amber-50 border border-amber-200 text-amber-800 hover:bg-amber-100 transition-all cursor-pointer"
                       >
                         ✏️ Edit Inputs
                       </button>
@@ -730,30 +666,30 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                           ['Blended Rate ($/hr)', 'blendedHourlyCost', 1],
                         ] as const).map(([label, key, step]) => (
                           <div key={key}>
-                            <label className="text-[#9ca3af] text-xs mb-1 block">{label}</label>
+                            <label className="text-slate-600 text-xs font-bold mb-1 block">{label}</label>
                             <input
                               type="number"
                               min={0}
                               step={step}
                               value={overrideValues[key]}
                               onChange={(e) => setOverrideValues((v) => ({ ...v, [key]: parseFloat(e.target.value) || 0 }))}
-                              className="w-full bg-[#1a1a2e] border border-[#2a2a4e] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-[#6366f1]"
+                              className="w-full bg-slate-100/70 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
                             />
                           </div>
                         ))}
                       </div>
 
                       <div>
-                        <label className="text-[#9ca3af] text-xs mb-1 block">Effort Size</label>
+                        <label className="text-slate-600 text-xs font-bold mb-1 block">Effort Size</label>
                         <div className="flex gap-2">
                           {(['S', 'M', 'L', 'XL'] as const).map((sz) => (
                             <button
                               key={sz}
                               onClick={() => setOverrideValues((v) => ({ ...v, effortSize: sz }))}
-                              className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all ${
+                              className={`flex-1 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
                                 overrideValues.effortSize === sz
-                                  ? 'bg-[#6366f1] text-white'
-                                  : 'bg-[#1a1a2e] border border-[#2a2a4e] text-[#9ca3af] hover:text-white'
+                                  ? 'bg-blue-600 text-white shadow-xs'
+                                  : 'bg-slate-100 border border-slate-200 text-slate-700 hover:bg-slate-200'
                               }`}
                             >
                               {sz}
@@ -783,33 +719,16 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                         <button
                           onClick={handleSaveOverride}
                           disabled={isSavingOverride}
-                          className="flex-1 py-2 rounded-xl text-xs font-semibold bg-[#6366f1] hover:bg-[#5558e0] disabled:opacity-50 text-white transition-colors"
+                          className="flex-1 py-2.5 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white transition-all cursor-pointer shadow-sm"
                         >
                           {isSavingOverride ? 'Recalculating…' : 'Save & Recalculate'}
                         </button>
                         <button
                           onClick={() => setOverrideMode(false)}
-                          className="px-4 py-2 rounded-xl text-xs font-medium bg-[#1a1a2e] border border-[#2a2a4e] text-[#9ca3af] hover:text-white transition-colors"
+                          className="px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 border border-slate-200 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer"
                         >
                           Cancel
                         </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Overridden fields diff */}
-                  {estimate.isOverridden && estimate.overriddenFields && Object.keys(estimate.overriddenFields).length > 0 && (
-                    <div className="mt-4 pt-4 border-t border-[#1e1e3a]">
-                      <p className="text-[#6b7280] text-xs mb-2">Overridden Fields</p>
-                      <div className="space-y-1.5">
-                        {Object.entries(estimate.overriddenFields).map(([field, diff]) => (
-                          <div key={field} className="flex items-center gap-2 text-xs">
-                            <span className="text-[#9ca3af] w-36 flex-shrink-0">{field}</span>
-                            <span className="text-red-400 line-through">{String(diff.before)}</span>
-                            <span className="text-[#6b7280]">→</span>
-                            <span className="text-emerald-400">{String(diff.after)}</span>
-                          </div>
-                        ))}
                       </div>
                     </div>
                   )}
@@ -817,44 +736,44 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
               </div>
             )}
 
-            {/* ── Comments Tab ── */}
+            {/* Comments Tab */}
             {activeTab === 'comments' && (
-              <div className="p-5 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6366f1] mb-4">💬 Comment Thread</h2>
+              <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm">
+                <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-600 mb-4">💬 Comment Thread</h2>
                 <CommentThread requestId={requestId} currentUserId={currentUserId} />
               </div>
             )}
 
-            {/* ── History Tab ── */}
+            {/* History Tab */}
             {activeTab === 'history' && (
-              <div className="p-5 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-                <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6366f1] mb-4">📜 Status History</h2>
+              <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm">
+                <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-600 mb-4">📜 Status Audit History</h2>
                 {!request.statusHistory?.length ? (
-                  <p className="text-[#6b7280] text-xs text-center py-4">No status changes yet.</p>
+                  <p className="text-slate-400 text-xs text-center py-4 font-medium">No status changes recorded.</p>
                 ) : (
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {[...request.statusHistory].reverse().map((h, i) => (
                       <div key={i} className="flex gap-3">
-                        <div className="w-2 h-2 rounded-full bg-[#6366f1] mt-1.5 flex-shrink-0" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
                         <div>
                           <div className="flex items-center gap-2 flex-wrap text-xs">
                             {h.oldStatus && (
                               <>
-                                <span className={`px-2 py-0.5 rounded-full border ${STATUS_COLORS[h.oldStatus] ?? 'border-gray-500/30 text-gray-400'}`}>
+                                <span className={`px-2.5 py-0.5 rounded-full font-bold border ${STATUS_COLORS[h.oldStatus] ?? 'border-slate-200 text-slate-600'}`}>
                                   {STATUS_LABELS[h.oldStatus] ?? h.oldStatus}
                                 </span>
-                                <span className="text-[#4b5563]">→</span>
+                                <span className="text-slate-400">→</span>
                               </>
                             )}
-                            <span className={`px-2 py-0.5 rounded-full border ${STATUS_COLORS[h.newStatus] ?? 'border-gray-500/30 text-gray-400'}`}>
+                            <span className={`px-2.5 py-0.5 rounded-full font-bold border ${STATUS_COLORS[h.newStatus] ?? 'border-slate-200 text-slate-600'}`}>
                               {STATUS_LABELS[h.newStatus] ?? h.newStatus}
                             </span>
-                            <span className="text-[#4b5563]">
+                            <span className="text-slate-400 font-medium">
                               {new Date(h.changedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                             </span>
                           </div>
                           {h.reasonNote && (
-                            <p className="text-[#9ca3af] text-xs mt-1 italic">&quot;{h.reasonNote}&quot;</p>
+                            <p className="text-slate-600 text-xs mt-1.5 italic">&quot;{h.reasonNote}&quot;</p>
                           )}
                         </div>
                       </div>
@@ -864,24 +783,24 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
               </div>
             )}
 
-            {/* ── Attachments Tab ── */}
+            {/* Attachments Tab */}
             {activeTab === 'attachments' && (
-              <div className="p-5 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl space-y-4">
-                <h2 className="text-xs font-semibold uppercase tracking-wider text-[#6366f1]">
+              <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+                <h2 className="text-xs font-extrabold uppercase tracking-wider text-blue-600">
                   Uploaded Documentation & Attachments ({attachments.length})
                 </h2>
                 {attachments.length === 0 ? (
-                  <p className="text-xs text-[#6b7280] italic">No files attached to this request.</p>
+                  <p className="text-xs text-slate-400 italic">No files attached to this request.</p>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {attachments.map((att) => (
                       <div
                         key={att._id}
-                        className="flex items-center justify-between p-3 rounded-xl bg-[#16162a] border border-[#2a2a4e]"
+                        className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200"
                       >
                         <div className="min-w-0 pr-3">
-                          <p className="text-xs font-semibold text-white truncate">{att.originalName}</p>
-                          <p className="text-[10px] text-[#6b7280]">
+                          <p className="text-xs font-bold text-slate-800 truncate">{att.originalName}</p>
+                          <p className="text-[10px] text-slate-500 font-medium">
                             {(att.fileSize / 1024).toFixed(1)} KB · {new Date(att.createdAt).toLocaleDateString()}
                           </p>
                         </div>
@@ -890,7 +809,7 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                           download={att.originalName}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1.5 rounded-lg bg-[#6366f1]/20 hover:bg-[#6366f1]/30 text-[#6366f1] text-xs font-medium transition-colors border border-[#6366f1]/30 shrink-0"
+                          className="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs font-bold transition-colors border border-blue-100 shrink-0 cursor-pointer"
                         >
                           ⬇ Download
                         </a>
@@ -902,29 +821,29 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
             )}
           </div>
 
-          {/* ── Right Sidebar ── */}
-          <div className="space-y-4">
+          {/* Right Sidebar Controls */}
+          <div className="space-y-5">
 
-            {/* Priority Score */}
-            <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6366f1] mb-3">Priority Score</p>
+            {/* Priority Score Card */}
+            <div className="p-5 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-3">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-blue-600">Priority Score Gauge</p>
               <div className="flex items-center gap-4">
                 <ScoreGauge score={request.priorityScore ?? 0} />
-                <div className="text-xs space-y-1 text-[#9ca3af]">
-                  <p>Score: <span className="text-white font-bold">{(request.priorityScore ?? 0).toFixed(1)}</span>/100</p>
-                  <p>ROI: <span className="text-white">{request.roiConfidence}</span></p>
-                  {estimate?.effortSize && <p>Effort: <span className="text-white">{estimate.effortSize}</span></p>}
+                <div className="text-xs space-y-1 text-slate-500 font-medium">
+                  <p>Score: <span className="text-slate-900 font-bold">{(request.priorityScore ?? 0).toFixed(1)}</span>/100</p>
+                  <p>ROI: <span className="text-slate-900 font-bold">{request.roiConfidence}</span></p>
+                  {estimate?.effortSize && <p>Effort: <span className="text-slate-900 font-bold">{estimate.effortSize}</span></p>}
                 </div>
               </div>
             </div>
 
-            {/* Status Management */}
-            <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6366f1]">Status Management</p>
+            {/* Status Management Card */}
+            <div className="p-5 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-blue-600">Status Management</p>
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="w-full bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#6366f1]"
+                className="w-full bg-slate-100/70 border border-slate-200 text-slate-800 text-xs font-bold rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-600 cursor-pointer"
               >
                 {REQUEST_STATUSES.map((s) => (
                   <option key={s} value={s}>{STATUS_LABELS[s] ?? s}</option>
@@ -935,38 +854,38 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                   value={reasonNote}
                   onChange={(e) => setReasonNote(e.target.value)}
                   placeholder={`Required: reason for "${STATUS_LABELS[selectedStatus] ?? selectedStatus}"…`}
-                  className="w-full bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs rounded-lg px-3 py-2 resize-none focus:outline-none focus:ring-1 focus:ring-[#6366f1]"
+                  className="w-full bg-slate-100/70 border border-slate-200 text-slate-800 text-xs font-medium rounded-xl px-3.5 py-2.5 resize-none focus:outline-none focus:ring-2 focus:ring-blue-600"
                   rows={2}
                 />
               )}
-              {statusError && <p className="text-red-400 text-xs">{statusError}</p>}
+              {statusError && <p className="text-rose-600 text-xs font-bold">{statusError}</p>}
               <button
                 onClick={handleStatusChange}
                 disabled={isChangingStatus || selectedStatus === request.status}
-                className="w-full py-2 rounded-xl text-xs font-semibold bg-[#6366f1] hover:bg-[#5558e0] disabled:opacity-50 disabled:cursor-not-allowed text-white transition-colors"
+                className="w-full py-2.5 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white transition-all cursor-pointer shadow-sm"
               >
                 {isChangingStatus ? 'Updating…' : 'Update Status'}
               </button>
             </div>
 
-            {/* Assignee */}
-            <div className="p-4 bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#6366f1]">Assigned Engineer</p>
+            {/* Assignee Card */}
+            <div className="p-5 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-blue-600">Assigned Engineer</p>
               {request.assignedTo && (
-                <div className="flex items-center gap-2 p-2 bg-[#1a1a2e] rounded-lg border border-[#2a2a4e]">
-                  <div className="w-6 h-6 rounded-full bg-[#6366f1]/20 flex items-center justify-center text-xs text-[#6366f1]">
+                <div className="flex items-center gap-3 p-3 bg-blue-50/60 rounded-xl border border-blue-100">
+                  <div className="w-7 h-7 rounded-xl bg-blue-600 flex items-center justify-center text-xs font-bold text-white shadow-xs">
                     {request.assignedTo.name[0]?.toUpperCase()}
                   </div>
                   <div>
-                    <p className="text-white text-xs font-medium">{request.assignedTo.name}</p>
-                    <p className="text-[#6b7280] text-[10px]">@{request.assignedTo.username}</p>
+                    <p className="text-slate-900 text-xs font-bold">{request.assignedTo.name}</p>
+                    <p className="text-slate-500 text-[10px] font-semibold">@{request.assignedTo.username}</p>
                   </div>
                 </div>
               )}
               <select
                 value={selectedAssignee}
                 onChange={(e) => setSelectedAssignee(e.target.value)}
-                className="w-full bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#6366f1]"
+                className="w-full bg-slate-100/70 border border-slate-200 text-slate-800 text-xs font-bold rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-600 cursor-pointer"
               >
                 <option value="">— Unassigned —</option>
                 {engineers.map((e) => (
@@ -976,14 +895,28 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
               <button
                 onClick={handleAssign}
                 disabled={isAssigning}
-                className="w-full py-2 rounded-xl text-xs font-semibold bg-[#1a1a2e] border border-[#2a2a4e] hover:bg-[#6366f1] hover:border-[#6366f1] text-[#d1d5db] hover:text-white disabled:opacity-50 transition-colors"
+                className="w-full py-2.5 rounded-xl text-xs font-bold bg-slate-100 border border-slate-200 hover:bg-blue-600 hover:text-white text-slate-800 disabled:opacity-50 transition-all cursor-pointer"
               >
                 {isAssigning ? 'Saving…' : 'Update Assignee'}
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Admin Footer */}
+      <footer className="bg-white border-t border-slate-200 py-6 px-6 mt-auto">
+
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+          <div className="flex items-center gap-2">
+            <Sliders className="h-4 w-4 text-blue-600" />
+            <span className="font-bold text-slate-700">Enterprise AI Prioritization Engine</span>
+          </div>
+          <p>© 2024 CogniFlow Enterprise Admin Console.</p>
+        </div>
+      </footer>
     </div>
   );
 }
+
+

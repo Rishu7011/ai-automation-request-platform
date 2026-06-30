@@ -2,8 +2,28 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import Link from 'next/link';
 import { INTAKE_STAGES } from '@/constants';
 import FileUpload from '@/components/FileUpload';
+import {
+  Sparkles,
+  Send,
+  CheckCircle2,
+  Clock,
+  ArrowRight,
+  ChevronRight,
+  Bot,
+  User,
+  Paperclip,
+  FileText,
+  Save,
+  ArrowLeft,
+  AlertTriangle,
+  Loader2,
+  TrendingUp,
+  Award,
+  Zap
+} from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -52,7 +72,7 @@ function StageProgressBar({
   completedStages: Set<number>;
 }) {
   return (
-    <div className="flex items-center gap-1 px-4 py-3 border-b border-[#1e1e3a] overflow-x-auto scrollbar-hide">
+    <div className="flex items-center gap-1.5 px-6 py-3.5 bg-white border-b border-slate-200 overflow-x-auto scrollbar-hide">
       {INTAKE_STAGES.map((stage, idx) => {
         const isCompleted = completedStages.has(stage.id);
         const isCurrent = stage.id === currentStage;
@@ -62,29 +82,27 @@ function StageProgressBar({
           <div key={stage.id} className="flex items-center flex-shrink-0">
             {idx > 0 && (
               <div
-                className={`w-6 h-0.5 mx-0.5 ${
-                  isCompleted || (idx < currentStage - 1)
-                    ? 'bg-[#6366f1]'
-                    : 'bg-[#1e1e3a]'
+                className={`w-6 h-0.5 mx-1 transition-colors ${
+                  isCompleted || idx < currentStage - 1
+                    ? 'bg-blue-600'
+                    : 'bg-slate-200'
                 }`}
               />
             )}
             <div
               title={stage.name}
               className={`
-                flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all
+                flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition-all
                 ${
                   isCompleted
-                    ? 'bg-[#6366f1]/20 text-[#6366f1] border border-[#6366f1]/40'
+                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     : isCurrent
-                    ? 'bg-[#6366f1] text-white shadow-lg shadow-[#6366f1]/30'
-                    : isFuture
-                    ? 'bg-[#1a1a2e] text-[#4b5563] border border-[#1e1e3a]'
-                    : 'bg-[#1a1a2e] text-[#4b5563] border border-[#1e1e3a]'
+                    ? 'bg-blue-600 text-white shadow-md shadow-[#6366f1]/20'
+                    : 'bg-slate-100 text-slate-500 border border-slate-200'
                 }
               `}
             >
-              <span>{isCompleted ? '✓' : stage.icon}</span>
+              <span>{isCompleted ? <CheckCircle2 className="h-3.5 w-3.5" /> : stage.icon}</span>
               <span className="hidden sm:inline whitespace-nowrap">{stage.name}</span>
             </div>
           </div>
@@ -100,25 +118,25 @@ function ChatBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === 'user';
 
   return (
-    <div className={`flex gap-3 ${isUser ? 'flex-row-reverse' : 'flex-row'} mb-4`}>
+    <div className={`flex gap-3.5 ${isUser ? 'flex-row-reverse' : 'flex-row'} mb-5`}>
       {/* Avatar */}
       <div
         className={`
-          flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm
-          ${isUser ? 'bg-[#6366f1] text-white' : 'bg-[#1a1a2e] border border-[#2a2a4e] text-[#9ca3af]'}
+          flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold shadow-xs
+          ${isUser ? 'bg-blue-600 text-white' : 'bg-slate-900 text-white'}
         `}
       >
-        {isUser ? '👤' : '🤖'}
+        {isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
       </div>
 
       {/* Bubble */}
       <div
         className={`
-          max-w-[78%] px-4 py-3 rounded-2xl text-sm leading-relaxed
+          max-w-[80%] px-5 py-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed font-medium shadow-xs
           ${
             isUser
-              ? 'bg-[#6366f1] text-white rounded-tr-sm'
-              : 'bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] rounded-tl-sm'
+              ? 'bg-blue-600 text-white rounded-tr-xs'
+              : 'bg-white border border-slate-200 text-slate-800 rounded-tl-xs'
           }
         `}
       >
@@ -132,14 +150,14 @@ function ChatBubble({ message }: { message: ChatMessage }) {
 
 function TypingIndicator() {
   return (
-    <div className="flex gap-3 mb-4">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#1a1a2e] border border-[#2a2a4e] flex items-center justify-center text-sm">
-        🤖
+    <div className="flex gap-3.5 mb-5">
+      <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-xs">
+        <Bot className="h-4 w-4" />
       </div>
-      <div className="bg-[#1a1a2e] border border-[#2a2a4e] px-4 py-3 rounded-2xl rounded-tl-sm flex items-center gap-1.5">
-        <span className="w-2 h-2 rounded-full bg-[#6366f1] animate-bounce [animation-delay:0ms]" />
-        <span className="w-2 h-2 rounded-full bg-[#6366f1] animate-bounce [animation-delay:150ms]" />
-        <span className="w-2 h-2 rounded-full bg-[#6366f1] animate-bounce [animation-delay:300ms]" />
+      <div className="bg-white border border-slate-200 px-5 py-3.5 rounded-2xl rounded-tl-xs flex items-center gap-1.5 shadow-xs">
+        <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0ms]" />
+        <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:150ms]" />
+        <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:300ms]" />
       </div>
     </div>
   );
@@ -159,24 +177,24 @@ function StageCompleteBanner({
   isSubmitting?: boolean;
 }) {
   return (
-    <div className="mx-4 mb-4 p-4 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/30 text-center">
-      <p className="text-[#6366f1] font-semibold text-sm mb-1">
-        ✅ {stageName} complete
+    <div className="mx-4 mb-5 p-5 rounded-2xl bg-blue-50 border border-blue-200 text-center shadow-xs">
+      <p className="text-blue-700 font-bold text-sm mb-1 flex items-center justify-center gap-1.5">
+        <CheckCircle2 className="h-4 w-4 text-blue-600" /> {stageName} Complete
       </p>
-      <p className="text-[#9ca3af] text-xs mb-3">
+      <p className="text-slate-600 text-xs mb-4 font-medium">
         {isLastStage
-          ? 'Ready to submit your request.'
-          : 'Great job! Ready to move to the next section?'}
+          ? 'Intake assessment complete! Click below to run full AI analysis & submit.'
+          : 'Section complete! Ready to move to the next section?'}
       </p>
       <button
         onClick={onNext}
         disabled={isSubmitting}
-        className="px-5 py-2 rounded-lg bg-[#6366f1] hover:bg-[#5558e0] disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
+        className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold transition-all shadow-md shadow-[#6366f1]/20 cursor-pointer inline-flex items-center gap-1.5"
       >
         {isLastStage
           ? isSubmitting
-            ? '⏳ Processing…'
-            : '📤 Submit Request'
+            ? 'Running Analysis…'
+            : 'Submit & Run AI Scoring'
           : 'Next Section →'}
       </button>
     </div>
@@ -201,37 +219,38 @@ function SubmittingOverlay() {
       setStepIdx((i) => (i + 1) % steps.length);
     }, 2200);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="fixed inset-0 bg-[#0a0a12]/90 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-[#0f0f1e] border border-[#2a2a4e] rounded-2xl p-8 max-w-sm w-full mx-4 text-center">
-        <div className="w-14 h-14 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto mb-5" />
-        <h3 className="text-white font-semibold text-base mb-2">Running AI Analysis</h3>
-        <p className="text-[#9ca3af] text-sm mb-5">
-          Our AI agents are processing your request. This takes 20–40 seconds.
-        </p>
-        <div className="bg-[#1a1a2e] rounded-xl px-4 py-3 flex items-center gap-3">
-          <span className="text-lg flex-shrink-0">{steps[stepIdx].icon}</span>
-          <span className="text-[#d1d5db] text-sm text-left">{steps[stepIdx].text}</span>
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center z-50">
+      <div className="bg-white border border-slate-200 rounded-3xl p-8 max-w-sm w-full mx-4 text-center shadow-xl space-y-4">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto" />
+        <div>
+          <h3 className="text-slate-900 font-bold text-base">Running AI Analysis</h3>
+          <p className="text-slate-500 text-xs mt-1 font-medium">
+            CogniFlow agents are scoring ROI & priority metrics.
+          </p>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 flex items-center gap-3">
+          <span className="text-xl flex-shrink-0">{steps[stepIdx].icon}</span>
+          <span className="text-slate-800 text-xs font-semibold text-left">{steps[stepIdx].text}</span>
         </div>
       </div>
     </div>
   );
 }
 
-// ─── Review Summary Card (Stage 8) ───────────────────────────────────────────
+// ─── Review Summary Card ──────────────────────────────────────────────────────
 
 function ConfidenceBadge({ level }: { level: string }) {
   const map: Record<string, { color: string; label: string }> = {
-    HIGH:   { color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/30', label: '🟢 High' },
-    MEDIUM: { color: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',   label: '🟡 Medium' },
-    LOW:    { color: 'text-red-400 bg-red-400/10 border-red-400/30',             label: '🔴 Low' },
+    HIGH:   { color: 'text-emerald-800 bg-emerald-100 border-emerald-200', label: '🟢 High' },
+    MEDIUM: { color: 'text-amber-800 bg-amber-100 border-amber-200',     label: '🟡 Medium' },
+    LOW:    { color: 'text-rose-800 bg-rose-100 border-rose-200',         label: '🔴 Low' },
   };
   const cfg = map[level.toUpperCase()] ?? map.LOW;
   return (
-    <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${cfg.color}`}>
+    <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${cfg.color}`}>
       {cfg.label} Confidence
     </span>
   );
@@ -245,51 +264,51 @@ function ReviewSummaryCard({ data, requestTitle }: { data: ReviewData; requestTi
   const roiLabel = roiPct >= 0 ? `+${roiPct.toFixed(0)}%` : `${roiPct.toFixed(0)}%`;
 
   return (
-    <div className="mx-4 mb-4 space-y-3">
+    <div className="mx-4 mb-5 space-y-4">
       {/* Header */}
-      <div className="p-4 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/30">
-        <p className="text-[#6366f1] font-semibold text-xs uppercase tracking-widest mb-1">Review Summary</p>
-        <p className="text-white font-medium text-sm">{requestTitle}</p>
-        <p className="text-[#9ca3af] text-xs mt-1">{data.narratives.requester}</p>
+      <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200">
+        <p className="text-blue-600 font-bold text-xs uppercase tracking-wider mb-1">Review Summary</p>
+        <p className="text-slate-900 font-bold text-sm">{requestTitle}</p>
+        <p className="text-[#9ca3af] text-xs mt-1 font-medium">{data.narratives.requester}</p>
       </div>
 
       {/* ROI & Effort */}
       <div className="grid grid-cols-2 gap-3">
-        <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
-          <p className="text-[#6b7280] text-xs mb-1">Annual Savings</p>
-          <p className="text-white font-bold text-lg">{fmt(data.estimate.annualDollarsSaved)}</p>
-          <p className="text-[#9ca3af] text-xs">{data.estimate.annualHoursSaved.toLocaleString()} hrs saved</p>
+        <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Annual Savings</p>
+          <p className="text-slate-900 font-bold text-lg">{fmt(data.estimate.annualDollarsSaved)}</p>
+          <p className="text-slate-500 text-xs font-medium">{data.estimate.annualHoursSaved.toLocaleString()} hrs saved</p>
           <div className="mt-2">
             <ConfidenceBadge level={data.roiConfidence} />
           </div>
         </div>
-        <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
-          <p className="text-[#6b7280] text-xs mb-1">Effort Estimate</p>
-          <p className="text-white font-bold text-lg">{data.estimate.effortSize}</p>
-          <p className="text-[#9ca3af] text-xs">Build cost ~{fmt(data.estimate.buildCostMid)}</p>
-          <p className="text-[#9ca3af] text-xs">ROI: {roiLabel}</p>
+        <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Effort Estimate</p>
+          <p className="text-slate-900 font-bold text-lg">{data.estimate.effortSize}</p>
+          <p className="text-slate-500 text-xs font-medium">Build cost ~{fmt(data.estimate.buildCostMid)}</p>
+          <p className="text-blue-600 text-xs font-bold mt-1">ROI: {roiLabel}</p>
         </div>
       </div>
 
       {/* Priority Score */}
-      <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e] flex items-center justify-between">
+      <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-between">
         <div>
-          <p className="text-[#6b7280] text-xs mb-0.5">Priority Score</p>
-          <p className="text-white font-bold text-2xl">{data.priorityScore}<span className="text-[#6b7280] text-sm font-normal">/100</span></p>
+          <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-0.5">Priority Score</p>
+          <p className="text-slate-900 font-bold text-2xl">{data.priorityScore}<span className="text-slate-400 text-sm font-normal">/100</span></p>
         </div>
         <div className="text-right">
-          <p className="text-[#6b7280] text-xs mb-0.5">Type</p>
-          <p className="text-[#d1d5db] text-xs font-medium">{data.categorization.automationType}</p>
+          <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-0.5">Automation Type</p>
+          <p className="text-slate-800 text-xs font-bold">{data.categorization.automationType}</p>
         </div>
       </div>
 
-      {/* Tags */}
+      {/* Systems Tags */}
       {data.categorization.systemsTouched.length > 0 && (
-        <div className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
-          <p className="text-[#6b7280] text-xs mb-2">Systems Involved</p>
+        <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Systems Involved</p>
           <div className="flex flex-wrap gap-1.5">
             {data.categorization.systemsTouched.map((s) => (
-              <span key={s} className="text-xs bg-[#2a2a4e] text-[#d1d5db] px-2 py-0.5 rounded-md">{s}</span>
+              <span key={s} className="text-xs bg-slate-100 text-slate-700 font-semibold px-2.5 py-1 rounded-lg border border-slate-200">{s}</span>
             ))}
           </div>
         </div>
@@ -297,11 +316,13 @@ function ReviewSummaryCard({ data, requestTitle }: { data: ReviewData; requestTi
 
       {/* Risk Flags */}
       {data.estimate.riskFlags.length > 0 && (
-        <div className="p-3 rounded-xl bg-amber-400/5 border border-amber-400/20">
-          <p className="text-amber-400 text-xs font-medium mb-2">⚠️ Risk Flags</p>
+        <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200">
+          <p className="text-amber-800 text-xs font-bold mb-2 flex items-center gap-1">
+            <AlertTriangle className="h-3.5 w-3.5 text-amber-600" /> Risk Flags
+          </p>
           <ul className="space-y-1">
             {data.estimate.riskFlags.map((r) => (
-              <li key={r} className="text-[#d1d5db] text-xs">• {r}</li>
+              <li key={r} className="text-slate-700 text-xs font-medium">• {r}</li>
             ))}
           </ul>
         </div>
@@ -345,7 +366,7 @@ export default function IntakeChatPage() {
     scrollToBottom();
   }, [messages, isAiTyping, scrollToBottom]);
 
-  // ── Load existing conversation on mount ──
+  // Load existing conversation
   useEffect(() => {
     if (!requestId) return;
 
@@ -365,7 +386,6 @@ export default function IntakeChatPage() {
           status: data.status,
         });
 
-        // Reconstruct messages
         if (data.turns && data.turns.length > 0) {
           const existingMessages: ChatMessage[] = data.turns.map(
             (t: { sender: string; message: string; timestamp: string; stage: number }, i: number) => ({
@@ -377,20 +397,15 @@ export default function IntakeChatPage() {
           );
           setMessages(existingMessages);
 
-          // Determine current stage from last turn
           const lastTurn = data.turns[data.turns.length - 1];
           const lastStage = lastTurn.stage ?? 1;
           setCurrentStage(lastStage);
 
-          // Mark all stages before lastStage as completed (rough heuristic)
-          // A more precise approach would be to track stage_complete events
           const completed = new Set<number>();
           for (let s = 1; s < lastStage; s++) {
             completed.add(s);
           }
           setCompletedStages(completed);
-
-          // Mark opener as already called for this stage
           stageOpenerCalledRef.current.add(lastStage);
         }
       } catch {
@@ -403,7 +418,7 @@ export default function IntakeChatPage() {
     loadConversation();
   }, [requestId]);
 
-  // ── Request stage opener from AI when entering a new stage ──
+  // Request stage opener from AI
   useEffect(() => {
     if (isLoading || !requestInfo) return;
     if (stageOpenerCalledRef.current.has(currentStage)) return;
@@ -434,7 +449,7 @@ export default function IntakeChatPage() {
         };
         setMessages((prev) => [...prev, aiMsg]);
       } catch {
-        // silently handle — user can still type
+        // silently handle
       } finally {
         setIsAiTyping(false);
         inputRef.current?.focus();
@@ -442,10 +457,9 @@ export default function IntakeChatPage() {
     };
 
     requestOpener();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentStage, isLoading, requestInfo]);
 
-  // ── Send user message ──
+  // Send user message
   const handleSend = async () => {
     const trimmed = input.trim();
     if (!trimmed || isAiTyping || stageComplete) return;
@@ -483,12 +497,10 @@ export default function IntakeChatPage() {
 
       const data = await res.json();
 
-      // Merge slot fill update
       if (data.slot_fill_update && Object.keys(data.slot_fill_update).length > 0) {
         setSlotFillState((prev) => ({ ...prev, ...data.slot_fill_update }));
       }
 
-      // Add AI message
       const aiMsg: ChatMessage = {
         id: `ai-${Date.now()}`,
         role: 'ai',
@@ -497,7 +509,6 @@ export default function IntakeChatPage() {
       };
       setMessages((prev) => [...prev, aiMsg]);
 
-      // Stage complete?
       if (data.stage_complete) {
         setStageComplete(true);
       }
@@ -508,11 +519,9 @@ export default function IntakeChatPage() {
     }
   };
 
-  // ── Advance to next stage (or submit on last stage) ──
   const handleNextStage = async () => {
     const isLastStage = currentStage === INTAKE_STAGES.length;
     if (isLastStage) {
-      // Task 2.12 — run the full agent pipeline
       setIsSubmitting(true);
       setError('');
       try {
@@ -527,7 +536,6 @@ export default function IntakeChatPage() {
           setIsSubmitting(false);
           return;
         }
-        // Show review data briefly then redirect
         setReviewData(data as ReviewData);
         setTimeout(() => router.push(`/requests/${requestId}`), 3000);
       } catch {
@@ -542,7 +550,6 @@ export default function IntakeChatPage() {
     setCurrentStage((s) => s + 1);
   };
 
-  // ── Save & exit ──
   const handleSaveAndExit = () => {
     router.push('/my-requests');
   };
@@ -561,7 +568,6 @@ export default function IntakeChatPage() {
     ]);
   };
 
-  // ── Enter key to send (Shift+Enter for newline) ──
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -569,14 +575,12 @@ export default function IntakeChatPage() {
     }
   };
 
-  // ── Render ──
-
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-[#9ca3af] text-sm">Loading your interview…</p>
+        <div className="text-center space-y-3">
+          <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-[#6b7280] text-sm font-medium">Loading intake wizard…</p>
         </div>
       </div>
     );
@@ -584,14 +588,14 @@ export default function IntakeChatPage() {
 
   if (error && !requestInfo) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center">
-        <div className="text-center max-w-sm">
-          <p className="text-red-400 text-sm bg-red-400/10 px-6 py-4 rounded-xl border border-red-400/20">
+      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center p-4">
+        <div className="text-center max-w-sm space-y-4">
+          <p className="text-rose-400 text-sm bg-rose-500/10 px-6 py-4 rounded-2xl border border-rose-500/30 font-medium">
             {error}
           </p>
           <button
             onClick={() => router.push('/my-requests')}
-            className="mt-4 text-[#6366f1] text-sm hover:underline"
+            className="text-[#818cf8] text-xs font-bold hover:underline"
           >
             ← Return to My Requests
           </button>
@@ -607,60 +611,60 @@ export default function IntakeChatPage() {
   const isLastStage = currentStage === INTAKE_STAGES.length;
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] flex flex-col">
-      {/* Submission processing overlay */}
+    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] flex flex-col font-sans">
       {isSubmitting && !reviewData && <SubmittingOverlay />}
-      {/* ── Top Header ── */}
-      <div className="border-b border-[#1e1e3a] bg-[#0f0f1e]/80 backdrop-blur-md px-6 py-3 flex items-center justify-between flex-shrink-0">
+
+      {/* Top Header */}
+      <header className="bg-[#0f0f1e] border-b border-[#1e1e3a] px-4 sm:px-6 py-3.5 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-3 min-w-0">
           <button
             onClick={handleSaveAndExit}
-            className="text-[#6b7280] hover:text-[#e0e0e0] transition-colors text-sm flex-shrink-0"
+            className="p-1.5 rounded-xl hover:bg-[#1a1a2e] text-[#9ca3af] transition-colors cursor-pointer"
           >
-            ← 
+            <ArrowLeft className="h-4 w-4" />
           </button>
           <div className="min-w-0">
-            <h1 className="text-sm font-semibold text-white truncate">
-              {requestInfo?.title ?? 'Intake Interview'}
+            <h1 className="text-sm font-bold text-white truncate">
+              {requestInfo?.title ?? 'Intake Assessment'}
             </h1>
-            <p className="text-xs text-[#6b7280]">
-              {requestInfo?.department} · Draft
+            <p className="text-[11px] font-semibold text-[#6b7280]">
+              {requestInfo?.department} • Draft Proposal
             </p>
           </div>
         </div>
 
         <button
           onClick={handleSaveAndExit}
-          className="flex-shrink-0 text-xs text-[#6b7280] hover:text-[#e0e0e0] transition-colors border border-[#2a2a4e] px-3 py-1.5 rounded-lg hover:border-[#6366f1]/40"
+          className="flex-shrink-0 text-xs font-bold text-[#9ca3af] hover:text-white border border-[#2a2a4e] px-3.5 py-1.5 rounded-xl hover:bg-[#1a1a2e] transition-colors flex items-center gap-1.5 cursor-pointer"
         >
-          💾 Save & Exit
+          <Save className="h-3.5 w-3.5" /> Save & Exit
         </button>
-      </div>
+      </header>
 
-      {/* ── Stage Progress ── */}
+      {/* Stage Stepper Progress */}
       <StageProgressBar currentStage={currentStage} completedStages={completedStages} />
 
-      {/* ── Stage Label ── */}
-      <div className="px-6 pt-4 pb-2 flex-shrink-0">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center gap-2">
-            <span className="text-[#6366f1] text-xs font-semibold uppercase tracking-widest">
+      {/* Stage Label */}
+      <div className="px-4 sm:px-6 pt-4 pb-2 flex-shrink-0">
+        <div className="max-w-2xl mx-auto flex items-center justify-between">
+          <div>
+            <span className="text-[#818cf8] text-xs font-bold uppercase tracking-wider">
               Stage {currentStage} of {INTAKE_STAGES.length}
             </span>
+            <h2 className="text-base font-bold text-white mt-0.5">
+              {currentStageIcon} {currentStageName}
+            </h2>
           </div>
-          <h2 className="text-base font-semibold text-white mt-0.5">
-            {currentStageIcon} {currentStageName}
-          </h2>
         </div>
       </div>
 
-      {/* ── Messages ── */}
-      <div className="flex-1 overflow-y-auto px-6 py-4">
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
         <div className="max-w-2xl mx-auto">
           {messages.length === 0 && !isAiTyping && (
             <div className="text-center py-12 text-[#4b5563]">
               <p className="text-3xl mb-3">💬</p>
-              <p className="text-sm">Starting your interview…</p>
+              <p className="text-xs font-medium">Starting intake session…</p>
             </div>
           )}
 
@@ -670,12 +674,12 @@ export default function IntakeChatPage() {
 
           {isAiTyping && <TypingIndicator />}
 
-          {/* Stage 8 Review Card — shown after submission completes */}
+          {/* Review Summary Card */}
           {reviewData && (
             <div className="mb-4">
-              <div className="mx-4 mb-3 p-3 rounded-xl bg-emerald-400/10 border border-emerald-400/30 text-center">
-                <p className="text-emerald-400 font-semibold text-sm">✅ Request Submitted Successfully!</p>
-                <p className="text-[#9ca3af] text-xs mt-1">Redirecting to your request…</p>
+              <div className="mx-4 mb-3 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center">
+                <p className="text-emerald-300 font-bold text-sm">✅ Request Submitted Successfully!</p>
+                <p className="text-[#9ca3af] text-xs mt-1 font-medium">Redirecting to proposal details…</p>
               </div>
               <ReviewSummaryCard data={reviewData} requestTitle={requestInfo?.title ?? 'Your Request'} />
             </div>
@@ -690,22 +694,16 @@ export default function IntakeChatPage() {
             />
           )}
 
-          {/* Stage 8 Review Card shown inline while still chatting */}
           {isLastStage && !stageComplete && !reviewData && messages.length > 0 && (
-            <div className="mx-4 mb-4 p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e] text-xs text-[#6b7280] text-center">
-              💡 When you are ready, complete this section and click Submit to run the AI analysis.
+            <div className="mx-4 mb-4 p-3.5 rounded-2xl bg-[#1a1a2e] border border-[#2a2a4e] text-xs text-[#6b7280] font-medium text-center">
+              💡 Complete this final question and click Submit to run full AI ROI analysis.
             </div>
           )}
 
           {error && (
-            <div className="mx-0 mb-4 p-3 rounded-xl bg-red-400/10 border border-red-400/20 text-red-400 text-sm text-center">
+            <div className="mb-4 p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold text-center">
               {error}
-              <button
-                className="ml-2 underline"
-                onClick={() => setError('')}
-              >
-                Dismiss
-              </button>
+              <button className="ml-2 underline cursor-pointer" onClick={() => setError('')}>Dismiss</button>
             </div>
           )}
 
@@ -713,63 +711,51 @@ export default function IntakeChatPage() {
         </div>
       </div>
 
-      {/* ── Input Area ── */}
-      <div className="border-t border-[#1e1e3a] bg-[#0f0f1e]/80 backdrop-blur-md px-6 py-4 flex-shrink-0">
+      {/* Input Area */}
+      <div className="border-t border-[#1e1e3a] bg-[#0f0f1e] px-4 sm:px-6 py-4 flex-shrink-0">
         <div className="max-w-2xl mx-auto">
           {stageComplete ? (
             <div className="text-center">
-              <p className="text-[#6b7280] text-sm">
-                Use the button above to continue to the next section.
+              <p className="text-[#6b7280] text-xs font-medium">
+                Click the button above to proceed to the next stage.
               </p>
             </div>
           ) : (
-            <div>
+            <div className="space-y-3">
               <FileUpload
                 requestId={requestId}
                 stage={currentStage}
                 onUploadSuccess={handleUploadSuccess}
               />
               <div className="flex gap-3 items-end">
-              <textarea
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                disabled={isAiTyping}
-                placeholder={
-                  isAiTyping
-                    ? 'AI is thinking…'
-                    : 'Type your answer here… (Enter to send, Shift+Enter for new line)'
-                }
-                rows={1}
-                className="
-                  flex-1 bg-[#1a1a2e] border border-[#2a2a4e] rounded-xl px-4 py-3
-                  text-[#e0e0e0] placeholder-[#4b5563] text-sm resize-none
-                  focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-transparent
-                  disabled:opacity-50 transition-all
-                  max-h-32 overflow-y-auto
-                "
-                style={{ minHeight: '48px' }}
-              />
-              <button
-                onClick={handleSend}
-                disabled={!input.trim() || isAiTyping}
-                className="
-                  flex-shrink-0 w-11 h-11 rounded-xl
-                  bg-gradient-to-br from-[#6366f1] to-[#8b5cf6]
-                  hover:from-[#5558e0] hover:to-[#7c4fdb]
-                  disabled:opacity-40 disabled:cursor-not-allowed
-                  flex items-center justify-center text-white
-                  transition-all duration-200
-                "
-              >
-                ↑
-              </button>
+                <textarea
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  disabled={isAiTyping}
+                  placeholder={
+                    isAiTyping
+                      ? 'CogniFlow AI is processing…'
+                      : 'Type your answer… (Enter to send, Shift+Enter for new line)'
+                  }
+                  rows={1}
+                  className="flex-1 bg-[#1a1a2e] border border-[#2a2a4e] rounded-2xl px-4 py-3 text-[#e0e0e0] placeholder-[#4b5563] text-xs sm:text-sm font-medium resize-none focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] disabled:opacity-50 transition-all max-h-32 overflow-y-auto"
+                  style={{ minHeight: '46px' }}
+                />
+                <button
+                  onClick={handleSend}
+                  disabled={!input.trim() || isAiTyping}
+                  className="flex-shrink-0 w-11 h-11 rounded-2xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-white transition-all shadow-md shadow-[#6366f1]/20 cursor-pointer"
+                >
+                  <Send className="h-4 w-4" />
+                </button>
+              </div>
             </div>
-          </div>
           )}
         </div>
       </div>
     </div>
   );
 }
+

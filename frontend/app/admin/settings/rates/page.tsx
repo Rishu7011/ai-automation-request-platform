@@ -3,32 +3,25 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { DEPARTMENTS } from '@/constants';
+import { Save, CheckCircle2 } from 'lucide-react';
 
 const DEFAULT_RATES: Record<string, number> = {
-  Recruitment: 45,
-  HR: 45,
-  Finance: 55,
-  Compliance: 65,
-  IT: 60,
-  Operations: 50,
-  Engineering: 75,
-  Legal: 85,
-  Sales: 50,
-  Marketing: 45,
+  Recruitment: 45, HR: 45, Finance: 55, Compliance: 65,
+  IT: 60, Operations: 50, Engineering: 75, Legal: 85,
+  Sales: 50, Marketing: 45,
 };
 
 const DEPARTMENT_ICONS: Record<string, string> = {
-  Recruitment: '🤝',
-  HR: '🧑‍💼',
-  Finance: '💵',
-  Compliance: '⚖️',
-  IT: '💻',
-  Operations: '⚙️',
-  Engineering: '🔧',
-  Legal: '📜',
-  Sales: '📈',
-  Marketing: '🎯',
+  Recruitment: '🤝', HR: '🧑‍💼', Finance: '💵', Compliance: '⚖️',
+  IT: '💻', Operations: '⚙️', Engineering: '🔧', Legal: '📜',
+  Sales: '📈', Marketing: '🎯',
 };
+
+const SETTINGS_TABS = [
+  { href: '/admin/settings/priority-weights', label: '⚖️ Priority Weights', active: false },
+  { href: '/admin/settings/effort-ranges',    label: '⏱️ Effort Ranges',    active: false },
+  { href: '/admin/settings/rates',            label: '💵 Blended Rates',    active: true  },
+];
 
 export default function AdminBlendedRatesPage() {
   const [rates, setRates] = useState<Record<string, number>>(DEFAULT_RATES);
@@ -43,190 +36,133 @@ export default function AdminBlendedRatesPage() {
         const res = await fetch('/api/admin/settings/system?key=blendedRates');
         if (res.ok) {
           const data = await res.json();
-          if (data.setting?.value) {
-            setRates(data.setting.value as Record<string, number>);
-          }
+          if (data.setting?.value) setRates(data.setting.value as Record<string, number>);
         }
-      } catch {
-        setError('Failed to load blended rates configuration.');
-      } finally {
-        setIsLoading(false);
-      }
+      } catch { setError('Failed to load blended rates configuration.'); }
+      finally { setIsLoading(false); }
     }
     loadRates();
   }, []);
 
   const handleChange = (dept: string, val: number) => {
-    setRates((prev) => ({
-      ...prev,
-      [dept]: Math.max(0, val),
-    }));
-    setMessage('');
-    setError('');
+    setRates((prev) => ({ ...prev, [dept]: Math.max(0, val) }));
+    setMessage(''); setError('');
   };
 
   const handleSave = async () => {
-    setIsSaving(true);
-    setMessage('');
-    setError('');
-
+    setIsSaving(true); setMessage(''); setError('');
     try {
       const res = await fetch('/api/admin/settings/system', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ key: 'blendedRates', value: rates }),
       });
-
       const data = await res.json();
-      if (!res.ok) {
-        setError(data.error || 'Failed to save configuration.');
-      } else {
-        setMessage('✅ Department blended rates updated successfully!');
-      }
-    } catch {
-      setError('An error occurred while saving.');
-    } finally {
-      setIsSaving(false);
-    }
+      if (!res.ok) setError(data.error || 'Failed to save configuration.');
+      else setMessage('Department blended rates updated successfully!');
+    } catch { setError('An error occurred while saving.'); }
+    finally { setIsSaving(false); }
   };
 
+  const rateValues = Object.values(rates);
+  const avgRate = rateValues.length > 0
+    ? (rateValues.reduce((a, b) => a + b, 0) / rateValues.length).toFixed(2)
+    : '55.00';
+
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0]">
-      {/* Top Bar */}
-      <div className="border-b border-[#1e1e3a] bg-[#0f0f1e]/80 backdrop-blur-md px-6 py-4 sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold text-white tracking-tight">💵 Blended Hourly Rates Config</h1>
-          </div>
+    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
-          <div className="flex items-center gap-2 overflow-x-auto">
-            <Link
-              href="/admin/users"
-              className="text-xs text-[#9ca3af] hover:text-white px-3 py-1.5 rounded-lg border border-[#2a2a4e] transition-colors"
-            >
-              👥 Users
-            </Link>
-            <Link
-              href="/admin/requests"
-              className="text-xs text-[#9ca3af] hover:text-white px-3 py-1.5 rounded-lg border border-[#2a2a4e] transition-colors"
-            >
-              📊 Pipeline
-            </Link>
-            <Link
-              href="/admin/settings/priority-weights"
-              className="text-xs text-[#9ca3af] hover:text-white px-3 py-1.5 rounded-lg border border-[#2a2a4e] transition-colors"
-            >
-              ⚖️ Weights
-            </Link>
-            <Link
-              href="/admin/settings/effort-ranges"
-              className="text-xs text-[#9ca3af] hover:text-white px-3 py-1.5 rounded-lg border border-[#2a2a4e] transition-colors"
-            >
-              ⏱️ Effort
-            </Link>
-            <Link
-              href="/admin/settings/rates"
-              className="text-xs text-white bg-[#6366f1] px-3 py-1.5 rounded-lg font-semibold transition-colors"
-            >
-              💵 Rates
-            </Link>
-            <Link
-              href="/admin/audit-log"
-              className="text-xs text-[#9ca3af] hover:text-white px-3 py-1.5 rounded-lg border border-[#2a2a4e] transition-colors"
-            >
-              📜 Audit Log
-            </Link>
+        {/* Page header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-extrabold text-white tracking-tight">Departmental Loaded Hourly Rates</h1>
+            <p className="text-sm text-[#9ca3af] mt-1">
+              Configure fully-loaded labor rates ($/hr) per department for ROI dollar calculations.
+            </p>
           </div>
+          <span className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6366f1]/15 text-[#818cf8] border border-[#6366f1]/25 w-fit">
+            Avg: ${avgRate} / hr
+          </span>
         </div>
-      </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        {/* Header */}
-        <div className="mb-8 p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a]">
-          <h2 className="text-base font-semibold text-white mb-1">Departmental Blended Hourly Rates ($/hr)</h2>
-          <p className="text-xs text-[#9ca3af]">
-            Configure the baseline blended hourly labor cost for each department.
-            These figures are used in ROI calculations to convert hours saved into annual dollar savings ($).
-          </p>
+        {/* Settings sub-navigation */}
+        <div className="flex items-center gap-2 border-b border-[#1e1e3a] pb-3">
+          {SETTINGS_TABS.map((tab) => (
+            <Link
+              key={tab.href}
+              href={tab.href}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                tab.active
+                  ? 'bg-[#6366f1] text-white shadow-sm'
+                  : 'text-[#9ca3af] hover:text-white hover:bg-[#1a1a2e] border border-[#2a2a4e]'
+              }`}
+            >
+              {tab.label}
+            </Link>
+          ))}
         </div>
 
         {isLoading ? (
-          <div className="py-20 text-center">
-            <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-[#9ca3af] text-sm">Loading rate configurations…</p>
+          <div className="py-20 text-center space-y-3">
+            <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-[#6b7280] text-sm font-medium">Loading rate configurations…</p>
           </div>
         ) : (
           <div className="space-y-6">
             {error && (
-              <div className="p-4 rounded-xl bg-red-400/10 border border-red-400/20 text-red-400 text-sm text-center">
-                {error}
-              </div>
+              <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-bold text-center">{error}</div>
             )}
             {message && (
-              <div className="p-4 rounded-xl bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm text-center">
-                {message}
+              <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm font-bold text-center flex items-center justify-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400" /> {message}
               </div>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {DEPARTMENTS.map((dept) => {
                 const icon = DEPARTMENT_ICONS[dept] || '💼';
                 const rateVal = rates[dept] ?? DEFAULT_RATES[dept] ?? 50;
-
                 return (
-                  <div
-                    key={dept}
-                    className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center justify-between gap-4"
-                  >
+                  <div key={dept} className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{icon}</span>
                       <div>
                         <p className="text-sm font-bold text-white">{dept}</p>
-                        <p className="text-[11px] text-[#6b7280]">Blended labor cost</p>
+                        <p className="text-[11px] text-[#4b5563] font-semibold">Loaded labor rate</p>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-[#9ca3af] font-mono">$</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs text-[#6b7280] font-bold">$</span>
                       <input
                         type="number"
                         value={rateVal}
                         onChange={(e) => handleChange(dept, parseInt(e.target.value, 10) || 0)}
-                        className="w-24 bg-[#1a1a2e] border border-[#2a2a4e] rounded-xl px-3 py-2 text-xs font-mono font-bold text-white text-right focus:outline-none focus:ring-2 focus:ring-[#6366f1]"
+                        className="w-20 bg-[#0a0a12] border border-[#2a2a4e] rounded-xl px-3 py-2 text-xs font-mono font-bold text-white text-right focus:outline-none focus:ring-2 focus:ring-[#6366f1]"
                       />
-                      <span className="text-xs text-[#6b7280] font-mono">/hr</span>
+                      <span className="text-xs text-[#6b7280] font-bold">/hr</span>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            <div className="flex justify-end pt-4">
+            <div className="flex justify-end">
               <button
                 onClick={handleSave}
                 disabled={isSaving}
-                className="
-                  px-8 py-3 rounded-xl font-bold text-sm text-white
-                  bg-gradient-to-r from-[#6366f1] to-[#8b5cf6]
-                  hover:from-[#5558e0] hover:to-[#7c4fdb]
-                  disabled:opacity-40 disabled:cursor-not-allowed
-                  shadow-lg shadow-[#6366f1]/30 transition-all duration-200
-                  flex items-center gap-2
-                "
+                className="px-8 py-3 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[#6366f1]/20 transition-all cursor-pointer flex items-center gap-2"
               >
                 {isSaving ? (
-                  <>
-                    <span className="animate-spin inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
-                    Saving Rates…
-                  </>
+                  <><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" /><span>Saving…</span></>
                 ) : (
-                  <>💾 Save Rates Configuration</>
+                  <><Save className="h-4 w-4" /><span>Save Blended Rates</span></>
                 )}
               </button>
             </div>
           </div>
         )}
-      </div>
+      </main>
     </div>
   );
 }
