@@ -60,18 +60,18 @@
     "semantic_hash": ""
   },
   "frontend/app/layout.tsx": {
-    "mtime": 1785010008.1738968,
-    "ast_hash": "93cbbe46074bb92b9372636d97e6a27d",
+    "mtime": 1785058885.1377044,
+    "ast_hash": "57dccacc05e8ec349710c1b731e7205a",
     "semantic_hash": ""
   },
   "frontend/app/login/page.tsx": {
-    "mtime": 1785002995.0261312,
-    "ast_hash": "737c2473c6697d335e774ca6ee690cb0",
+    "mtime": 1785049426.644463,
+    "ast_hash": "b30aaa282ad88e6b59aeeb640c700073",
     "semantic_hash": ""
   },
   "frontend/app/my-requests/page.tsx": {
-    "mtime": 1785003162.6359267,
-    "ast_hash": "0631c225b4210e82ed34e927689644b6",
+    "mtime": 1785051339.4181411,
+    "ast_hash": "a9ebf74a484ed64c3e4632890fcd7e44",
     "semantic_hash": ""
   },
   "frontend/app/page.tsx": {
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "frontend/app/register/page.tsx": {
-    "mtime": 1785003087.2193754,
-    "ast_hash": "4aee099c3819f8b7d9419e55c5a0ed46",
+    "mtime": 1785050079.5980127,
+    "ast_hash": "5ef9c6980f10e62aa92fd609ec4d4300",
     "semantic_hash": ""
   },
   "frontend/app/requests/[id]/page.tsx": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "frontend/package.json": {
-    "mtime": 1784992092.5755625,
-    "ast_hash": "89c29e221f6ee98bf219f4850cfdf238",
+    "mtime": 1785010434.8658152,
+    "ast_hash": "23bd1e908f33b08b36842cf1d774bf75",
     "semantic_hash": ""
   },
   "frontend/proxy.ts": {
@@ -425,13 +425,8 @@
     "semantic_hash": ""
   },
   "frontend/components/NotificationBell.tsx": {
-    "mtime": 1784965215.539009,
-    "ast_hash": "910093e8e4e4b5209a7adc823952cdf4",
-    "semantic_hash": ""
-  },
-  "frontend/components/Sidebar.tsx": {
-    "mtime": 1785010008.0932927,
-    "ast_hash": "a226953214d3741340073324c005e07f",
+    "mtime": 1785062348.789033,
+    "ast_hash": "160a42619a2b75a904d5176592680f00",
     "semantic_hash": ""
   },
   "frontend/lib/analytics.ts": {
@@ -442,6 +437,86 @@
   "frontend/lib/notifications.ts": {
     "mtime": 1784964831.2164958,
     "ast_hash": "c0d94af443933d34c93f444ef78081a9",
+    "semantic_hash": ""
+  },
+  "frontend/app/dashboard/page.tsx": {
+    "mtime": 1785059278.526428,
+    "ast_hash": "1c5a070cbdc16660ce7cf3b6f7e72d28",
+    "semantic_hash": ""
+  },
+  "frontend/components/app-sidebar.tsx": {
+    "mtime": 1785063096.0723891,
+    "ast_hash": "a689ff24ec1fbee514c391cd5b7ac680",
+    "semantic_hash": ""
+  },
+  "frontend/components/components2/input.tsx": {
+    "mtime": 1785049426.5199673,
+    "ast_hash": "9cebede70fdb3e0a6be764e9bd09e628",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/avatar.tsx": {
+    "mtime": 1785059278.434035,
+    "ast_hash": "8b41492907a73176027427a3f0fd2302",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/breadcrumb.tsx": {
+    "mtime": 1785059278.3639596,
+    "ast_hash": "930d294d904c67a97eadeb26f5ac6cb1",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/button.tsx": {
+    "mtime": 1785010435.3753588,
+    "ast_hash": "e04ce5251d6b0dd04020988126c905e9",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/collapsible.tsx": {
+    "mtime": 1785057865.6936672,
+    "ast_hash": "bc00817a4471ae1d76774aa4c50a7c31",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/dropdown-menu.tsx": {
+    "mtime": 1785059278.414968,
+    "ast_hash": "e6107cbb2088437e76a858f75b5a0280",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/input.tsx": {
+    "mtime": 1785052982.8828695,
+    "ast_hash": "0607b02d99a2e92f9509223f36ccc6ec",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/separator.tsx": {
+    "mtime": 1785052982.9006593,
+    "ast_hash": "3de2dca3e47ab29c4b1f632671545628",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/sheet.tsx": {
+    "mtime": 1785052983.0020063,
+    "ast_hash": "43ad8bec991f7a28d2aa22d4f374e6b7",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/sidebar.tsx": {
+    "mtime": 1785061343.9198623,
+    "ast_hash": "2412cc70722d4639f770011befb016a0",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/skeleton.tsx": {
+    "mtime": 1785052982.9203506,
+    "ast_hash": "0e6e825c43d858d98c9903f4da975382",
+    "semantic_hash": ""
+  },
+  "frontend/components/ui/tooltip.tsx": {
+    "mtime": 1785052982.9437304,
+    "ast_hash": "6566a444ce6c0a87d6611903430534fa",
+    "semantic_hash": ""
+  },
+  "frontend/hooks/use-mobile.ts": {
+    "mtime": 1785052982.9638243,
+    "ast_hash": "209b5193af16624cdd89d3591480dd48",
+    "semantic_hash": ""
+  },
+  "frontend/lib/utils.ts": {
+    "mtime": 1785010435.421487,
+    "ast_hash": "5a6fd53fdcf2be529e9cc0b718fde352",
     "semantic_hash": ""
   }
 }

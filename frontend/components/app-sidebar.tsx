@@ -67,7 +67,7 @@ function NavigationItem({ item }: { item: NavItem }) {
         isActive={isActive(pathname, item.href, item.exact)}
         tooltip={item.label}
         onClick={() => isMobile && setOpenMobile(false)}
-        className="h-10 rounded-lg text-[#5f6470] hover:bg-[#f1f5f9] hover:text-[#191c1e] data-active:bg-[#dbeafe] data-active:text-[#004ac6]"
+        className="h-11 gap-3 rounded-lg text-base text-[#5f6470] [&_svg]:size-5 hover:bg-[#f1f5f9] hover:text-[#191c1e] data-active:bg-[#dbeafe] data-active:text-[#004ac6]"
       >
         {item.icon}
         <span>{item.label}</span>
@@ -114,18 +114,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <div className="flex justify-between">
-          {
-            state === 'expanded'
+          {state === 'expanded'
             &&
-            <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-10 w-10 shrink-0 rounded-lg object-cover" priority />
-
+            <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-15 w-15 shrink-0 rounded-lg object-cover" priority />
           }
 
           <SidebarTrigger className='h-10 w-10' />
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="font-medium">
         <NavigationGroup items={employeeItems} />
         {isAnyAdmin && <NavigationGroup label="Engineering Admin" items={engineeringItems} />}
         {isSysAdmin && <NavigationGroup label="System Admin" items={systemItems} />}
@@ -150,27 +148,27 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
 
 
-      <SidebarFooter className="border-t border-[#dfe3e8] p-3">
+      <SidebarFooter className="border-t border-[#dfe3e8] p-3 font-medium">
         <div className="flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
           <NotificationBell />
-          <span className="text-xs font-medium text-[#5f6470] group-data-[collapsible=icon]:hidden">Notifications</span>
+          <span className="text-sm font-medium text-[#5f6470] group-data-[collapsible=icon]:hidden">Notifications</span>
         </div>
-        <div className="flex items-center gap-2 rounded-lg border border-[#dfe3e8] bg-white p-2 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:border-0 group-data-[collapsible=icon]:p-0">
-          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-xs font-semibold text-[#004ac6]">
+        <div className="flex items-center gap-2.5 rounded-lg border border-[#dfe3e8] bg-white p-2.5 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:border-0 group-data-[collapsible=icon]:p-0">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-sm font-semibold text-[#004ac6]">
             {userName.charAt(0).toUpperCase()}
           </div>
           <div className="min-w-0 flex-1 group-data-[collapsible=icon]:hidden">
-            <p className="truncate text-[11px] font-semibold text-[#191c1e]">{userName}</p>
-            <p className="truncate text-[10px] text-[#5f6470]">{roleLabel}</p>
+            <p className="truncate text-sm font-semibold text-[#191c1e]">{userName}</p>
+            <p className="truncate text-xs text-[#5f6470]">{roleLabel}</p>
           </div>
           <button
             type="button"
             onClick={() => signOut({ callbackUrl: '/login' })}
-            className="rounded-md p-1 text-[#737686] hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004ac6] group-data-[collapsible=icon]:hidden"
+            className="rounded-md p-1.5 text-[#737686] hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004ac6] group-data-[collapsible=icon]:hidden"
             aria-label="Sign out"
             title="Sign out"
           >
-            <LogOut className="h-3.5 w-3.5" />
+            <LogOut className="h-[18px] w-[18px]" />
           </button>
         </div>
       </SidebarFooter>

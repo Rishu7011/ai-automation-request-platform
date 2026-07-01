@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-26)
 
 ## Corpus Check
-- 89 files · ~43,487 words
+- 104 files · ~45,813 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 364 nodes · 412 edges · 39 communities (30 shown, 9 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
+- 464 nodes · 643 edges · 43 communities (35 shown, 8 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0d42515a`
+- Built from commit: `4116c1e3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,39 +47,42 @@
 - page.tsx
 - page.tsx
 - FileUpload.tsx
+- sidebar.tsx
+- page.tsx
+- SidebarProvider
 
 ## God Nodes (most connected - your core abstractions)
-1. `callLlm()` - 15 edges
-2. `parseJsonSafe()` - 14 edges
-3. `scripts` - 6 edges
-4. `runDocumentAnalysisAgent()` - 5 edges
-5. `writeAuditLog()` - 5 edges
-6. `SidebarContent()` - 4 edges
-7. `chunkText()` - 4 edges
-8. `selectRelevantChunks()` - 4 edges
-9. `runIntakeAgent()` - 4 edges
-10. `generateStageOpener()` - 4 edges
+1. `cn()` - 69 edges
+2. `callLlm()` - 15 edges
+3. `parseJsonSafe()` - 14 edges
+4. `useSidebar()` - 9 edges
+5. `SidebarProvider()` - 6 edges
+6. `SidebarTrigger()` - 6 edges
+7. `scripts` - 6 edges
+8. `react` - 6 edges
+9. `Button()` - 5 edges
+10. `SidebarMenuButton()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `POST()` --calls--> `writeAuditLog()`  [EXTRACTED]
-  frontend/app/api/admin/settings/priority-weights/route.ts → frontend/lib/audit.ts
-- `POST()` --calls--> `writeAuditLog()`  [EXTRACTED]
-  frontend/app/api/admin/settings/system/route.ts → frontend/lib/audit.ts
-- `POST()` --calls--> `runDuplicateDetectionAgent()`  [EXTRACTED]
-  frontend/app/api/intake/submit/route.ts → frontend/lib/agents/duplicate-detection-agent.ts
-- `POST()` --calls--> `runDocumentAnalysisAgent()`  [EXTRACTED]
-  frontend/app/api/intake/upload/route.ts → frontend/lib/agents/document-analysis-agent.ts
-- `runDocumentAnalysisAgent()` --calls--> `chunkText()`  [EXTRACTED]
-  frontend/lib/agents/document-analysis-agent.ts → frontend/lib/rag/document-chunker.ts
+- `RootLayout()` --calls--> `cn()`  [EXTRACTED]
+  frontend/app/layout.tsx → frontend/lib/utils.ts
+- `BreadcrumbEllipsis()` --calls--> `cn()`  [EXTRACTED]
+  frontend/components/ui/breadcrumb.tsx → frontend/lib/utils.ts
+- `AppSidebar()` --calls--> `useSidebar()`  [EXTRACTED]
+  frontend/components/app-sidebar.tsx → frontend/components/ui/sidebar.tsx
+- `Avatar()` --calls--> `cn()`  [EXTRACTED]
+  frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
+- `AvatarImage()` --calls--> `cn()`  [EXTRACTED]
+  frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (39 total, 9 thin omitted)
+## Communities (43 total, 8 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.05
-Nodes (37): @anthropic-ai/sdk, @auth/mongodb-adapter, bcryptjs, clsx, dependencies, @anthropic-ai/sdk, @auth/mongodb-adapter, bcryptjs (+29 more)
+Nodes (43): @anthropic-ai/sdk, @auth/mongodb-adapter, @base-ui/react, bcryptjs, class-variance-authority, clsx, dependencies, @anthropic-ai/sdk (+35 more)
 
 ### Community 1 - "devDependencies"
 Cohesion: 0.09
@@ -114,12 +117,12 @@ Cohesion: 0.40
 Nodes (3): DEPARTMENT_ICONS, RequestItem, STATUS_BADGES
 
 ### Community 12 - "route.ts"
-Cohesion: 0.29
-Nodes (4): { auth }, ADMIN_ONLY_PATHS, config, PUBLIC_PATHS
+Cohesion: 0.09
+Nodes (26): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage(), DropdownMenuCheckboxItem(), DropdownMenuContent() (+18 more)
 
 ### Community 13 - "proxy.ts"
-Cohesion: 0.13
-Nodes (14): metadata, avatarColor(), EMPLOYEE_SECTION, ENG_ADMIN_SECTION, isActive(), MobileTopBarSpacer(), NavItem, NavLink() (+6 more)
+Cohesion: 0.22
+Nodes (8): geist, metadata, RootLayout(), AppSidebar(), Tooltip(), TooltipContent(), TooltipProvider(), TooltipTrigger()
 
 ### Community 14 - "route.ts"
 Cohesion: 0.14
@@ -138,8 +141,8 @@ Cohesion: 0.17
 Nodes (7): DEPARTMENT_ICONS, LEDGER_STATUSES, LedgerRequest, Pagination, STATUS_COLORS, TIER_COLORS, TIER_DOTS
 
 ### Community 18 - "route.ts"
-Cohesion: 0.13
-Nodes (10): GET(), PATCH(), requireAdmin(), GET(), PATCH(), requireAdmin(), canViewRequest(), GET() (+2 more)
+Cohesion: 0.09
+Nodes (14): GET(), PATCH(), requireAdmin(), GET(), PATCH(), requireAdmin(), canViewRequest(), GET() (+6 more)
 
 ### Community 19 - "writeAuditLog"
 Cohesion: 0.33
@@ -169,25 +172,41 @@ Nodes (16): GET(), PATCH(), requireAdmin(), POST(), CandidateResult, DuplicateDe
 Cohesion: 0.16
 Nodes (12): ALLOWED_MIME_TYPES, POST(), DocumentAnalysisInput, DocumentAnalysisResult, runDocumentAnalysisAgent(), STAGE_QUERIES, ChunkingOptions, chunkText() (+4 more)
 
+### Community 35 - "page.tsx"
+Cohesion: 0.10
+Nodes (21): employeeItems, engineeringItems, isActive(), NavigationItem(), NavItem, systemItems, NotificationItem, Sidebar() (+13 more)
+
+### Community 39 - "sidebar.tsx"
+Cohesion: 0.18
+Nodes (11): Button(), buttonVariants, Input(), Sheet(), SheetContent(), SheetDescription(), SheetHeader(), SheetTitle() (+3 more)
+
+### Community 40 - "page.tsx"
+Cohesion: 0.24
+Nodes (9): Breadcrumb(), BreadcrumbEllipsis(), BreadcrumbItem(), BreadcrumbLink(), BreadcrumbList(), BreadcrumbPage(), BreadcrumbSeparator(), Separator() (+1 more)
+
+### Community 41 - "SidebarProvider"
+Cohesion: 0.40
+Nodes (5): SidebarMenuSkeleton(), SidebarProvider(), useIsMobile(), react, react
+
 ## Knowledge Gaps
-- **145 isolated node(s):** `AuditLogEntry`, `Engineer`, `Comment`, `PriorityInputs`, `Estimate` (+140 more)
+- **150 isolated node(s):** `geist`, `metadata`, `RequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS` (+145 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **What connects `AuditLogEntry`, `Engineer`, `Comment` to the rest of the system?**
-  _145 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `dependencies` connect `dependencies` to `SidebarProvider`, `package.json`?**
+  _High betweenness centrality (0.102) - this node is a cross-community bridge._
+- **Why does `react` connect `SidebarProvider` to `dependencies`, `page.tsx`?**
+  _High betweenness centrality (0.081) - this node is a cross-community bridge._
+- **Why does `cn()` connect `route.ts` to `page.tsx`, `sidebar.tsx`, `page.tsx`, `SidebarProvider`, `proxy.ts`?**
+  _High betweenness centrality (0.061) - this node is a cross-community bridge._
+- **What connects `geist`, `metadata`, `RequestItem` to the rest of the system?**
+  _150 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
 - **Should `intake-agent.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.1422924901185771 - nodes in this community are weakly interconnected._
-- **Should `proxy.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.13450292397660818 - nodes in this community are weakly interconnected._

@@ -54,7 +54,10 @@ export const config = {
      *   - Next.js internal routes (_next/static, _next/image)
      *   - API routes (/api) — protected individually by session checks in each handler
      *   - Static files (favicon.ico, robots.txt, etc.)
+     *   - Files served from /public (images, fonts, etc.) — these are served at the
+     *     site root (e.g. public/logo.png -> /logo.png), so they're excluded here by
+     *     matching any path that ends in a common static file extension.
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|public).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|.*\\.(?:png|jpg|jpeg|gif|svg|webp|avif|ico|css|js|map|woff|woff2|ttf|eot)$).*)',
   ],
 };
