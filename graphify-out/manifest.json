@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "frontend/proxy.ts": {
-    "mtime": 1784961313.4125965,
-    "ast_hash": "d981dc54e68d7456c2834900d33ea87b",
+    "mtime": 1785063741.9196467,
+    "ast_hash": "d4fb5b9905055f345342d503319fa690",
     "semantic_hash": ""
   },
   "frontend/scripts/seed.ts": {
@@ -329,11 +329,6 @@
     "ast_hash": "8f72b834c2bd07361c569be5c8ab64e2",
     "semantic_hash": ""
   },
-  "frontend/components/Navbar.tsx": {
-    "mtime": 1785003863.3346508,
-    "ast_hash": "0b9f8f82cffbe8dc453c1464095bfa2f",
-    "semantic_hash": ""
-  },
   "frontend/lib/agents/langgraph-intake-agent.ts": {
     "mtime": 1784920719.440545,
     "ast_hash": "e0ed28bf6e2fc03db6f17a8a5be0407e",
@@ -445,8 +440,8 @@
     "semantic_hash": ""
   },
   "frontend/components/app-sidebar.tsx": {
-    "mtime": 1785063096.0723891,
-    "ast_hash": "a689ff24ec1fbee514c391cd5b7ac680",
+    "mtime": 1785065769.3356433,
+    "ast_hash": "d00417265ed4e29ba52d692402107357",
     "semantic_hash": ""
   },
   "frontend/components/components2/input.tsx": {
@@ -495,8 +490,8 @@
     "semantic_hash": ""
   },
   "frontend/components/ui/sidebar.tsx": {
-    "mtime": 1785061343.9198623,
-    "ast_hash": "2412cc70722d4639f770011befb016a0",
+    "mtime": 1785065260.706803,
+    "ast_hash": "0382c5a17ae57e03d936b5307e793d6c",
     "semantic_hash": ""
   },
   "frontend/components/ui/skeleton.tsx": {

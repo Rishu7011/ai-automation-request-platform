@@ -2,27 +2,16 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Link from 'next/link';
 import { INTAKE_STAGES } from '@/constants';
 import FileUpload from '@/components/FileUpload';
 import {
-  Sparkles,
   Send,
   CheckCircle2,
-  Clock,
-  ArrowRight,
-  ChevronRight,
   Bot,
   User,
-  Paperclip,
-  FileText,
   Save,
   ArrowLeft,
   AlertTriangle,
-  Loader2,
-  TrendingUp,
-  Award,
-  Zap
 } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -72,7 +61,7 @@ function StageProgressBar({
   completedStages: Set<number>;
 }) {
   return (
-    <div className="flex items-center gap-1.5 px-6 py-3.5 bg-white border-b border-slate-200 overflow-x-auto scrollbar-hide">
+    <div className="flex items-center gap-1.5 px-6 py-3.5 bg-white border-b border-slate-200 overflow-x-auto scrollbar-none">
       {INTAKE_STAGES.map((stage, idx) => {
         const isCompleted = completedStages.has(stage.id);
         const isCurrent = stage.id === currentStage;
@@ -338,6 +327,7 @@ export default function IntakeChatPage() {
   const router = useRouter();
   const requestId = params?.id as string;
 
+
   const [requestInfo, setRequestInfo] = useState<RequestInfo | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [currentStage, setCurrentStage] = useState(1);
@@ -554,19 +544,7 @@ export default function IntakeChatPage() {
     router.push('/my-requests');
   };
 
-  const handleUploadSuccess = (_attachment: unknown, analysis?: unknown) => {
-    const analysisObj = analysis as { suggestedMessage?: string } | undefined;
-    const aiText = analysisObj?.suggestedMessage || 'Document uploaded and analyzed successfully.';
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: `ai-${Date.now()}`,
-        role: 'ai',
-        content: aiText,
-        timestamp: new Date(),
-      },
-    ]);
-  };
+
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -615,7 +593,7 @@ export default function IntakeChatPage() {
       {isSubmitting && !reviewData && <SubmittingOverlay />}
 
       {/* Top Header */}
-      <header className="bg-[#0f0f1e] border-b border-[#1e1e3a] px-4 sm:px-6 py-3.5 flex items-center justify-between flex-shrink-0">
+      <header className="bg-[#0f0f1e] border-b border-[#1e1e3a] px-4 sm:px-6 py-3.5 flex items-center justify-between flex-shrink-0 overflow-hidden">
         <div className="flex items-center gap-3 min-w-0">
           <button
             onClick={handleSaveAndExit}
@@ -721,36 +699,32 @@ export default function IntakeChatPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-3">
-              <FileUpload
-                requestId={requestId}
-                stage={currentStage}
-                onUploadSuccess={handleUploadSuccess}
+            <div className="flex gap-3 items-end">
+              {/* + button (and chips stacked above it, inside FileUpload) */}
+              <FileUpload disabled={isAiTyping} />
+
+              <textarea
+                ref={inputRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                disabled={isAiTyping}
+                placeholder={
+                  isAiTyping
+                    ? 'CogniFlow AI is processing…'
+                    : 'Type your answer… (Enter to send, Shift+Enter for new line)'
+                }
+                rows={1}
+                className="flex-1 bg-[#1a1a2e] border border-[#2a2a4e] rounded-2xl px-4 py-3 text-[#e0e0e0] placeholder-[#4b5563] text-xs sm:text-sm font-medium resize-none focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] disabled:opacity-50 transition-all max-h-32 overflow-y-auto"
+                style={{ minHeight: '46px' }}
               />
-              <div className="flex gap-3 items-end">
-                <textarea
-                  ref={inputRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  disabled={isAiTyping}
-                  placeholder={
-                    isAiTyping
-                      ? 'CogniFlow AI is processing…'
-                      : 'Type your answer… (Enter to send, Shift+Enter for new line)'
-                  }
-                  rows={1}
-                  className="flex-1 bg-[#1a1a2e] border border-[#2a2a4e] rounded-2xl px-4 py-3 text-[#e0e0e0] placeholder-[#4b5563] text-xs sm:text-sm font-medium resize-none focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] disabled:opacity-50 transition-all max-h-32 overflow-y-auto"
-                  style={{ minHeight: '46px' }}
-                />
-                <button
-                  onClick={handleSend}
-                  disabled={!input.trim() || isAiTyping}
-                  className="flex-shrink-0 w-11 h-11 rounded-2xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-white transition-all shadow-md shadow-[#6366f1]/20 cursor-pointer"
-                >
-                  <Send className="h-4 w-4" />
-                </button>
-              </div>
+              <button
+                onClick={handleSend}
+                disabled={!input.trim() || isAiTyping}
+                className="flex-shrink-0 w-11 h-11 rounded-2xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-white transition-all shadow-md shadow-[#6366f1]/20 cursor-pointer"
+              >
+                <Send className="h-4 w-4" />
+              </button>
             </div>
           )}
         </div>

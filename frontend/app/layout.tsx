@@ -4,10 +4,11 @@ import { Providers } from "./providers";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { MobileHeader } from "@/components/mobile-header";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: "AI Automation Platform — Enterprise Intake & Prioritization",
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn("h-full antialiased", "font-sans", geist.variable)}
     >
       <body className="enterprise-theme h-full bg-background text-foreground">
@@ -30,6 +32,7 @@ export default function RootLayout({
             <SidebarProvider>
               <AppSidebar />
               <div className="flex min-h-svh w-full flex-col">
+                <MobileHeader />
                 {children}
               </div>
             </SidebarProvider>

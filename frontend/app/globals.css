@@ -95,6 +95,17 @@
   --enterprise-blue: #004ac6;
 }
 
+:is(.dark, .dark *) .enterprise-theme,
+.dark.enterprise-theme {
+  --enterprise-surface: #0a0a12;
+  --enterprise-card: #0f0f1e;
+  --enterprise-subtle: #16162a;
+  --enterprise-border: #1e1e3a;
+  --enterprise-text: #e0e0e0;
+  --enterprise-muted: #9ca3af;
+  --enterprise-blue: #6366f1;
+}
+
 .enterprise-theme [class*="bg-[#0a0a12]"],
 .enterprise-theme [class*="bg-[#0d0d1c]"] {
   background-color: var(--enterprise-surface) !important;

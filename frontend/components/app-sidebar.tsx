@@ -6,7 +6,6 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-
   SidebarMenuButton,
   SidebarTrigger,
   SidebarMenuItem,
@@ -16,13 +15,13 @@ import {
   SidebarGroupContent,
   SidebarMenu
 } from "@/components/ui/sidebar"
-import { Users, Shield, Settings, BarChart2, LayoutDashboard, FileText, Eye, ChevronUp, ChevronDown, LogOut } from "lucide-react"
+import { Users, Shield, BarChart2, LayoutDashboard, FileText, Eye, LogOut, Sun, Moon } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { signOut, useSession } from "next-auth/react"
+import { useTheme } from "next-themes"
 import NotificationBell from "./NotificationBell"
-
 
 interface NavItem {
   href: string;
@@ -46,17 +45,10 @@ const systemItems: NavItem[] = [
   { href: '/admin/audit-log', label: 'Audit Log', icon: <Shield /> },
 ];
 
-// const settingsItems: NavItem[] = [
-//   { href: '/admin/settings/priority-weights', label: 'Priority Weights', icon: <Settings /> },
-//   { href: '/admin/settings/effort-ranges', label: 'Effort Ranges', icon: <Settings /> },
-//   { href: '/admin/settings/rates', label: 'Blended Rates', icon: <Settings /> },
-// ];
-
-
-
 function isActive(pathname: string, href: string, exact?: boolean) {
   return exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
 }
+
 function NavigationItem({ item }: { item: NavItem }) {
   const pathname = usePathname();
   const { isMobile, setOpenMobile } = useSidebar();
@@ -89,17 +81,40 @@ function NavigationGroup({ label, items }: { label?: string; items: NavItem[] })
   );
 }
 
+function DarkModeToggle() {
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
 
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === 'dark' : false;
+
+  return (
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        tooltip={isDark ? "Light Mode" : "Dark Mode"}
+        onClick={() => setTheme(isDark ? 'light' : 'dark')}
+        className="h-11 gap-3 rounded-lg text-base text-[#5f6470] [&_svg]:size-5 hover:bg-[#f1f5f9] hover:text-[#191c1e]"
+      >
+        {isDark ? (
+          <Sun className="text-amber-500" />
+        ) : (
+          <Moon className="text-slate-600" />
+        )}
+        <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  );
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const { state } = useSidebar();
-  // const [settingsOpen, setSettingsOpen] = React.useState(pathname.startsWith('/admin/settings'));
-
 
   if (status === 'loading' || !session || pathname === '/login' || pathname === '/register') return null;
-
 
   const role = (session.user as { role?: string } | undefined)?.role;
   const department = (session.user as { department?: string } | undefined)?.department || 'Employee';
@@ -108,17 +123,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const userName = session.user?.name || session.user?.email?.split('@')[0] || 'User';
   const roleLabel = isSysAdmin ? 'System Admin' : role === 'eng_admin' ? 'Engineering Admin' : department;
 
-
-
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <div className="flex justify-between">
-          {state === 'expanded'
-            &&
-            <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-15 w-15 shrink-0 rounded-lg object-cover" priority />
+        <div className="flex justify-between items-center px-1">
+          {state === 'expanded' &&
+            <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-12 w-12 shrink-0 rounded-lg object-cover" priority />
           }
-
           <SidebarTrigger className='h-10 w-10' />
         </div>
       </SidebarHeader>
@@ -127,26 +138,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavigationGroup items={employeeItems} />
         {isAnyAdmin && <NavigationGroup label="Engineering Admin" items={engineeringItems} />}
         {isSysAdmin && <NavigationGroup label="System Admin" items={systemItems} />}
-        {isAnyAdmin && (
-          <SidebarGroup className="mt-3 border-t border-[#eef0f2] px-3 pt-3">
-            {/* <button
-              type="button"
-              onClick={() => setSettingsOpen((value) => !value)}
-              className="flex h-8 w-full items-center justify-between rounded-md px-2 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#737686] hover:text-[#004ac6] group-data-[collapsible=icon]:hidden"
-            >
-              Settings
-              {settingsOpen ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-            </button> */}
-            <SidebarGroupContent>
-              {/* <SidebarMenu className="gap-1">
-                {(state === 'collapsed' || settingsOpen) && settingsItems.map((item) => <NavigationItem key={item.href} item={item} />)}
-              </SidebarMenu> */}
-            </SidebarGroupContent>
-          </SidebarGroup>
-        )}
+        
+        <SidebarGroup className="px-3 py-1.5 mt-auto">
+          <SidebarGroupContent>
+            <SidebarMenu className="gap-1">
+              <DarkModeToggle />
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
-
-
 
       <SidebarFooter className="border-t border-[#dfe3e8] p-3 font-medium">
         <div className="flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
