@@ -1,16 +1,16 @@
-# Graph Report - AI Automation  (2026-07-26)
+# Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 105 files · ~45,471 words
+- 105 files · ~45,527 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 483 nodes · 626 edges · 39 communities (31 shown, 8 thin omitted)
+- 483 nodes · 608 edges · 40 communities (32 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3b5eb9eb`
+- Built from commit: `3b250e96`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -46,23 +46,22 @@
 - DuplicateComparisonModal.tsx
 - page.tsx
 - page.tsx
+- middleware.ts
 - Navbar.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 43 edges
 2. `callLlm()` - 15 edges
 3. `parseJsonSafe()` - 14 edges
-4. `useSidebar()` - 9 edges
-5. `react` - 7 edges
-6. `scripts` - 6 edges
-7. `SidebarTrigger()` - 5 edges
-8. `runDocumentAnalysisAgent()` - 5 edges
-9. `writeAuditLog()` - 5 edges
-10. `AppSidebar()` - 4 edges
+4. `useSidebar()` - 6 edges
+5. `scripts` - 6 edges
+6. `react` - 6 edges
+7. `runDocumentAnalysisAgent()` - 5 edges
+8. `writeAuditLog()` - 5 edges
+9. `SidebarProvider()` - 4 edges
+10. `SidebarTrigger()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `DarkModeToggle()` --references--> `react`  [EXTRACTED]
-  frontend/components/app-sidebar.tsx → frontend/package.json
 - `SidebarMenuSkeleton()` --references--> `react`  [EXTRACTED]
   frontend/components/ui/sidebar.tsx → frontend/package.json
 - `useIsMobile()` --references--> `react`  [EXTRACTED]
@@ -71,11 +70,13 @@
   frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
 - `AvatarImage()` --calls--> `cn()`  [EXTRACTED]
   frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
+- `AvatarFallback()` --calls--> `cn()`  [EXTRACTED]
+  frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (39 total, 8 thin omitted)
+## Communities (40 total, 8 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -94,8 +95,8 @@ Cohesion: 0.16
 Nodes (13): ignoreScripts, name, private, scripts, build, dev, lint, start (+5 more)
 
 ### Community 4 - "page.tsx"
-Cohesion: 0.10
-Nodes (17): ChatMessage, RequestInfo, ReviewData, FileUpload(), FileUploadProps, formatBytes(), UploadedFile, Attachment() (+9 more)
+Cohesion: 0.20
+Nodes (14): FileUpload(), FileUploadProps, formatBytes(), UploadedFile, Attachment(), AttachmentAction(), AttachmentActions(), AttachmentContent() (+6 more)
 
 ### Community 5 - "User.ts"
 Cohesion: 0.33
@@ -115,11 +116,11 @@ Nodes (3): DEPARTMENT_ICONS, RequestItem, STATUS_BADGES
 
 ### Community 12 - "route.ts"
 Cohesion: 0.06
-Nodes (35): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage(), Breadcrumb(), BreadcrumbEllipsis() (+27 more)
+Nodes (36): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage(), Breadcrumb(), BreadcrumbEllipsis() (+28 more)
 
 ### Community 13 - "proxy.ts"
-Cohesion: 0.50
-Nodes (3): ADMIN_ONLY_PATHS, config, PUBLIC_PATHS
+Cohesion: 0.17
+Nodes (3): ChatMessage, RequestInfo, ReviewData
 
 ### Community 14 - "route.ts"
 Cohesion: 0.14
@@ -170,11 +171,15 @@ Cohesion: 0.16
 Nodes (12): ALLOWED_MIME_TYPES, POST(), DocumentAnalysisInput, DocumentAnalysisResult, runDocumentAnalysisAgent(), STAGE_QUERIES, ChunkingOptions, chunkText() (+4 more)
 
 ### Community 35 - "page.tsx"
-Cohesion: 0.06
-Nodes (34): geist, metadata, Providers(), AppSidebar(), DarkModeToggle(), employeeItems, engineeringItems, isActive() (+26 more)
+Cohesion: 0.05
+Nodes (24): geist, metadata, Providers(), AppSidebar(), employeeItems, engineeringItems, isActive(), NavigationItem() (+16 more)
+
+### Community 36 - "middleware.ts"
+Cohesion: 0.40
+Nodes (4): ADMIN_PATHS, config, PUBLIC_PATHS, SYS_ADMIN_ONLY_PATHS
 
 ## Knowledge Gaps
-- **153 isolated node(s):** `ChatMessage`, `RequestInfo`, `ReviewData`, `geist`, `metadata` (+148 more)
+- **154 isolated node(s):** `ChatMessage`, `RequestInfo`, `ReviewData`, `NavItem`, `employeeItems` (+149 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -182,16 +187,16 @@ Nodes (34): geist, metadata, Providers(), AppSidebar(), DarkModeToggle(), employ
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `page.tsx`, `package.json`?**
-  _High betweenness centrality (0.099) - this node is a cross-community bridge._
+  _High betweenness centrality (0.098) - this node is a cross-community bridge._
 - **Why does `react` connect `page.tsx` to `dependencies`?**
-  _High betweenness centrality (0.080) - this node is a cross-community bridge._
+  _High betweenness centrality (0.079) - this node is a cross-community bridge._
+- **Why does `SidebarProvider()` connect `page.tsx` to `route.ts`?**
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **What connects `ChatMessage`, `RequestInfo`, `ReviewData` to the rest of the system?**
-  _153 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _154 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
 - **Should `intake-agent.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.1422924901185771 - nodes in this community are weakly interconnected._
-- **Should `page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.09852216748768473 - nodes in this community are weakly interconnected._

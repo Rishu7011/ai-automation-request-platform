@@ -26,18 +26,18 @@ interface RequestDetail {
 }
 
 const STATUS_BADGES: Record<string, { label: string; color: string }> = {
-  draft:              { label: 'Draft',         color: 'bg-amber-500/15 text-amber-300 border-amber-500/30' },
-  ai_reviewing:       { label: 'AI Reviewing',  color: 'bg-purple-500/15 text-purple-300 border-purple-500/30' },
+  draft:              { label: 'Draft',         color: 'bg-[#ffb95f]/15 text-[#ffb95f] border-[#ffb95f]/30' },
+  ai_reviewing:       { label: 'AI Reviewing',  color: 'bg-[#8083ff]/15 text-[#c0c1ff] border-[#8083ff]/30' },
   submitted:          { label: 'Submitted',     color: 'bg-blue-500/15 text-blue-300 border-blue-500/30' },
-  needs_more_info:    { label: 'Info Needed',   color: 'bg-orange-500/15 text-orange-300 border-orange-500/30' },
-  engineering_review: { label: 'Eng Review',   color: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30' },
-  approved:           { label: 'Approved',      color: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' },
-  rejected:           { label: 'Rejected',      color: 'bg-rose-500/15 text-rose-300 border-rose-500/30' },
-  planned:            { label: 'Planned',       color: 'bg-teal-500/15 text-teal-300 border-teal-500/30' },
-  in_development:     { label: 'In Dev',        color: 'bg-blue-600/20 text-blue-300 border-blue-500/30' },
-  testing:            { label: 'Testing',       color: 'bg-violet-500/15 text-violet-300 border-violet-500/30' },
-  completed:          { label: 'Completed',     color: 'bg-green-500/15 text-green-300 border-green-500/30' },
-  archived:           { label: 'Archived',      color: 'bg-slate-500/15 text-slate-400 border-slate-500/30' },
+  needs_more_info:    { label: 'Info Needed',   color: 'bg-[#ffb95f]/15 text-[#ffb95f] border-[#ffb95f]/30' },
+  engineering_review: { label: 'Eng Review',   color: 'bg-[#6366f1]/15 text-[#c0c1ff] border-[#6366f1]/30' },
+  approved:           { label: 'Approved',      color: 'bg-[#00a572]/15 text-[#4edea3] border-[#00a572]/30' },
+  rejected:           { label: 'Rejected',      color: 'bg-[#93000a]/20 text-[#ffb4ab] border-[#ffb4ab]/30' },
+  planned:            { label: 'Planned',       color: 'bg-[#00a572]/15 text-[#4edea3] border-[#00a572]/30' },
+  in_development:     { label: 'In Dev',        color: 'bg-[#6366f1]/20 text-[#c0c1ff] border-[#6366f1]/30' },
+  testing:            { label: 'Testing',       color: 'bg-[#8083ff]/15 text-[#c0c1ff] border-[#8083ff]/30' },
+  completed:          { label: 'Completed',     color: 'bg-[#00a572]/20 text-[#4edea3] border-[#00a572]/40' },
+  archived:           { label: 'Archived',      color: 'bg-[#34343d]/40 text-[#908fa0] border-[#464554]/30' },
 };
 
 const DEPARTMENT_ICONS: Record<string, string> = {
@@ -83,10 +83,10 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center">
+      <div className="min-h-screen bg-[#13131b] flex items-center justify-center">
         <div className="text-center space-y-3">
           <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-[#6b7280] text-sm font-medium">Loading request details…</p>
+          <p className="text-[#908fa0] text-sm font-medium">Loading request details…</p>
         </div>
       </div>
     );
@@ -94,9 +94,9 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
 
   if (error || !requestInfo) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center p-6">
-        <div className="text-center max-w-sm bg-[#0f0f1e] border border-[#1e1e3a] p-6 rounded-2xl space-y-4">
-          <p className="text-rose-400 text-sm font-medium">{error || 'Request not found'}</p>
+      <div className="min-h-screen bg-[#13131b] flex items-center justify-center p-6">
+        <div className="text-center max-w-sm glass-panel border border-[#464554]/30 p-6 rounded-2xl space-y-4">
+          <p className="text-[#ffb4ab] text-sm font-medium">{error || 'Request not found'}</p>
           <button
             onClick={() => router.push('/my-requests')}
             className="px-4 py-2 bg-[#6366f1] hover:bg-[#5558e0] text-white text-xs font-bold rounded-xl cursor-pointer"
@@ -110,7 +110,7 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
 
   const badge = STATUS_BADGES[requestInfo.status] || {
     label: requestInfo.status,
-    color: 'bg-slate-500/15 text-slate-400 border-slate-500/30',
+    color: 'bg-[#34343d]/40 text-[#908fa0] border-[#464554]/30',
   };
   const icon = DEPARTMENT_ICONS[requestInfo.department] || '💼';
 
@@ -119,32 +119,33 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
     : turns.filter((t) => t.stage === activeStageFilter);
 
   const stagesRepresented = Array.from(new Set(turns.map((t) => t.stage))).sort((a, b) => a - b);
+  const maxCompletedStage = turns.length > 0 ? Math.max(...turns.map((t) => t.stage)) : 1;
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+    <div className="min-h-screen bg-[#13131b] text-[#e4e1ed] font-inter">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#464554]/30 pb-6">
           <div className="flex items-start gap-3">
             <button
               onClick={() => router.back()}
-              className="p-2 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e] text-[#9ca3af] hover:text-white transition-colors cursor-pointer mt-0.5 shrink-0"
+              className="p-2 rounded-xl bg-[#1f1f27] border border-[#464554]/40 text-[#908fa0] hover:text-white transition-colors cursor-pointer mt-0.5 shrink-0"
             >
               <ArrowLeft className="h-4 w-4" />
             </button>
             <div>
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="text-xl">{icon}</span>
-                <h1 className="text-base sm:text-lg font-extrabold text-white tracking-tight">
+              <div className="flex flex-wrap items-center gap-2.5 mb-1">
+                <span className="text-2xl">{icon}</span>
+                <h1 className="text-xl sm:text-2xl font-bold font-outfit text-white tracking-tight">
                   {requestInfo.title}
                 </h1>
-                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${badge.color}`}>
+                <span className={`px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider border ${badge.color}`}>
                   {badge.label}
                 </span>
               </div>
-              <p className="text-xs text-[#6b7280] font-semibold ml-8">
-                {requestInfo.department} Department · {turns.length} conversation turns
+              <p className="text-xs text-[#908fa0] font-medium ml-9">
+                {requestInfo.department} Department · {turns.length} conversation exchanges
               </p>
             </div>
           </div>
@@ -152,24 +153,62 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
           {requestInfo.status === 'draft' && (
             <Link
               href={`/intake/${requestId}`}
-              className="shrink-0 px-4 py-2 rounded-xl bg-[#6366f1] hover:bg-[#5558e0] text-white text-xs font-bold transition-all flex items-center gap-1.5"
+              className="shrink-0 px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white text-xs font-bold transition-all shadow-md shadow-[#6366f1]/30 flex items-center gap-1.5 cursor-pointer w-fit"
             >
-              <Edit3 className="h-3.5 w-3.5" /> Resume
+              <Edit3 className="h-4 w-4" /> Resume Intake
             </Link>
           )}
         </div>
 
-        {/* Summary cards */}
+        {/* Stepper Lifecycle Pipeline */}
+        <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 space-y-3">
+          <p className="text-[10px] font-bold font-outfit uppercase tracking-widest text-[#908fa0]">AI Requirements Pipeline</p>
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
+            {INTAKE_STAGES.map((stg) => {
+              const isDone = stg.id <= maxCompletedStage;
+              const isCurrent = stg.id === maxCompletedStage;
+
+              return (
+                <div
+                  key={stg.id}
+                  onClick={() => setActiveStageFilter(stg.id)}
+                  className={`flex flex-col items-center gap-1 p-2 rounded-lg cursor-pointer transition-all ${
+                    activeStageFilter === stg.id
+                      ? 'bg-[#6366f1]/20 border border-[#6366f1]/50'
+                      : 'hover:bg-[#34343d]/30'
+                  }`}
+                >
+                  <div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                      isDone
+                        ? 'bg-[#00a572] text-white shadow-sm'
+                        : isCurrent
+                        ? 'bg-[#6366f1] text-white animate-pulse'
+                        : 'bg-[#1f1f27] border border-[#464554]/40 text-[#908fa0]'
+                    }`}
+                  >
+                    {isDone ? '✓' : stg.id}
+                  </div>
+                  <span className={`text-[10px] font-medium text-center truncate max-w-full ${isDone ? 'text-[#4edea3]' : 'text-[#908fa0]'}`}>
+                    {stg.name.split(' ')[0]}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Summary metric cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
             { label: 'Department', value: `${icon} ${requestInfo.department}` },
             { label: 'Status', value: requestInfo.status.replace(/_/g, ' ') },
-            { label: 'Priority Score', value: requestInfo.priorityScore > 0 ? `${requestInfo.priorityScore.toFixed(1)} / 100` : 'Pending', highlight: requestInfo.priorityScore > 0 },
+            { label: 'Priority Score', value: requestInfo.priorityScore > 0 ? `${requestInfo.priorityScore.toFixed(0)} / 100` : 'Pending', highlight: requestInfo.priorityScore > 0 },
             { label: 'Transcript Turns', value: `${turns.length} Exchanges` },
           ].map(({ label, value, highlight }) => (
-            <div key={label} className="p-3.5 rounded-xl bg-[#0f0f1e] border border-[#1e1e3a]">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">{label}</p>
-              <p className={`text-sm font-bold mt-0.5 capitalize ${highlight ? 'text-[#818cf8]' : 'text-white'}`}>
+            <div key={label} className="p-4 rounded-xl glass-panel border border-[#464554]/30 space-y-1">
+              <p className="text-[10px] font-bold font-outfit uppercase tracking-wider text-[#908fa0]">{label}</p>
+              <p className={`text-sm font-bold capitalize ${highlight ? 'text-[#4edea3] font-mono-code' : 'text-white'}`}>
                 {value}
               </p>
             </div>
@@ -180,10 +219,10 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
         <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
           <button
             onClick={() => setActiveStageFilter('all')}
-            className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0 ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0 ${
               activeStageFilter === 'all'
                 ? 'bg-[#6366f1] text-white shadow-sm'
-                : 'bg-[#0f0f1e] text-[#9ca3af] hover:text-white border border-[#1e1e3a]'
+                : 'glass-panel text-[#908fa0] hover:text-white border border-[#464554]/30'
             }`}
           >
             All Stages ({turns.length})
@@ -195,10 +234,10 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
               <button
                 key={stg.id}
                 onClick={() => setActiveStageFilter(stg.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer shrink-0 ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer shrink-0 ${
                   activeStageFilter === stg.id
                     ? 'bg-[#6366f1] text-white shadow-sm'
-                    : 'bg-[#0f0f1e] text-[#9ca3af] hover:text-white border border-[#1e1e3a]'
+                    : 'glass-panel text-[#908fa0] hover:text-white border border-[#464554]/30'
                 }`}
               >
                 {stg.icon} {stg.name} ({count})
@@ -210,7 +249,7 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
         {/* Conversation transcript */}
         <div className="space-y-5">
           {filteredTurns.length === 0 ? (
-            <div className="p-8 text-center bg-[#0f0f1e] rounded-2xl border border-[#1e1e3a] text-[#6b7280] text-xs font-medium">
+            <div className="p-8 text-center glass-panel rounded-xl border border-[#464554]/30 text-[#908fa0] text-xs font-medium">
               No conversation records for this section.
             </div>
           ) : (
@@ -220,13 +259,13 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
                 const stageObj = INTAKE_STAGES.find((s) => s.id === stgId);
                 const stageTurns = filteredTurns.filter((t) => t.stage === stgId);
                 return (
-                  <div key={stgId} className="bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl p-5 space-y-4">
-                    <div className="flex items-center gap-2 pb-3 border-b border-[#1a1a2e]">
+                  <div key={stgId} className="glass-panel border border-[#464554]/30 rounded-xl p-5 space-y-4">
+                    <div className="flex items-center gap-2 pb-3 border-b border-[#464554]/20">
                       <span className="text-lg">{stageObj?.icon || '💬'}</span>
-                      <h3 className="text-sm font-bold text-white">
+                      <h3 className="text-sm font-bold font-outfit text-white">
                         Stage {stgId}: {stageObj?.name || `Stage ${stgId}`}
                       </h3>
-                      <span className="text-xs text-[#4b5563] font-semibold ml-auto">
+                      <span className="text-xs text-[#908fa0] font-mono-code ml-auto">
                         {stageTurns.length} exchanges
                       </span>
                     </div>
@@ -237,14 +276,14 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
                         return (
                           <div key={turn._id} className={`flex gap-3 ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
                             <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold flex-shrink-0 ${
-                              isUser ? 'bg-[#6366f1] text-white' : 'bg-[#1a1a2e] text-[#818cf8] border border-[#2a2a4e]'
+                              isUser ? 'bg-[#6366f1] text-white' : 'bg-[#1f1f27] text-[#c0c1ff] border border-[#464554]/40'
                             }`}>
                               {isUser ? <UserIcon className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
                             </div>
                             <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-xs sm:text-sm leading-relaxed ${
                               isUser
-                                ? 'bg-[#6366f1] text-white'
-                                : 'bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db]'
+                                ? 'bg-gradient-to-r from-indigo-600 to-[#8083ff] text-white'
+                                : 'bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed]'
                             }`}>
                               {turn.message}
                             </div>
@@ -257,7 +296,8 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
               })
           )}
         </div>
-      </div>
+      </main>
     </div>
   );
 }
+

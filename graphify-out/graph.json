@@ -10,158 +10,118 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page",
-      "community": 4,
+      "community": 13,
       "norm_label": "page.tsx"
     },
     {
       "label": "ChatMessage",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_chatmessage",
-      "community": 4,
+      "community": 13,
       "norm_label": "chatmessage"
     },
     {
       "label": "RequestInfo",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_requestinfo",
-      "community": 4,
+      "community": 13,
       "norm_label": "requestinfo"
     },
     {
       "label": "ReviewData",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_reviewdata",
-      "community": 4,
+      "community": 13,
       "norm_label": "reviewdata"
     },
     {
       "label": "StageProgressBar()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_stageprogressbar",
-      "community": 4,
+      "community": 13,
       "norm_label": "stageprogressbar()"
     },
     {
       "label": "ChatBubble()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_chatbubble",
-      "community": 4,
+      "community": 13,
       "norm_label": "chatbubble()"
     },
     {
       "label": "TypingIndicator()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L140",
+      "source_location": "L141",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_typingindicator",
-      "community": 4,
+      "community": 13,
       "norm_label": "typingindicator()"
     },
     {
       "label": "StageCompleteBanner()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L157",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_stagecompletebanner",
-      "community": 4,
+      "community": 13,
       "norm_label": "stagecompletebanner()"
     },
     {
       "label": "SubmittingOverlay()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L195",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_submittingoverlay",
-      "community": 4,
+      "community": 13,
       "norm_label": "submittingoverlay()"
     },
     {
       "label": "ConfidenceBadge()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L234",
+      "source_location": "L235",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_confidencebadge",
-      "community": 4,
+      "community": 13,
       "norm_label": "confidencebadge()"
     },
     {
       "label": "ReviewSummaryCard()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L248",
+      "source_location": "L249",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_reviewsummarycard",
-      "community": 4,
+      "community": 13,
       "norm_label": "reviewsummarycard()"
     },
     {
       "label": "IntakeChatPage()",
       "file_type": "code",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L325",
+      "source_location": "L326",
       "_origin": "ast",
       "id": "frontend_app_intake_id_page_intakechatpage",
-      "community": 4,
+      "community": 13,
       "norm_label": "intakechatpage()"
-    },
-    {
-      "label": "layout.tsx",
-      "file_type": "code",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_app_layout",
-      "community": 35,
-      "norm_label": "layout.tsx"
-    },
-    {
-      "label": "geist",
-      "file_type": "code",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "frontend_app_layout_geist",
-      "community": 35,
-      "norm_label": "geist"
-    },
-    {
-      "label": "metadata",
-      "file_type": "code",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "frontend_app_layout_metadata",
-      "community": 35,
-      "norm_label": "metadata"
-    },
-    {
-      "label": "RootLayout()",
-      "file_type": "code",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "frontend_app_layout_rootlayout",
-      "community": 35,
-      "norm_label": "rootlayout()"
     },
     {
       "label": "providers.tsx",
@@ -182,56 +142,6 @@
       "id": "frontend_app_providers_providers",
       "community": 35,
       "norm_label": "providers()"
-    },
-    {
-      "label": "FileUpload.tsx",
-      "file_type": "code",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_components_fileupload",
-      "community": 4,
-      "norm_label": "fileupload.tsx"
-    },
-    {
-      "label": "UploadedFile",
-      "file_type": "code",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "frontend_components_fileupload_uploadedfile",
-      "community": 4,
-      "norm_label": "uploadedfile"
-    },
-    {
-      "label": "FileUploadProps",
-      "file_type": "code",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "frontend_components_fileupload_fileuploadprops",
-      "community": 4,
-      "norm_label": "fileuploadprops"
-    },
-    {
-      "label": "formatBytes()",
-      "file_type": "code",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "frontend_components_fileupload_formatbytes",
-      "community": 4,
-      "norm_label": "formatbytes()"
-    },
-    {
-      "label": "FileUpload()",
-      "file_type": "code",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L56",
-      "_origin": "ast",
-      "id": "frontend_components_fileupload_fileupload",
-      "community": 4,
-      "norm_label": "fileupload()"
     },
     {
       "label": "app-sidebar.tsx",
@@ -314,16 +224,6 @@
       "norm_label": "navigationgroup()"
     },
     {
-      "label": "DarkModeToggle()",
-      "file_type": "code",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L84",
-      "_origin": "ast",
-      "id": "frontend_components_app_sidebar_darkmodetoggle",
-      "community": 35,
-      "norm_label": "darkmodetoggle()"
-    },
-    {
       "label": "AppSidebar()",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
@@ -334,14 +234,154 @@
       "norm_label": "appsidebar()"
     },
     {
+      "label": "middleware.ts",
+      "file_type": "code",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_middleware",
+      "community": 36,
+      "norm_label": "middleware.ts"
+    },
+    {
+      "label": "PUBLIC_PATHS",
+      "file_type": "code",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "frontend_middleware_public_paths",
+      "community": 36,
+      "norm_label": "public_paths"
+    },
+    {
+      "label": "SYS_ADMIN_ONLY_PATHS",
+      "file_type": "code",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_middleware_sys_admin_only_paths",
+      "community": 36,
+      "norm_label": "sys_admin_only_paths"
+    },
+    {
+      "label": "ADMIN_PATHS",
+      "file_type": "code",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "frontend_middleware_admin_paths",
+      "community": 36,
+      "norm_label": "admin_paths"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "frontend_middleware_config",
+      "community": 36,
+      "norm_label": "config"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 35,
+      "norm_label": "layout.tsx",
+      "id": "frontend_app_layout"
+    },
+    {
+      "label": "geist",
+      "file_type": "code",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "community": 35,
+      "norm_label": "geist",
+      "id": "frontend_app_layout_geist"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "community": 35,
+      "norm_label": "metadata",
+      "id": "frontend_app_layout_metadata"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 35,
+      "norm_label": "rootlayout()",
+      "id": "frontend_app_layout_rootlayout"
+    },
+    {
+      "label": "FileUpload.tsx",
+      "file_type": "code",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "fileupload.tsx",
+      "id": "frontend_components_fileupload"
+    },
+    {
+      "label": "UploadedFile",
+      "file_type": "code",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "uploadedfile",
+      "id": "frontend_components_fileupload_uploadedfile"
+    },
+    {
+      "label": "FileUploadProps",
+      "file_type": "code",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "fileuploadprops",
+      "id": "frontend_components_fileupload_fileuploadprops"
+    },
+    {
+      "label": "formatBytes()",
+      "file_type": "code",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "formatbytes()",
+      "id": "frontend_components_fileupload_formatbytes"
+    },
+    {
+      "label": "FileUpload()",
+      "file_type": "code",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L56",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "fileupload()",
+      "id": "frontend_components_fileupload_fileupload"
+    },
+    {
       "label": "mobile-header.tsx",
       "file_type": "code",
       "source_file": "frontend/components/mobile-header.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_components_mobile_header",
       "community": 35,
-      "norm_label": "mobile-header.tsx"
+      "norm_label": "mobile-header.tsx",
+      "id": "frontend_components_mobile_header"
     },
     {
       "label": "MobileHeader()",
@@ -349,9 +389,9 @@
       "source_file": "frontend/components/mobile-header.tsx",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "frontend_components_mobile_header_mobileheader",
       "community": 35,
-      "norm_label": "mobileheader()"
+      "norm_label": "mobileheader()",
+      "id": "frontend_components_mobile_header_mobileheader"
     },
     {
       "label": "attachment.tsx",
@@ -359,9 +399,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment",
       "community": 4,
-      "norm_label": "attachment.tsx"
+      "norm_label": "attachment.tsx",
+      "id": "frontend_components_ui_attachment"
     },
     {
       "label": "attachmentVariants",
@@ -369,9 +409,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentvariants",
       "community": 4,
-      "norm_label": "attachmentvariants"
+      "norm_label": "attachmentvariants",
+      "id": "frontend_components_ui_attachment_attachmentvariants"
     },
     {
       "label": "Attachment()",
@@ -379,9 +419,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachment",
       "community": 4,
-      "norm_label": "attachment()"
+      "norm_label": "attachment()",
+      "id": "frontend_components_ui_attachment_attachment"
     },
     {
       "label": "attachmentMediaVariants",
@@ -389,9 +429,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentmediavariants",
       "community": 4,
-      "norm_label": "attachmentmediavariants"
+      "norm_label": "attachmentmediavariants",
+      "id": "frontend_components_ui_attachment_attachmentmediavariants"
     },
     {
       "label": "AttachmentMedia()",
@@ -399,9 +439,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentmedia",
       "community": 4,
-      "norm_label": "attachmentmedia()"
+      "norm_label": "attachmentmedia()",
+      "id": "frontend_components_ui_attachment_attachmentmedia"
     },
     {
       "label": "AttachmentContent()",
@@ -409,9 +449,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L80",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentcontent",
       "community": 4,
-      "norm_label": "attachmentcontent()"
+      "norm_label": "attachmentcontent()",
+      "id": "frontend_components_ui_attachment_attachmentcontent"
     },
     {
       "label": "AttachmentTitle()",
@@ -419,9 +459,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L96",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmenttitle",
       "community": 4,
-      "norm_label": "attachmenttitle()"
+      "norm_label": "attachmenttitle()",
+      "id": "frontend_components_ui_attachment_attachmenttitle"
     },
     {
       "label": "AttachmentDescription()",
@@ -429,9 +469,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L112",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentdescription",
       "community": 4,
-      "norm_label": "attachmentdescription()"
+      "norm_label": "attachmentdescription()",
+      "id": "frontend_components_ui_attachment_attachmentdescription"
     },
     {
       "label": "AttachmentActions()",
@@ -439,9 +479,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L129",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentactions",
       "community": 4,
-      "norm_label": "attachmentactions()"
+      "norm_label": "attachmentactions()",
+      "id": "frontend_components_ui_attachment_attachmentactions"
     },
     {
       "label": "AttachmentAction()",
@@ -449,9 +489,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentaction",
       "community": 4,
-      "norm_label": "attachmentaction()"
+      "norm_label": "attachmentaction()",
+      "id": "frontend_components_ui_attachment_attachmentaction"
     },
     {
       "label": "AttachmentTrigger()",
@@ -459,9 +499,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L162",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmenttrigger",
       "community": 4,
-      "norm_label": "attachmenttrigger()"
+      "norm_label": "attachmenttrigger()",
+      "id": "frontend_components_ui_attachment_attachmenttrigger"
     },
     {
       "label": "AttachmentGroup()",
@@ -469,9 +509,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L184",
       "_origin": "ast",
-      "id": "frontend_components_ui_attachment_attachmentgroup",
       "community": 4,
-      "norm_label": "attachmentgroup()"
+      "norm_label": "attachmentgroup()",
+      "id": "frontend_components_ui_attachment_attachmentgroup"
     },
     {
       "label": "sidebar.tsx",
@@ -479,9 +519,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar",
       "community": 35,
-      "norm_label": "sidebar.tsx"
+      "norm_label": "sidebar.tsx",
+      "id": "frontend_components_ui_sidebar"
     },
     {
       "label": "SidebarContextProps",
@@ -489,9 +529,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarcontextprops",
       "community": 35,
-      "norm_label": "sidebarcontextprops"
+      "norm_label": "sidebarcontextprops",
+      "id": "frontend_components_ui_sidebar_sidebarcontextprops"
     },
     {
       "label": "SidebarContext",
@@ -499,9 +539,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarcontext",
       "community": 35,
-      "norm_label": "sidebarcontext"
+      "norm_label": "sidebarcontext",
+      "id": "frontend_components_ui_sidebar_sidebarcontext"
     },
     {
       "label": "useSidebar()",
@@ -509,9 +549,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_usesidebar",
       "community": 35,
-      "norm_label": "usesidebar()"
+      "norm_label": "usesidebar()",
+      "id": "frontend_components_ui_sidebar_usesidebar"
     },
     {
       "label": "SidebarProvider()",
@@ -519,9 +559,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L56",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarprovider",
       "community": 35,
-      "norm_label": "sidebarprovider()"
+      "norm_label": "sidebarprovider()",
+      "id": "frontend_components_ui_sidebar_sidebarprovider"
     },
     {
       "label": "Sidebar()",
@@ -529,9 +569,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L152",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebar",
       "community": 35,
-      "norm_label": "sidebar()"
+      "norm_label": "sidebar()",
+      "id": "frontend_components_ui_sidebar_sidebar"
     },
     {
       "label": "SidebarTrigger()",
@@ -539,9 +579,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L254",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebartrigger",
       "community": 35,
-      "norm_label": "sidebartrigger()"
+      "norm_label": "sidebartrigger()",
+      "id": "frontend_components_ui_sidebar_sidebartrigger"
     },
     {
       "label": "SidebarRail()",
@@ -549,9 +589,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L280",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarrail",
       "community": 35,
-      "norm_label": "sidebarrail()"
+      "norm_label": "sidebarrail()",
+      "id": "frontend_components_ui_sidebar_sidebarrail"
     },
     {
       "label": "SidebarInset()",
@@ -559,9 +599,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L305",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarinset",
-      "community": 35,
-      "norm_label": "sidebarinset()"
+      "community": 12,
+      "norm_label": "sidebarinset()",
+      "id": "frontend_components_ui_sidebar_sidebarinset"
     },
     {
       "label": "SidebarInput()",
@@ -569,9 +609,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L318",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarinput",
       "community": 35,
-      "norm_label": "sidebarinput()"
+      "norm_label": "sidebarinput()",
+      "id": "frontend_components_ui_sidebar_sidebarinput"
     },
     {
       "label": "SidebarHeader()",
@@ -579,9 +619,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L332",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarheader",
       "community": 35,
-      "norm_label": "sidebarheader()"
+      "norm_label": "sidebarheader()",
+      "id": "frontend_components_ui_sidebar_sidebarheader"
     },
     {
       "label": "SidebarFooter()",
@@ -589,9 +629,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L343",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarfooter",
       "community": 35,
-      "norm_label": "sidebarfooter()"
+      "norm_label": "sidebarfooter()",
+      "id": "frontend_components_ui_sidebar_sidebarfooter"
     },
     {
       "label": "SidebarSeparator()",
@@ -599,9 +639,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L354",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarseparator",
       "community": 35,
-      "norm_label": "sidebarseparator()"
+      "norm_label": "sidebarseparator()",
+      "id": "frontend_components_ui_sidebar_sidebarseparator"
     },
     {
       "label": "SidebarContent()",
@@ -609,9 +649,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L368",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarcontent",
       "community": 35,
-      "norm_label": "sidebarcontent()"
+      "norm_label": "sidebarcontent()",
+      "id": "frontend_components_ui_sidebar_sidebarcontent"
     },
     {
       "label": "SidebarGroup()",
@@ -619,9 +659,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L382",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebargroup",
       "community": 35,
-      "norm_label": "sidebargroup()"
+      "norm_label": "sidebargroup()",
+      "id": "frontend_components_ui_sidebar_sidebargroup"
     },
     {
       "label": "SidebarGroupLabel()",
@@ -629,9 +669,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L393",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebargrouplabel",
       "community": 35,
-      "norm_label": "sidebargrouplabel()"
+      "norm_label": "sidebargrouplabel()",
+      "id": "frontend_components_ui_sidebar_sidebargrouplabel"
     },
     {
       "label": "SidebarGroupAction()",
@@ -639,9 +679,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L417",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebargroupaction",
       "community": 35,
-      "norm_label": "sidebargroupaction()"
+      "norm_label": "sidebargroupaction()",
+      "id": "frontend_components_ui_sidebar_sidebargroupaction"
     },
     {
       "label": "SidebarGroupContent()",
@@ -649,9 +689,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L441",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebargroupcontent",
       "community": 35,
-      "norm_label": "sidebargroupcontent()"
+      "norm_label": "sidebargroupcontent()",
+      "id": "frontend_components_ui_sidebar_sidebargroupcontent"
     },
     {
       "label": "SidebarMenu()",
@@ -659,9 +699,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L455",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenu",
       "community": 35,
-      "norm_label": "sidebarmenu()"
+      "norm_label": "sidebarmenu()",
+      "id": "frontend_components_ui_sidebar_sidebarmenu"
     },
     {
       "label": "SidebarMenuItem()",
@@ -669,9 +709,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L466",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenuitem",
       "community": 35,
-      "norm_label": "sidebarmenuitem()"
+      "norm_label": "sidebarmenuitem()",
+      "id": "frontend_components_ui_sidebar_sidebarmenuitem"
     },
     {
       "label": "sidebarMenuButtonVariants",
@@ -679,9 +719,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L477",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenubuttonvariants",
       "community": 35,
-      "norm_label": "sidebarmenubuttonvariants"
+      "norm_label": "sidebarmenubuttonvariants",
+      "id": "frontend_components_ui_sidebar_sidebarmenubuttonvariants"
     },
     {
       "label": "SidebarMenuButton()",
@@ -689,9 +729,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L499",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenubutton",
       "community": 35,
-      "norm_label": "sidebarmenubutton()"
+      "norm_label": "sidebarmenubutton()",
+      "id": "frontend_components_ui_sidebar_sidebarmenubutton"
     },
     {
       "label": "SidebarMenuAction()",
@@ -699,9 +739,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L553",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenuaction",
       "community": 35,
-      "norm_label": "sidebarmenuaction()"
+      "norm_label": "sidebarmenuaction()",
+      "id": "frontend_components_ui_sidebar_sidebarmenuaction"
     },
     {
       "label": "SidebarMenuBadge()",
@@ -709,9 +749,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L583",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenubadge",
       "community": 35,
-      "norm_label": "sidebarmenubadge()"
+      "norm_label": "sidebarmenubadge()",
+      "id": "frontend_components_ui_sidebar_sidebarmenubadge"
     },
     {
       "label": "SidebarMenuSkeleton()",
@@ -719,9 +759,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L600",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenuskeleton",
       "community": 35,
-      "norm_label": "sidebarmenuskeleton()"
+      "norm_label": "sidebarmenuskeleton()",
+      "id": "frontend_components_ui_sidebar_sidebarmenuskeleton"
     },
     {
       "label": "SidebarMenuSub()",
@@ -729,9 +769,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L638",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenusub",
       "community": 35,
-      "norm_label": "sidebarmenusub()"
+      "norm_label": "sidebarmenusub()",
+      "id": "frontend_components_ui_sidebar_sidebarmenusub"
     },
     {
       "label": "SidebarMenuSubItem()",
@@ -739,9 +779,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L652",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenusubitem",
       "community": 35,
-      "norm_label": "sidebarmenusubitem()"
+      "norm_label": "sidebarmenusubitem()",
+      "id": "frontend_components_ui_sidebar_sidebarmenusubitem"
     },
     {
       "label": "SidebarMenuSubButton()",
@@ -749,9 +789,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L666",
       "_origin": "ast",
-      "id": "frontend_components_ui_sidebar_sidebarmenusubbutton",
       "community": 35,
-      "norm_label": "sidebarmenusubbutton()"
+      "norm_label": "sidebarmenusubbutton()",
+      "id": "frontend_components_ui_sidebar_sidebarmenusubbutton"
     },
     {
       "label": "package.json",
@@ -759,9 +799,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_package",
       "community": 3,
-      "norm_label": "package.json"
+      "norm_label": "package.json",
+      "id": "frontend_package"
     },
     {
       "label": "name",
@@ -769,9 +809,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "frontend_package_name",
       "community": 3,
-      "norm_label": "name"
+      "norm_label": "name",
+      "id": "frontend_package_name"
     },
     {
       "label": "version",
@@ -779,9 +819,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "frontend_package_version",
       "community": 3,
-      "norm_label": "version"
+      "norm_label": "version",
+      "id": "frontend_package_version"
     },
     {
       "label": "private",
@@ -789,9 +829,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "frontend_package_private",
       "community": 3,
-      "norm_label": "private"
+      "norm_label": "private",
+      "id": "frontend_package_private"
     },
     {
       "label": "scripts",
@@ -799,9 +839,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "frontend_package_scripts",
       "community": 3,
-      "norm_label": "scripts"
+      "norm_label": "scripts",
+      "id": "frontend_package_scripts"
     },
     {
       "label": "dev",
@@ -809,9 +849,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "frontend_package_scripts_dev",
       "community": 3,
-      "norm_label": "dev"
+      "norm_label": "dev",
+      "id": "frontend_package_scripts_dev"
     },
     {
       "label": "build",
@@ -819,9 +859,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "frontend_package_scripts_build",
       "community": 3,
-      "norm_label": "build"
+      "norm_label": "build",
+      "id": "frontend_package_scripts_build"
     },
     {
       "label": "start",
@@ -829,9 +869,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "frontend_package_scripts_start",
       "community": 3,
-      "norm_label": "start"
+      "norm_label": "start",
+      "id": "frontend_package_scripts_start"
     },
     {
       "label": "lint",
@@ -839,9 +879,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "frontend_package_scripts_lint",
       "community": 3,
-      "norm_label": "lint"
+      "norm_label": "lint",
+      "id": "frontend_package_scripts_lint"
     },
     {
       "label": "test",
@@ -849,9 +889,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "frontend_package_scripts_test",
       "community": 3,
-      "norm_label": "test"
+      "norm_label": "test",
+      "id": "frontend_package_scripts_test"
     },
     {
       "label": "dependencies",
@@ -859,9 +899,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "frontend_package_dependencies",
       "community": 0,
-      "norm_label": "dependencies"
+      "norm_label": "dependencies",
+      "id": "frontend_package_dependencies"
     },
     {
       "label": "@anthropic-ai/sdk",
@@ -869,9 +909,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_anthropic_ai_sdk",
       "community": 0,
-      "norm_label": "@anthropic-ai/sdk"
+      "norm_label": "@anthropic-ai/sdk",
+      "id": "frontend_package_dependencies_anthropic_ai_sdk"
     },
     {
       "label": "@anthropic-ai/sdk",
@@ -879,9 +919,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "anthropic_ai_sdk",
       "community": 0,
-      "norm_label": "@anthropic-ai/sdk"
+      "norm_label": "@anthropic-ai/sdk",
+      "id": "anthropic_ai_sdk"
     },
     {
       "label": "@auth/mongodb-adapter",
@@ -889,9 +929,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_auth_mongodb_adapter",
       "community": 0,
-      "norm_label": "@auth/mongodb-adapter"
+      "norm_label": "@auth/mongodb-adapter",
+      "id": "frontend_package_dependencies_auth_mongodb_adapter"
     },
     {
       "label": "@auth/mongodb-adapter",
@@ -899,9 +939,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "auth_mongodb_adapter",
       "community": 0,
-      "norm_label": "@auth/mongodb-adapter"
+      "norm_label": "@auth/mongodb-adapter",
+      "id": "auth_mongodb_adapter"
     },
     {
       "label": "@base-ui/react",
@@ -909,9 +949,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_base_ui_react",
       "community": 0,
-      "norm_label": "@base-ui/react"
+      "norm_label": "@base-ui/react",
+      "id": "frontend_package_dependencies_base_ui_react"
     },
     {
       "label": "@base-ui/react",
@@ -919,9 +959,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "base_ui_react",
       "community": 0,
-      "norm_label": "@base-ui/react"
+      "norm_label": "@base-ui/react",
+      "id": "base_ui_react"
     },
     {
       "label": "@langchain/core",
@@ -929,9 +969,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_langchain_core",
       "community": 0,
-      "norm_label": "@langchain/core"
+      "norm_label": "@langchain/core",
+      "id": "frontend_package_dependencies_langchain_core"
     },
     {
       "label": "@langchain/core",
@@ -939,9 +979,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "langchain_core",
       "community": 0,
-      "norm_label": "@langchain/core"
+      "norm_label": "@langchain/core",
+      "id": "langchain_core"
     },
     {
       "label": "@langchain/groq",
@@ -949,9 +989,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_langchain_groq",
       "community": 0,
-      "norm_label": "@langchain/groq"
+      "norm_label": "@langchain/groq",
+      "id": "frontend_package_dependencies_langchain_groq"
     },
     {
       "label": "@langchain/groq",
@@ -959,9 +999,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "langchain_groq",
       "community": 0,
-      "norm_label": "@langchain/groq"
+      "norm_label": "@langchain/groq",
+      "id": "langchain_groq"
     },
     {
       "label": "@langchain/langgraph",
@@ -969,9 +1009,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_langchain_langgraph",
       "community": 0,
-      "norm_label": "@langchain/langgraph"
+      "norm_label": "@langchain/langgraph",
+      "id": "frontend_package_dependencies_langchain_langgraph"
     },
     {
       "label": "@langchain/langgraph",
@@ -979,9 +1019,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "langchain_langgraph",
       "community": 0,
-      "norm_label": "@langchain/langgraph"
+      "norm_label": "@langchain/langgraph",
+      "id": "langchain_langgraph"
     },
     {
       "label": "@langchain/mongodb",
@@ -989,9 +1029,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_langchain_mongodb",
       "community": 0,
-      "norm_label": "@langchain/mongodb"
+      "norm_label": "@langchain/mongodb",
+      "id": "frontend_package_dependencies_langchain_mongodb"
     },
     {
       "label": "@langchain/mongodb",
@@ -999,9 +1039,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "langchain_mongodb",
       "community": 0,
-      "norm_label": "@langchain/mongodb"
+      "norm_label": "@langchain/mongodb",
+      "id": "langchain_mongodb"
     },
     {
       "label": "bcryptjs",
@@ -1009,9 +1049,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_bcryptjs",
       "community": 0,
-      "norm_label": "bcryptjs"
+      "norm_label": "bcryptjs",
+      "id": "frontend_package_dependencies_bcryptjs"
     },
     {
       "label": "bcryptjs",
@@ -1019,9 +1059,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "bcryptjs",
       "community": 0,
-      "norm_label": "bcryptjs"
+      "norm_label": "bcryptjs",
+      "id": "bcryptjs"
     },
     {
       "label": "class-variance-authority",
@@ -1029,9 +1069,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_class_variance_authority",
       "community": 0,
-      "norm_label": "class-variance-authority"
+      "norm_label": "class-variance-authority",
+      "id": "frontend_package_dependencies_class_variance_authority"
     },
     {
       "label": "class-variance-authority",
@@ -1039,9 +1079,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "class_variance_authority",
       "community": 0,
-      "norm_label": "class-variance-authority"
+      "norm_label": "class-variance-authority",
+      "id": "class_variance_authority"
     },
     {
       "label": "clsx",
@@ -1049,9 +1089,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_clsx",
       "community": 0,
-      "norm_label": "clsx"
+      "norm_label": "clsx",
+      "id": "frontend_package_dependencies_clsx"
     },
     {
       "label": "clsx",
@@ -1059,9 +1099,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "clsx",
       "community": 0,
-      "norm_label": "clsx"
+      "norm_label": "clsx",
+      "id": "clsx"
     },
     {
       "label": "gsap",
@@ -1069,9 +1109,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_gsap",
       "community": 0,
-      "norm_label": "gsap"
+      "norm_label": "gsap",
+      "id": "frontend_package_dependencies_gsap"
     },
     {
       "label": "gsap",
@@ -1079,9 +1119,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "gsap",
       "community": 0,
-      "norm_label": "gsap"
+      "norm_label": "gsap",
+      "id": "gsap"
     },
     {
       "label": "lucide-react",
@@ -1089,9 +1129,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_lucide_react",
       "community": 0,
-      "norm_label": "lucide-react"
+      "norm_label": "lucide-react",
+      "id": "frontend_package_dependencies_lucide_react"
     },
     {
       "label": "lucide-react",
@@ -1099,9 +1139,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "lucide_react",
       "community": 0,
-      "norm_label": "lucide-react"
+      "norm_label": "lucide-react",
+      "id": "lucide_react"
     },
     {
       "label": "mongodb",
@@ -1109,9 +1149,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_mongodb",
       "community": 0,
-      "norm_label": "mongodb"
+      "norm_label": "mongodb",
+      "id": "frontend_package_dependencies_mongodb"
     },
     {
       "label": "mongodb",
@@ -1119,9 +1159,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "mongodb",
       "community": 0,
-      "norm_label": "mongodb"
+      "norm_label": "mongodb",
+      "id": "mongodb"
     },
     {
       "label": "mongoose",
@@ -1129,9 +1169,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_mongoose",
       "community": 0,
-      "norm_label": "mongoose"
+      "norm_label": "mongoose",
+      "id": "frontend_package_dependencies_mongoose"
     },
     {
       "label": "mongoose",
@@ -1139,9 +1179,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "mongoose",
       "community": 0,
-      "norm_label": "mongoose"
+      "norm_label": "mongoose",
+      "id": "mongoose"
     },
     {
       "label": "motion",
@@ -1149,9 +1189,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_motion",
       "community": 0,
-      "norm_label": "motion"
+      "norm_label": "motion",
+      "id": "frontend_package_dependencies_motion"
     },
     {
       "label": "motion",
@@ -1159,9 +1199,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "motion",
       "community": 0,
-      "norm_label": "motion"
+      "norm_label": "motion",
+      "id": "motion"
     },
     {
       "label": "next",
@@ -1169,9 +1209,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_next",
       "community": 0,
-      "norm_label": "next"
+      "norm_label": "next",
+      "id": "frontend_package_dependencies_next"
     },
     {
       "label": "next",
@@ -1179,9 +1219,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "next",
       "community": 0,
-      "norm_label": "next"
+      "norm_label": "next",
+      "id": "next"
     },
     {
       "label": "next-auth",
@@ -1189,9 +1229,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_next_auth",
       "community": 0,
-      "norm_label": "next-auth"
+      "norm_label": "next-auth",
+      "id": "frontend_package_dependencies_next_auth"
     },
     {
       "label": "next-auth",
@@ -1199,9 +1239,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "next_auth",
       "community": 0,
-      "norm_label": "next-auth"
+      "norm_label": "next-auth",
+      "id": "next_auth"
     },
     {
       "label": "next-themes",
@@ -1209,9 +1249,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_next_themes",
       "community": 0,
-      "norm_label": "next-themes"
+      "norm_label": "next-themes",
+      "id": "frontend_package_dependencies_next_themes"
     },
     {
       "label": "next-themes",
@@ -1219,9 +1259,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "next_themes",
       "community": 0,
-      "norm_label": "next-themes"
+      "norm_label": "next-themes",
+      "id": "next_themes"
     },
     {
       "label": "react",
@@ -1229,9 +1269,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_react",
       "community": 35,
-      "norm_label": "react"
+      "norm_label": "react",
+      "id": "frontend_package_dependencies_react"
     },
     {
       "label": "react",
@@ -1239,9 +1279,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "react",
       "community": 35,
-      "norm_label": "react"
+      "norm_label": "react",
+      "id": "react"
     },
     {
       "label": "react-dom",
@@ -1249,9 +1289,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_react_dom",
       "community": 0,
-      "norm_label": "react-dom"
+      "norm_label": "react-dom",
+      "id": "frontend_package_dependencies_react_dom"
     },
     {
       "label": "react-dom",
@@ -1259,9 +1299,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "react_dom",
       "community": 0,
-      "norm_label": "react-dom"
+      "norm_label": "react-dom",
+      "id": "react_dom"
     },
     {
       "label": "shadcn",
@@ -1269,9 +1309,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_shadcn",
       "community": 0,
-      "norm_label": "shadcn"
+      "norm_label": "shadcn",
+      "id": "frontend_package_dependencies_shadcn"
     },
     {
       "label": "shadcn",
@@ -1279,9 +1319,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "shadcn",
       "community": 0,
-      "norm_label": "shadcn"
+      "norm_label": "shadcn",
+      "id": "shadcn"
     },
     {
       "label": "tailwind-merge",
@@ -1289,9 +1329,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_tailwind_merge",
       "community": 0,
-      "norm_label": "tailwind-merge"
+      "norm_label": "tailwind-merge",
+      "id": "frontend_package_dependencies_tailwind_merge"
     },
     {
       "label": "tailwind-merge",
@@ -1299,9 +1339,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "tailwind_merge",
       "community": 0,
-      "norm_label": "tailwind-merge"
+      "norm_label": "tailwind-merge",
+      "id": "tailwind_merge"
     },
     {
       "label": "tw-animate-css",
@@ -1309,9 +1349,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "frontend_package_dependencies_tw_animate_css",
       "community": 0,
-      "norm_label": "tw-animate-css"
+      "norm_label": "tw-animate-css",
+      "id": "frontend_package_dependencies_tw_animate_css"
     },
     {
       "label": "tw-animate-css",
@@ -1319,9 +1359,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "tw_animate_css",
       "community": 0,
-      "norm_label": "tw-animate-css"
+      "norm_label": "tw-animate-css",
+      "id": "tw_animate_css"
     },
     {
       "label": "devDependencies",
@@ -1329,9 +1369,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies",
       "community": 1,
-      "norm_label": "devdependencies"
+      "norm_label": "devdependencies",
+      "id": "frontend_package_devdependencies"
     },
     {
       "label": "@tailwindcss/postcss",
@@ -1339,9 +1379,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_tailwindcss_postcss",
       "community": 1,
-      "norm_label": "@tailwindcss/postcss"
+      "norm_label": "@tailwindcss/postcss",
+      "id": "frontend_package_devdependencies_tailwindcss_postcss"
     },
     {
       "label": "@tailwindcss/postcss",
@@ -1349,9 +1389,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "tailwindcss_postcss",
       "community": 1,
-      "norm_label": "@tailwindcss/postcss"
+      "norm_label": "@tailwindcss/postcss",
+      "id": "tailwindcss_postcss"
     },
     {
       "label": "@types/bcryptjs",
@@ -1359,9 +1399,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L39",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_types_bcryptjs",
       "community": 1,
-      "norm_label": "@types/bcryptjs"
+      "norm_label": "@types/bcryptjs",
+      "id": "frontend_package_devdependencies_types_bcryptjs"
     },
     {
       "label": "@types/bcryptjs",
@@ -1369,9 +1409,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L39",
       "_origin": "ast",
-      "id": "types_bcryptjs",
       "community": 1,
-      "norm_label": "@types/bcryptjs"
+      "norm_label": "@types/bcryptjs",
+      "id": "types_bcryptjs"
     },
     {
       "label": "@types/node",
@@ -1379,9 +1419,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_types_node",
       "community": 1,
-      "norm_label": "@types/node"
+      "norm_label": "@types/node",
+      "id": "frontend_package_devdependencies_types_node"
     },
     {
       "label": "@types/node",
@@ -1389,9 +1429,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "types_node",
       "community": 1,
-      "norm_label": "@types/node"
+      "norm_label": "@types/node",
+      "id": "types_node"
     },
     {
       "label": "@types/react",
@@ -1399,9 +1439,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L41",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_types_react",
       "community": 1,
-      "norm_label": "@types/react"
+      "norm_label": "@types/react",
+      "id": "frontend_package_devdependencies_types_react"
     },
     {
       "label": "@types/react",
@@ -1409,9 +1449,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L41",
       "_origin": "ast",
-      "id": "types_react",
       "community": 1,
-      "norm_label": "@types/react"
+      "norm_label": "@types/react",
+      "id": "types_react"
     },
     {
       "label": "@types/react-dom",
@@ -1419,9 +1459,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_types_react_dom",
       "community": 1,
-      "norm_label": "@types/react-dom"
+      "norm_label": "@types/react-dom",
+      "id": "frontend_package_devdependencies_types_react_dom"
     },
     {
       "label": "@types/react-dom",
@@ -1429,9 +1469,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "types_react_dom",
       "community": 1,
-      "norm_label": "@types/react-dom"
+      "norm_label": "@types/react-dom",
+      "id": "types_react_dom"
     },
     {
       "label": "eslint",
@@ -1439,9 +1479,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_eslint",
       "community": 1,
-      "norm_label": "eslint"
+      "norm_label": "eslint",
+      "id": "frontend_package_devdependencies_eslint"
     },
     {
       "label": "eslint",
@@ -1449,9 +1489,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "eslint",
       "community": 1,
-      "norm_label": "eslint"
+      "norm_label": "eslint",
+      "id": "eslint"
     },
     {
       "label": "eslint-config-next",
@@ -1459,9 +1499,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_eslint_config_next",
       "community": 1,
-      "norm_label": "eslint-config-next"
+      "norm_label": "eslint-config-next",
+      "id": "frontend_package_devdependencies_eslint_config_next"
     },
     {
       "label": "eslint-config-next",
@@ -1469,9 +1509,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "eslint_config_next",
       "community": 1,
-      "norm_label": "eslint-config-next"
+      "norm_label": "eslint-config-next",
+      "id": "eslint_config_next"
     },
     {
       "label": "tailwindcss",
@@ -1479,9 +1519,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_tailwindcss",
       "community": 1,
-      "norm_label": "tailwindcss"
+      "norm_label": "tailwindcss",
+      "id": "frontend_package_devdependencies_tailwindcss"
     },
     {
       "label": "tailwindcss",
@@ -1489,9 +1529,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "tailwindcss",
       "community": 1,
-      "norm_label": "tailwindcss"
+      "norm_label": "tailwindcss",
+      "id": "tailwindcss"
     },
     {
       "label": "tsx",
@@ -1499,9 +1539,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_tsx",
       "community": 1,
-      "norm_label": "tsx"
+      "norm_label": "tsx",
+      "id": "frontend_package_devdependencies_tsx"
     },
     {
       "label": "tsx",
@@ -1509,9 +1549,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "tsx",
       "community": 1,
-      "norm_label": "tsx"
+      "norm_label": "tsx",
+      "id": "tsx"
     },
     {
       "label": "typescript",
@@ -1519,9 +1559,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_typescript",
       "community": 1,
-      "norm_label": "typescript"
+      "norm_label": "typescript",
+      "id": "frontend_package_devdependencies_typescript"
     },
     {
       "label": "typescript",
@@ -1529,9 +1569,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "typescript",
       "community": 1,
-      "norm_label": "typescript"
+      "norm_label": "typescript",
+      "id": "typescript"
     },
     {
       "label": "vitest",
@@ -1539,9 +1579,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "frontend_package_devdependencies_vitest",
       "community": 1,
-      "norm_label": "vitest"
+      "norm_label": "vitest",
+      "id": "frontend_package_devdependencies_vitest"
     },
     {
       "label": "vitest",
@@ -1549,9 +1589,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "vitest",
       "community": 1,
-      "norm_label": "vitest"
+      "norm_label": "vitest",
+      "id": "vitest"
     },
     {
       "label": "ignoreScripts",
@@ -1559,9 +1599,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "frontend_package_ignorescripts",
       "community": 3,
-      "norm_label": "ignorescripts"
+      "norm_label": "ignorescripts",
+      "id": "frontend_package_ignorescripts"
     },
     {
       "label": "sharp",
@@ -1569,9 +1609,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "ref_sharp",
       "community": 3,
-      "norm_label": "sharp"
+      "norm_label": "sharp",
+      "id": "ref_sharp"
     },
     {
       "label": "unrs-resolver",
@@ -1579,9 +1619,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "ref_unrs_resolver",
       "community": 3,
-      "norm_label": "unrs-resolver"
+      "norm_label": "unrs-resolver",
+      "id": "ref_unrs_resolver"
     },
     {
       "label": "trustedDependencies",
@@ -1589,49 +1629,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "frontend_package_trusteddependencies",
       "community": 3,
-      "norm_label": "trusteddependencies"
-    },
-    {
-      "label": "proxy.ts",
-      "file_type": "code",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "proxy.ts",
-      "id": "frontend_proxy"
-    },
-    {
-      "label": "PUBLIC_PATHS",
-      "file_type": "code",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "public_paths",
-      "id": "frontend_proxy_public_paths"
-    },
-    {
-      "label": "ADMIN_ONLY_PATHS",
-      "file_type": "code",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "admin_only_paths",
-      "id": "frontend_proxy_admin_only_paths"
-    },
-    {
-      "label": "config",
-      "file_type": "code",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L50",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "config",
-      "id": "frontend_proxy_config"
+      "norm_label": "trusteddependencies",
+      "id": "frontend_package_trusteddependencies"
     },
     {
       "label": "page.tsx",
@@ -4839,7 +4839,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_chatbubble",
@@ -4849,7 +4849,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_chatmessage",
@@ -4859,7 +4859,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L234",
+      "source_location": "L235",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_confidencebadge",
@@ -4869,7 +4869,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L325",
+      "source_location": "L326",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_intakechatpage",
@@ -4879,7 +4879,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_requestinfo",
@@ -4889,7 +4889,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_reviewdata",
@@ -4899,7 +4899,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L248",
+      "source_location": "L249",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_reviewsummarycard",
@@ -4909,7 +4909,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L157",
+      "source_location": "L158",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_stagecompletebanner",
@@ -4919,7 +4919,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_stageprogressbar",
@@ -4929,7 +4929,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L195",
+      "source_location": "L196",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_submittingoverlay",
@@ -4939,7 +4939,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L140",
+      "source_location": "L141",
       "weight": 1.0,
       "source": "frontend_app_intake_id_page",
       "target": "frontend_app_intake_id_page_typingindicator",
@@ -4949,141 +4949,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_components_fileupload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_components_fileupload_fileupload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_app_layout_geist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_app_layout_metadata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_app_layout_rootlayout",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/layout.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_layout",
-      "target": "frontend_app_providers",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_app_providers_providers",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_components_app_sidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_components_app_sidebar_appsidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_components_mobile_header",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_components_mobile_header_mobileheader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_components_ui_sidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/layout.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "frontend_app_layout",
-      "target": "frontend_components_ui_sidebar_sidebarprovider",
-      "confidence_score": 1.0
+      "target": "frontend_app_providers"
     },
     {
       "relation": "contains",
@@ -5096,154 +4967,15 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L56",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_fileupload_fileupload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_fileupload_fileuploadprops",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_fileupload_formatbytes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_fileupload_uploadedfile",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L3",
       "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachment",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmentaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmentactions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmentcontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmentdescription",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmentgroup",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmentmedia",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload",
-      "target": "frontend_components_ui_attachment_attachmenttitle",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/FileUpload.tsx",
-      "source_location": "L104",
-      "weight": 1.0,
-      "source": "frontend_components_fileupload_fileupload",
-      "target": "frontend_components_fileupload_formatbytes",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_app_providers_providers"
     },
     {
       "relation": "imports_from",
@@ -5257,6 +4989,17 @@
       "target": "frontend_components_app_sidebar"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_components_app_sidebar"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
@@ -5264,16 +5007,6 @@
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_appsidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L84",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_darkmodetoggle",
       "confidence_score": 1.0
     },
     {
@@ -5347,149 +5080,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarcontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarfooter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargroup",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargroupcontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargrouplabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarheader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenu",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenubutton",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenuitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebartrigger",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_ui_sidebar_usesidebar",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -5499,28 +5089,6 @@
       "source": "frontend_components_app_sidebar_navigationitem",
       "target": "frontend_components_app_sidebar_isactive",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar_navigationitem",
-      "target": "frontend_components_ui_sidebar_usesidebar"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L86",
-      "weight": 1.0,
-      "source": "frontend_components_app_sidebar_darkmodetoggle",
-      "target": "frontend_package_dependencies_react"
     },
     {
       "relation": "imports",
@@ -5534,15 +5102,279 @@
       "target": "frontend_components_app_sidebar_appsidebar"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_components_app_sidebar_appsidebar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "frontend_middleware",
+      "target": "frontend_middleware_admin_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "frontend_middleware",
+      "target": "frontend_middleware_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "frontend_middleware",
+      "target": "frontend_middleware_public_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/middleware.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "frontend_middleware",
+      "target": "frontend_middleware_sys_admin_only_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_app_layout_geist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_app_layout_metadata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_app_layout_rootlayout"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_components_mobile_header"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_components_mobile_header_mobileheader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_components_ui_sidebar"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/layout.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_layout",
+      "target": "frontend_components_ui_sidebar_sidebarprovider"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_fileupload_fileupload"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_fileupload_fileuploadprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_fileupload_formatbytes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_fileupload_uploadedfile"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachment"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmentaction"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmentactions"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmentcontent"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmentdescription"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmentgroup"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmentmedia"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload",
+      "target": "frontend_components_ui_attachment_attachmenttitle"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L115",
+      "source_file": "frontend/components/FileUpload.tsx",
+      "source_location": "L104",
       "weight": 1.0,
-      "source": "frontend_components_app_sidebar_appsidebar",
-      "target": "frontend_components_ui_sidebar_usesidebar"
+      "confidence_score": 1.0,
+      "source": "frontend_components_fileupload_fileupload",
+      "target": "frontend_components_fileupload_formatbytes"
     },
     {
       "relation": "contains",
@@ -5550,9 +5382,9 @@
       "source_file": "frontend/components/mobile-header.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_mobile_header",
-      "target": "frontend_components_mobile_header_mobileheader",
-      "confidence_score": 1.0
+      "target": "frontend_components_mobile_header_mobileheader"
     },
     {
       "relation": "imports_from",
@@ -5561,9 +5393,9 @@
       "source_file": "frontend/components/mobile-header.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_mobile_header",
-      "target": "frontend_components_ui_sidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar"
     },
     {
       "relation": "imports",
@@ -5572,9 +5404,9 @@
       "source_file": "frontend/components/mobile-header.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_mobile_header",
-      "target": "frontend_components_ui_sidebar_sidebartrigger",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebartrigger"
     },
     {
       "relation": "contains",
@@ -5582,9 +5414,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachment",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachment"
     },
     {
       "relation": "contains",
@@ -5592,9 +5424,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentaction",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentaction"
     },
     {
       "relation": "contains",
@@ -5602,9 +5434,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentactions",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentactions"
     },
     {
       "relation": "contains",
@@ -5612,9 +5444,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentcontent",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentcontent"
     },
     {
       "relation": "contains",
@@ -5622,9 +5454,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentdescription",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentdescription"
     },
     {
       "relation": "contains",
@@ -5632,9 +5464,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L184",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentgroup",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentgroup"
     },
     {
       "relation": "contains",
@@ -5642,9 +5474,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentmedia",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentmedia"
     },
     {
       "relation": "contains",
@@ -5652,9 +5484,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentmediavariants",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentmediavariants"
     },
     {
       "relation": "contains",
@@ -5662,9 +5494,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmenttitle",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmenttitle"
     },
     {
       "relation": "contains",
@@ -5672,9 +5504,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmenttrigger",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmenttrigger"
     },
     {
       "relation": "contains",
@@ -5682,9 +5514,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment",
-      "target": "frontend_components_ui_attachment_attachmentvariants",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentvariants"
     },
     {
       "relation": "calls",
@@ -5693,9 +5525,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment_attachment",
-      "target": "frontend_components_ui_attachment_attachmentvariants",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentvariants"
     },
     {
       "relation": "calls",
@@ -5704,9 +5536,9 @@
       "source_file": "frontend/components/ui/attachment.tsx",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_attachment_attachmentmedia",
-      "target": "frontend_components_ui_attachment_attachmentmediavariants",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_attachment_attachmentmediavariants"
     },
     {
       "relation": "imports_from",
@@ -5725,9 +5557,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebar"
     },
     {
       "relation": "contains",
@@ -5735,9 +5567,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L368",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarcontent",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarcontent"
     },
     {
       "relation": "contains",
@@ -5745,9 +5577,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarcontext",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarcontext"
     },
     {
       "relation": "contains",
@@ -5755,9 +5587,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarcontextprops",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarcontextprops"
     },
     {
       "relation": "contains",
@@ -5765,9 +5597,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L343",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarfooter",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarfooter"
     },
     {
       "relation": "contains",
@@ -5775,9 +5607,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L382",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargroup",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebargroup"
     },
     {
       "relation": "contains",
@@ -5785,9 +5617,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L417",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargroupaction",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebargroupaction"
     },
     {
       "relation": "contains",
@@ -5795,9 +5627,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L441",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargroupcontent",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebargroupcontent"
     },
     {
       "relation": "contains",
@@ -5805,9 +5637,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L393",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebargrouplabel",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebargrouplabel"
     },
     {
       "relation": "contains",
@@ -5815,9 +5647,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L332",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarheader",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarheader"
     },
     {
       "relation": "contains",
@@ -5825,9 +5657,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L318",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarinput",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarinput"
     },
     {
       "relation": "contains",
@@ -5835,9 +5667,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L305",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarinset",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarinset"
     },
     {
       "relation": "contains",
@@ -5845,9 +5677,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L455",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenu",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenu"
     },
     {
       "relation": "contains",
@@ -5855,9 +5687,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L553",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenuaction",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenuaction"
     },
     {
       "relation": "contains",
@@ -5865,9 +5697,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L583",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenubadge",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenubadge"
     },
     {
       "relation": "contains",
@@ -5875,9 +5707,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L499",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenubutton",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenubutton"
     },
     {
       "relation": "contains",
@@ -5885,9 +5717,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L477",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenubuttonvariants",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenubuttonvariants"
     },
     {
       "relation": "contains",
@@ -5895,9 +5727,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L466",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenuitem",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenuitem"
     },
     {
       "relation": "contains",
@@ -5905,9 +5737,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L600",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenuskeleton",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenuskeleton"
     },
     {
       "relation": "contains",
@@ -5915,9 +5747,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L638",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenusub",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenusub"
     },
     {
       "relation": "contains",
@@ -5925,9 +5757,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L666",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenusubbutton",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenusubbutton"
     },
     {
       "relation": "contains",
@@ -5935,9 +5767,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L652",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarmenusubitem",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenusubitem"
     },
     {
       "relation": "contains",
@@ -5945,9 +5777,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarprovider",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarprovider"
     },
     {
       "relation": "contains",
@@ -5955,9 +5787,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L280",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarrail",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarrail"
     },
     {
       "relation": "contains",
@@ -5965,9 +5797,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L354",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebarseparator",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarseparator"
     },
     {
       "relation": "contains",
@@ -5975,9 +5807,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L254",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_sidebartrigger",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebartrigger"
     },
     {
       "relation": "contains",
@@ -5985,9 +5817,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar",
-      "target": "frontend_components_ui_sidebar_usesidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_usesidebar"
     },
     {
       "relation": "calls",
@@ -5996,9 +5828,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L165",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar_sidebar",
-      "target": "frontend_components_ui_sidebar_usesidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_usesidebar"
     },
     {
       "relation": "calls",
@@ -6007,9 +5839,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L512",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar_sidebarmenubutton",
-      "target": "frontend_components_ui_sidebar_usesidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_usesidebar"
     },
     {
       "relation": "calls",
@@ -6018,9 +5850,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L281",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar_sidebarrail",
-      "target": "frontend_components_ui_sidebar_usesidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_usesidebar"
     },
     {
       "relation": "calls",
@@ -6029,9 +5861,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L259",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar_sidebartrigger",
-      "target": "frontend_components_ui_sidebar_usesidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_usesidebar"
     },
     {
       "relation": "references",
@@ -6095,9 +5927,9 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L517",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_ui_sidebar_sidebarmenubutton",
-      "target": "frontend_components_ui_sidebar_sidebarmenubuttonvariants",
-      "confidence_score": 1.0
+      "target": "frontend_components_ui_sidebar_sidebarmenubuttonvariants"
     },
     {
       "relation": "references",
@@ -6116,9 +5948,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_dependencies",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies"
     },
     {
       "relation": "contains",
@@ -6126,9 +5958,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_devdependencies",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies"
     },
     {
       "relation": "contains",
@@ -6136,9 +5968,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_ignorescripts",
-      "confidence_score": 1.0
+      "target": "frontend_package_ignorescripts"
     },
     {
       "relation": "contains",
@@ -6146,9 +5978,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_name",
-      "confidence_score": 1.0
+      "target": "frontend_package_name"
     },
     {
       "relation": "contains",
@@ -6156,9 +5988,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_private",
-      "confidence_score": 1.0
+      "target": "frontend_package_private"
     },
     {
       "relation": "contains",
@@ -6166,9 +5998,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_scripts",
-      "confidence_score": 1.0
+      "target": "frontend_package_scripts"
     },
     {
       "relation": "contains",
@@ -6176,9 +6008,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_trusteddependencies",
-      "confidence_score": 1.0
+      "target": "frontend_package_trusteddependencies"
     },
     {
       "relation": "contains",
@@ -6186,9 +6018,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package",
-      "target": "frontend_package_version",
-      "confidence_score": 1.0
+      "target": "frontend_package_version"
     },
     {
       "relation": "contains",
@@ -6196,9 +6028,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_scripts",
-      "target": "frontend_package_scripts_build",
-      "confidence_score": 1.0
+      "target": "frontend_package_scripts_build"
     },
     {
       "relation": "contains",
@@ -6206,9 +6038,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_scripts",
-      "target": "frontend_package_scripts_dev",
-      "confidence_score": 1.0
+      "target": "frontend_package_scripts_dev"
     },
     {
       "relation": "contains",
@@ -6216,9 +6048,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_scripts",
-      "target": "frontend_package_scripts_lint",
-      "confidence_score": 1.0
+      "target": "frontend_package_scripts_lint"
     },
     {
       "relation": "contains",
@@ -6226,9 +6058,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_scripts",
-      "target": "frontend_package_scripts_start",
-      "confidence_score": 1.0
+      "target": "frontend_package_scripts_start"
     },
     {
       "relation": "contains",
@@ -6236,9 +6068,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_scripts",
-      "target": "frontend_package_scripts_test",
-      "confidence_score": 1.0
+      "target": "frontend_package_scripts_test"
     },
     {
       "relation": "contains",
@@ -6246,9 +6078,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_anthropic_ai_sdk",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_anthropic_ai_sdk"
     },
     {
       "relation": "contains",
@@ -6256,9 +6088,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_auth_mongodb_adapter",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_auth_mongodb_adapter"
     },
     {
       "relation": "contains",
@@ -6266,9 +6098,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_base_ui_react",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_base_ui_react"
     },
     {
       "relation": "contains",
@@ -6276,9 +6108,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_bcryptjs",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_bcryptjs"
     },
     {
       "relation": "contains",
@@ -6286,9 +6118,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_class_variance_authority",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_class_variance_authority"
     },
     {
       "relation": "contains",
@@ -6296,9 +6128,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_clsx",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_clsx"
     },
     {
       "relation": "contains",
@@ -6306,9 +6138,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_gsap",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_gsap"
     },
     {
       "relation": "contains",
@@ -6316,9 +6148,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_langchain_core",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_langchain_core"
     },
     {
       "relation": "contains",
@@ -6326,9 +6158,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_langchain_groq",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_langchain_groq"
     },
     {
       "relation": "contains",
@@ -6336,9 +6168,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_langchain_langgraph",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_langchain_langgraph"
     },
     {
       "relation": "contains",
@@ -6346,9 +6178,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_langchain_mongodb",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_langchain_mongodb"
     },
     {
       "relation": "contains",
@@ -6356,9 +6188,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_lucide_react",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_lucide_react"
     },
     {
       "relation": "contains",
@@ -6366,9 +6198,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_mongodb",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_mongodb"
     },
     {
       "relation": "contains",
@@ -6376,9 +6208,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_mongoose",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_mongoose"
     },
     {
       "relation": "contains",
@@ -6386,9 +6218,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_motion",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_motion"
     },
     {
       "relation": "contains",
@@ -6396,9 +6228,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_next",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_next"
     },
     {
       "relation": "contains",
@@ -6406,9 +6238,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_next_auth",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_next_auth"
     },
     {
       "relation": "contains",
@@ -6416,9 +6248,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_next_themes",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_next_themes"
     },
     {
       "relation": "contains",
@@ -6426,9 +6258,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_react"
     },
     {
       "relation": "contains",
@@ -6436,9 +6268,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react_dom",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_react_dom"
     },
     {
       "relation": "contains",
@@ -6446,9 +6278,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_shadcn",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_shadcn"
     },
     {
       "relation": "contains",
@@ -6456,9 +6288,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tailwind_merge",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_tailwind_merge"
     },
     {
       "relation": "contains",
@@ -6466,9 +6298,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_tw_animate_css",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_tw_animate_css"
     },
     {
       "relation": "imports",
@@ -6477,9 +6309,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_anthropic_ai_sdk",
-      "target": "anthropic_ai_sdk",
-      "confidence_score": 1.0
+      "target": "anthropic_ai_sdk"
     },
     {
       "relation": "imports",
@@ -6488,9 +6320,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_auth_mongodb_adapter",
-      "target": "auth_mongodb_adapter",
-      "confidence_score": 1.0
+      "target": "auth_mongodb_adapter"
     },
     {
       "relation": "imports",
@@ -6499,9 +6331,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_base_ui_react",
-      "target": "base_ui_react",
-      "confidence_score": 1.0
+      "target": "base_ui_react"
     },
     {
       "relation": "imports",
@@ -6510,9 +6342,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_langchain_core",
-      "target": "langchain_core",
-      "confidence_score": 1.0
+      "target": "langchain_core"
     },
     {
       "relation": "imports",
@@ -6521,9 +6353,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_langchain_groq",
-      "target": "langchain_groq",
-      "confidence_score": 1.0
+      "target": "langchain_groq"
     },
     {
       "relation": "imports",
@@ -6532,9 +6364,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_langchain_langgraph",
-      "target": "langchain_langgraph",
-      "confidence_score": 1.0
+      "target": "langchain_langgraph"
     },
     {
       "relation": "imports",
@@ -6543,9 +6375,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_langchain_mongodb",
-      "target": "langchain_mongodb",
-      "confidence_score": 1.0
+      "target": "langchain_mongodb"
     },
     {
       "relation": "imports",
@@ -6554,9 +6386,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_bcryptjs",
-      "target": "bcryptjs",
-      "confidence_score": 1.0
+      "target": "bcryptjs"
     },
     {
       "relation": "imports",
@@ -6565,9 +6397,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_class_variance_authority",
-      "target": "class_variance_authority",
-      "confidence_score": 1.0
+      "target": "class_variance_authority"
     },
     {
       "relation": "imports",
@@ -6576,9 +6408,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_clsx",
-      "target": "clsx",
-      "confidence_score": 1.0
+      "target": "clsx"
     },
     {
       "relation": "imports",
@@ -6587,9 +6419,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_gsap",
-      "target": "gsap",
-      "confidence_score": 1.0
+      "target": "gsap"
     },
     {
       "relation": "imports",
@@ -6598,9 +6430,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_lucide_react",
-      "target": "lucide_react",
-      "confidence_score": 1.0
+      "target": "lucide_react"
     },
     {
       "relation": "imports",
@@ -6609,9 +6441,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_mongodb",
-      "target": "mongodb",
-      "confidence_score": 1.0
+      "target": "mongodb"
     },
     {
       "relation": "imports",
@@ -6620,9 +6452,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_mongoose",
-      "target": "mongoose",
-      "confidence_score": 1.0
+      "target": "mongoose"
     },
     {
       "relation": "imports",
@@ -6631,9 +6463,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_motion",
-      "target": "motion",
-      "confidence_score": 1.0
+      "target": "motion"
     },
     {
       "relation": "imports",
@@ -6642,9 +6474,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_next",
-      "target": "next",
-      "confidence_score": 1.0
+      "target": "next"
     },
     {
       "relation": "imports",
@@ -6653,9 +6485,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_next_auth",
-      "target": "next_auth",
-      "confidence_score": 1.0
+      "target": "next_auth"
     },
     {
       "relation": "imports",
@@ -6664,9 +6496,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_next_themes",
-      "target": "next_themes",
-      "confidence_score": 1.0
+      "target": "next_themes"
     },
     {
       "relation": "references",
@@ -6686,9 +6518,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_react",
-      "target": "react",
-      "confidence_score": 1.0
+      "target": "react"
     },
     {
       "relation": "imports",
@@ -6697,9 +6529,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_react_dom",
-      "target": "react_dom",
-      "confidence_score": 1.0
+      "target": "react_dom"
     },
     {
       "relation": "imports",
@@ -6708,9 +6540,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_shadcn",
-      "target": "shadcn",
-      "confidence_score": 1.0
+      "target": "shadcn"
     },
     {
       "relation": "imports",
@@ -6719,9 +6551,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_tailwind_merge",
-      "target": "tailwind_merge",
-      "confidence_score": 1.0
+      "target": "tailwind_merge"
     },
     {
       "relation": "imports",
@@ -6730,9 +6562,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies_tw_animate_css",
-      "target": "tw_animate_css",
-      "confidence_score": 1.0
+      "target": "tw_animate_css"
     },
     {
       "relation": "contains",
@@ -6740,9 +6572,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_eslint",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_eslint"
     },
     {
       "relation": "contains",
@@ -6750,9 +6582,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_eslint_config_next",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_eslint_config_next"
     },
     {
       "relation": "contains",
@@ -6760,9 +6592,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_tailwindcss",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_tailwindcss"
     },
     {
       "relation": "contains",
@@ -6770,9 +6602,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_tailwindcss_postcss",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_tailwindcss_postcss"
     },
     {
       "relation": "contains",
@@ -6780,9 +6612,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_tsx",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_tsx"
     },
     {
       "relation": "contains",
@@ -6790,9 +6622,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_types_bcryptjs",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_types_bcryptjs"
     },
     {
       "relation": "contains",
@@ -6800,9 +6632,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_types_node",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_types_node"
     },
     {
       "relation": "contains",
@@ -6810,9 +6642,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_types_react",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_types_react"
     },
     {
       "relation": "contains",
@@ -6820,9 +6652,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_types_react_dom",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_types_react_dom"
     },
     {
       "relation": "contains",
@@ -6830,9 +6662,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_typescript",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_typescript"
     },
     {
       "relation": "contains",
@@ -6840,9 +6672,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies",
-      "target": "frontend_package_devdependencies_vitest",
-      "confidence_score": 1.0
+      "target": "frontend_package_devdependencies_vitest"
     },
     {
       "relation": "imports",
@@ -6851,9 +6683,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_tailwindcss_postcss",
-      "target": "tailwindcss_postcss",
-      "confidence_score": 1.0
+      "target": "tailwindcss_postcss"
     },
     {
       "relation": "imports",
@@ -6862,9 +6694,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_types_bcryptjs",
-      "target": "types_bcryptjs",
-      "confidence_score": 1.0
+      "target": "types_bcryptjs"
     },
     {
       "relation": "imports",
@@ -6873,9 +6705,9 @@
       "source_location": "L40",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_types_node",
-      "target": "types_node",
-      "confidence_score": 1.0
+      "target": "types_node"
     },
     {
       "relation": "imports",
@@ -6884,9 +6716,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_types_react",
-      "target": "types_react",
-      "confidence_score": 1.0
+      "target": "types_react"
     },
     {
       "relation": "imports",
@@ -6895,9 +6727,9 @@
       "source_location": "L42",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_types_react_dom",
-      "target": "types_react_dom",
-      "confidence_score": 1.0
+      "target": "types_react_dom"
     },
     {
       "relation": "imports",
@@ -6906,9 +6738,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_eslint",
-      "target": "eslint",
-      "confidence_score": 1.0
+      "target": "eslint"
     },
     {
       "relation": "imports",
@@ -6917,9 +6749,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_eslint_config_next",
-      "target": "eslint_config_next",
-      "confidence_score": 1.0
+      "target": "eslint_config_next"
     },
     {
       "relation": "imports",
@@ -6928,9 +6760,9 @@
       "source_location": "L45",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_tailwindcss",
-      "target": "tailwindcss",
-      "confidence_score": 1.0
+      "target": "tailwindcss"
     },
     {
       "relation": "imports",
@@ -6939,9 +6771,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_tsx",
-      "target": "tsx",
-      "confidence_score": 1.0
+      "target": "tsx"
     },
     {
       "relation": "imports",
@@ -6950,9 +6782,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_typescript",
-      "target": "typescript",
-      "confidence_score": 1.0
+      "target": "typescript"
     },
     {
       "relation": "imports",
@@ -6961,9 +6793,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_devdependencies_vitest",
-      "target": "vitest",
-      "confidence_score": 1.0
+      "target": "vitest"
     },
     {
       "relation": "extends",
@@ -6972,9 +6804,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_ignorescripts",
-      "target": "ref_sharp",
-      "confidence_score": 1.0
+      "target": "ref_sharp"
     },
     {
       "relation": "extends",
@@ -6983,9 +6815,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_ignorescripts",
-      "target": "ref_unrs_resolver",
-      "confidence_score": 1.0
+      "target": "ref_unrs_resolver"
     },
     {
       "relation": "extends",
@@ -6994,9 +6826,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_trusteddependencies",
-      "target": "ref_sharp",
-      "confidence_score": 1.0
+      "target": "ref_sharp"
     },
     {
       "relation": "extends",
@@ -7005,39 +6837,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "context": "import",
+      "confidence_score": 1.0,
       "source": "frontend_package_trusteddependencies",
-      "target": "ref_unrs_resolver",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_proxy",
-      "target": "frontend_proxy_admin_only_paths"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_proxy",
-      "target": "frontend_proxy_config"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/proxy.ts",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_proxy",
-      "target": "frontend_proxy_public_paths"
+      "target": "ref_unrs_resolver"
     },
     {
       "relation": "contains",
@@ -11365,5 +11167,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3b5eb9eb25bca3dfc52c87b4e5fed3dc658b8aaa"
+  "built_at_commit": "3b250e96b7f3db9b370334a4caf1de8bf8641a8c"
 }

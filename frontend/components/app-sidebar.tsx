@@ -15,12 +15,10 @@ import {
   SidebarGroupContent,
   SidebarMenu
 } from "@/components/ui/sidebar"
-import { Users, Shield, BarChart2, LayoutDashboard, FileText, Eye, LogOut, Sun, Moon } from "lucide-react"
-import Image from 'next/image'
+import { Users, Shield, BarChart2, LayoutDashboard, FileText, Eye, LogOut, PlusCircle, Sliders } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { signOut, useSession } from "next-auth/react"
-import { useTheme } from "next-themes"
 import NotificationBell from "./NotificationBell"
 
 interface NavItem {
@@ -31,18 +29,19 @@ interface NavItem {
 }
 
 const employeeItems: NavItem[] = [
-  { href: '/my-requests', label: 'My Requests', icon: <FileText />, exact: true },
-  { href: '/ledger', label: 'Company Ledger', icon: <Eye />, exact: true },
+  { href: '/my-requests', label: 'My Requests', icon: <FileText className="size-4 text-[#4edea3]" />, exact: true },
+  { href: '/ledger', label: 'Company Ledger', icon: <Eye className="size-4 text-[#c0c1ff]" />, exact: true },
 ];
 
 const engineeringItems: NavItem[] = [
-  { href: '/admin/requests', label: 'Pipeline', icon: <LayoutDashboard /> },
-  { href: '/admin/analytics', label: 'Analytics', icon: <BarChart2 /> },
+  { href: '/admin/requests', label: 'Requests Backlog', icon: <LayoutDashboard className="size-4 text-[#c0c1ff]" /> },
+  { href: '/admin/analytics', label: 'Portfolio Analytics', icon: <BarChart2 className="size-4 text-[#ffb95f]" /> },
 ];
 
 const systemItems: NavItem[] = [
-  { href: '/admin/users', label: 'Users', icon: <Users /> },
-  { href: '/admin/audit-log', label: 'Audit Log', icon: <Shield /> },
+  { href: '/admin/users', label: 'User Management', icon: <Users className="size-4 text-[#c0c1ff]" /> },
+  { href: '/admin/audit-log', label: 'Security Audit Log', icon: <Shield className="size-4 text-[#ffb4ab]" /> },
+  { href: '/admin/settings/priority-weights', label: 'Priority Settings', icon: <Sliders className="size-4 text-[#c0c1ff]" /> },
 ];
 
 function isActive(pathname: string, href: string, exact?: boolean) {
@@ -52,14 +51,20 @@ function isActive(pathname: string, href: string, exact?: boolean) {
 function NavigationItem({ item }: { item: NavItem }) {
   const pathname = usePathname();
   const { isMobile, setOpenMobile } = useSidebar();
+  const active = isActive(pathname, item.href, item.exact);
+
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
         render={<Link href={item.href} />}
-        isActive={isActive(pathname, item.href, item.exact)}
+        isActive={active}
         tooltip={item.label}
         onClick={() => isMobile && setOpenMobile(false)}
-        className="h-11 gap-3 rounded-lg text-base text-[#5f6470] [&_svg]:size-5 hover:bg-[#f1f5f9] hover:text-[#191c1e] data-active:bg-[#dbeafe] data-active:text-[#004ac6]"
+        className={`h-10 gap-3 rounded-md px-3 text-xs font-medium transition-all ${
+          active
+            ? 'bg-[#00a572]/15 text-[#4edea3] border-r-2 border-[#4edea3] font-semibold'
+            : 'text-[#c7c4d7] hover:bg-[#34343d]/50 hover:text-white'
+        }`}
       >
         {item.icon}
         <span>{item.label}</span>
@@ -70,8 +75,12 @@ function NavigationItem({ item }: { item: NavItem }) {
 
 function NavigationGroup({ label, items }: { label?: string; items: NavItem[] }) {
   return (
-    <SidebarGroup className="px-3 py-1.5">
-      {label && <SidebarGroupLabel className="px-2 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#737686]">{label}</SidebarGroupLabel>}
+    <SidebarGroup className="px-2 py-1.5">
+      {label && (
+        <SidebarGroupLabel className="px-2 text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">
+          {label}
+        </SidebarGroupLabel>
+      )}
       <SidebarGroupContent>
         <SidebarMenu className="gap-1">
           {items.map((item) => <NavigationItem key={item.href} item={item} />)}
@@ -80,34 +89,6 @@ function NavigationGroup({ label, items }: { label?: string; items: NavItem[] })
     </SidebarGroup>
   );
 }
-
-// function DarkModeToggle() {
-//   const { theme, setTheme, resolvedTheme } = useTheme();
-//   const [mounted, setMounted] = React.useState(false);
-
-//   React.useEffect(() => {
-//     setMounted(true);
-//   }, []);
-
-//   const isDark = mounted ? resolvedTheme === 'dark' : false;
-
-//   return (
-//     <SidebarMenuItem>
-//       <SidebarMenuButton
-//         tooltip={isDark ? "Light Mode" : "Dark Mode"}
-//         onClick={() => setTheme(isDark ? 'light' : 'dark')}
-//         className="h-11 gap-3 rounded-lg text-base text-[#5f6470] [&_svg]:size-5 hover:bg-[#f1f5f9] hover:text-[#191c1e]"
-//       >
-//         {isDark ? (
-//           <Sun className="text-amber-500" />
-//         ) : (
-//           <Moon className="text-slate-600" />
-//         )}
-//         <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
-//       </SidebarMenuButton>
-//     </SidebarMenuItem>
-//   );
-// }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: session, status } = useSession();
@@ -124,54 +105,60 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const roleLabel = isSysAdmin ? 'System Admin' : role === 'eng_admin' ? 'Engineering Admin' : department;
 
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="border-b-1">
-        <div className="flex justify-between items-center px-1">
-          {state === 'expanded' &&
-            <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-12 w-12 shrink-0 rounded-lg object-cover" priority />
-          }
-          <SidebarTrigger className='h-10 w-10' />
+    <Sidebar collapsible="icon" className="border-r border-[#464554]/30 bg-[#13131b] text-[#e4e1ed]" {...props}>
+      <SidebarHeader className="border-b border-[#464554]/30 p-4">
+        <div className="flex items-center justify-between">
+          {state === 'expanded' && (
+            <div>
+              <h1 className="font-outfit text-base font-bold text-[#c0c1ff]">AI Automate</h1>
+              <p className="text-[10px] text-[#908fa0] font-inter uppercase tracking-wider">Admin Console</p>
+            </div>
+          )}
+          <SidebarTrigger className="h-8 w-8 text-[#908fa0] hover:text-white" />
         </div>
+
+        {state === 'expanded' && (
+          <Link
+            href="/intake/new"
+            className="mt-3 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] px-3 py-2 text-xs font-semibold text-white transition-all hover:brightness-110 shadow-md shadow-[#6366f1]/30 active:scale-[0.98]"
+          >
+            <PlusCircle className="h-4 w-4" />
+            <span>+ New Request</span>
+          </Link>
+        )}
       </SidebarHeader>
 
-      <SidebarContent className="font-medium">
-        <NavigationGroup items={employeeItems} />
-        {isAnyAdmin && <NavigationGroup label="Engineering Admin" items={engineeringItems} />}
-        {isSysAdmin && <NavigationGroup label="System Admin" items={systemItems} />}
-        
-        {/* <SidebarGroup className="px-3 py-1.5 mt-auto">
-          <SidebarGroupContent>
-            <SidebarMenu className="gap-1">
-              <DarkModeToggle />
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup> */}
+      <SidebarContent className="font-inter space-y-1 py-2">
+        <NavigationGroup label="General" items={employeeItems} />
+        {isAnyAdmin && <NavigationGroup label="Pipeline & Backlog" items={engineeringItems} />}
+        {isSysAdmin && <NavigationGroup label="Governance & System" items={systemItems} />}
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-[#dfe3e8] p-3 font-medium">
-        <div className="flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
+      <SidebarFooter className="border-t border-[#464554]/30 p-3">
+        <div className="flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:justify-center">
           <NotificationBell />
-          <span className="text-sm font-medium text-[#5f6470] group-data-[collapsible=icon]:hidden">Notifications</span>
+          <span className="text-xs font-medium text-[#c7c4d7] group-data-[collapsible=icon]:hidden">Notifications</span>
         </div>
-        <div className="flex items-center gap-2.5 rounded-lg border border-[#dfe3e8] bg-white p-2.5 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:border-0 group-data-[collapsible=icon]:p-0">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 text-sm font-semibold text-[#004ac6]">
+        <div className="flex items-center gap-2.5 rounded-lg border border-[#464554]/40 bg-[#1f1f27] p-2.5 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:border-0 group-data-[collapsible=icon]:p-0">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#8083ff]/30 bg-[#6366f1]/20 text-xs font-bold text-[#c0c1ff] font-outfit">
             {userName.charAt(0).toUpperCase()}
           </div>
           <div className="min-w-0 flex-1 group-data-[collapsible=icon]:hidden">
-            <p className="truncate text-sm font-semibold text-[#191c1e]">{userName}</p>
-            <p className="truncate text-xs text-[#5f6470]">{roleLabel}</p>
+            <p className="truncate text-xs font-semibold text-[#e4e1ed]">{userName}</p>
+            <p className="truncate text-[10px] text-[#908fa0]">{roleLabel}</p>
           </div>
           <button
             type="button"
             onClick={() => signOut({ callbackUrl: '/login' })}
-            className="rounded-md p-1.5 text-[#737686] hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004ac6] group-data-[collapsible=icon]:hidden"
+            className="rounded-md p-1.5 text-[#908fa0] hover:bg-[#ffb4ab]/15 hover:text-[#ffb4ab] transition-colors group-data-[collapsible=icon]:hidden"
             aria-label="Sign out"
             title="Sign out"
           >
-            <LogOut className="h-[18px] w-[18px]" />
+            <LogOut className="h-4 w-4" />
           </button>
         </div>
       </SidebarFooter>
     </Sidebar>
   )
 }
+

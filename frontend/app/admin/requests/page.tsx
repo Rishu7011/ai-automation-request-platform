@@ -10,8 +10,7 @@ import {
   BarChart2,
   AlertTriangle,
   ArrowRight,
-  Check,
-  X
+  PlusCircle,
 } from 'lucide-react';
 import { DEPARTMENTS } from '@/constants';
 import DuplicateComparisonModal from '@/components/DuplicateComparisonModal';
@@ -31,18 +30,18 @@ interface AdminRequestItem {
 }
 
 const STATUS_BADGES: Record<string, { label: string; color: string }> = {
-  draft:              { label: 'Draft',        color: 'bg-amber-500/15 text-amber-300 border-amber-500/30' },
-  ai_reviewing:       { label: 'AI Reviewing', color: 'bg-purple-500/15 text-purple-300 border-purple-500/30' },
+  draft:              { label: 'Draft',        color: 'bg-[#ffb95f]/15 text-[#ffb95f] border-[#ffb95f]/30' },
+  ai_reviewing:       { label: 'AI Reviewing', color: 'bg-[#8083ff]/15 text-[#c0c1ff] border-[#8083ff]/30' },
   submitted:          { label: 'Submitted',    color: 'bg-blue-500/15 text-blue-300 border-blue-500/30' },
-  needs_more_info:    { label: 'Info Needed',  color: 'bg-orange-500/15 text-orange-300 border-orange-500/30' },
-  engineering_review: { label: 'Eng Review',  color: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30' },
-  approved:           { label: 'Approved',     color: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' },
-  rejected:           { label: 'Rejected',     color: 'bg-rose-500/15 text-rose-300 border-rose-500/30' },
-  planned:            { label: 'Planned',      color: 'bg-teal-500/15 text-teal-300 border-teal-500/30' },
-  in_development:     { label: 'In Dev',       color: 'bg-blue-600/20 text-blue-300 border-blue-500/30' },
-  testing:            { label: 'Testing',      color: 'bg-violet-500/15 text-violet-300 border-violet-500/30' },
-  completed:          { label: 'Completed',    color: 'bg-green-500/15 text-green-300 border-green-500/30' },
-  archived:           { label: 'Archived',     color: 'bg-slate-500/15 text-slate-400 border-slate-500/30' },
+  needs_more_info:    { label: 'Info Needed',  color: 'bg-[#ffb95f]/15 text-[#ffb95f] border-[#ffb95f]/30' },
+  engineering_review: { label: 'Eng Review',  color: 'bg-[#6366f1]/15 text-[#c0c1ff] border-[#6366f1]/30' },
+  approved:           { label: 'Approved',     color: 'bg-[#00a572]/15 text-[#4edea3] border-[#00a572]/30' },
+  rejected:           { label: 'Rejected',     color: 'bg-[#93000a]/30 text-[#ffb4ab] border-[#ffb4ab]/30' },
+  planned:            { label: 'Planned',      color: 'bg-[#00a572]/15 text-[#4edea3] border-[#00a572]/30' },
+  in_development:     { label: 'In Dev',       color: 'bg-[#6366f1]/20 text-[#c0c1ff] border-[#6366f1]/30' },
+  testing:            { label: 'Testing',      color: 'bg-[#8083ff]/15 text-[#c0c1ff] border-[#8083ff]/30' },
+  completed:          { label: 'Completed',    color: 'bg-[#00a572]/20 text-[#4edea3] border-[#00a572]/40' },
+  archived:           { label: 'Archived',     color: 'bg-[#34343d]/40 text-[#908fa0] border-[#464554]/30' },
 };
 
 const DEPARTMENT_ICONS: Record<string, string> = {
@@ -153,75 +152,85 @@ export default function AdminRequestsPage() {
     return (scored.reduce((acc, r) => acc + r.priorityScore, 0) / scored.length).toFixed(1);
   }, [requests]);
 
-  const selectClass = 'bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs font-semibold rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer';
+  const selectClass = 'bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-xs font-semibold rounded-lg px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] appearance-none cursor-pointer [color-scheme:dark]';
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+    <div className="min-h-screen bg-[#13131b] text-[#e4e1ed] font-inter">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">Engineering Prioritization Backlog</h1>
-          <p className="text-sm text-[#9ca3af] mt-1">
-            Precision-ranked requests driven by AI-extracted ROI and effort modeling. Admin-only view.
-          </p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#464554]/30 pb-6">
+          <div>
+            <h1 className="text-3xl font-bold font-outfit text-[#c0c1ff] tracking-tight mb-1">Engineering Prioritization Backlog</h1>
+            <p className="text-xs text-[#908fa0] max-w-2xl">
+              Precision-ranked automation requests driven by AI ROI & effort modeling.
+            </p>
+          </div>
+
+          <Link
+            href="/intake/new"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-xs transition-all shadow-md shadow-[#6366f1]/30 flex items-center gap-2 w-fit active:scale-95 cursor-pointer"
+          >
+            <PlusCircle className="h-4 w-4" />
+            <span>Submit Request</span>
+          </Link>
         </div>
 
         {/* Metric Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-[#0f0f1e] p-5 rounded-2xl border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 flex items-center gap-4">
+            <div className="h-11 w-11 rounded-lg bg-[#ffb95f]/15 border border-[#ffb95f]/30 flex items-center justify-center text-[#ffb95f] shrink-0">
               <Clock className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Pending Reviews</p>
-              <p className="text-xl font-bold text-white mt-0.5">{pendingCount}</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Pending Reviews</p>
+              <p className="text-2xl font-bold text-white mt-0.5 font-outfit">{pendingCount}</p>
             </div>
           </div>
 
-          <div className="bg-[#0f0f1e] p-5 rounded-2xl border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 flex items-center gap-4">
+            <div className="h-11 w-11 rounded-lg bg-[#00a572]/15 border border-[#00a572]/30 flex items-center justify-center text-[#4edea3] shrink-0">
               <DollarSign className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Approved Backlog</p>
-              <p className="text-xl font-bold text-white mt-0.5">{approvedCount}</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Approved Backlog</p>
+              <p className="text-2xl font-bold text-white mt-0.5 font-outfit">{approvedCount}</p>
             </div>
           </div>
 
-          <div className="bg-[#0f0f1e] p-5 rounded-2xl border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 flex items-center gap-4">
+            <div className="h-11 w-11 rounded-lg bg-[#6366f1]/15 border border-[#6366f1]/30 flex items-center justify-center text-[#c0c1ff] shrink-0">
               <FileText className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Total Backlog</p>
-              <p className="text-xl font-bold text-white mt-0.5">{requests.length}</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Total Requests</p>
+              <p className="text-2xl font-bold text-white mt-0.5 font-outfit">{requests.length}</p>
             </div>
           </div>
 
-          <div className="bg-[#0f0f1e] p-5 rounded-2xl border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/20 flex items-center justify-center text-[#818cf8] shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 flex items-center gap-4">
+            <div className="h-11 w-11 rounded-lg bg-[#8083ff]/15 border border-[#8083ff]/30 flex items-center justify-center text-[#4edea3] shrink-0">
               <BarChart2 className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Avg Priority Score</p>
-              <p className="text-xl font-bold text-white mt-0.5">
-                {avgScore}{avgScore !== '--' && <span className="text-xs text-[#6b7280] font-normal"> /100</span>}
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Avg ROI Score</p>
+              <p className="text-2xl font-bold text-white mt-0.5 font-outfit">
+                {avgScore}{avgScore !== '--' && <span className="text-xs text-[#908fa0] font-normal"> /100</span>}
               </p>
             </div>
           </div>
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="bg-[#0f0f1e] border border-[#1e1e3a] p-4 rounded-2xl flex flex-col md:flex-row items-center gap-3">
+        <div className="glass-panel p-4 rounded-xl border border-[#464554]/30 flex flex-col md:flex-row items-center gap-3">
           <div className="relative w-full md:flex-1">
-            <Search className="absolute left-3.5 top-3 h-4 w-4 text-[#4b5563]" />
+            <Search className="absolute left-3.5 top-3 h-4 w-4 text-[#908fa0]" />
             <input
               type="text"
-              placeholder="Search by title, requester name, or email…"
+              placeholder="Search by title, requester, or email…"
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setSelected(new Set()); }}
-              className="w-full bg-[#1a1a2e] border border-[#2a2a4e] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#e0e0e0] placeholder-[#4b5563] focus:outline-none focus:ring-2 focus:ring-[#6366f1] transition-all"
+              className="w-full bg-[#1f1f27] border border-[#464554]/40 rounded-lg pl-10 pr-4 py-2 text-xs text-[#e4e1ed] placeholder-[#908fa0] focus:outline-none focus:ring-1 focus:ring-[#6366f1] transition-all [color-scheme:dark]"
             />
           </div>
 
@@ -237,25 +246,25 @@ export default function AdminRequestsPage() {
 
           <button
             onClick={() => setShowDuplicatesOnly(!showDuplicatesOnly)}
-            className={`px-3.5 py-2.5 rounded-xl text-xs font-bold border transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`px-3.5 py-2.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 ${
               showDuplicatesOnly
-                ? 'bg-amber-500/15 text-amber-300 border-amber-500/30'
-                : 'bg-[#1a1a2e] border-[#2a2a4e] text-[#d1d5db] hover:bg-[#1e1e3a]'
+                ? 'bg-[#ffb95f]/20 text-[#ffb95f] border-[#ffb95f]/40'
+                : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
             }`}
           >
-            <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
+            <AlertTriangle className="h-3.5 w-3.5 text-[#ffb95f]" />
             <span>Duplicates Only</span>
           </button>
         </div>
 
         {/* Bulk Action Bar */}
         {someSelected && (
-          <div className="p-4 bg-[#6366f1]/10 border border-[#6366f1]/30 rounded-2xl flex flex-wrap items-center gap-3">
-            <span className="text-[#818cf8] font-bold text-xs">{selected.size} selected</span>
+          <div className="p-4 bg-[#6366f1]/15 border border-[#6366f1]/40 rounded-xl flex flex-wrap items-center gap-3">
+            <span className="text-[#c0c1ff] font-bold text-xs">{selected.size} selected</span>
             <select
               value={bulkStatus}
               onChange={(e) => setBulkStatus(e.target.value)}
-              className="bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs rounded-xl px-3 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer"
+              className="bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-xs rounded-lg px-3 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer [color-scheme:dark]"
             >
               <option value="">— Choose bulk action —</option>
               {BULK_STATUSES.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}
@@ -267,24 +276,24 @@ export default function AdminRequestsPage() {
                 placeholder="Reason (required)…"
                 value={bulkReason}
                 onChange={(e) => setBulkReason(e.target.value)}
-                className="bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6366f1] min-w-[200px]"
+                className="bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-xs rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6366f1] min-w-[200px] [color-scheme:dark]"
               />
             )}
 
             <button
               onClick={handleBulkAction}
               disabled={isBulkSubmitting || !bulkStatus || (needsReason && !bulkReason.trim())}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-[#6366f1] hover:bg-[#5558e0] disabled:opacity-50 text-white transition-all shadow-sm cursor-pointer"
+              className="px-4 py-2 rounded-lg text-xs font-semibold bg-[#6366f1] hover:bg-[#8083ff] disabled:opacity-50 text-white transition-all cursor-pointer shadow-sm shadow-[#6366f1]/30"
             >
               {isBulkSubmitting ? 'Applying…' : 'Apply Action'}
             </button>
 
-            <button onClick={() => setSelected(new Set())} className="text-xs font-semibold text-[#6b7280] hover:text-[#d1d5db] cursor-pointer">
+            <button onClick={() => setSelected(new Set())} className="text-xs font-medium text-[#908fa0] hover:text-white cursor-pointer">
               Clear
             </button>
 
             {bulkResult && (
-              <span className={`text-xs font-bold ${bulkResult.startsWith('✅') ? 'text-emerald-400' : 'text-rose-400'}`}>
+              <span className={`text-xs font-bold ${bulkResult.startsWith('✅') ? 'text-[#4edea3]' : 'text-[#ffb4ab]'}`}>
                 {bulkResult}
               </span>
             )}
@@ -295,95 +304,97 @@ export default function AdminRequestsPage() {
         {isLoading ? (
           <div className="py-20 text-center space-y-3">
             <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-[#6b7280] text-sm font-medium">Loading engineering pipeline…</p>
+            <p className="text-[#908fa0] text-xs font-medium">Loading engineering backlog…</p>
           </div>
         ) : error ? (
-          <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm text-center">
+          <div className="p-4 rounded-xl bg-[#93000a]/20 border border-[#ffb4ab]/30 text-[#ffb4ab] text-xs text-center">
             {error}
           </div>
         ) : filteredRequests.length === 0 ? (
-          <div className="p-12 text-center bg-[#0f0f1e] rounded-2xl border border-[#1e1e3a] text-[#6b7280] text-sm font-medium">
+          <div className="p-12 text-center glass-panel rounded-xl border border-[#464554]/30 text-[#908fa0] text-xs font-medium">
             No requests matched your filter criteria.
           </div>
         ) : (
-          <div className="bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl overflow-hidden">
+          <div className="glass-panel border border-[#464554]/30 rounded-xl overflow-hidden mb-6">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-[#e0e0e0]">
-                <thead className="border-b border-[#1e1e3a] text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">
+              <table className="w-full text-left text-xs text-[#e4e1ed] border-collapse">
+                <thead className="bg-[#1f1f27] border-b border-[#464554]/30 text-[10px] font-bold uppercase tracking-widest text-[#908fa0] font-outfit">
                   <tr>
-                    <th className="px-4 py-3.5 w-10">
+                    <th className="px-5 py-4 w-10">
                       <input
                         type="checkbox"
                         checked={allSelected}
                         onChange={toggleAll}
-                        className="rounded border-[#2a2a4e] bg-[#1a1a2e] text-[#6366f1] focus:ring-[#6366f1] cursor-pointer"
+                        className="rounded border-[#464554] bg-[#0d0d15] text-[#6366f1] focus:ring-[#6366f1] cursor-pointer"
                       />
                     </th>
-                    <th className="px-4 py-3.5">Title & Department</th>
-                    <th className="px-4 py-3.5">Requester</th>
-                    <th className="px-4 py-3.5">Status</th>
-                    <th className="px-4 py-3.5">Priority Score</th>
-                    <th className="px-4 py-3.5">Assigned Engineer</th>
-                    <th className="px-4 py-3.5">Updated</th>
-                    <th className="px-4 py-3.5 text-right">Actions</th>
+                    <th className="px-6 py-4">Title & Department</th>
+                    <th className="px-6 py-4">Requester</th>
+                    <th className="px-6 py-4">Status</th>
+                    <th className="px-6 py-4">Priority Score</th>
+                    <th className="px-6 py-4">Assigned Engineer</th>
+                    <th className="px-6 py-4">Updated</th>
+                    <th className="px-6 py-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1a1a2e]">
+                <tbody className="divide-y divide-[#464554]/20 font-inter text-xs">
                   {filteredRequests.map((req) => {
-                    const badge = STATUS_BADGES[req.status] || { label: req.status, color: 'bg-slate-500/15 text-slate-400 border-slate-500/30' };
+                    const badge = STATUS_BADGES[req.status] || { label: req.status, color: 'bg-[#34343d]/40 text-[#908fa0] border-[#464554]/30' };
                     const icon = DEPARTMENT_ICONS[req.department] || '💼';
                     const isChecked = selected.has(req._id);
                     const updatedDate = new Date(req.updatedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 
                     return (
-                      <tr key={req._id} className={`hover:bg-[#1a1a2e]/50 transition-colors group ${isChecked ? 'bg-[#6366f1]/5' : ''}`}>
-                        <td className="px-4 py-4">
+                      <tr key={req._id} className={`hover:bg-[#34343d]/30 transition-colors group ${isChecked ? 'bg-[#6366f1]/10' : ''}`}>
+                        <td className="px-5 py-4">
                           <input
                             type="checkbox"
                             checked={isChecked}
                             onChange={() => toggleOne(req._id)}
-                            className="rounded border-[#2a2a4e] bg-[#1a1a2e] text-[#6366f1] focus:ring-[#6366f1] cursor-pointer"
+                            className="rounded border-[#464554] bg-[#0d0d15] text-[#6366f1] focus:ring-[#6366f1] cursor-pointer"
                           />
                         </td>
-                        <td className="px-4 py-4">
+                        <td className="px-6 py-4 max-w-xs">
                           <div className="flex items-center gap-3">
                             <span className="text-xl shrink-0">{icon}</span>
-                            <div>
-                              <p className="font-bold text-white text-sm group-hover:text-[#818cf8] transition-colors">{req.title}</p>
-                              <p className="text-[#6b7280] text-xs">{req.department}</p>
+                            <div className="truncate">
+                              <p className="font-semibold text-white text-xs group-hover:text-[#c0c1ff] transition-colors truncate">{req.title}</p>
+                              <span className="inline-flex items-center gap-1 bg-[#0d0d15] border border-[#464554]/30 px-2 py-0.5 rounded-full text-[10px] text-[#c7c4d7] mt-0.5">
+                                {req.department}
+                              </span>
                             </div>
                           </div>
                         </td>
-                        <td className="px-4 py-4">
-                          <p className="font-bold text-white">{req.requesterId?.name ?? '—'}</p>
-                          <p className="text-[#6b7280] text-[11px]">{req.requesterId?.email ?? ''}</p>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <p className="font-semibold text-white">{req.requesterId?.name ?? '—'}</p>
+                          <p className="text-[#908fa0] text-[11px] font-mono-code">{req.requesterId?.email ?? ''}</p>
                         </td>
-                        <td className="px-4 py-4">
-                          <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${badge.color}`}>{badge.label}</span>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${badge.color}`}>{badge.label}</span>
                         </td>
-                        <td className="px-4 py-4">
+                        <td className="px-6 py-4 whitespace-nowrap">
                           {req.priorityScore > 0 ? (
-                            <span className="px-2.5 py-1 rounded-lg bg-[#6366f1]/15 text-[#818cf8] font-bold text-xs border border-[#6366f1]/25 inline-block">
-                              {req.priorityScore.toFixed(1)}
+                            <span className="font-mono-code text-xs text-[#4edea3] font-bold">
+                              {req.priorityScore.toFixed(0)}/100
                             </span>
                           ) : (
-                            <span className="text-[#4b5563] font-medium">—</span>
+                            <span className="text-[#908fa0] font-medium">—</span>
                           )}
                         </td>
-                        <td className="px-4 py-4 text-[#9ca3af] font-medium">
+                        <td className="px-6 py-4 text-[#908fa0] font-medium whitespace-nowrap">
                           {req.assignedTo ? (
-                            <span className="text-white font-bold">{req.assignedTo.name}</span>
+                            <span className="text-white font-semibold">{req.assignedTo.name}</span>
                           ) : (
-                            <span className="text-[#4b5563] italic">Unassigned</span>
+                            <span className="text-[#908fa0] italic text-[11px]">Unassigned</span>
                           )}
                         </td>
-                        <td className="px-4 py-4 text-[#6b7280] font-medium text-xs">{updatedDate}</td>
-                        <td className="px-4 py-4 text-right">
-                          <div className="flex items-center justify-end gap-2">
+                        <td className="px-6 py-4 text-[#908fa0] font-mono-code text-xs whitespace-nowrap">{updatedDate}</td>
+                        <td className="px-6 py-4 text-right whitespace-nowrap">
+                          <div className="flex items-center justify-end gap-3">
                             {req.isDuplicateFlagged && (
                               <button
                                 onClick={() => setDuplicateModalData({ requestId: req._id, title: req.title, department: req.department })}
-                                className="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
+                                className="px-2.5 py-1 rounded-md bg-[#ffb95f]/15 text-[#ffb95f] border border-[#ffb95f]/30 hover:bg-[#ffb95f]/25 text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer"
                                 title="Compare duplicate candidates"
                               >
                                 <AlertTriangle className="h-3.5 w-3.5" />
@@ -392,10 +403,9 @@ export default function AdminRequestsPage() {
                             )}
                             <Link
                               href={`/admin/requests/${req._id}`}
-                              className="px-3.5 py-1.5 rounded-xl border border-[#6366f1]/30 bg-[#6366f1]/10 text-[#818cf8] hover:bg-[#6366f1] hover:text-white hover:border-[#6366f1] font-bold text-xs transition-all flex items-center gap-1 cursor-pointer whitespace-nowrap"
+                              className="text-[#c0c1ff] hover:underline font-semibold text-xs transition-colors"
                             >
-                              <span>Review</span>
-                              <ArrowRight className="h-3.5 w-3.5" />
+                              Review Request
                             </Link>
                           </div>
                         </td>
@@ -424,3 +434,5 @@ export default function AdminRequestsPage() {
     </div>
   );
 }
+
+

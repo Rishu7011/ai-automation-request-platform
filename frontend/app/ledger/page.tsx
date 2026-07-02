@@ -86,7 +86,7 @@ const DEPARTMENT_ICONS: Record<string, string> = {
 };
 
 const selectClass =
-  'bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs font-semibold rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] appearance-none cursor-pointer';
+  'bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-sm font-semibold rounded-lg px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] appearance-none cursor-pointer';
 
 // ─── Pagination ────────────────────────────────────────────────────────────────
 
@@ -106,7 +106,7 @@ function PaginationBar({ pagination, onPage }: { pagination: Pagination; onPage:
   }
 
   const btn = (active: boolean, disabled?: boolean) =>
-    `px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+    `px-3.5 py-1.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${
       active
         ? 'bg-[#6366f1] text-white shadow-sm'
         : disabled
@@ -116,14 +116,14 @@ function PaginationBar({ pagination, onPage }: { pagination: Pagination; onPage:
 
   return (
     <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#1e1e3a]">
-      <p className="text-xs text-[#6b7280] font-medium">
+      <p className="text-sm text-[#908fa0] font-medium">
         {totalCount.toLocaleString()} request{totalCount !== 1 ? 's' : ''} total
       </p>
       <div className="flex items-center gap-1.5">
         <button onClick={() => onPage(page - 1)} disabled={!hasPrevPage} className={btn(false, !hasPrevPage)}>← Prev</button>
         {pages.map((p, i) =>
           p === '…' ? (
-            <span key={`e-${i}`} className="px-1 text-[#4b5563] text-xs font-bold">…</span>
+            <span key={`e-${i}`} className="px-1 text-[#4b5563] text-sm font-bold">…</span>
           ) : (
             <button key={p} onClick={() => onPage(p as number)} className={btn(p === page)}>{p}</button>
           )
@@ -211,30 +211,30 @@ export default function LedgerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+    <div className="min-h-screen bg-[#13131b] text-[#e4e1ed] font-inter">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#464554]/30 pb-6">
           <div>
-            <h1 className="text-2xl font-extrabold text-white tracking-tight">Organization Automation Ledger</h1>
-            <p className="text-sm text-[#9ca3af] mt-1">
+            <h1 className="text-3xl font-bold font-outfit text-[#c0c1ff] tracking-tight mb-1">Organization Automation Ledger</h1>
+            <p className="text-sm text-[#908fa0] max-w-2xl">
               Cross-departmental view of all submitted AI automation proposals and their current status.
             </p>
           </div>
           <Link
             href="/intake/new"
-            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] text-white font-bold text-xs transition-all shadow-md shadow-[#6366f1]/20 flex items-center gap-2 w-fit"
+            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-sm transition-all shadow-md shadow-[#6366f1]/30 flex items-center gap-2 w-fit active:scale-95 cursor-pointer"
           >
             <Plus className="h-4 w-4" /> Submit Request
           </Link>
         </div>
 
         {/* Filters Bar */}
-        <div className="bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl p-5 flex flex-wrap items-end gap-3">
+        <div className="glass-panel border border-[#464554]/30 rounded-xl p-5 flex flex-wrap items-end gap-4">
           {/* Department */}
-          <div className="flex flex-col gap-1 min-w-[140px]">
-            <label className="text-[#6b7280] text-[10px] font-bold uppercase tracking-wider">Department</label>
+          <div className="flex flex-col gap-1.5 flex-1 min-w-[140px]">
+            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Department</label>
             <select value={department} onChange={(e) => handleFilterChange('department', e.target.value)} className={selectClass}>
               <option value="">All Departments</option>
               {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
@@ -242,8 +242,8 @@ export default function LedgerPage() {
           </div>
 
           {/* Status */}
-          <div className="flex flex-col gap-1 min-w-[140px]">
-            <label className="text-[#6b7280] text-[10px] font-bold uppercase tracking-wider">Status</label>
+          <div className="flex flex-col gap-1.5 flex-1 min-w-[140px]">
+            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Status</label>
             <select value={status} onChange={(e) => handleFilterChange('status', e.target.value)} className={selectClass}>
               <option value="">All Statuses</option>
               {Object.entries(LEDGER_STATUSES).map(([val, label]) => (
@@ -253,8 +253,8 @@ export default function LedgerPage() {
           </div>
 
           {/* Priority Tier */}
-          <div className="flex flex-col gap-1 min-w-[130px]">
-            <label className="text-[#6b7280] text-[10px] font-bold uppercase tracking-wider">Priority Tier</label>
+          <div className="flex flex-col gap-1.5 flex-1 min-w-[140px]">
+            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Priority Tier</label>
             <select value={priorityTier} onChange={(e) => handleFilterChange('priorityTier', e.target.value)} className={selectClass}>
               <option value="">All Tiers</option>
               {['Critical', 'High', 'Medium', 'Low'].map((t) => (
@@ -263,31 +263,29 @@ export default function LedgerPage() {
             </select>
           </div>
 
-          {/* Date From */}
-          <div className="flex flex-col gap-1 min-w-[140px]">
-            <label className="text-[#6b7280] text-[10px] font-bold uppercase tracking-wider">From Date</label>
-            <input
-              type="date"
-              value={dateFrom}
-              onChange={(e) => handleFilterChange('dateFrom', e.target.value)}
-              className="bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs font-semibold rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] [color-scheme:dark]"
-            />
-          </div>
-
-          {/* Date To */}
-          <div className="flex flex-col gap-1 min-w-[140px]">
-            <label className="text-[#6b7280] text-[10px] font-bold uppercase tracking-wider">To Date</label>
-            <input
-              type="date"
-              value={dateTo}
-              onChange={(e) => handleFilterChange('dateTo', e.target.value)}
-              className="bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs font-semibold rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] [color-scheme:dark]"
-            />
+          {/* Date From & To Range */}
+          <div className="flex flex-col gap-1.5 flex-1 min-w-[220px]">
+            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Date Range</label>
+            <div className="flex items-center bg-[#0d0d15] border border-[#464554]/30 rounded-lg overflow-hidden">
+              <input
+                type="date"
+                value={dateFrom}
+                onChange={(e) => handleFilterChange('dateFrom', e.target.value)}
+                className="bg-transparent border-none text-xs py-2.5 px-3 w-full text-[#c7c4d7] focus:outline-none [color-scheme:dark]"
+              />
+              <span className="text-[#908fa0] px-1 text-sm">/</span>
+              <input
+                type="date"
+                value={dateTo}
+                onChange={(e) => handleFilterChange('dateTo', e.target.value)}
+                className="bg-transparent border-none text-xs py-2.5 px-3 w-full text-[#c7c4d7] focus:outline-none [color-scheme:dark]"
+              />
+            </div>
           </div>
 
           {/* Sort */}
-          <div className="flex flex-col gap-1 min-w-[150px]">
-            <label className="text-[#6b7280] text-[10px] font-bold uppercase tracking-wider">Sort By</label>
+          <div className="flex flex-col gap-1.5 min-w-[150px]">
+            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Sort By</label>
             <select value={sortBy} onChange={(e) => handleFilterChange('sortBy', e.target.value)} className={selectClass}>
               <option value="newest">Newest First</option>
               <option value="priority">Priority Score ↓</option>
@@ -295,7 +293,7 @@ export default function LedgerPage() {
           </div>
 
           {hasFilters && (
-            <button onClick={handleClear} className="text-xs text-[#818cf8] font-bold hover:text-[#a78bfa] transition-colors pb-2 cursor-pointer">
+            <button onClick={handleClear} className="text-sm text-[#c0c1ff] font-semibold hover:text-white transition-colors pb-2 cursor-pointer">
               Clear filters
             </button>
           )}
@@ -305,29 +303,29 @@ export default function LedgerPage() {
         {isLoading && (
           <div className="py-20 text-center space-y-3">
             <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-[#6b7280] text-sm font-medium">Loading organization ledger…</p>
+            <p className="text-[#908fa0] text-sm font-medium">Loading organization ledger…</p>
           </div>
         )}
 
         {/* Error state */}
         {!isLoading && error && (
-          <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm text-center">
+          <div className="p-4 rounded-xl bg-[#93000a]/20 border border-[#ffb4ab]/30 text-[#ffb4ab] text-sm text-center">
             {error}
           </div>
         )}
 
         {/* Empty state */}
         {!isLoading && !error && requests.length === 0 && (
-          <div className="py-16 text-center bg-[#0f0f1e] rounded-2xl border border-[#1e1e3a] space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#1a1a2e] border border-[#2a2a4e] flex items-center justify-center text-2xl mx-auto">📋</div>
-            <h2 className="text-base font-bold text-white">No requests found</h2>
-            <p className="text-xs text-[#6b7280] max-w-sm mx-auto">
+          <div className="py-16 text-center glass-panel rounded-xl border border-[#464554]/30 space-y-3">
+            <div className="w-12 h-12 rounded-xl bg-[#6366f1]/15 border border-[#6366f1]/30 flex items-center justify-center text-2xl mx-auto">📋</div>
+            <h2 className="text-lg font-bold font-outfit text-white">No requests found</h2>
+            <p className="text-sm text-[#908fa0] max-w-sm mx-auto">
               {hasFilters ? 'No proposals match your current filter parameters.' : 'No submitted proposals found in the organization ledger.'}
             </p>
             {hasFilters && (
               <button
                 onClick={handleClear}
-                className="px-4 py-2 rounded-xl bg-[#1a1a2e] hover:bg-[#1e1e3a] text-[#d1d5db] text-xs font-bold transition-all cursor-pointer border border-[#2a2a4e]"
+                className="px-4 py-2 rounded-lg bg-[#1f1f27] hover:bg-[#34343d] text-[#e4e1ed] text-sm font-semibold transition-all cursor-pointer border border-[#464554]/40"
               >
                 Clear Filters
               </button>
@@ -338,54 +336,61 @@ export default function LedgerPage() {
         {/* Requests Table — Desktop */}
         {!isLoading && !error && requests.length > 0 && (
           <>
-            <div className="hidden md:block bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl overflow-hidden">
-              <table className="w-full text-left text-xs">
+            <div className="hidden md:block glass-panel border border-[#464554]/30 rounded-xl overflow-hidden mb-6">
+              <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-[#1e1e3a] text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">
-                    {['Request Title', 'Department', 'Requester', 'Status', 'Priority Tier', 'Submitted', ''].map((h, i) => (
-                      <th key={i} className={`py-3.5 px-5 font-bold ${i === 6 ? 'text-right' : ''}`}>{h}</th>
-                    ))}
+                  <tr className="bg-[#1f1f27] border-b border-[#464554]/30 text-xs font-bold uppercase tracking-widest text-[#908fa0] font-outfit">
+                    <th className="px-6 py-4">Request Title</th>
+                    <th className="px-6 py-4">Department</th>
+                    <th className="px-6 py-4">Requester</th>
+                    <th className="px-6 py-4">Status</th>
+                    <th className="px-6 py-4">Priority</th>
+                    <th className="px-6 py-4">Date</th>
+                    <th className="px-6 py-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1a1a2e]">
+                <tbody className="divide-y divide-[#464554]/20 font-inter text-sm">
                   {requests.map((req) => {
                     const statusLabel = LEDGER_STATUSES[req.status] ?? req.status;
-                    const statusColor = STATUS_COLORS[req.status] ?? 'bg-slate-500/15 text-slate-400 border-slate-500/30';
+                    const statusColor = STATUS_COLORS[req.status] ?? 'bg-[#34343d]/40 text-[#908fa0] border-[#464554]/30';
                     const tierColor   = TIER_COLORS[req.priorityTier] ?? TIER_COLORS.Low;
                     const tierDot     = TIER_DOTS[req.priorityTier]   ?? 'bg-slate-500';
                     const icon        = DEPARTMENT_ICONS[req.department] ?? '💼';
 
                     return (
-                      <tr key={req._id} className="hover:bg-[#1a1a2e]/50 transition-colors group">
-                        <td className="py-4 px-5 max-w-xs">
-                          <p className="font-bold text-white group-hover:text-[#818cf8] transition-colors truncate">{req.title}</p>
-                          {req.priorityScore !== undefined && (
-                            <p className="text-[11px] text-[#4b5563] font-semibold mt-0.5">Score: {req.priorityScore.toFixed(1)}</p>
-                          )}
+                      <tr key={req._id} className="hover:bg-[#34343d]/30 transition-colors group">
+                        <td className="px-6 py-4 max-w-xs">
+                          <div className="flex flex-col">
+                            <span className="font-semibold text-white group-hover:text-[#c0c1ff] transition-colors truncate text-sm">{req.title}</span>
+                            {req.priorityScore !== undefined && (
+                              <span className="font-mono-code text-xs text-[#4edea3] mt-0.5">Score: {req.priorityScore.toFixed(0)}/100</span>
+                            )}
+                          </div>
                         </td>
-                        <td className="py-4 px-5 whitespace-nowrap">
-                          <span className="flex items-center gap-1.5 text-[#d1d5db] font-semibold">{icon} {req.department}</span>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className="inline-flex items-center gap-2 bg-[#0d0d15] border border-[#464554]/30 px-3 py-1 rounded-full text-xs font-medium text-[#c7c4d7]">
+                            {icon} {req.department}
+                          </span>
                         </td>
-                        <td className="py-4 px-5 text-[#9ca3af] font-medium whitespace-nowrap">{req.requesterName}</td>
-                        <td className="py-4 px-5">
-                          <span className={`px-3 py-1 rounded-full text-xs font-bold border whitespace-nowrap ${statusColor}`}>
+                        <td className="px-6 py-4 text-[#c7c4d7] whitespace-nowrap text-sm">{req.requesterName}</td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border ${statusColor}`}>
                             {statusLabel}
                           </span>
                         </td>
-                        <td className="py-4 px-5">
-                          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border whitespace-nowrap ${tierColor}`}>
-                            <span className={`w-2 h-2 rounded-full flex-shrink-0 ${tierDot}`} />
-                            {req.priorityTier}
-                          </span>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center gap-2">
+                            <span className={`w-2.5 h-2.5 rounded-full ${tierDot} ${req.priorityTier === 'Critical' ? 'animate-pulse' : ''}`} />
+                            <span className="text-white font-medium text-sm">{req.priorityTier}</span>
+                          </div>
                         </td>
-                        <td className="py-4 px-5 text-[#6b7280] font-medium whitespace-nowrap">{formatDate(req.submittedAt)}</td>
-                        <td className="py-4 px-5 text-right">
+                        <td className="px-6 py-4 font-mono-code text-[#908fa0] text-sm whitespace-nowrap">{formatDate(req.submittedAt)}</td>
+                        <td className="px-6 py-4 text-right whitespace-nowrap">
                           <Link
                             href={`/requests/${req._id}`}
-                            className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#1a1a2e] hover:bg-[#6366f1] hover:text-white border border-[#2a2a4e] text-[#d1d5db] transition-all cursor-pointer inline-flex items-center gap-1"
+                            className="text-[#c0c1ff] hover:underline font-semibold text-sm transition-colors"
                           >
-                            <span>View</span>
-                            <ChevronRight className="h-3.5 w-3.5" />
+                            View Request
                           </Link>
                         </td>
                       </tr>
@@ -399,31 +404,31 @@ export default function LedgerPage() {
             <div className="md:hidden space-y-3">
               {requests.map((req) => {
                 const statusLabel = LEDGER_STATUSES[req.status] ?? req.status;
-                const statusColor = STATUS_COLORS[req.status] ?? 'bg-slate-500/15 text-slate-400 border-slate-500/30';
+                const statusColor = STATUS_COLORS[req.status] ?? 'bg-[#34343d]/40 text-[#908fa0] border-[#464554]/30';
                 const tierColor   = TIER_COLORS[req.priorityTier] ?? TIER_COLORS.Low;
                 const tierDot     = TIER_DOTS[req.priorityTier]   ?? 'bg-slate-500';
                 const icon        = DEPARTMENT_ICONS[req.department] ?? '💼';
 
                 return (
-                  <div key={req._id} className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-3">
+                  <div key={req._id} className="p-4.5 rounded-xl glass-panel border border-[#464554]/30 space-y-3">
                     <div className="flex items-start justify-between gap-2">
-                      <p className="font-bold text-white text-sm leading-snug">{req.title}</p>
+                      <p className="font-semibold text-white text-sm leading-snug">{req.title}</p>
                       <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold border flex-shrink-0 ${statusColor}`}>{statusLabel}</span>
                     </div>
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#6b7280] font-medium">
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#908fa0]">
                       <span>{icon} {req.department}</span>
                       <span>•</span>
                       <span>{req.requesterName}</span>
                       <span>•</span>
-                      <span>{formatDate(req.submittedAt)}</span>
+                      <span className="font-mono-code">{formatDate(req.submittedAt)}</span>
                     </div>
                     <div className="flex items-center justify-between pt-1">
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${tierColor}`}>
-                        <span className={`w-2 h-2 rounded-full ${tierDot}`} />
-                        {req.priorityTier}
-                      </span>
-                      <Link href={`/requests/${req._id}`} className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#1a1a2e] hover:bg-[#6366f1] hover:text-white border border-[#2a2a4e] text-[#d1d5db] transition-all cursor-pointer">
-                        View →
+                      <div className="flex items-center gap-2">
+                        <span className={`w-2.5 h-2.5 rounded-full ${tierDot}`} />
+                        <span className="text-white font-medium text-sm">{req.priorityTier}</span>
+                      </div>
+                      <Link href={`/requests/${req._id}`} className="text-[#c0c1ff] hover:underline font-semibold text-sm">
+                        View Request →
                       </Link>
                     </div>
                   </div>
@@ -438,3 +443,5 @@ export default function LedgerPage() {
     </div>
   );
 }
+
+

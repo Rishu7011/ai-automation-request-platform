@@ -2,18 +2,16 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import {
-  ShieldCheck,
   UserCheck,
   UserX,
   Clock,
   Search,
   CheckCircle2,
   AlertCircle,
-  Building,
-  Mail,
+  Shield,
   User as UserIcon,
 } from 'lucide-react';
-import { DEPARTMENTS, USER_ROLES, UserRole, UserStatus } from '@/constants';
+import { USER_ROLES, UserRole, UserStatus } from '@/constants';
 
 interface IUserItem {
   _id: string;
@@ -82,39 +80,39 @@ export default function AdminUsersPage() {
     return matchesStatus && matchesSearch;
   });
 
-  const pendingCount    = users.filter((u) => u.status === 'pending_approval').length;
-  const activeCount     = users.filter((u) => u.status === 'active').length;
+  const pendingCount     = users.filter((u) => u.status === 'pending_approval').length;
+  const activeCount      = users.filter((u) => u.status === 'active').length;
   const deactivatedCount = users.filter((u) => u.status === 'deactivated').length;
 
-  const selectClass = 'bg-[#1a1a2e] border border-[#2a2a4e] text-[#d1d5db] text-xs font-semibold rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer';
+  const selectClass = 'bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-xs font-semibold rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer';
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+    <div className="min-h-screen bg-[#13131b] text-[#e4e1ed] font-inter">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div>
-          <h1 className="text-2xl font-extrabold text-white tracking-tight">User Account Governance & Approvals</h1>
-          <p className="text-sm text-[#9ca3af] mt-1">
-            Review self-service registration requests, assign roles, and manage user access states.
+        <div className="border-b border-[#464554]/30 pb-6">
+          <h1 className="text-2xl font-bold font-outfit text-[#c0c1ff] tracking-tight">User Account Governance & Approvals</h1>
+          <p className="text-xs text-[#908fa0] mt-1">
+            Review registration requests, assign organization roles, and manage system access states.
           </p>
         </div>
 
         {/* Alert Toast */}
         {message && (
-          <div className={`p-4 rounded-2xl border text-sm flex items-center justify-between ${
+          <div className={`p-4 rounded-xl border text-xs flex items-center justify-between ${
             message.type === 'success'
-              ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
-              : 'bg-rose-500/10 border-rose-500/30 text-rose-300'
+              ? 'bg-[#00a572]/15 border-[#00a572]/30 text-[#4edea3]'
+              : 'bg-[#93000a]/20 border-[#ffb4ab]/30 text-[#ffb4ab]'
           }`}>
             <div className="flex items-center gap-3">
               {message.type === 'success'
-                ? <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-400" />
-                : <AlertCircle className="h-5 w-5 shrink-0 text-rose-400" />
+                ? <CheckCircle2 className="h-4 w-4 shrink-0 text-[#4edea3]" />
+                : <AlertCircle className="h-4 w-4 shrink-0 text-[#ffb4ab]" />
               }
               <span>{message.text}</span>
             </div>
-            <button onClick={() => setMessage(null)} className="text-xs font-bold underline cursor-pointer hover:opacity-80">
+            <button onClick={() => setMessage(null)} className="text-xs font-semibold underline cursor-pointer hover:opacity-80">
               Dismiss
             </button>
           </div>
@@ -124,214 +122,201 @@ export default function AdminUsersPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <button
             onClick={() => setFilterStatus('pending_approval')}
-            className={`bg-[#0f0f1e] border rounded-2xl p-5 text-left transition-all hover:border-amber-500/50 ${
-              filterStatus === 'pending_approval' ? 'border-amber-500/60 ring-2 ring-amber-500/15' : 'border-[#1e1e3a]'
+            className={`glass-panel rounded-xl p-5 text-left transition-all hover:border-[#ffb95f]/50 cursor-pointer ${
+              filterStatus === 'pending_approval' ? 'border-[#ffb95f]/60 ring-2 ring-[#ffb95f]/20' : 'border-[#464554]/30'
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Pending Approval</span>
-              <div className="h-9 w-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Pending Approval</span>
+              <div className="h-9 w-9 rounded-lg bg-[#ffb95f]/15 border border-[#ffb95f]/30 text-[#ffb95f] flex items-center justify-center">
                 <Clock className="h-4 w-4" />
               </div>
             </div>
-            <div className="text-3xl font-extrabold mt-3 text-amber-400">{pendingCount}</div>
-            <p className="text-xs text-[#6b7280] mt-1 font-medium">Requires admin approval</p>
+            <div className="text-3xl font-bold font-outfit mt-3 text-[#ffb95f]">{pendingCount}</div>
+            <p className="text-[11px] text-[#908fa0] mt-1 font-medium">Requires admin review</p>
           </button>
 
           <button
             onClick={() => setFilterStatus('active')}
-            className={`bg-[#0f0f1e] border rounded-2xl p-5 text-left transition-all hover:border-emerald-500/50 ${
-              filterStatus === 'active' ? 'border-emerald-500/60 ring-2 ring-emerald-500/15' : 'border-[#1e1e3a]'
+            className={`glass-panel rounded-xl p-5 text-left transition-all hover:border-[#00a572]/50 cursor-pointer ${
+              filterStatus === 'active' ? 'border-[#00a572]/60 ring-2 ring-[#00a572]/20' : 'border-[#464554]/30'
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Approved & Active</span>
-              <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Approved & Active</span>
+              <div className="h-9 w-9 rounded-lg bg-[#00a572]/15 border border-[#00a572]/30 text-[#4edea3] flex items-center justify-center">
                 <UserCheck className="h-4 w-4" />
               </div>
             </div>
-            <div className="text-3xl font-extrabold mt-3 text-emerald-400">{activeCount}</div>
-            <p className="text-xs text-[#6b7280] mt-1 font-medium">Can log in and submit</p>
+            <div className="text-3xl font-bold font-outfit mt-3 text-[#4edea3]">{activeCount}</div>
+            <p className="text-[11px] text-[#908fa0] mt-1 font-medium">Active accounts</p>
           </button>
 
           <button
             onClick={() => setFilterStatus('deactivated')}
-            className={`bg-[#0f0f1e] border rounded-2xl p-5 text-left transition-all hover:border-rose-500/50 ${
-              filterStatus === 'deactivated' ? 'border-rose-500/60 ring-2 ring-rose-500/15' : 'border-[#1e1e3a]'
+            className={`glass-panel rounded-xl p-5 text-left transition-all hover:border-[#ffb4ab]/50 cursor-pointer ${
+              filterStatus === 'deactivated' ? 'border-[#ffb4ab]/60 ring-2 ring-[#ffb4ab]/20' : 'border-[#464554]/30'
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Deactivated</span>
-              <div className="h-9 w-9 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Deactivated Users</span>
+              <div className="h-9 w-9 rounded-lg bg-[#93000a]/20 border border-[#ffb4ab]/30 text-[#ffb4ab] flex items-center justify-center">
                 <UserX className="h-4 w-4" />
               </div>
             </div>
-            <div className="text-3xl font-extrabold mt-3 text-rose-400">{deactivatedCount}</div>
-            <p className="text-xs text-[#6b7280] mt-1 font-medium">Login blocked</p>
+            <div className="text-3xl font-bold font-outfit mt-3 text-[#ffb4ab]">{deactivatedCount}</div>
+            <p className="text-[11px] text-[#908fa0] mt-1 font-medium">Access revoked</p>
           </button>
         </div>
 
-        {/* Search & Filter Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#0f0f1e] border border-[#1e1e3a] p-4 rounded-2xl">
-          <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3.5 top-3 h-4 w-4 text-[#4b5563]" />
+        {/* Filter and Search Bar */}
+        <div className="glass-panel p-4 rounded-xl border border-[#464554]/30 flex flex-col sm:flex-row items-center gap-3">
+          <div className="relative w-full sm:flex-1">
+            <Search className="absolute left-3.5 top-3 h-4 w-4 text-[#908fa0]" />
             <input
               type="text"
-              placeholder="Search by name, email, username…"
+              placeholder="Search by name, email, username, or department…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#1a1a2e] border border-[#2a2a4e] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#e0e0e0] placeholder-[#4b5563] focus:outline-none focus:ring-2 focus:ring-[#6366f1] transition-all"
+              className="w-full bg-[#1f1f27] border border-[#464554]/40 rounded-lg pl-10 pr-4 py-2 text-xs text-[#e4e1ed] placeholder-[#908fa0] focus:outline-none focus:ring-2 focus:ring-[#6366f1]"
             />
           </div>
 
-          <div className="flex items-center gap-1 bg-[#1a1a2e] border border-[#2a2a4e] p-1 rounded-xl w-full sm:w-auto">
-            {[
-              { id: 'all', label: 'All Users' },
-              { id: 'pending_approval', label: 'Pending' },
-              { id: 'active', label: 'Active' },
-              { id: 'deactivated', label: 'Deactivated' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setFilterStatus(tab.id)}
-                className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                  filterStatus === tab.id ? 'bg-[#6366f1] text-white shadow-sm' : 'text-[#9ca3af] hover:text-white'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-between">
+            <button
+              onClick={() => setFilterStatus('all')}
+              className={`px-3 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
+                filterStatus === 'all'
+                  ? 'bg-[#6366f1] text-white border-[#6366f1]'
+                  : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
+              }`}
+            >
+              Show All ({users.length})
+            </button>
           </div>
         </div>
 
         {/* Users Table */}
-        <div className="bg-[#0f0f1e] border border-[#1e1e3a] rounded-2xl overflow-hidden">
-          {loading ? (
-            <div className="p-12 text-center space-y-3">
-              <div className="h-8 w-8 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-sm font-medium text-[#6b7280]">Loading user roster…</p>
-            </div>
-          ) : filteredUsers.length === 0 ? (
-            <div className="p-12 text-center space-y-2">
-              <UserIcon className="h-10 w-10 mx-auto text-[#4b5563]" />
-              <h3 className="text-base font-bold text-white">No users found</h3>
-              <p className="text-xs text-[#6b7280]">No user accounts match your search or filter.</p>
-            </div>
-          ) : (
+        {loading ? (
+          <div className="py-20 text-center space-y-3">
+            <div className="w-10 h-10 border-2 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-[#908fa0] text-xs font-medium">Loading user database…</p>
+          </div>
+        ) : filteredUsers.length === 0 ? (
+          <div className="p-12 text-center glass-panel rounded-xl border border-[#464554]/30 text-[#908fa0] text-xs font-medium">
+            No user accounts found matching your search.
+          </div>
+        ) : (
+          <div className="glass-panel border border-[#464554]/30 rounded-xl overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead>
-                  <tr className="border-b border-[#1e1e3a] text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">
-                    <th className="py-3.5 px-5">User Info</th>
-                    <th className="py-3.5 px-5">Department</th>
-                    <th className="py-3.5 px-5">Role</th>
-                    <th className="py-3.5 px-5">Status</th>
-                    <th className="py-3.5 px-5">Registered</th>
-                    <th className="py-3.5 px-5 text-right">Actions</th>
+              <table className="w-full text-left text-xs text-[#e4e1ed]">
+                <thead className="bg-[#1f1f27] border-b border-[#464554]/30 text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">
+                  <tr>
+                    <th className="px-4 py-3.5">User Details</th>
+                    <th className="px-4 py-3.5">Department</th>
+                    <th className="px-4 py-3.5">Role</th>
+                    <th className="px-4 py-3.5">Account Status</th>
+                    <th className="px-4 py-3.5">Registered Date</th>
+                    <th className="px-4 py-3.5 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1a1a2e]">
-                  {filteredUsers.map((user) => (
-                    <tr key={user._id} className="hover:bg-[#1a1a2e]/50 transition-colors">
-                      <td className="py-4 px-5">
-                        <div className="flex items-center gap-3">
-                          <div className="h-9 w-9 rounded-xl bg-[#6366f1]/15 border border-[#6366f1]/25 flex items-center justify-center font-bold text-[#818cf8] text-sm shrink-0">
-                            {user.name.charAt(0).toUpperCase()}
-                          </div>
-                          <div>
-                            <div className="font-bold text-white text-sm flex items-center gap-1.5">
-                              {user.name}
-                              <span className="text-xs text-[#4b5563] font-normal">(@{user.username})</span>
+                <tbody className="divide-y divide-[#464554]/20">
+                  {filteredUsers.map((user) => {
+                    const isUpdating = updatingId === user._id;
+
+                    const statusBadge =
+                      user.status === 'active'
+                        ? { label: 'Active', color: 'bg-[#00a572]/15 text-[#4edea3] border-[#00a572]/30' }
+                        : user.status === 'pending_approval'
+                        ? { label: 'Pending Approval', color: 'bg-[#ffb95f]/15 text-[#ffb95f] border-[#ffb95f]/30' }
+                        : { label: 'Deactivated', color: 'bg-[#93000a]/20 text-[#ffb4ab] border-[#ffb4ab]/30' };
+
+                    return (
+                      <tr key={user._id} className="hover:bg-[#34343d]/40 transition-colors">
+                        <td className="px-4 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="h-9 w-9 rounded-lg bg-[#6366f1]/20 border border-[#8083ff]/30 text-[#c0c1ff] flex items-center justify-center font-bold text-xs font-outfit shrink-0">
+                              {user.name ? user.name.charAt(0).toUpperCase() : <UserIcon className="h-4 w-4" />}
                             </div>
-                            <div className="text-xs text-[#6b7280] font-medium flex items-center gap-1">
-                              <Mail className="h-3 w-3 text-[#4b5563]" /> {user.email}
+                            <div>
+                              <p className="font-semibold text-white text-xs">{user.name}</p>
+                              <p className="text-[#908fa0] text-[11px] font-mono-code">{user.email}</p>
                             </div>
                           </div>
-                        </div>
-                      </td>
-
-                      <td className="py-4 px-5">
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-[#d1d5db]">
-                          <Building className="h-3.5 w-3.5 text-[#4b5563]" />
-                          {user.department}
-                        </div>
-                      </td>
-
-                      <td className="py-4 px-5">
-                        <select
-                          value={user.role}
-                          onChange={(e) => handleUpdateStatus(user._id, user.status, e.target.value as UserRole)}
-                          disabled={updatingId === user._id}
-                          className={selectClass}
-                        >
-                          {USER_ROLES.map((r) => <option key={r} value={r}>{r}</option>)}
-                        </select>
-                      </td>
-
-                      <td className="py-4 px-5">
-                        {user.status === 'pending_approval' && (
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
-                            <Clock className="h-3 w-3" /> Pending Approval
+                        </td>
+                        <td className="px-4 py-4">
+                          <span className="px-2.5 py-1 rounded-md bg-[#1f1f27] text-[#c7c4d7] border border-[#464554]/40 font-medium text-[11px]">
+                            {user.department || 'General'}
                           </span>
-                        )}
-                        {user.status === 'active' && (
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-                            <UserCheck className="h-3 w-3" /> Active
+                        </td>
+                        <td className="px-4 py-4">
+                          <select
+                            disabled={isUpdating}
+                            value={user.role}
+                            onChange={(e) => handleUpdateStatus(user._id, user.status, e.target.value as UserRole)}
+                            className={`${selectClass} border-[#6366f1]/30 text-[#c0c1ff]`}
+                          >
+                            {USER_ROLES.map((r) => (
+                              <option key={r} value={r}>{r}</option>
+                            ))}
+                          </select>
+                        </td>
+                        <td className="px-4 py-4">
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${statusBadge.color}`}>
+                            {statusBadge.label}
                           </span>
-                        )}
-                        {user.status === 'deactivated' && (
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/15 text-rose-300 border border-rose-500/30">
-                            <UserX className="h-3 w-3" /> Deactivated
-                          </span>
-                        )}
-                      </td>
+                        </td>
+                        <td className="px-4 py-4 text-[#908fa0] font-mono-code text-[11px]">
+                          {new Date(user.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </td>
+                        <td className="px-4 py-4 text-right">
+                          <div className="flex items-center justify-end gap-2">
+                            {user.status === 'pending_approval' && (
+                              <button
+                                disabled={isUpdating}
+                                onClick={() => handleUpdateStatus(user._id, 'active')}
+                                className="px-3 py-1.5 rounded-md bg-[#00a572] hover:bg-[#4edea3] hover:text-[#002113] text-white font-semibold text-xs transition-all flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                              >
+                                <UserCheck className="h-3.5 w-3.5" />
+                                <span>Approve</span>
+                              </button>
+                            )}
 
-                      <td className="py-4 px-5 text-xs text-[#6b7280] font-medium">
-                        {new Date(user.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
-                      </td>
+                            {user.status === 'active' && (
+                              <button
+                                disabled={isUpdating}
+                                onClick={() => handleUpdateStatus(user._id, 'deactivated')}
+                                className="px-3 py-1.5 rounded-md border border-[#ffb4ab]/30 bg-[#93000a]/20 text-[#ffb4ab] hover:bg-[#93000a]/40 font-semibold text-xs transition-all flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                              >
+                                <UserX className="h-3.5 w-3.5" />
+                                <span>Deactivate</span>
+                              </button>
+                            )}
 
-                      <td className="py-4 px-5 text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          {user.status === 'pending_approval' && (
-                            <button
-                              onClick={() => handleUpdateStatus(user._id, 'active')}
-                              disabled={updatingId === user._id}
-                              className="px-3.5 py-1.5 bg-emerald-500/15 hover:bg-emerald-500 hover:text-white disabled:opacity-50 text-emerald-300 text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 border border-emerald-500/30 cursor-pointer"
-                            >
-                              <UserCheck className="h-3.5 w-3.5" /> Approve
-                            </button>
-                          )}
-                          {user.status === 'active' && (
-                            <button
-                              onClick={() => handleUpdateStatus(user._id, 'deactivated')}
-                              disabled={updatingId === user._id}
-                              className="px-3.5 py-1.5 bg-[#1a1a2e] hover:bg-rose-500/15 hover:text-rose-300 hover:border-rose-500/30 disabled:opacity-50 text-[#9ca3af] text-xs font-bold rounded-xl transition-all border border-[#2a2a4e] cursor-pointer"
-                            >
-                              Deactivate
-                            </button>
-                          )}
-                          {user.status === 'deactivated' && (
-                            <button
-                              onClick={() => handleUpdateStatus(user._id, 'active')}
-                              disabled={updatingId === user._id}
-                              className="px-3.5 py-1.5 bg-[#6366f1]/15 hover:bg-[#6366f1] hover:text-white disabled:opacity-50 text-[#818cf8] text-xs font-bold rounded-xl transition-all border border-[#6366f1]/30 cursor-pointer"
-                            >
-                              Re-activate
-                            </button>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+                            {user.status === 'deactivated' && (
+                              <button
+                                disabled={isUpdating}
+                                onClick={() => handleUpdateStatus(user._id, 'active')}
+                                className="px-3 py-1.5 rounded-md border border-[#00a572]/40 bg-[#00a572]/15 text-[#4edea3] hover:bg-[#00a572] hover:text-white font-semibold text-xs transition-all flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                              >
+                                <Shield className="h-3.5 w-3.5" />
+                                <span>Reactivate</span>
+                              </button>
+                            )}
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Footer note */}
-        <div className="flex items-center gap-2 text-[11px] text-[#4b5563] font-semibold uppercase tracking-wider">
-          <ShieldCheck className="h-4 w-4 text-emerald-500/60" />
+        <div className="flex items-center gap-2 text-[11px] text-[#908fa0] font-semibold uppercase tracking-wider">
+          <Shield className="h-4 w-4 text-[#4edea3]" />
           <span>Enterprise Access Control — sys_admin &amp; eng_admin only</span>
         </div>
       </main>

@@ -1,8 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(31, 31, 39, 0.7);
+  border: 1px solid rgba(70, 69, 84, 0.3);
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -48,176 +68,46 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
-  --background: #f7f9fb;
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+:root, .dark {
+  --background: #13131b;
+  --foreground: #e4e1ed;
+  --card: #1f1f27;
+  --card-foreground: #e4e1ed;
+  --popover: #1f1f27;
+  --popover-foreground: #e4e1ed;
+  --primary: #c0c1ff;
+  --primary-foreground: #1000a9;
+  --secondary: #4edea3;
+  --secondary-foreground: #003824;
+  --muted: #1b1b23;
+  --muted-foreground: #908fa0;
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+  --destructive: #ffb4ab;
+  --border: rgba(70, 69, 84, 0.3);
+  --input: rgba(70, 69, 84, 0.4);
+  --ring: #6366f1;
+  --radius: 0.5rem;
+  --sidebar: #13131b;
+  --sidebar-foreground: #e4e1ed;
+  --sidebar-primary: #6366f1;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #34343d;
+  --sidebar-accent-foreground: #4edea3;
+  --sidebar-border: rgba(70, 69, 84, 0.3);
+  --sidebar-ring: #6366f1;
 }
 
-/* Shared enterprise surface used by authenticated routes. Existing page markup
-   retains its behavior while legacy dark utility colors resolve to this system. */
 .enterprise-theme {
-  --enterprise-surface: #f7f9fb;
-  --enterprise-card: #ffffff;
-  --enterprise-subtle: #f1f5f9;
-  --enterprise-border: #dfe3e8;
-  --enterprise-text: #191c1e;
-  --enterprise-muted: #5f6470;
-  --enterprise-blue: #004ac6;
-}
-
-:is(.dark, .dark *) .enterprise-theme,
-.dark.enterprise-theme {
-  --enterprise-surface: #0a0a12;
-  --enterprise-card: #0f0f1e;
-  --enterprise-subtle: #16162a;
-  --enterprise-border: #1e1e3a;
-  --enterprise-text: #e0e0e0;
-  --enterprise-muted: #9ca3af;
+  --enterprise-surface: #13131b;
+  --enterprise-card: #1f1f27;
+  --enterprise-subtle: #1b1b23;
+  --enterprise-border: rgba(70, 69, 84, 0.3);
+  --enterprise-text: #e4e1ed;
+  --enterprise-muted: #908fa0;
   --enterprise-blue: #6366f1;
-}
-
-.enterprise-theme [class*="bg-[#0a0a12]"],
-.enterprise-theme [class*="bg-[#0d0d1c]"] {
-  background-color: var(--enterprise-surface) !important;
-}
-
-.enterprise-theme [class*="bg-[#0f0f1e]"],
-.enterprise-theme [class*="bg-[#141426]"] {
-  background-color: var(--enterprise-card) !important;
-}
-
-.enterprise-theme [class*="bg-[#16162a]"],
-.enterprise-theme [class*="bg-[#1a1a2e]"] {
-  background-color: var(--enterprise-subtle) !important;
-}
-
-.enterprise-theme [class*="bg-[#0f0f1e]"][class*="rounded-2xl"],
-.enterprise-theme [class*="bg-[#141426]"][class*="rounded-2xl"] {
-  box-shadow: 0 1px 3px rgb(25 28 30 / 7%), 0 8px 20px rgb(25 28 30 / 4%);
-}
-
-.enterprise-theme [class*="border-[#1e1e3a]"],
-.enterprise-theme [class*="border-[#2a2a4e]"] {
-  border-color: var(--enterprise-border) !important;
-}
-
-.enterprise-theme [class*="text-[#e0e0e0]"] {
-  color: var(--enterprise-text) !important;
-}
-
-.enterprise-theme [class*="text-[#d1d5db]"] {
-  color: #434655 !important;
-}
-
-.enterprise-theme [class*="text-[#9ca3af]"] {
-  color: var(--enterprise-muted) !important;
-}
-
-.enterprise-theme [class*="text-[#6b7280]"],
-.enterprise-theme [class*="text-[#4b5563]"] {
-  color: #737686 !important;
-}
-
-/* Legacy dark cards frequently used white text. Keep it readable on the new
-   light surfaces, but preserve white labels on deliberate blue/purple CTAs. */
-.enterprise-theme [class*="text-white"]:not([class*="bg-[#2563eb]"]):not([class*="bg-[#004ac6]"]):not([class*="bg-[#6366f1]"]):not([class*="bg-gradient-to-"]) {
-  color: var(--enterprise-text) !important;
-}
-
-.enterprise-theme [class~="bg-[#2563eb]"],
-.enterprise-theme [class~="bg-[#004ac6]"],
-.enterprise-theme [class~="bg-[#6366f1]"] {
-  background-color: #2563eb !important;
-  box-shadow: 0 1px 2px rgb(0 74 198 / 16%) !important;
-}
-
-.enterprise-theme [class*="text-[#818cf8]"] {
-  color: #004ac6 !important;
-}
-
-.enterprise-theme [class*="border-[#6366f1]"] {
-  border-color: #bfdbfe !important;
-}
-
-.enterprise-theme table {
-  border-color: var(--enterprise-border);
-}
-
-.enterprise-theme th {
-  background: var(--enterprise-subtle);
-  color: #434655;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.enterprise-theme td {
-  border-color: var(--enterprise-border);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  background-color: #13131b;
+  color: #e4e1ed;
 }
 
 @layer base {
@@ -225,9 +115,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #13131b;
+    color: #e4e1ed;
+    font-family: 'Inter', sans-serif;
   }
   html {
     @apply font-sans;
   }
 }
+
