@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 105 files · ~45,527 words
+- 104 files · ~45,523 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 483 nodes · 608 edges · 40 communities (32 shown, 8 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
+- 481 nodes · 592 edges · 40 communities (32 shown, 8 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3b250e96`
+- Built from commit: `73e485ec`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -58,8 +58,8 @@
 6. `react` - 6 edges
 7. `runDocumentAnalysisAgent()` - 5 edges
 8. `writeAuditLog()` - 5 edges
-9. `SidebarProvider()` - 4 edges
-10. `SidebarTrigger()` - 4 edges
+9. `Button()` - 4 edges
+10. `chunkText()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `SidebarMenuSkeleton()` --references--> `react`  [EXTRACTED]
@@ -116,7 +116,7 @@ Nodes (3): DEPARTMENT_ICONS, RequestItem, STATUS_BADGES
 
 ### Community 12 - "route.ts"
 Cohesion: 0.06
-Nodes (36): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage(), Breadcrumb(), BreadcrumbEllipsis() (+28 more)
+Nodes (35): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage(), Breadcrumb(), BreadcrumbEllipsis() (+27 more)
 
 ### Community 13 - "proxy.ts"
 Cohesion: 0.17
@@ -179,7 +179,7 @@ Cohesion: 0.40
 Nodes (4): ADMIN_PATHS, config, PUBLIC_PATHS, SYS_ADMIN_ONLY_PATHS
 
 ## Knowledge Gaps
-- **154 isolated node(s):** `ChatMessage`, `RequestInfo`, `ReviewData`, `NavItem`, `employeeItems` (+149 more)
+- **154 isolated node(s):** `AuditLogEntry`, `Engineer`, `Comment`, `PriorityInputs`, `Estimate` (+149 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -187,12 +187,12 @@ Nodes (4): ADMIN_PATHS, config, PUBLIC_PATHS, SYS_ADMIN_ONLY_PATHS
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `page.tsx`, `package.json`?**
-  _High betweenness centrality (0.098) - this node is a cross-community bridge._
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
 - **Why does `react` connect `page.tsx` to `dependencies`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Why does `SidebarProvider()` connect `page.tsx` to `route.ts`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
-- **What connects `ChatMessage`, `RequestInfo`, `ReviewData` to the rest of the system?**
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **What connects `AuditLogEntry`, `Engineer`, `Comment` to the rest of the system?**
   _154 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._

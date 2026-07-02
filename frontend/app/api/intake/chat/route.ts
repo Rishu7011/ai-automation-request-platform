@@ -37,12 +37,16 @@ export async function POST(req: NextRequest) {
 
   await connectToDatabase();
 
-  // Verify the request belongs to this user
+  // Verify the request belongs to this user or user is an admin
   const request = await Request.findById(requestId);
   if (!request) {
     return NextResponse.json({ error: 'Request not found' }, { status: 404 });
   }
-  if (request.requesterId.toString() !== session.user.id) {
+  const role = (session.user as unknown as { role?: string })?.role;
+  const isRequester = request.requesterId.toString() === session.user.id;
+  const isAdmin = role === 'eng_admin' || role === 'sys_admin';
+
+  if (!isRequester && !isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
@@ -162,7 +166,11 @@ export async function GET(req: NextRequest) {
   if (!request) {
     return NextResponse.json({ error: 'Request not found' }, { status: 404 });
   }
-  if (request.requesterId.toString() !== session.user.id) {
+  const role = (session.user as unknown as { role?: string })?.role;
+  const isRequester = request.requesterId.toString() === session.user.id;
+  const isAdmin = role === 'eng_admin' || role === 'sys_admin';
+
+  if (!isRequester && !isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 

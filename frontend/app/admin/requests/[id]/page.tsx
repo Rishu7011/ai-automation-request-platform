@@ -335,6 +335,7 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
     originalName: string;
     fileSize: number;
     filePath: string;
+    stage?: number;
     createdAt: string;
   }>>([]);
 
@@ -410,6 +411,11 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
       if (sessionRes.ok) {
         const sessData = await sessionRes.json();
         setCurrentUserId(sessData?.user?.id ?? '');
+      }
+
+      if (attachRes.ok) {
+        const attachData = await attachRes.json();
+        setAttachments(attachData.attachments ?? []);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error loading data');
@@ -618,6 +624,43 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
                     ) : null}
                   </div>
                 )}
+
+                {/* Uploaded Documentation & Attachments Overview Card */}
+                <div className="p-6 glass-panel border border-[#464554]/30 rounded-xl space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xs font-bold uppercase tracking-wider text-[#c0c1ff] font-outfit">
+                      📎 Uploaded Documentation & Attachments ({attachments.length})
+                    </h2>
+                  </div>
+                  {attachments.length === 0 ? (
+                    <p className="text-xs text-[#908fa0] italic">No files attached to this request.</p>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {attachments.map((att) => (
+                        <div
+                          key={att._id}
+                          className="flex items-center justify-between p-3.5 rounded-xl bg-[#0d0d15] border border-[#464554]/30"
+                        >
+                          <div className="min-w-0 pr-3">
+                            <p className="text-xs font-bold text-white truncate">{att.originalName}</p>
+                            <p className="text-[10px] text-[#908fa0] font-mono-code">
+                              {(att.fileSize / 1024).toFixed(1)} KB · Stage {att.stage ?? 1} · {new Date(att.createdAt).toLocaleDateString()}
+                            </p>
+                          </div>
+                          <a
+                            href={att.filePath}
+                            download={att.originalName}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1.5 rounded-lg bg-[#6366f1]/15 hover:bg-[#6366f1] text-[#c0c1ff] hover:text-white text-xs font-bold transition-colors border border-[#6366f1]/30 shrink-0 cursor-pointer"
+                          >
+                            ⬇ Download
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 

@@ -57,7 +57,11 @@ export async function POST(req: NextRequest) {
   if (!request) {
     return NextResponse.json({ error: 'Request not found' }, { status: 404 });
   }
-  if (request.requesterId.toString() !== session.user.id) {
+  const role = (session.user as unknown as { role?: string })?.role;
+  const isRequester = request.requesterId.toString() === session.user.id;
+  const isAdmin = role === 'eng_admin' || role === 'sys_admin';
+
+  if (!isRequester && !isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
   if (request.status !== 'draft') {

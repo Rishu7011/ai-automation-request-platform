@@ -182,36 +182,49 @@ export default function NewIntakePage() {
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  onKeyDown={(e) => { if (e.key === 'Enter' && title.trim()) handleStart(); }}
-                  placeholder={`e.g. Automated ${selectedDept} Invoice Matching`}
+                  placeholder="e.g. Automate Monthly Vendor Invoice Reconciliation"
+                  className="w-full bg-[#1f1f27] border border-[#464554]/40 rounded-lg px-4 py-3 text-sm text-[#e4e1ed] placeholder-[#908fa0] font-medium focus:outline-none focus:ring-2 focus:ring-[#6366f1] [color-scheme:dark]"
                   autoFocus
-                  className="w-full bg-[#0a0a12] border border-[#2a2a4e] rounded-xl px-4 py-3 text-[#e0e0e0] placeholder-[#4b5563] text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-[#6366f1] transition-all"
                 />
-                <p className="text-[11px] text-[#4b5563] font-medium mt-1.5">
-                  You can refine the details with AI during the intake interview.
-                </p>
               </div>
 
               {error && (
-                <p className="text-rose-400 text-xs bg-rose-500/10 px-4 py-3 rounded-xl border border-rose-500/30 font-bold">
+                <p className="text-[#ffb4ab] text-xs font-bold bg-[#93000a]/20 p-3 rounded-lg border border-[#ffb4ab]/30">
                   {error}
                 </p>
               )}
 
-              <button
-                onClick={handleStart}
-                disabled={!title.trim() || isCreating}
-                className="w-full py-3 px-6 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[#6366f1]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                {isCreating ? (
-                  <><Loader2 className="h-4 w-4 animate-spin" /><span>Creating Proposal…</span></>
-                ) : (
-                  <><span>Start AI Intake Assessment</span><Sparkles className="h-4 w-4" /></>
-                )}
-              </button>
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setStep('department')}
+                  className="px-4 py-3 rounded-full text-xs font-semibold bg-[#1f1f27] border border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d] transition-all cursor-pointer"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  disabled={!title.trim() || isCreating}
+                  onClick={handleStart}
+                  className="flex-1 py-3 rounded-full text-xs font-bold bg-gradient-to-r from-indigo-600 to-[#8083ff] text-white hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md shadow-[#6366f1]/30 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  {isCreating ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span>Creating Intake Session…</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Start AI Intake Session</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         )}
+
       </div>
     </div>
   );

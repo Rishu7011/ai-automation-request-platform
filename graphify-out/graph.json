@@ -6,122 +6,472 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_file": "frontend/app/admin/audit-log/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page",
-      "community": 13,
+      "id": "frontend_app_admin_audit_log_page",
+      "community": 25,
       "norm_label": "page.tsx"
     },
     {
-      "label": "ChatMessage",
+      "label": "AuditLogEntry",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L20",
+      "source_file": "frontend/app/admin/audit-log/page.tsx",
+      "source_location": "L6",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_chatmessage",
-      "community": 13,
-      "norm_label": "chatmessage"
+      "id": "frontend_app_admin_audit_log_page_auditlogentry",
+      "community": 25,
+      "norm_label": "auditlogentry"
     },
     {
-      "label": "RequestInfo",
+      "label": "AdminAuditLogPage()",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_file": "frontend/app/admin/audit-log/page.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "frontend_app_admin_audit_log_page_adminauditlogpage",
+      "community": 25,
+      "norm_label": "adminauditlogpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page",
+      "community": 16,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Engineer",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_engineer",
+      "community": 16,
+      "norm_label": "engineer"
+    },
+    {
+      "label": "Comment",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_comment",
+      "community": 16,
+      "norm_label": "comment"
+    },
+    {
+      "label": "PriorityInputs",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_priorityinputs",
+      "community": 16,
+      "norm_label": "priorityinputs"
+    },
+    {
+      "label": "Estimate",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_estimate",
+      "community": 16,
+      "norm_label": "estimate"
+    },
+    {
+      "label": "Summary",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_summary",
+      "community": 16,
+      "norm_label": "summary"
+    },
+    {
+      "label": "RequestDetail",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_requestdetail",
+      "community": 16,
+      "norm_label": "requestdetail"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_status_labels",
+      "community": 16,
+      "norm_label": "status_labels"
+    },
+    {
+      "label": "STATUS_COLORS",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_status_colors",
+      "community": 16,
+      "norm_label": "status_colors"
+    },
+    {
+      "label": "REASON_REQUIRED",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_reason_required",
+      "community": 16,
+      "norm_label": "reason_required"
+    },
+    {
+      "label": "CONFIDENCE_COLORS",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_confidence_colors",
+      "community": 16,
+      "norm_label": "confidence_colors"
+    },
+    {
+      "label": "DEPT_ICONS",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_dept_icons",
+      "community": 16,
+      "norm_label": "dept_icons"
+    },
+    {
+      "label": "ScoreGauge()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_scoregauge",
+      "community": 16,
+      "norm_label": "scoregauge()"
+    },
+    {
+      "label": "ScoreSlider()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L164",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_scoreslider",
+      "community": 16,
+      "norm_label": "scoreslider()"
+    },
+    {
+      "label": "CommentThread()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L189",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_commentthread",
+      "community": 16,
+      "norm_label": "commentthread()"
+    },
+    {
+      "label": "EngineeringReviewPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L323",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_id_page_engineeringreviewpage",
+      "community": 16,
+      "norm_label": "engineeringreviewpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_page",
+      "community": 7,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AdminRequestItem",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_page_adminrequestitem",
+      "community": 7,
+      "norm_label": "adminrequestitem"
+    },
+    {
+      "label": "STATUS_BADGES",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_page_status_badges",
+      "community": 7,
+      "norm_label": "status_badges"
+    },
+    {
+      "label": "DEPARTMENT_ICONS",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_page_department_icons",
+      "community": 7,
+      "norm_label": "department_icons"
+    },
+    {
+      "label": "BULK_STATUSES",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_page_bulk_statuses",
+      "community": 7,
+      "norm_label": "bulk_statuses"
+    },
+    {
+      "label": "AdminRequestsPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "frontend_app_admin_requests_page_adminrequestspage",
+      "community": 7,
+      "norm_label": "adminrequestspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_admin_settings_priority_weights_page",
+      "community": 26,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "PriorityWeights",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_app_admin_settings_priority_weights_page_priorityweights",
+      "community": 26,
+      "norm_label": "priorityweights"
+    },
+    {
+      "label": "SETTINGS_TABS",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "frontend_app_admin_settings_priority_weights_page_settings_tabs",
+      "community": 26,
+      "norm_label": "settings_tabs"
+    },
+    {
+      "label": "AdminPriorityWeightsPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "frontend_app_admin_settings_priority_weights_page_adminpriorityweightspage",
+      "community": 26,
+      "norm_label": "adminpriorityweightspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/users/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_admin_users_page",
+      "community": 24,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "IUserItem",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/users/page.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_app_admin_users_page_iuseritem",
+      "community": 24,
+      "norm_label": "iuseritem"
+    },
+    {
+      "label": "AdminUsersPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/admin/users/page.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_requestinfo",
-      "community": 13,
-      "norm_label": "requestinfo"
+      "id": "frontend_app_admin_users_page_adminuserspage",
+      "community": 24,
+      "norm_label": "adminuserspage()"
     },
     {
-      "label": "ReviewData",
+      "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L33",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_reviewdata",
-      "community": 13,
-      "norm_label": "reviewdata"
+      "id": "frontend_app_ledger_page",
+      "community": 17,
+      "norm_label": "page.tsx"
     },
     {
-      "label": "StageProgressBar()",
+      "label": "LedgerRequest",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L57",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L19",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_stageprogressbar",
-      "community": 13,
-      "norm_label": "stageprogressbar()"
+      "id": "frontend_app_ledger_page_ledgerrequest",
+      "community": 17,
+      "norm_label": "ledgerrequest"
     },
     {
-      "label": "ChatBubble()",
+      "label": "Pagination",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L107",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L31",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_chatbubble",
-      "community": 13,
-      "norm_label": "chatbubble()"
+      "id": "frontend_app_ledger_page_pagination",
+      "community": 17,
+      "norm_label": "pagination"
     },
     {
-      "label": "TypingIndicator()",
+      "label": "LEDGER_STATUSES",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L141",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L42",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_typingindicator",
-      "community": 13,
-      "norm_label": "typingindicator()"
+      "id": "frontend_app_ledger_page_ledger_statuses",
+      "community": 17,
+      "norm_label": "ledger_statuses"
     },
     {
-      "label": "StageCompleteBanner()",
+      "label": "STATUS_COLORS",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L158",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L55",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_stagecompletebanner",
-      "community": 13,
-      "norm_label": "stagecompletebanner()"
+      "id": "frontend_app_ledger_page_status_colors",
+      "community": 17,
+      "norm_label": "status_colors"
     },
     {
-      "label": "SubmittingOverlay()",
+      "label": "TIER_COLORS",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L196",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L68",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_submittingoverlay",
-      "community": 13,
-      "norm_label": "submittingoverlay()"
+      "id": "frontend_app_ledger_page_tier_colors",
+      "community": 17,
+      "norm_label": "tier_colors"
     },
     {
-      "label": "ConfidenceBadge()",
+      "label": "TIER_DOTS",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L235",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L75",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_confidencebadge",
-      "community": 13,
-      "norm_label": "confidencebadge()"
+      "id": "frontend_app_ledger_page_tier_dots",
+      "community": 17,
+      "norm_label": "tier_dots"
     },
     {
-      "label": "ReviewSummaryCard()",
+      "label": "DEPARTMENT_ICONS",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L249",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L82",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_reviewsummarycard",
-      "community": 13,
-      "norm_label": "reviewsummarycard()"
+      "id": "frontend_app_ledger_page_department_icons",
+      "community": 17,
+      "norm_label": "department_icons"
     },
     {
-      "label": "IntakeChatPage()",
+      "label": "PaginationBar()",
       "file_type": "code",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L326",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L93",
       "_origin": "ast",
-      "id": "frontend_app_intake_id_page_intakechatpage",
-      "community": 13,
-      "norm_label": "intakechatpage()"
+      "id": "frontend_app_ledger_page_paginationbar",
+      "community": 17,
+      "norm_label": "paginationbar()"
+    },
+    {
+      "label": "LedgerPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L139",
+      "_origin": "ast",
+      "id": "frontend_app_ledger_page_ledgerpage",
+      "community": 17,
+      "norm_label": "ledgerpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_my_requests_page",
+      "community": 8,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "RequestItem",
+      "file_type": "code",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "frontend_app_my_requests_page_requestitem",
+      "community": 8,
+      "norm_label": "requestitem"
+    },
+    {
+      "label": "STATUS_BADGES",
+      "file_type": "code",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "frontend_app_my_requests_page_status_badges",
+      "community": 8,
+      "norm_label": "status_badges"
+    },
+    {
+      "label": "DEPARTMENT_ICONS",
+      "file_type": "code",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "frontend_app_my_requests_page_department_icons",
+      "community": 8,
+      "norm_label": "department_icons"
+    },
+    {
+      "label": "MyRequestsPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "frontend_app_my_requests_page_myrequestspage",
+      "community": 8,
+      "norm_label": "myrequestspage()"
     },
     {
       "label": "providers.tsx",
@@ -144,6 +494,66 @@
       "norm_label": "providers()"
     },
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_requests_id_page",
+      "community": 6,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ConversationTurn",
+      "file_type": "code",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "frontend_app_requests_id_page_conversationturn",
+      "community": 6,
+      "norm_label": "conversationturn"
+    },
+    {
+      "label": "RequestDetail",
+      "file_type": "code",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_app_requests_id_page_requestdetail",
+      "community": 6,
+      "norm_label": "requestdetail"
+    },
+    {
+      "label": "STATUS_BADGES",
+      "file_type": "code",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "frontend_app_requests_id_page_status_badges",
+      "community": 6,
+      "norm_label": "status_badges"
+    },
+    {
+      "label": "DEPARTMENT_ICONS",
+      "file_type": "code",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "frontend_app_requests_id_page_department_icons",
+      "community": 6,
+      "norm_label": "department_icons"
+    },
+    {
+      "label": "RequestDetailPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "frontend_app_requests_id_page_requestdetailpage",
+      "community": 6,
+      "norm_label": "requestdetailpage()"
+    },
+    {
       "label": "app-sidebar.tsx",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
@@ -157,7 +567,7 @@
       "label": "NavItem",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L26",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_navitem",
       "community": 35,
@@ -167,7 +577,7 @@
       "label": "employeeItems",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L33",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_employeeitems",
       "community": 35,
@@ -177,7 +587,7 @@
       "label": "engineeringItems",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L38",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_engineeringitems",
       "community": 35,
@@ -187,7 +597,7 @@
       "label": "systemItems",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L43",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_systemitems",
       "community": 35,
@@ -197,7 +607,7 @@
       "label": "isActive()",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L48",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_isactive",
       "community": 35,
@@ -207,7 +617,7 @@
       "label": "NavigationItem()",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L52",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_navigationitem",
       "community": 35,
@@ -217,7 +627,7 @@
       "label": "NavigationGroup()",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L71",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_navigationgroup",
       "community": 35,
@@ -227,11 +637,131 @@
       "label": "AppSidebar()",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L112",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "frontend_components_app_sidebar_appsidebar",
       "community": 35,
       "norm_label": "appsidebar()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "page.tsx",
+      "id": "frontend_app_intake_id_page"
+    },
+    {
+      "label": "ChatMessage",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "chatmessage",
+      "id": "frontend_app_intake_id_page_chatmessage"
+    },
+    {
+      "label": "RequestInfo",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "requestinfo",
+      "id": "frontend_app_intake_id_page_requestinfo"
+    },
+    {
+      "label": "ReviewData",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "reviewdata",
+      "id": "frontend_app_intake_id_page_reviewdata"
+    },
+    {
+      "label": "StageProgressBar()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L57",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "stageprogressbar()",
+      "id": "frontend_app_intake_id_page_stageprogressbar"
+    },
+    {
+      "label": "ChatBubble()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L107",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "chatbubble()",
+      "id": "frontend_app_intake_id_page_chatbubble"
+    },
+    {
+      "label": "TypingIndicator()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L141",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "typingindicator()",
+      "id": "frontend_app_intake_id_page_typingindicator"
+    },
+    {
+      "label": "StageCompleteBanner()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L158",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "stagecompletebanner()",
+      "id": "frontend_app_intake_id_page_stagecompletebanner"
+    },
+    {
+      "label": "SubmittingOverlay()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L196",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "submittingoverlay()",
+      "id": "frontend_app_intake_id_page_submittingoverlay"
+    },
+    {
+      "label": "ConfidenceBadge()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L235",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "confidencebadge()",
+      "id": "frontend_app_intake_id_page_confidencebadge"
+    },
+    {
+      "label": "ReviewSummaryCard()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L249",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "reviewsummarycard()",
+      "id": "frontend_app_intake_id_page_reviewsummarycard"
+    },
+    {
+      "label": "IntakeChatPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L326",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "intakechatpage()",
+      "id": "frontend_app_intake_id_page_intakechatpage"
     },
     {
       "label": "middleware.ts",
@@ -239,9 +769,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_middleware",
       "community": 36,
-      "norm_label": "middleware.ts"
+      "norm_label": "middleware.ts",
+      "id": "frontend_middleware"
     },
     {
       "label": "PUBLIC_PATHS",
@@ -249,9 +779,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "frontend_middleware_public_paths",
       "community": 36,
-      "norm_label": "public_paths"
+      "norm_label": "public_paths",
+      "id": "frontend_middleware_public_paths"
     },
     {
       "label": "SYS_ADMIN_ONLY_PATHS",
@@ -259,9 +789,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "frontend_middleware_sys_admin_only_paths",
       "community": 36,
-      "norm_label": "sys_admin_only_paths"
+      "norm_label": "sys_admin_only_paths",
+      "id": "frontend_middleware_sys_admin_only_paths"
     },
     {
       "label": "ADMIN_PATHS",
@@ -269,9 +799,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "frontend_middleware_admin_paths",
       "community": 36,
-      "norm_label": "admin_paths"
+      "norm_label": "admin_paths",
+      "id": "frontend_middleware_admin_paths"
     },
     {
       "label": "config",
@@ -279,9 +809,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L64",
       "_origin": "ast",
-      "id": "frontend_middleware_config",
       "community": 36,
-      "norm_label": "config"
+      "norm_label": "config",
+      "id": "frontend_middleware_config"
     },
     {
       "label": "layout.tsx",
@@ -599,7 +1129,7 @@
       "source_file": "frontend/components/ui/sidebar.tsx",
       "source_location": "L305",
       "_origin": "ast",
-      "community": 12,
+      "community": 35,
       "norm_label": "sidebarinset()",
       "id": "frontend_components_ui_sidebar_sidebarinset"
     },
@@ -1636,26 +2166,6 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 12,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_dashboard_page"
-    },
-    {
-      "label": "Page()",
-      "file_type": "code",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 12,
-      "norm_label": "page()",
-      "id": "frontend_app_dashboard_page_page"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
       "source_file": "frontend/app/login/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
@@ -1672,56 +2182,6 @@
       "community": 34,
       "norm_label": "loginpage()",
       "id": "frontend_app_login_page_loginpage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_my_requests_page"
-    },
-    {
-      "label": "RequestItem",
-      "file_type": "code",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "requestitem",
-      "id": "frontend_app_my_requests_page_requestitem"
-    },
-    {
-      "label": "STATUS_BADGES",
-      "file_type": "code",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "status_badges",
-      "id": "frontend_app_my_requests_page_status_badges"
-    },
-    {
-      "label": "DEPARTMENT_ICONS",
-      "file_type": "code",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L47",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "department_icons",
-      "id": "frontend_app_my_requests_page_department_icons"
-    },
-    {
-      "label": "MyRequestsPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L53",
-      "_origin": "ast",
-      "community": 8,
-      "norm_label": "myrequestspage()",
-      "id": "frontend_app_my_requests_page_myrequestspage"
     },
     {
       "label": "page.tsx",
@@ -2466,256 +2926,6 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/admin/audit-log/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_admin_audit_log_page"
-    },
-    {
-      "label": "AuditLogEntry",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/audit-log/page.tsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "auditlogentry",
-      "id": "frontend_app_admin_audit_log_page_auditlogentry"
-    },
-    {
-      "label": "AdminAuditLogPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/audit-log/page.tsx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "adminauditlogpage()",
-      "id": "frontend_app_admin_audit_log_page_adminauditlogpage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_admin_requests_id_page"
-    },
-    {
-      "label": "Engineer",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "engineer",
-      "id": "frontend_app_admin_requests_id_page_engineer"
-    },
-    {
-      "label": "Comment",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "comment",
-      "id": "frontend_app_admin_requests_id_page_comment"
-    },
-    {
-      "label": "PriorityInputs",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L46",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "priorityinputs",
-      "id": "frontend_app_admin_requests_id_page_priorityinputs"
-    },
-    {
-      "label": "Estimate",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L55",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "estimate",
-      "id": "frontend_app_admin_requests_id_page_estimate"
-    },
-    {
-      "label": "Summary",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L70",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "summary",
-      "id": "frontend_app_admin_requests_id_page_summary"
-    },
-    {
-      "label": "RequestDetail",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L81",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "requestdetail",
-      "id": "frontend_app_admin_requests_id_page_requestdetail"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L97",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "status_labels",
-      "id": "frontend_app_admin_requests_id_page_status_labels"
-    },
-    {
-      "label": "STATUS_COLORS",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L105",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "status_colors",
-      "id": "frontend_app_admin_requests_id_page_status_colors"
-    },
-    {
-      "label": "REASON_REQUIRED",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L120",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "reason_required",
-      "id": "frontend_app_admin_requests_id_page_reason_required"
-    },
-    {
-      "label": "CONFIDENCE_COLORS",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L122",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "confidence_colors",
-      "id": "frontend_app_admin_requests_id_page_confidence_colors"
-    },
-    {
-      "label": "DEPT_ICONS",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L128",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "dept_icons",
-      "id": "frontend_app_admin_requests_id_page_dept_icons"
-    },
-    {
-      "label": "ScoreGauge()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L136",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "scoregauge()",
-      "id": "frontend_app_admin_requests_id_page_scoregauge"
-    },
-    {
-      "label": "ScoreSlider()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L163",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "scoreslider()",
-      "id": "frontend_app_admin_requests_id_page_scoreslider"
-    },
-    {
-      "label": "CommentThread()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L188",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "commentthread()",
-      "id": "frontend_app_admin_requests_id_page_commentthread"
-    },
-    {
-      "label": "EngineeringReviewPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L322",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "engineeringreviewpage()",
-      "id": "frontend_app_admin_requests_id_page_engineeringreviewpage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_admin_requests_page"
-    },
-    {
-      "label": "AdminRequestItem",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "adminrequestitem",
-      "id": "frontend_app_admin_requests_page_adminrequestitem"
-    },
-    {
-      "label": "STATUS_BADGES",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "status_badges",
-      "id": "frontend_app_admin_requests_page_status_badges"
-    },
-    {
-      "label": "DEPARTMENT_ICONS",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L48",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "department_icons",
-      "id": "frontend_app_admin_requests_page_department_icons"
-    },
-    {
-      "label": "BULK_STATUSES",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "bulk_statuses",
-      "id": "frontend_app_admin_requests_page_bulk_statuses"
-    },
-    {
-      "label": "AdminRequestsPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L61",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "adminrequestspage()",
-      "id": "frontend_app_admin_requests_page_adminrequestspage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
       "source_file": "frontend/app/admin/settings/effort-ranges/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
@@ -2786,46 +2996,6 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 26,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_admin_settings_priority_weights_page"
-    },
-    {
-      "label": "PriorityWeights",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 26,
-      "norm_label": "priorityweights",
-      "id": "frontend_app_admin_settings_priority_weights_page_priorityweights"
-    },
-    {
-      "label": "SETTINGS_TABS",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 26,
-      "norm_label": "settings_tabs",
-      "id": "frontend_app_admin_settings_priority_weights_page_settings_tabs"
-    },
-    {
-      "label": "AdminPriorityWeightsPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 26,
-      "norm_label": "adminpriorityweightspage()",
-      "id": "frontend_app_admin_settings_priority_weights_page_adminpriorityweightspage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
       "source_file": "frontend/app/admin/settings/rates/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
@@ -2876,36 +3046,6 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/admin/users/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 24,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_admin_users_page"
-    },
-    {
-      "label": "IUserItem",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/users/page.tsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 24,
-      "norm_label": "iuseritem",
-      "id": "frontend_app_admin_users_page_iuseritem"
-    },
-    {
-      "label": "AdminUsersPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/admin/users/page.tsx",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 24,
-      "norm_label": "adminuserspage()",
-      "id": "frontend_app_admin_users_page_adminuserspage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
       "source_file": "frontend/app/intake/new/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
@@ -2942,166 +3082,6 @@
       "community": 9,
       "norm_label": "newintakepage()",
       "id": "frontend_app_intake_new_page_newintakepage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_ledger_page"
-    },
-    {
-      "label": "LedgerRequest",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "ledgerrequest",
-      "id": "frontend_app_ledger_page_ledgerrequest"
-    },
-    {
-      "label": "Pagination",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "pagination",
-      "id": "frontend_app_ledger_page_pagination"
-    },
-    {
-      "label": "LEDGER_STATUSES",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L42",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "ledger_statuses",
-      "id": "frontend_app_ledger_page_ledger_statuses"
-    },
-    {
-      "label": "STATUS_COLORS",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L55",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "status_colors",
-      "id": "frontend_app_ledger_page_status_colors"
-    },
-    {
-      "label": "TIER_COLORS",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L68",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "tier_colors",
-      "id": "frontend_app_ledger_page_tier_colors"
-    },
-    {
-      "label": "TIER_DOTS",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L75",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "tier_dots",
-      "id": "frontend_app_ledger_page_tier_dots"
-    },
-    {
-      "label": "DEPARTMENT_ICONS",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L82",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "department_icons",
-      "id": "frontend_app_ledger_page_department_icons"
-    },
-    {
-      "label": "PaginationBar()",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L93",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "paginationbar()",
-      "id": "frontend_app_ledger_page_paginationbar"
-    },
-    {
-      "label": "LedgerPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L139",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "ledgerpage()",
-      "id": "frontend_app_ledger_page_ledgerpage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_requests_id_page"
-    },
-    {
-      "label": "ConversationTurn",
-      "file_type": "code",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "conversationturn",
-      "id": "frontend_app_requests_id_page_conversationturn"
-    },
-    {
-      "label": "RequestDetail",
-      "file_type": "code",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "requestdetail",
-      "id": "frontend_app_requests_id_page_requestdetail"
-    },
-    {
-      "label": "STATUS_BADGES",
-      "file_type": "code",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "status_badges",
-      "id": "frontend_app_requests_id_page_status_badges"
-    },
-    {
-      "label": "DEPARTMENT_ICONS",
-      "file_type": "code",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L43",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "department_icons",
-      "id": "frontend_app_requests_id_page_department_icons"
-    },
-    {
-      "label": "RequestDetailPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "requestdetailpage()",
-      "id": "frontend_app_requests_id_page_requestdetailpage"
     },
     {
       "label": "route.ts",
@@ -4838,111 +4818,423 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L107",
+      "source_file": "frontend/app/admin/audit-log/page.tsx",
+      "source_location": "L21",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_chatbubble",
+      "source": "frontend_app_admin_audit_log_page",
+      "target": "frontend_app_admin_audit_log_page_adminauditlogpage",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L20",
+      "source_file": "frontend/app/admin/audit-log/page.tsx",
+      "source_location": "L6",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_chatmessage",
+      "source": "frontend_app_admin_audit_log_page",
+      "target": "frontend_app_admin_audit_log_page_auditlogentry",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L235",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L38",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_confidencebadge",
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_comment",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L326",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L189",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_intakechatpage",
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_commentthread",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_confidence_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_dept_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_engineer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L323",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_engineeringreviewpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_estimate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_priorityinputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_reason_required",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_requestdetail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_scoregauge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_scoreslider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_status_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_status_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page",
+      "target": "frontend_app_admin_requests_id_page_summary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
+      "source_location": "L509",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_id_page_engineeringreviewpage",
+      "target": "frontend_app_admin_requests_id_page_reason_required"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_page",
+      "target": "frontend_app_admin_requests_page_adminrequestitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_page",
+      "target": "frontend_app_admin_requests_page_adminrequestspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_page",
+      "target": "frontend_app_admin_requests_page_bulk_statuses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_page",
+      "target": "frontend_app_admin_requests_page_department_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/requests/page.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "frontend_app_admin_requests_page",
+      "target": "frontend_app_admin_requests_page_status_badges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "frontend_app_admin_settings_priority_weights_page",
+      "target": "frontend_app_admin_settings_priority_weights_page_adminpriorityweightspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "frontend_app_admin_settings_priority_weights_page",
+      "target": "frontend_app_admin_settings_priority_weights_page_priorityweights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "frontend_app_admin_settings_priority_weights_page",
+      "target": "frontend_app_admin_settings_priority_weights_page_settings_tabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/admin/users/page.tsx",
       "source_location": "L27",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_requestinfo",
+      "source": "frontend_app_admin_users_page",
+      "target": "frontend_app_admin_users_page_adminuserspage",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L33",
+      "source_file": "frontend/app/admin/users/page.tsx",
+      "source_location": "L16",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_reviewdata",
+      "source": "frontend_app_admin_users_page",
+      "target": "frontend_app_admin_users_page_iuseritem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/ledger/layout.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_ledger_layout",
+      "target": "frontend_app_ledger_page"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_department_icons",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L249",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L42",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_reviewsummarycard",
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_ledger_statuses",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L158",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L139",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_stagecompletebanner",
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_ledgerpage",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L57",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L19",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_stageprogressbar",
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_ledgerrequest",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L196",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L31",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_submittingoverlay",
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_pagination",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/intake/[id]/page.tsx",
-      "source_location": "L141",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L93",
       "weight": 1.0,
-      "source": "frontend_app_intake_id_page",
-      "target": "frontend_app_intake_id_page_typingindicator",
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_paginationbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_status_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_tier_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/ledger/page.tsx",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "frontend_app_ledger_page",
+      "target": "frontend_app_ledger_page_tier_dots",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "frontend_app_my_requests_page",
+      "target": "frontend_app_my_requests_page_department_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "frontend_app_my_requests_page",
+      "target": "frontend_app_my_requests_page_myrequestspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "frontend_app_my_requests_page",
+      "target": "frontend_app_my_requests_page_requestitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/my-requests/page.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "frontend_app_my_requests_page",
+      "target": "frontend_app_my_requests_page_status_badges",
       "confidence_score": 1.0
     },
     {
@@ -4978,15 +5270,54 @@
       "target": "frontend_app_providers_providers"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L1",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_app_sidebar"
+      "source": "frontend_app_requests_id_page",
+      "target": "frontend_app_requests_id_page_conversationturn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "frontend_app_requests_id_page",
+      "target": "frontend_app_requests_id_page_department_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "frontend_app_requests_id_page",
+      "target": "frontend_app_requests_id_page_requestdetail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "frontend_app_requests_id_page",
+      "target": "frontend_app_requests_id_page_requestdetailpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/requests/[id]/page.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "frontend_app_requests_id_page",
+      "target": "frontend_app_requests_id_page_status_badges",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -5003,7 +5334,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L112",
+      "source_location": "L93",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_appsidebar",
@@ -5013,7 +5344,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L33",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_employeeitems",
@@ -5023,7 +5354,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L38",
+      "source_location": "L36",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_engineeringitems",
@@ -5033,7 +5364,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L48",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_isactive",
@@ -5043,7 +5374,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L71",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_navigationgroup",
@@ -5053,7 +5384,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L52",
+      "source_location": "L51",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_navigationitem",
@@ -5063,7 +5394,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L26",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_navitem",
@@ -5073,7 +5404,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L43",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar",
       "target": "frontend_components_app_sidebar_systemitems",
@@ -5084,22 +5415,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/app-sidebar.tsx",
-      "source_location": "L59",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "frontend_components_app_sidebar_navigationitem",
       "target": "frontend_components_app_sidebar_isactive",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_app_sidebar_appsidebar"
     },
     {
       "relation": "imports",
@@ -5115,12 +5435,122 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_chatbubble"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_chatmessage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L235",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_confidencebadge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L326",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_intakechatpage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_requestinfo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_reviewdata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L249",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_reviewsummarycard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_stagecompletebanner"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_stageprogressbar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_submittingoverlay"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/intake/[id]/page.tsx",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_intake_id_page",
+      "target": "frontend_app_intake_id_page_typingindicator"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/middleware.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_middleware",
-      "target": "frontend_middleware_admin_paths",
-      "confidence_score": 1.0
+      "target": "frontend_middleware_admin_paths"
     },
     {
       "relation": "contains",
@@ -5128,9 +5558,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_middleware",
-      "target": "frontend_middleware_config",
-      "confidence_score": 1.0
+      "target": "frontend_middleware_config"
     },
     {
       "relation": "contains",
@@ -5138,9 +5568,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_middleware",
-      "target": "frontend_middleware_public_paths",
-      "confidence_score": 1.0
+      "target": "frontend_middleware_public_paths"
     },
     {
       "relation": "contains",
@@ -5148,9 +5578,9 @@
       "source_file": "frontend/middleware.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_middleware",
-      "target": "frontend_middleware_sys_admin_only_paths",
-      "confidence_score": 1.0
+      "target": "frontend_middleware_sys_admin_only_paths"
     },
     {
       "relation": "contains",
@@ -5541,17 +5971,6 @@
       "target": "frontend_components_ui_attachment_attachmentmediavariants"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_sidebar"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/components/ui/sidebar.tsx",
@@ -5877,17 +6296,6 @@
       "target": "frontend_package_dependencies_react"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_sidebar_sidebarprovider"
-    },
-    {
       "relation": "references",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -5897,28 +6305,6 @@
       "weight": 1.0,
       "source": "frontend_components_ui_sidebar_sidebarprovider",
       "target": "frontend_package_dependencies_react"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_sidebar_sidebartrigger"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_sidebar_sidebarinset"
     },
     {
       "relation": "calls",
@@ -6844,115 +7230,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_app_dashboard_page_page"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb_breadcrumb"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb_breadcrumbitem"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb_breadcrumblink"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb_breadcrumblist"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb_breadcrumbpage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_breadcrumb_breadcrumbseparator"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_separator"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/dashboard/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_dashboard_page",
-      "target": "frontend_components_ui_separator_separator"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/login/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -6970,46 +7247,6 @@
       "confidence_score": 1.0,
       "source": "frontend_app_login_page",
       "target": "frontend_components_components2_input"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_my_requests_page",
-      "target": "frontend_app_my_requests_page_department_icons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_my_requests_page",
-      "target": "frontend_app_my_requests_page_myrequestspage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_my_requests_page",
-      "target": "frontend_app_my_requests_page_requestitem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/my-requests/page.tsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_my_requests_page",
-      "target": "frontend_app_my_requests_page_status_badges"
     },
     {
       "relation": "contains",
@@ -8199,237 +8436,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/audit-log/page.tsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_audit_log_page",
-      "target": "frontend_app_admin_audit_log_page_adminauditlogpage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/audit-log/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_audit_log_page",
-      "target": "frontend_app_admin_audit_log_page_auditlogentry"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_comment"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L188",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_commentthread"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L122",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_confidence_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L128",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_dept_icons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_engineer"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L322",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_engineeringreviewpage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_estimate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_priorityinputs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L120",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_reason_required"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_requestdetail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L136",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_scoregauge"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L163",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_scoreslider"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L105",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_status_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L97",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_status_labels"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L70",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_summary"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/admin/requests/[id]/page.tsx",
-      "source_location": "L508",
-      "weight": 1.0,
-      "source": "frontend_app_admin_requests_id_page_engineeringreviewpage",
-      "target": "frontend_app_admin_requests_id_page_reason_required"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_page",
-      "target": "frontend_app_admin_requests_page_adminrequestitem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L61",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_page",
-      "target": "frontend_app_admin_requests_page_adminrequestspage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_page",
-      "target": "frontend_app_admin_requests_page_bulk_statuses"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L48",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_page",
-      "target": "frontend_app_admin_requests_page_department_icons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/requests/page.tsx",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_requests_page",
-      "target": "frontend_app_admin_requests_page_status_badges"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/admin/settings/effort-ranges/page.tsx",
       "source_location": "L33",
       "weight": 1.0,
@@ -8490,36 +8496,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_settings_priority_weights_page",
-      "target": "frontend_app_admin_settings_priority_weights_page_adminpriorityweightspage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_settings_priority_weights_page",
-      "target": "frontend_app_admin_settings_priority_weights_page_priorityweights"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/settings/priority-weights/page.tsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_settings_priority_weights_page",
-      "target": "frontend_app_admin_settings_priority_weights_page_settings_tabs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/admin/settings/rates/page.tsx",
       "source_location": "L26",
       "weight": 1.0,
@@ -8560,26 +8536,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/users/page.tsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_users_page",
-      "target": "frontend_app_admin_users_page_adminuserspage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/admin/users/page.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_admin_users_page",
-      "target": "frontend_app_admin_users_page_iuseritem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/intake/new/page.tsx",
       "source_location": "L15",
       "weight": 1.0,
@@ -8606,157 +8562,6 @@
       "confidence_score": 1.0,
       "source": "frontend_app_intake_new_page",
       "target": "frontend_app_intake_new_page_newintakepage"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/layout.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_layout",
-      "target": "frontend_app_ledger_page"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L82",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_department_icons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_ledger_statuses"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L139",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_ledgerpage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_ledgerrequest"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_pagination"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L93",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_paginationbar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_status_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_tier_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/ledger/page.tsx",
-      "source_location": "L75",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_ledger_page",
-      "target": "frontend_app_ledger_page_tier_dots"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_requests_id_page",
-      "target": "frontend_app_requests_id_page_conversationturn"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_requests_id_page",
-      "target": "frontend_app_requests_id_page_department_icons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_requests_id_page",
-      "target": "frontend_app_requests_id_page_requestdetail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_requests_id_page",
-      "target": "frontend_app_requests_id_page_requestdetailpage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/requests/[id]/page.tsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_requests_id_page",
-      "target": "frontend_app_requests_id_page_status_badges"
     },
     {
       "relation": "contains",
@@ -11167,5 +10972,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3b250e96b7f3db9b370334a4caf1de8bf8641a8c"
+  "built_at_commit": "73e485ecbbc67616e497fb79bcbdd96260033f19"
 }

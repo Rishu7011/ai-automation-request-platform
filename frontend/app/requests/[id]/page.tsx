@@ -50,8 +50,18 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
   const { id: requestId } = use(params);
   const router = useRouter();
 
+  interface AttachmentItem {
+    _id: string;
+    originalName: string;
+    filePath: string;
+    fileSize: number;
+    stage: number;
+    createdAt: string;
+  }
+
   const [requestInfo, setRequestInfo] = useState<RequestDetail | null>(null);
   const [turns, setTurns] = useState<ConversationTurn[]>([]);
+  const [attachments, setAttachments] = useState<AttachmentItem[]>([]);
   const [activeStageFilter, setActiveStageFilter] = useState<number | 'all'>('all');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -59,9 +69,13 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
   useEffect(() => {
     async function loadData() {
       try {
-        const res = await fetch(`/api/intake/chat?requestId=${requestId}`);
-        if (!res.ok) throw new Error('Failed to load request details');
-        const data = await res.json();
+        const [chatRes, attachRes] = await Promise.all([
+          fetch(`/api/intake/chat?requestId=${requestId}`),
+          fetch(`/api/requests/${requestId}/attachments`),
+        ]);
+
+        if (!chatRes.ok) throw new Error('Failed to load request details');
+        const data = await chatRes.json();
         setRequestInfo({
           _id: requestId,
           title: data.title,
@@ -72,6 +86,11 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
           updatedAt: data.updatedAt,
         });
         setTurns(data.turns || []);
+
+        if (attachRes.ok) {
+          const attData = await attachRes.json();
+          setAttachments(attData.attachments || []);
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Error loading details');
       } finally {
@@ -204,7 +223,7 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
             { label: 'Department', value: `${icon} ${requestInfo.department}` },
             { label: 'Status', value: requestInfo.status.replace(/_/g, ' ') },
             { label: 'Priority Score', value: requestInfo.priorityScore > 0 ? `${requestInfo.priorityScore.toFixed(0)} / 100` : 'Pending', highlight: requestInfo.priorityScore > 0 },
-            { label: 'Transcript Turns', value: `${turns.length} Exchanges` },
+            { label: 'Attachments', value: `${attachments.length} Files` },
           ].map(({ label, value, highlight }) => (
             <div key={label} className="p-4 rounded-xl glass-panel border border-[#464554]/30 space-y-1">
               <p className="text-[10px] font-bold font-outfit uppercase tracking-wider text-[#908fa0]">{label}</p>
@@ -214,6 +233,39 @@ export default function RequestDetailPage({ params }: { params: Promise<{ id: st
             </div>
           ))}
         </div>
+
+        {/* Uploaded Documentation & Attachments Section */}
+        {attachments.length > 0 && (
+          <div className="p-5 glass-panel border border-[#464554]/30 rounded-xl space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#c0c1ff] font-outfit">
+              📎 Attached Files & Documentation ({attachments.length})
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {attachments.map((att) => (
+                <div
+                  key={att._id}
+                  className="flex items-center justify-between p-3 rounded-xl bg-[#0d0d15] border border-[#464554]/30"
+                >
+                  <div className="min-w-0 pr-3">
+                    <p className="text-xs font-bold text-white truncate">{att.originalName}</p>
+                    <p className="text-[10px] text-[#908fa0] font-mono-code">
+                      {(att.fileSize / 1024).toFixed(1)} KB · Stage {att.stage ?? 1}
+                    </p>
+                  </div>
+                  <a
+                    href={att.filePath}
+                    download={att.originalName}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-lg bg-[#6366f1]/15 hover:bg-[#6366f1] text-[#c0c1ff] hover:text-white text-xs font-bold transition-colors border border-[#6366f1]/30 shrink-0 cursor-pointer"
+                  >
+                    ⬇ Download
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Stage filter tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
