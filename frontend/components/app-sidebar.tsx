@@ -81,33 +81,33 @@ function NavigationGroup({ label, items }: { label?: string; items: NavItem[] })
   );
 }
 
-function DarkModeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
+// function DarkModeToggle() {
+//   const { theme, setTheme, resolvedTheme } = useTheme();
+//   const [mounted, setMounted] = React.useState(false);
 
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+//   React.useEffect(() => {
+//     setMounted(true);
+//   }, []);
 
-  const isDark = mounted ? resolvedTheme === 'dark' : false;
+//   const isDark = mounted ? resolvedTheme === 'dark' : false;
 
-  return (
-    <SidebarMenuItem>
-      <SidebarMenuButton
-        tooltip={isDark ? "Light Mode" : "Dark Mode"}
-        onClick={() => setTheme(isDark ? 'light' : 'dark')}
-        className="h-11 gap-3 rounded-lg text-base text-[#5f6470] [&_svg]:size-5 hover:bg-[#f1f5f9] hover:text-[#191c1e]"
-      >
-        {isDark ? (
-          <Sun className="text-amber-500" />
-        ) : (
-          <Moon className="text-slate-600" />
-        )}
-        <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
-      </SidebarMenuButton>
-    </SidebarMenuItem>
-  );
-}
+//   return (
+//     <SidebarMenuItem>
+//       <SidebarMenuButton
+//         tooltip={isDark ? "Light Mode" : "Dark Mode"}
+//         onClick={() => setTheme(isDark ? 'light' : 'dark')}
+//         className="h-11 gap-3 rounded-lg text-base text-[#5f6470] [&_svg]:size-5 hover:bg-[#f1f5f9] hover:text-[#191c1e]"
+//       >
+//         {isDark ? (
+//           <Sun className="text-amber-500" />
+//         ) : (
+//           <Moon className="text-slate-600" />
+//         )}
+//         <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+//       </SidebarMenuButton>
+//     </SidebarMenuItem>
+//   );
+// }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: session, status } = useSession();
@@ -125,7 +125,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="border-b-1">
         <div className="flex justify-between items-center px-1">
           {state === 'expanded' &&
             <Image src="/logo.png" width={500} height={500} alt="AI Automation logo" className="h-12 w-12 shrink-0 rounded-lg object-cover" priority />
@@ -139,13 +139,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {isAnyAdmin && <NavigationGroup label="Engineering Admin" items={engineeringItems} />}
         {isSysAdmin && <NavigationGroup label="System Admin" items={systemItems} />}
         
-        <SidebarGroup className="px-3 py-1.5 mt-auto">
+        {/* <SidebarGroup className="px-3 py-1.5 mt-auto">
           <SidebarGroupContent>
             <SidebarMenu className="gap-1">
               <DarkModeToggle />
             </SidebarMenu>
           </SidebarGroupContent>
-        </SidebarGroup>
+        </SidebarGroup> */}
       </SidebarContent>
 
       <SidebarFooter className="border-t border-[#dfe3e8] p-3 font-medium">

@@ -12,6 +12,7 @@ import {
   Save,
   ArrowLeft,
   AlertTriangle,
+  UserIcon,
 } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -73,7 +74,7 @@ function StageProgressBar({
               <div
                 className={`w-6 h-0.5 mx-1 transition-colors ${
                   isCompleted || idx < currentStage - 1
-                    ? 'bg-blue-600'
+                    ? 'bg-blue-400'
                     : 'bg-slate-200'
                 }`}
               />
@@ -86,7 +87,7 @@ function StageProgressBar({
                   isCompleted
                     ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     : isCurrent
-                    ? 'bg-blue-600 text-white shadow-md shadow-[#6366f1]/20'
+                    ? 'bg-[#4a91e9] text-white shadow-md shadow-[#6366f1]/20'
                     : 'bg-slate-100 text-slate-500 border border-slate-200'
                 }
               `}
@@ -109,23 +110,23 @@ function ChatBubble({ message }: { message: ChatMessage }) {
   return (
     <div className={`flex gap-3.5 ${isUser ? 'flex-row-reverse' : 'flex-row'} mb-5`}>
       {/* Avatar */}
-      <div
+      {/* <div
         className={`
           flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold shadow-xs
           ${isUser ? 'bg-blue-600 text-white' : 'bg-slate-900 text-white'}
         `}
       >
-        {isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
-      </div>
+        {isUser ? <UserIcon className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+      </div> */}
 
       {/* Bubble */}
       <div
         className={`
-          max-w-[80%] px-5 py-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed font-medium shadow-xs
+          max-w-[80%] px-5 py-3.5 rounded-2xl text-md sm:text-md leading-relaxed font-md shadow-xs
           ${
             isUser
-              ? 'bg-blue-600 text-white rounded-tr-xs'
-              : 'bg-white border border-slate-200 text-slate-800 rounded-tl-xs'
+              ? 'bg-gray-400 text-white rounded-tr-xs '
+              : 'bg-white border border-slate-200 text-slate-800   rounded-tl-xs'
           }
         `}
       >
