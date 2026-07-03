@@ -54,6 +54,26 @@ describe('calculateROI', () => {
     expect(result.buildCostMid).toBe(14000);
   });
 
+  it('calculates build cost using custom effort hours range when provided', () => {
+    const inputs: ROIInputs = {
+      hoursPerOccurrence: 5,
+      frequencyPerYear: 52,
+      peopleInvolved: 2,
+      blendedHourlyCost: 80,
+      engineeringRatePerHour: 150,
+      effortSize: 'S',
+      effortHoursRange: [10, 30], // custom range mid = 20
+    };
+
+    const result = calculateROI(inputs);
+    // 5 * 52 * 2 = 520 hours * $80 = $41,600
+    expect(result.annualDollarsSaved).toBe(41600);
+    // Low: 10 * 150 = 1500, High: 30 * 150 = 4500, Mid: 20 * 150 = 3000
+    expect(result.buildCostLow).toBe(1500);
+    expect(result.buildCostHigh).toBe(4500);
+    expect(result.buildCostMid).toBe(3000);
+  });
+
   it('handles 0 hours or 0 frequency gracefully without division by zero', () => {
     const inputs: ROIInputs = {
       hoursPerOccurrence: 0,

@@ -11,6 +11,7 @@ import { AuditLog } from '@/models/AuditLog';
 import { calculateROI, calculatePriorityScore } from '@/lib/calculations';
 import { DEFAULT_PRIORITY_WEIGHTS } from '@/constants';
 import { PriorityWeightsConfig } from '@/models/PriorityWeightsConfig';
+import { getSystemSettingsConfig } from '@/lib/settings';
 import mongoose from 'mongoose';
 
 function requireAdmin(session: { user?: { id?: string } | null } | null) {
@@ -80,14 +81,20 @@ export async function PATCH(
 
   await connectToDatabase();
 
-  const [existing, weightsDoc, summaryDoc] = await Promise.all([
+  const [existing, weightsDoc, summaryDoc, requestDoc, settingsConfig] = await Promise.all([
     RequestEstimate.findOne({ requestId: id }),
     PriorityWeightsConfig.findOne().sort({ updatedAt: -1 }).lean(),
-    // Fetch in parallel so we have prior values for both the merge block and the audit diff
     RequestSummary.findOne({ requestId: id }).lean(),
+    Request.findById(id).lean(),
+    getSystemSettingsConfig(),
   ]);
 
   if (!existing) return NextResponse.json({ error: 'Estimate not found' }, { status: 404 });
+
+  const department = requestDoc?.department ?? 'Engineering';
+  const defaultBlendedRate = settingsConfig.getBlendedRate(department);
+  const effectiveEffortSize = effortSize ?? existing.effortSize;
+  const effortHoursRange = settingsConfig.getEffortRange(effectiveEffortSize);
 
   // Track what changed for audit diff.
   // Signature: track(key, previousValue, incomingOverrideValue)
@@ -106,22 +113,16 @@ export async function PATCH(
     hoursPerOccurrence: hoursPerOccurrence ?? (summaryDoc?.hoursPerOccurrence ?? 1),
     frequencyPerYear: frequencyPerYear ?? (summaryDoc?.frequencyPerYear ?? 12),
     peopleInvolved: peopleInvolved ?? (summaryDoc?.peopleInvolved ?? 1),
-    blendedHourlyCost: blendedHourlyCost ?? 75,
-    effortSize: effortSize ?? existing.effortSize,
+    blendedHourlyCost: blendedHourlyCost ?? defaultBlendedRate,
+    effortSize: effectiveEffortSize,
+    effortHoursRange,
   };
 
   // Build audit diff against the prior summary/estimate values (not the incoming values).
-  // Bug fix: blendedHourlyCost previously used the incoming value as both before and after,
-  // so a change could never be recorded. The prior value is the default rate (75) since
-  // blendedHourlyCost is not stored on the summary document itself.
   track('hoursPerOccurrence', summaryDoc?.hoursPerOccurrence, hoursPerOccurrence);
   track('frequencyPerYear', summaryDoc?.frequencyPerYear, frequencyPerYear);
   track('peopleInvolved', summaryDoc?.peopleInvolved, peopleInvolved);
-  // Note: blendedHourlyCost is not stored on RequestSummary or RequestEstimate, so we
-  // treat the system default (75) as the canonical "before" value for audit purposes.
-  // A more complete implementation would read it from SystemSettings.blendedRates.
-  const RATE_BEFORE = 75;
-  track('blendedHourlyCost', RATE_BEFORE, blendedHourlyCost);
+  track('blendedHourlyCost', defaultBlendedRate, blendedHourlyCost);
   track('effortSize', existing.effortSize, effortSize);
   track('strategicValue', existing.priorityInputs?.strategicValue, strategicValue);
   track('urgency', existing.priorityInputs?.urgency, urgency);

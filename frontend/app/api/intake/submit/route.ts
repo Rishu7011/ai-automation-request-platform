@@ -35,6 +35,7 @@ import { runPriorityRecommendationAgent } from '@/lib/agents/priority-recommenda
 import { runSummaryGenerationAgent } from '@/lib/agents/summary-generation-agent';
 import { runDuplicateDetectionAgent } from '@/lib/agents/duplicate-detection-agent';
 import { calculateROI, calculatePriorityScore } from '@/lib/calculations';
+import { getSystemSettingsConfig } from '@/lib/settings';
 
 export async function POST(req: NextRequest) {
   const session = await auth();
@@ -180,12 +181,21 @@ export async function POST(req: NextRequest) {
 
   // ── 5. Deterministic calculation engine ──────────────────────────────────────
 
+  const settingsConfig = await getSystemSettingsConfig();
+  const effectiveBlendedRate =
+    roiResult.confidencePerField?.blendedHourlyCost === 'defaulted'
+      ? settingsConfig.getBlendedRate(department)
+      : roiResult.blendedHourlyCost || settingsConfig.getBlendedRate(department);
+
+  const effortHoursRange = settingsConfig.getEffortRange(effortResult.effortSize);
+
   const roiInputs = {
     hoursPerOccurrence: roiResult.hoursPerOccurrence,
     frequencyPerYear: roiResult.frequencyPerYear,
     peopleInvolved: roiResult.peopleInvolved,
-    blendedHourlyCost: roiResult.blendedHourlyCost,
+    blendedHourlyCost: effectiveBlendedRate,
     effortSize: effortResult.effortSize,
+    effortHoursRange,
   };
   const roiCalc = calculateROI(roiInputs);
 

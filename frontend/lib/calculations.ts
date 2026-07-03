@@ -18,6 +18,7 @@ export interface ROIInputs {
   peopleInvolved: number;
   blendedHourlyCost?: number;    // $/hr — defaults to DEFAULT_BLENDED_HOURLY_RATE
   effortSize: EffortSize;
+  effortHoursRange?: [number, number]; // [minHours, maxHours] from system settings if configured
   engineeringRatePerHour?: number; // $/hr — defaults to 150
 }
 
@@ -69,6 +70,7 @@ export function calculateROI(inputs: ROIInputs): ROIResult {
     peopleInvolved,
     blendedHourlyCost = DEFAULT_BLENDED_HOURLY_RATE,
     effortSize,
+    effortHoursRange,
     engineeringRatePerHour = 150,
   } = inputs;
 
@@ -82,7 +84,7 @@ export function calculateROI(inputs: ROIInputs): ROIResult {
   const annualHoursSaved = safeHours * safeFreq * safePeople;
   const annualDollarsSaved = annualHoursSaved * safeHourlyCost;
 
-  const [effortLow, effortHigh] = DEFAULT_EFFORT_HOURS[effortSize];
+  const [effortLow, effortHigh] = effortHoursRange ?? DEFAULT_EFFORT_HOURS[effortSize] ?? [40, 100];
   const buildCostLow = effortLow * safeEngRate;
   const buildCostHigh = effortHigh * safeEngRate;
   const buildCostMid = ((effortLow + effortHigh) / 2) * safeEngRate;

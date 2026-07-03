@@ -82,7 +82,7 @@ export async function GET(req: NextRequest) {
 
   // ── Sort ─────────────────────────────────────────────────────────────────────
   const sort: Record<string, 1 | -1> =
-    sortBy === 'priority' && isEngAdmin
+    sortBy === 'priority'
       ? { priorityScore: -1, submittedAt: -1 }
       : { submittedAt: -1 };
 
