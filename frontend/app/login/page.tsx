@@ -40,29 +40,36 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#f7f9fb] font-sans text-[#191c1e]">
-      <section className="flex min-h-screen flex-1 flex-col items-center justify-center px-6 py-12">
+    <div className="min-h-screen w-full bg-[#13131b] font-sans text-[#e4e1ed] relative overflow-hidden flex items-center justify-center">
+      {/* Ambient glowing background accents */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#6366f1]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#8083ff]/10 rounded-full blur-3xl pointer-events-none" />
+
+      <section className="flex min-h-screen flex-1 flex-col items-center justify-center px-6 py-12 relative z-10 w-full">
         <div className="w-full max-w-[440px]">
-          <div className="rounded-2xl border border-[#c3c6d7] bg-white p-8 shadow-xl sm:p-10">
+          <div className="rounded-2xl border border-[#464554]/30 bg-[#191924]/80 backdrop-blur-xl p-8 shadow-2xl sm:p-10">
             <div className="mb-8 flex flex-col items-center text-center">
-              <h1 className="text-2xl font-semibold tracking-tight text-[#191c1e]">Welcome back</h1>
-              <p className="mt-1 text-sm text-[#434655]">Sign in to access your intake dashboard</p>
+              <div className="w-12 h-12 rounded-2xl bg-[#6366f1]/20 border border-[#6366f1]/40 flex items-center justify-center text-[#c0c1ff] mb-4 shadow-inner">
+                <Lock className="h-6 w-6" />
+              </div>
+              <h1 className="text-2xl font-bold tracking-tight text-white font-outfit">Welcome Back</h1>
+              <p className="mt-1 text-xs font-medium text-[#908fa0]">Sign in to access your intake dashboard</p>
             </div>
 
             {error && (
-              <div className="flex items-center gap-2.5 rounded-xl border border-[#ffdad6] bg-[#ffdad6] p-3.5 text-sm text-[#93000a]">
+              <div className="flex items-center gap-2.5 mb-6 rounded-xl border border-[#ffb4ab]/30 bg-[#93000a]/20 p-3.5 text-xs font-semibold text-[#ffb4ab]">
                 <AlertCircle className="h-4 w-4 shrink-0" />
                 <span>{error}</span>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <Input
                 label="USERNAME / EMAIL"
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Enter your professional email"
+                placeholder="Enter your username or email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 leadingIcon={<AtSign className="h-5 w-5" />}
@@ -70,7 +77,7 @@ export default function LoginPage() {
 
               <Input
                 label="PASSWORD"
-                labelAction={<button type="button" className="text-xs font-semibold text-[#004ac6] hover:underline">Forgot Password?</button>}
+                labelAction={<button type="button" className="text-xs font-semibold text-[#c0c1ff] hover:underline cursor-pointer">Forgot Password?</button>}
                 id="password"
                 name="password"
                 type={showPassword ? 'text' : 'password'}
@@ -83,24 +90,23 @@ export default function LoginPage() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="text-[#434655] transition-colors hover:text-[#191c1e]"
+                    className="text-[#908fa0] transition-colors hover:text-white cursor-pointer"
                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 }
-                className="w-full rounded-lg border-0 bg-[#f1f5f9] py-3.5 pr-12 pl-11 text-sm text-[#191c1e] placeholder:text-[#737686] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#004ac6]"
               />
 
-              <label className="flex cursor-pointer items-center gap-3 text-sm text-[#434655]">
-                <input className="h-5 w-5 rounded border-[#c3c6d7] text-[#10b981] focus:ring-[#10b981]" type="checkbox" />
+              <label className="flex cursor-pointer items-center gap-2.5 text-xs text-[#908fa0] font-medium pt-1">
+                <input className="h-4 w-4 rounded border-[#464554] bg-[#1f1f27] text-[#6366f1] focus:ring-[#6366f1] accent-[#6366f1]" type="checkbox" />
                 Remember this device
               </label>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2563eb] px-4 py-4 text-base font-bold text-white shadow-lg shadow-[#004ac6]/20 transition-all duration-200 hover:scale-[1.02] hover:bg-[#004ac6] active:scale-[0.98] disabled:opacity-50"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#6366f1]/25 transition-all duration-200 active:scale-[0.98] disabled:opacity-50 cursor-pointer"
               >
                 {loading ? (
                   <>
@@ -110,28 +116,28 @@ export default function LoginPage() {
                 ) : (
                   <>
                     <span>Sign In to Dashboard</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="h-4 w-4" />
                   </>
                 )}
               </button>
             </form>
 
-            <div className="mt-8 space-y-4 border-t border-[#c3c6d7] pt-6 text-center">
-              <p className="text-sm text-[#434655]">
+            <div className="mt-8 space-y-3 border-t border-[#464554]/30 pt-6 text-center">
+              <p className="text-xs text-[#908fa0] font-medium">
                 Need an account?{' '}
-                <Link href="/register" className="font-bold text-[#004ac6] hover:underline">
+                <Link href="/register" className="font-bold text-[#c0c1ff] hover:underline">
                   Request Access
                 </Link>
               </p>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#737686]">
+              <p className="text-[10px] font-mono-code uppercase tracking-widest text-[#908fa0]">
                 Accounts require admin approval before activation
               </p>
             </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-2 text-xs text-[#737686]">
-            <Lock className="h-[18px] w-[18px]" />
-            <span className="font-semibold uppercase tracking-wider">
+          <div className="mt-6 flex items-center justify-center gap-2 text-[11px] text-[#908fa0]">
+            <Lock className="h-4 w-4 text-[#c0c1ff]" />
+            <span className="font-semibold uppercase tracking-wider font-outfit">
               Enterprise-Grade Security &amp; Encryption
             </span>
           </div>
