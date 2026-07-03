@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 104 files · ~45,523 words
+- 104 files · ~46,139 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 481 nodes · 592 edges · 40 communities (32 shown, 8 thin omitted)
+- 480 nodes · 569 edges · 45 communities (35 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `73e485ec`
+- Built from commit: `afa3ee80`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -48,6 +48,9 @@
 - page.tsx
 - middleware.ts
 - Navbar.tsx
+- RequestAttachment.ts
+- RequestEstimate.ts
+- route.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 43 edges
@@ -56,10 +59,10 @@
 4. `useSidebar()` - 6 edges
 5. `scripts` - 6 edges
 6. `react` - 6 edges
-7. `runDocumentAnalysisAgent()` - 5 edges
-8. `writeAuditLog()` - 5 edges
-9. `Button()` - 4 edges
-10. `chunkText()` - 4 edges
+7. `writeAuditLog()` - 5 edges
+8. `Button()` - 4 edges
+9. `chunkText()` - 4 edges
+10. `selectRelevantChunks()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `SidebarMenuSkeleton()` --references--> `react`  [EXTRACTED]
@@ -76,7 +79,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (40 total, 8 thin omitted)
+## Communities (45 total, 10 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -87,8 +90,8 @@ Cohesion: 0.09
 Nodes (23): eslint, eslint-config-next, devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, tsx (+15 more)
 
 ### Community 2 - "intake-agent.ts"
-Cohesion: 0.14
-Nodes (15): POST(), generateStageOpener(), runIntakeAgent(), ConversationMessage, createChatModel(), DepartmentQuestionSet, generateStageOpenerWithLangGraph(), getGroqKeys() (+7 more)
+Cohesion: 0.15
+Nodes (14): generateStageOpener(), runIntakeAgent(), ConversationMessage, createChatModel(), DepartmentQuestionSet, generateStageOpenerWithLangGraph(), getGroqKeys(), getNextGroqKey() (+6 more)
 
 ### Community 3 - "package.json"
 Cohesion: 0.16
@@ -96,7 +99,7 @@ Nodes (13): ignoreScripts, name, private, scripts, build, dev, lint, start (+5 m
 
 ### Community 4 - "page.tsx"
 Cohesion: 0.20
-Nodes (14): FileUpload(), FileUploadProps, formatBytes(), UploadedFile, Attachment(), AttachmentAction(), AttachmentActions(), AttachmentContent() (+6 more)
+Nodes (4): Attachment(), AttachmentMedia(), attachmentMediaVariants, attachmentVariants
 
 ### Community 5 - "User.ts"
 Cohesion: 0.33
@@ -119,8 +122,8 @@ Cohesion: 0.06
 Nodes (35): Avatar(), AvatarBadge(), AvatarFallback(), AvatarGroup(), AvatarGroupCount(), AvatarImage(), Breadcrumb(), BreadcrumbEllipsis() (+27 more)
 
 ### Community 13 - "proxy.ts"
-Cohesion: 0.17
-Nodes (3): ChatMessage, RequestInfo, ReviewData
+Cohesion: 0.13
+Nodes (6): ChatMessage, RequestInfo, ReviewData, FileUpload(), FileUploadProps, UploadedFile
 
 ### Community 14 - "route.ts"
 Cohesion: 0.14
@@ -163,12 +166,12 @@ Cohesion: 0.67
 Nodes (3): PATCH(), REASON_REQUIRED, requireAdmin()
 
 ### Community 31 - "duplicate-detection-agent.ts"
-Cohesion: 0.12
-Nodes (16): GET(), PATCH(), requireAdmin(), POST(), CandidateResult, DuplicateDetectionOutput, runDuplicateDetectionAgent(), DuplicateCandidateSchema (+8 more)
+Cohesion: 0.16
+Nodes (10): GET(), PATCH(), requireAdmin(), CandidateResult, DuplicateDetectionOutput, DuplicateCandidateSchema, DuplicateResolution, IDuplicateCandidate (+2 more)
 
 ### Community 32 - "document-analysis-agent.ts"
-Cohesion: 0.16
-Nodes (12): ALLOWED_MIME_TYPES, POST(), DocumentAnalysisInput, DocumentAnalysisResult, runDocumentAnalysisAgent(), STAGE_QUERIES, ChunkingOptions, chunkText() (+4 more)
+Cohesion: 0.29
+Nodes (8): DocumentAnalysisInput, DocumentAnalysisResult, runDocumentAnalysisAgent(), STAGE_QUERIES, ChunkingOptions, chunkText(), DocumentChunk, selectRelevantChunks()
 
 ### Community 35 - "page.tsx"
 Cohesion: 0.05
@@ -178,10 +181,14 @@ Nodes (24): geist, metadata, Providers(), AppSidebar(), employeeItems, engineeri
 Cohesion: 0.40
 Nodes (4): ADMIN_PATHS, config, PUBLIC_PATHS, SYS_ADMIN_ONLY_PATHS
 
+### Community 40 - "RequestEstimate.ts"
+Cohesion: 0.40
+Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstimateSchema
+
 ## Knowledge Gaps
-- **154 isolated node(s):** `AuditLogEntry`, `Engineer`, `Comment`, `PriorityInputs`, `Estimate` (+149 more)
+- **154 isolated node(s):** `Engineer`, `Comment`, `PriorityInputs`, `Estimate`, `Summary` (+149 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -189,14 +196,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `dependencies` connect `dependencies` to `page.tsx`, `package.json`?**
   _High betweenness centrality (0.057) - this node is a cross-community bridge._
 - **Why does `react` connect `page.tsx` to `dependencies`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **What connects `AuditLogEntry`, `Engineer`, `Comment` to the rest of the system?**
+- **What connects `Engineer`, `Comment`, `PriorityInputs` to the rest of the system?**
   _154 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
-- **Should `intake-agent.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.1422924901185771 - nodes in this community are weakly interconnected._
+- **Should `route.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.06170598911070781 - nodes in this community are weakly interconnected._

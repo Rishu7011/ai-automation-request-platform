@@ -238,27 +238,27 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
   return (
     <div className="space-y-4">
       {comments.length === 0 && (
-        <p className="text-slate-400 text-xs text-center py-4 font-medium">No comments yet.</p>
+        <p className="text-[#908fa0] text-xs text-center py-6 font-medium">No comments yet. Start a discussion below.</p>
       )}
       {comments.map((c) => {
         const isOwn = c.authorId._id === currentUserId;
         return (
-          <div key={c._id} className="flex gap-3">
-            <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-xs font-bold text-blue-600 flex-shrink-0">
+          <div key={c._id} className="flex gap-3 p-3.5 rounded-xl bg-[#0d0d15] border border-[#464554]/30">
+            <div className="w-8 h-8 rounded-xl bg-[#6366f1]/20 border border-[#6366f1]/40 flex items-center justify-center text-xs font-bold text-[#c0c1ff] flex-shrink-0">
               {c.authorId.name[0]?.toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span className="text-slate-900 text-xs font-bold">{c.authorId.name}</span>
-                <span className="text-slate-400 text-[10px] font-semibold">{c.authorId.department}</span>
-                <span className="text-slate-400 text-[10px] font-medium">
+              <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span className="text-white text-xs font-bold font-outfit">{c.authorId.name}</span>
+                <span className="text-[#908fa0] text-[10px] font-semibold bg-[#1f1f27] px-2 py-0.5 rounded-md border border-[#464554]/30">{c.authorId.department}</span>
+                <span className="text-[#908fa0] text-[10px] font-mono-code">
                   {new Date(c.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                   {c.editedAt && ' (edited)'}
                 </span>
                 {!isOwn && (
                   <button
                     onClick={() => mention(c.authorId.username)}
-                    className="text-[10px] text-blue-600 font-bold hover:underline cursor-pointer"
+                    className="text-[10px] text-[#c0c1ff] font-bold hover:underline cursor-pointer"
                   >
                     @mention
                   </button>
@@ -267,11 +267,11 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
                   <div className="flex gap-2 ml-auto">
                     <button
                       onClick={() => { setEditingId(c._id); setEditContent(c.content); }}
-                      className="text-[10px] text-slate-500 font-bold hover:text-slate-800 cursor-pointer"
+                      className="text-[10px] text-[#908fa0] font-bold hover:text-white cursor-pointer"
                     >Edit</button>
                     <button
                       onClick={() => softDelete(c._id)}
-                      className="text-[10px] text-rose-600 font-bold hover:text-rose-700 cursor-pointer"
+                      className="text-[10px] text-[#ffb4ab] font-bold hover:text-rose-400 cursor-pointer"
                     >Delete</button>
                   </div>
                 )}
@@ -281,16 +281,16 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
                   <textarea
                     value={editContent}
                     onChange={(e) => setEditContent(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 resize-none focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full bg-[#1f1f27] border border-[#464554]/40 rounded-xl px-3 py-2 text-xs text-[#e4e1ed] resize-none focus:outline-none focus:ring-2 focus:ring-[#6366f1] [color-scheme:dark]"
                     rows={2}
                   />
                   <div className="flex gap-2">
-                    <button onClick={() => saveEdit(c._id)} className="px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-bold cursor-pointer">Save</button>
-                    <button onClick={() => setEditingId(null)} className="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold cursor-pointer">Cancel</button>
+                    <button onClick={() => saveEdit(c._id)} className="px-3 py-1.5 rounded-lg bg-[#6366f1] text-white text-xs font-bold cursor-pointer">Save</button>
+                    <button onClick={() => setEditingId(null)} className="px-3 py-1.5 rounded-lg bg-[#1f1f27] border border-[#464554]/40 text-[#908fa0] text-xs font-bold cursor-pointer">Cancel</button>
                   </div>
                 </div>
               ) : (
-                <p className="text-slate-700 text-xs leading-relaxed whitespace-pre-wrap font-medium">{c.content}</p>
+                <p className="text-[#c7c4d7] text-xs leading-relaxed whitespace-pre-wrap font-medium">{c.content}</p>
               )}
             </div>
           </div>
@@ -298,18 +298,18 @@ function CommentThread({ requestId, currentUserId }: { requestId: string; curren
       })}
 
       {/* New comment box */}
-      <div className="border-t border-slate-200 pt-4 space-y-2">
+      <div className="border-t border-[#464554]/30 pt-4 space-y-3">
         <textarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Write a comment… use @username to mention someone"
-          className="w-full bg-slate-100/70 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-800 placeholder-slate-400 resize-none focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all"
+          className="w-full bg-[#1f1f27] border border-[#464554]/40 rounded-xl px-4 py-3 text-xs text-[#e4e1ed] placeholder-[#908fa0] resize-none focus:outline-none focus:ring-2 focus:ring-[#6366f1] transition-all [color-scheme:dark]"
           rows={3}
         />
         <button
           onClick={submit}
           disabled={isSending || !newComment.trim()}
-          className="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white transition-all cursor-pointer shadow-sm"
+          className="px-5 py-2.5 rounded-full text-xs font-bold bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-all cursor-pointer shadow-md shadow-[#6366f1]/30 active:scale-95"
         >
           {isSending ? 'Posting…' : 'Post Comment'}
         </button>
