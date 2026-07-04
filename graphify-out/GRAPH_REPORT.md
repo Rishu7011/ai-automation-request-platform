@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 106 files · ~46,507 words
+- 105 files · ~46,026 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 490 nodes · 598 edges · 44 communities (34 shown, 10 thin omitted)
+- 487 nodes · 595 edges · 44 communities (33 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b659b648`
+- Built from commit: `5cdf612b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,7 +80,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (44 total, 10 thin omitted)
+## Communities (44 total, 11 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -101,10 +101,6 @@ Nodes (13): ignoreScripts, name, private, scripts, build, dev, lint, start (+5 m
 ### Community 4 - "page.tsx"
 Cohesion: 0.20
 Nodes (4): Attachment(), AttachmentMedia(), attachmentMediaVariants, attachmentVariants
-
-### Community 5 - "User.ts"
-Cohesion: 0.33
-Nodes (3): IUser, UserSchema, envPath
 
 ### Community 6 - "page.tsx"
 Cohesion: 0.33
@@ -191,9 +187,9 @@ Cohesion: 0.40
 Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstimateSchema
 
 ## Knowledge Gaps
-- **159 isolated node(s):** `ROIResult`, `PriorityWeights`, `EFFORT_COST_MAP`, `PriorityTier`, `$schema` (+154 more)
+- **158 isolated node(s):** `NavItem`, `employeeItems`, `engineeringItems`, `systemItems`, `ROIResult` (+153 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -201,11 +197,11 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `dependencies` connect `dependencies` to `page.tsx`, `package.json`?**
   _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Why does `react` connect `page.tsx` to `dependencies`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **What connects `ROIResult`, `PriorityWeights`, `EFFORT_COST_MAP` to the rest of the system?**
-  _159 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `NavItem`, `employeeItems`, `engineeringItems` to the rest of the system?**
+  _158 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
