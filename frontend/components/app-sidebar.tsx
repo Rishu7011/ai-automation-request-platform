@@ -41,7 +41,7 @@ const engineeringItems: NavItem[] = [
 const systemItems: NavItem[] = [
   { href: '/admin/users', label: 'User Management', icon: <Users className="size-4 text-[#c0c1ff]" /> },
   { href: '/admin/audit-log', label: 'Security Audit Log', icon: <Shield className="size-4 text-[#ffb4ab]" /> },
-  { href: '/admin/settings/priority-weights', label: 'Priority Settings', icon: <Sliders className="size-4 text-[#c0c1ff]" /> },
+  // { href: '/admin/settings/priority-weights', label: 'Priority Settings', icon: <Sliders className="size-4 text-[#c0c1ff]" /> },
 ];
 
 function isActive(pathname: string, href: string, exact?: boolean) {

@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 104 files · ~46,162 words
+- 106 files · ~46,507 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 480 nodes · 568 edges · 45 communities (35 shown, 10 thin omitted)
+- 490 nodes · 598 edges · 44 communities (34 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ae46c1a8`
+- Built from commit: `b659b648`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -41,6 +41,7 @@
 - page.tsx
 - page.tsx
 - RequestComment.ts
+- calculations.test.ts
 - duplicate-detection-agent.ts
 - document-analysis-agent.ts
 - DuplicateComparisonModal.tsx
@@ -56,13 +57,13 @@
 1. `cn()` - 43 edges
 2. `callLlm()` - 15 edges
 3. `parseJsonSafe()` - 14 edges
-4. `useSidebar()` - 6 edges
-5. `scripts` - 6 edges
-6. `react` - 6 edges
-7. `writeAuditLog()` - 5 edges
-8. `Button()` - 4 edges
-9. `chunkText()` - 4 edges
-10. `selectRelevantChunks()` - 4 edges
+4. `calculatePriorityScore()` - 8 edges
+5. `calculateROI()` - 6 edges
+6. `useSidebar()` - 6 edges
+7. `scripts` - 6 edges
+8. `react` - 6 edges
+9. `PATCH()` - 5 edges
+10. `getSystemSettingsConfig()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `SidebarMenuSkeleton()` --references--> `react`  [EXTRACTED]
@@ -79,7 +80,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (45 total, 10 thin omitted)
+## Communities (44 total, 10 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -131,7 +132,7 @@ Nodes (22): AUTOMATION_TYPES, CategorizationResult, runCategorizationAgent(), Ef
 
 ### Community 15 - "calculations.ts"
 Cohesion: 0.17
-Nodes (12): GET(), LEDGER_STATUSES, calculatePriorityScore(), EFFORT_COST_MAP, getPriorityTier(), normalise1to5(), normaliseRoi(), PriorityFactors (+4 more)
+Nodes (18): GET(), PATCH(), requireAdmin(), POST(), GET(), LEDGER_STATUSES, calculatePriorityScore(), calculateROI() (+10 more)
 
 ### Community 16 - "page.tsx"
 Cohesion: 0.12
@@ -142,8 +143,8 @@ Cohesion: 0.17
 Nodes (7): DEPARTMENT_ICONS, LEDGER_STATUSES, LedgerRequest, Pagination, STATUS_COLORS, TIER_COLORS, TIER_DOTS
 
 ### Community 18 - "route.ts"
-Cohesion: 0.11
-Nodes (11): GET(), PATCH(), requireAdmin(), GET(), PATCH(), requireAdmin(), canViewRequest(), GET() (+3 more)
+Cohesion: 0.12
+Nodes (8): GET(), PATCH(), requireAdmin(), canViewRequest(), GET(), POST(), { auth }, { handlers, auth, signIn, signOut }
 
 ### Community 19 - "writeAuditLog"
 Cohesion: 0.33
@@ -164,6 +165,10 @@ Nodes (3): DEFAULT_RATES, DEPARTMENT_ICONS, SETTINGS_TABS
 ### Community 23 - "route.ts"
 Cohesion: 0.67
 Nodes (3): PATCH(), REASON_REQUIRED, requireAdmin()
+
+### Community 29 - "calculations.test.ts"
+Cohesion: 0.25
+Nodes (7): buildCommand, devCommand, framework, headers, installCommand, outputDirectory, $schema
 
 ### Community 31 - "duplicate-detection-agent.ts"
 Cohesion: 0.16
@@ -186,7 +191,7 @@ Cohesion: 0.40
 Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstimateSchema
 
 ## Knowledge Gaps
-- **155 isolated node(s):** `Engineer`, `Comment`, `PriorityInputs`, `Estimate`, `Summary` (+150 more)
+- **159 isolated node(s):** `ROIResult`, `PriorityWeights`, `EFFORT_COST_MAP`, `PriorityTier`, `$schema` (+154 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -194,13 +199,13 @@ Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstim
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `page.tsx`, `package.json`?**
-  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Why does `react` connect `page.tsx` to `dependencies`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **What connects `Engineer`, `Comment`, `PriorityInputs` to the rest of the system?**
-  _155 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **What connects `ROIResult`, `PriorityWeights`, `EFFORT_COST_MAP` to the rest of the system?**
+  _159 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**

@@ -4,14 +4,334 @@
   "graph": {},
   "nodes": [
     {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_api_admin_requests_id_estimate_route",
+      "community": 15,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "requireAdmin()",
+      "file_type": "code",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "frontend_app_api_admin_requests_id_estimate_route_requireadmin",
+      "community": 15,
+      "norm_label": "requireadmin()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "frontend_app_api_admin_requests_id_estimate_route_get",
+      "community": 15,
+      "norm_label": "get()"
+    },
+    {
+      "label": "PATCH()",
+      "file_type": "code",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "frontend_app_api_admin_requests_id_estimate_route_patch",
+      "community": 15,
+      "norm_label": "patch()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_api_intake_submit_route",
+      "community": 15,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "frontend_app_api_intake_submit_route_post",
+      "community": 15,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_api_ledger_route",
+      "community": 15,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "LEDGER_STATUSES",
+      "file_type": "code",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_app_api_ledger_route_ledger_statuses",
+      "community": 15,
+      "norm_label": "ledger_statuses"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "frontend_app_api_ledger_route_get",
+      "community": 15,
+      "norm_label": "get()"
+    },
+    {
+      "label": "calculations.test.ts",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_test",
+      "community": 15,
+      "norm_label": "calculations.test.ts"
+    },
+    {
+      "label": "calculations.ts",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations",
+      "community": 15,
+      "norm_label": "calculations.ts"
+    },
+    {
+      "label": "ROIInputs",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_roiinputs",
+      "community": 15,
+      "norm_label": "roiinputs"
+    },
+    {
+      "label": "ROIResult",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_roiresult",
+      "community": 15,
+      "norm_label": "roiresult"
+    },
+    {
+      "label": "PriorityFactors",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_priorityfactors",
+      "community": 15,
+      "norm_label": "priorityfactors"
+    },
+    {
+      "label": "PriorityWeights",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_priorityweights",
+      "community": 15,
+      "norm_label": "priorityweights"
+    },
+    {
+      "label": "calculateROI()",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_calculateroi",
+      "community": 15,
+      "norm_label": "calculateroi()"
+    },
+    {
+      "label": "EFFORT_COST_MAP",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_effort_cost_map",
+      "community": 15,
+      "norm_label": "effort_cost_map"
+    },
+    {
+      "label": "normaliseRoi()",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_normaliseroi",
+      "community": 15,
+      "norm_label": "normaliseroi()"
+    },
+    {
+      "label": "normalise1to5()",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_normalise1to5",
+      "community": 15,
+      "norm_label": "normalise1to5()"
+    },
+    {
+      "label": "calculatePriorityScore()",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_calculatepriorityscore",
+      "community": 15,
+      "norm_label": "calculatepriorityscore()"
+    },
+    {
+      "label": "PriorityTier",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_prioritytier",
+      "community": 15,
+      "norm_label": "prioritytier"
+    },
+    {
+      "label": "getPriorityTier()",
+      "file_type": "code",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L175",
+      "_origin": "ast",
+      "id": "frontend_lib_calculations_getprioritytier",
+      "community": 15,
+      "norm_label": "getprioritytier()"
+    },
+    {
+      "label": "settings.ts",
+      "file_type": "code",
+      "source_file": "frontend/lib/settings.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_lib_settings",
+      "community": 15,
+      "norm_label": "settings.ts"
+    },
+    {
+      "label": "getSystemSettingsConfig()",
+      "file_type": "code",
+      "source_file": "frontend/lib/settings.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "frontend_lib_settings_getsystemsettingsconfig",
+      "community": 15,
+      "norm_label": "getsystemsettingsconfig()"
+    },
+    {
+      "label": "vercel.json",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_vercel",
+      "community": 29,
+      "norm_label": "vercel.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "frontend_vercel_schema",
+      "community": 29,
+      "norm_label": "$schema"
+    },
+    {
+      "label": "framework",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "frontend_vercel_framework",
+      "community": 29,
+      "norm_label": "framework"
+    },
+    {
+      "label": "buildCommand",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "frontend_vercel_buildcommand",
+      "community": 29,
+      "norm_label": "buildcommand"
+    },
+    {
+      "label": "devCommand",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_vercel_devcommand",
+      "community": 29,
+      "norm_label": "devcommand"
+    },
+    {
+      "label": "installCommand",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "frontend_vercel_installcommand",
+      "community": 29,
+      "norm_label": "installcommand"
+    },
+    {
+      "label": "outputDirectory",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "frontend_vercel_outputdirectory",
+      "community": 29,
+      "norm_label": "outputdirectory"
+    },
+    {
+      "label": "headers",
+      "file_type": "code",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "frontend_vercel_headers",
+      "community": 29,
+      "norm_label": "headers"
+    },
+    {
       "label": "page.tsx",
       "file_type": "code",
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page",
       "community": 16,
-      "norm_label": "page.tsx"
+      "norm_label": "page.tsx",
+      "id": "frontend_app_admin_requests_id_page"
     },
     {
       "label": "Engineer",
@@ -19,9 +339,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_engineer",
       "community": 16,
-      "norm_label": "engineer"
+      "norm_label": "engineer",
+      "id": "frontend_app_admin_requests_id_page_engineer"
     },
     {
       "label": "Comment",
@@ -29,9 +349,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_comment",
       "community": 16,
-      "norm_label": "comment"
+      "norm_label": "comment",
+      "id": "frontend_app_admin_requests_id_page_comment"
     },
     {
       "label": "PriorityInputs",
@@ -39,9 +359,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_priorityinputs",
       "community": 16,
-      "norm_label": "priorityinputs"
+      "norm_label": "priorityinputs",
+      "id": "frontend_app_admin_requests_id_page_priorityinputs"
     },
     {
       "label": "Estimate",
@@ -49,9 +369,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L55",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_estimate",
       "community": 16,
-      "norm_label": "estimate"
+      "norm_label": "estimate",
+      "id": "frontend_app_admin_requests_id_page_estimate"
     },
     {
       "label": "Summary",
@@ -59,9 +379,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L70",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_summary",
       "community": 16,
-      "norm_label": "summary"
+      "norm_label": "summary",
+      "id": "frontend_app_admin_requests_id_page_summary"
     },
     {
       "label": "RequestDetail",
@@ -69,9 +389,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L81",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_requestdetail",
       "community": 16,
-      "norm_label": "requestdetail"
+      "norm_label": "requestdetail",
+      "id": "frontend_app_admin_requests_id_page_requestdetail"
     },
     {
       "label": "STATUS_LABELS",
@@ -79,9 +399,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L97",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_status_labels",
       "community": 16,
-      "norm_label": "status_labels"
+      "norm_label": "status_labels",
+      "id": "frontend_app_admin_requests_id_page_status_labels"
     },
     {
       "label": "STATUS_COLORS",
@@ -89,9 +409,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L105",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_status_colors",
       "community": 16,
-      "norm_label": "status_colors"
+      "norm_label": "status_colors",
+      "id": "frontend_app_admin_requests_id_page_status_colors"
     },
     {
       "label": "REASON_REQUIRED",
@@ -99,9 +419,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L120",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_reason_required",
       "community": 16,
-      "norm_label": "reason_required"
+      "norm_label": "reason_required",
+      "id": "frontend_app_admin_requests_id_page_reason_required"
     },
     {
       "label": "CONFIDENCE_COLORS",
@@ -109,9 +429,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L122",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_confidence_colors",
       "community": 16,
-      "norm_label": "confidence_colors"
+      "norm_label": "confidence_colors",
+      "id": "frontend_app_admin_requests_id_page_confidence_colors"
     },
     {
       "label": "DEPT_ICONS",
@@ -119,9 +439,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L128",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_dept_icons",
       "community": 16,
-      "norm_label": "dept_icons"
+      "norm_label": "dept_icons",
+      "id": "frontend_app_admin_requests_id_page_dept_icons"
     },
     {
       "label": "ScoreGauge()",
@@ -129,9 +449,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L136",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_scoregauge",
       "community": 16,
-      "norm_label": "scoregauge()"
+      "norm_label": "scoregauge()",
+      "id": "frontend_app_admin_requests_id_page_scoregauge"
     },
     {
       "label": "ScoreSlider()",
@@ -139,9 +459,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L164",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_scoreslider",
       "community": 16,
-      "norm_label": "scoreslider()"
+      "norm_label": "scoreslider()",
+      "id": "frontend_app_admin_requests_id_page_scoreslider"
     },
     {
       "label": "CommentThread()",
@@ -149,9 +469,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L189",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_commentthread",
       "community": 16,
-      "norm_label": "commentthread()"
+      "norm_label": "commentthread()",
+      "id": "frontend_app_admin_requests_id_page_commentthread"
     },
     {
       "label": "EngineeringReviewPage()",
@@ -159,9 +479,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L323",
       "_origin": "ast",
-      "id": "frontend_app_admin_requests_id_page_engineeringreviewpage",
       "community": 16,
-      "norm_label": "engineeringreviewpage()"
+      "norm_label": "engineeringreviewpage()",
+      "id": "frontend_app_admin_requests_id_page_engineeringreviewpage"
     },
     {
       "label": "route.ts",
@@ -192,26 +512,6 @@
       "community": 41,
       "norm_label": "get()",
       "id": "frontend_app_api_intake_chat_route_get"
-    },
-    {
-      "label": "route.ts",
-      "file_type": "code",
-      "source_file": "frontend/app/api/intake/submit/route.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "route.ts",
-      "id": "frontend_app_api_intake_submit_route"
-    },
-    {
-      "label": "POST()",
-      "file_type": "code",
-      "source_file": "frontend/app/api/intake/submit/route.ts",
-      "source_location": "L39",
-      "_origin": "ast",
-      "community": 44,
-      "norm_label": "post()",
-      "id": "frontend_app_api_intake_submit_route_post"
     },
     {
       "label": "route.ts",
@@ -3596,46 +3896,6 @@
     {
       "label": "route.ts",
       "file_type": "code",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "route.ts",
-      "id": "frontend_app_api_admin_requests_id_estimate_route"
-    },
-    {
-      "label": "requireAdmin()",
-      "file_type": "code",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "requireadmin()",
-      "id": "frontend_app_api_admin_requests_id_estimate_route_requireadmin"
-    },
-    {
-      "label": "GET()",
-      "file_type": "code",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "get()",
-      "id": "frontend_app_api_admin_requests_id_estimate_route_get"
-    },
-    {
-      "label": "PATCH()",
-      "file_type": "code",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L48",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "patch()",
-      "id": "frontend_app_api_admin_requests_id_estimate_route_patch"
-    },
-    {
-      "label": "route.ts",
-      "file_type": "code",
       "source_file": "frontend/app/api/admin/requests/route.ts",
       "source_location": "L1",
       "_origin": "ast",
@@ -3792,16 +4052,6 @@
       "community": 18,
       "norm_label": "{ handlers, auth, signin, signout }",
       "id": "frontend_auth_handlers_auth_signin_signout"
-    },
-    {
-      "label": "calculations.test.ts",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 29,
-      "norm_label": "calculations.test.ts",
-      "id": "frontend_lib_calculations_test"
     },
     {
       "label": "vitest.config.ts",
@@ -4184,36 +4434,6 @@
       "id": "frontend_app_api_admin_settings_system_route_post"
     },
     {
-      "label": "route.ts",
-      "file_type": "code",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "route.ts",
-      "id": "frontend_app_api_ledger_route"
-    },
-    {
-      "label": "LEDGER_STATUSES",
-      "file_type": "code",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "ledger_statuses",
-      "id": "frontend_app_api_ledger_route_ledger_statuses"
-    },
-    {
-      "label": "GET()",
-      "file_type": "code",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "get()",
-      "id": "frontend_app_api_ledger_route_get"
-    },
-    {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "frontend/app/ledger/layout.tsx",
@@ -4554,126 +4774,6 @@
       "id": "frontend_lib_audit_writeauditlog"
     },
     {
-      "label": "calculations.ts",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "calculations.ts",
-      "id": "frontend_lib_calculations"
-    },
-    {
-      "label": "ROIInputs",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "roiinputs",
-      "id": "frontend_lib_calculations_roiinputs"
-    },
-    {
-      "label": "ROIResult",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "roiresult",
-      "id": "frontend_lib_calculations_roiresult"
-    },
-    {
-      "label": "PriorityFactors",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L34",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "priorityfactors",
-      "id": "frontend_lib_calculations_priorityfactors"
-    },
-    {
-      "label": "PriorityWeights",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L44",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "priorityweights",
-      "id": "frontend_lib_calculations_priorityweights"
-    },
-    {
-      "label": "calculateROI()",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L65",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "calculateroi()",
-      "id": "frontend_lib_calculations_calculateroi"
-    },
-    {
-      "label": "EFFORT_COST_MAP",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L110",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "effort_cost_map",
-      "id": "frontend_lib_calculations_effort_cost_map"
-    },
-    {
-      "label": "normaliseRoi()",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L120",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "normaliseroi()",
-      "id": "frontend_lib_calculations_normaliseroi"
-    },
-    {
-      "label": "normalise1to5()",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L128",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "normalise1to5()",
-      "id": "frontend_lib_calculations_normalise1to5"
-    },
-    {
-      "label": "calculatePriorityScore()",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L141",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "calculatepriorityscore()",
-      "id": "frontend_lib_calculations_calculatepriorityscore"
-    },
-    {
-      "label": "PriorityTier",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L171",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "prioritytier",
-      "id": "frontend_lib_calculations_prioritytier"
-    },
-    {
-      "label": "getPriorityTier()",
-      "file_type": "code",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L173",
-      "_origin": "ast",
-      "community": 15,
-      "norm_label": "getprioritytier()",
-      "id": "frontend_lib_calculations_getprioritytier"
-    },
-    {
       "label": "RequestComment.ts",
       "file_type": "code",
       "source_file": "frontend/models/RequestComment.ts",
@@ -4808,12 +4908,592 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_app_api_admin_requests_id_estimate_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_app_api_admin_requests_id_estimate_route_patch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_app_api_admin_requests_id_estimate_route_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_lib_calculations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_lib_calculations_calculatepriorityscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_lib_calculations_calculateroi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_lib_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route",
+      "target": "frontend_lib_settings_getsystemsettingsconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route_get",
+      "target": "frontend_app_api_admin_requests_id_estimate_route_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route_patch",
+      "target": "frontend_app_api_admin_requests_id_estimate_route_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route_patch",
+      "target": "frontend_lib_calculations_calculatepriorityscore"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route_patch",
+      "target": "frontend_lib_calculations_calculateroi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "frontend_app_api_admin_requests_id_estimate_route_patch",
+      "target": "frontend_lib_settings_getsystemsettingsconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route",
+      "target": "frontend_app_api_intake_submit_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route",
+      "target": "frontend_lib_calculations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route",
+      "target": "frontend_lib_calculations_calculatepriorityscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route",
+      "target": "frontend_lib_calculations_calculateroi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route",
+      "target": "frontend_lib_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route",
+      "target": "frontend_lib_settings_getsystemsettingsconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L213",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route_post",
+      "target": "frontend_lib_calculations_calculatepriorityscore"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route_post",
+      "target": "frontend_lib_calculations_calculateroi"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/intake/submit/route.ts",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "frontend_app_api_intake_submit_route_post",
+      "target": "frontend_lib_settings_getsystemsettingsconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "frontend_app_api_ledger_route",
+      "target": "frontend_app_api_ledger_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "frontend_app_api_ledger_route",
+      "target": "frontend_app_api_ledger_route_ledger_statuses",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_app_api_ledger_route",
+      "target": "frontend_lib_calculations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_app_api_ledger_route",
+      "target": "frontend_lib_calculations_getprioritytier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "frontend_app_api_ledger_route_get",
+      "target": "frontend_app_api_ledger_route_ledger_statuses"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/app/api/ledger/route.ts",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "frontend_app_api_ledger_route_get",
+      "target": "frontend_lib_calculations_getprioritytier"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_test",
+      "target": "frontend_lib_calculations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_test",
+      "target": "frontend_lib_calculations_calculatepriorityscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_test",
+      "target": "frontend_lib_calculations_calculateroi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_test",
+      "target": "frontend_lib_calculations_getprioritytier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_test",
+      "target": "frontend_lib_calculations_priorityfactors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_test",
+      "target": "frontend_lib_calculations_roiinputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_calculatepriorityscore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_calculateroi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_effort_cost_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_getprioritytier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_normalise1to5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_normaliseroi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_priorityfactors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_prioritytier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_priorityweights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_roiinputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations",
+      "target": "frontend_lib_calculations_roiresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_calculatepriorityscore",
+      "target": "frontend_lib_calculations_normaliseroi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/calculations.ts",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "frontend_lib_calculations_calculatepriorityscore",
+      "target": "frontend_lib_calculations_normalise1to5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/lib/settings.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_lib_settings",
+      "target": "frontend_lib_settings_getsystemsettingsconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_buildcommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_devcommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_framework",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_headers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_installcommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_outputdirectory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vercel.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_vercel",
+      "target": "frontend_vercel_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_comment",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_comment"
     },
     {
       "relation": "contains",
@@ -4821,9 +5501,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_commentthread",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_commentthread"
     },
     {
       "relation": "contains",
@@ -4831,9 +5511,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_confidence_colors",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_confidence_colors"
     },
     {
       "relation": "contains",
@@ -4841,9 +5521,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_dept_icons",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_dept_icons"
     },
     {
       "relation": "contains",
@@ -4851,9 +5531,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_engineer",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_engineer"
     },
     {
       "relation": "contains",
@@ -4861,9 +5541,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L323",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_engineeringreviewpage",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_engineeringreviewpage"
     },
     {
       "relation": "contains",
@@ -4871,9 +5551,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_estimate",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_estimate"
     },
     {
       "relation": "contains",
@@ -4881,9 +5561,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_priorityinputs",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_priorityinputs"
     },
     {
       "relation": "contains",
@@ -4891,9 +5571,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_reason_required",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_reason_required"
     },
     {
       "relation": "contains",
@@ -4901,9 +5581,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_requestdetail",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_requestdetail"
     },
     {
       "relation": "contains",
@@ -4911,9 +5591,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_scoregauge",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_scoregauge"
     },
     {
       "relation": "contains",
@@ -4921,9 +5601,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_scoreslider",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_scoreslider"
     },
     {
       "relation": "contains",
@@ -4931,9 +5611,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_status_colors",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_status_colors"
     },
     {
       "relation": "contains",
@@ -4941,9 +5621,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_status_labels",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_status_labels"
     },
     {
       "relation": "contains",
@@ -4951,9 +5631,9 @@
       "source_file": "frontend/app/admin/requests/[id]/page.tsx",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_app_admin_requests_id_page",
-      "target": "frontend_app_admin_requests_id_page_summary",
-      "confidence_score": 1.0
+      "target": "frontend_app_admin_requests_id_page_summary"
     },
     {
       "relation": "contains",
@@ -4974,16 +5654,6 @@
       "confidence_score": 1.0,
       "source": "frontend_app_api_intake_chat_route",
       "target": "frontend_app_api_intake_chat_route_post"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/intake/submit/route.ts",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_intake_submit_route",
-      "target": "frontend_app_api_intake_submit_route_post"
     },
     {
       "relation": "contains",
@@ -9026,69 +9696,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_estimate_route",
-      "target": "frontend_app_api_admin_requests_id_estimate_route_get"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L48",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_estimate_route",
-      "target": "frontend_app_api_admin_requests_id_estimate_route_patch"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_estimate_route",
-      "target": "frontend_app_api_admin_requests_id_estimate_route_requireadmin"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_estimate_route",
-      "target": "frontend_auth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_estimate_route_get",
-      "target": "frontend_app_api_admin_requests_id_estimate_route_requireadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/estimate/route.ts",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_estimate_route_patch",
-      "target": "frontend_app_api_admin_requests_id_estimate_route_requireadmin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/api/admin/requests/route.ts",
       "source_location": "L8",
       "weight": 1.0,
@@ -9778,59 +10385,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_ledger_route",
-      "target": "frontend_app_api_ledger_route_get"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_ledger_route",
-      "target": "frontend_app_api_ledger_route_ledger_statuses"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_ledger_route",
-      "target": "frontend_lib_calculations"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_ledger_route",
-      "target": "frontend_lib_calculations_getprioritytier"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/app/api/ledger/route.ts",
-      "source_location": "L104",
-      "weight": 1.0,
-      "source": "frontend_app_api_ledger_route_get",
-      "target": "frontend_lib_calculations_getprioritytier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/ledger/layout.tsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -10477,138 +11031,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_calculatepriorityscore"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L65",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_calculateroi"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L110",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_effort_cost_map"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L173",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_getprioritytier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L128",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_normalise1to5"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L120",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_normaliseroi"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_priorityfactors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L171",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_prioritytier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_priorityweights"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_roiinputs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations",
-      "target": "frontend_lib_calculations_roiresult"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L145",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations_calculatepriorityscore",
-      "target": "frontend_lib_calculations_normaliseroi"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/lib/calculations.ts",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_lib_calculations_calculatepriorityscore",
-      "target": "frontend_lib_calculations_normalise1to5"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/models/RequestComment.ts",
       "source_location": "L5",
       "weight": 1.0,
@@ -10699,5 +11121,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ae46c1a828063d9cdfe123859157249edc05c2a7"
+  "built_at_commit": "b659b648d4b5636c66e61b38a7147ed4118af510"
 }

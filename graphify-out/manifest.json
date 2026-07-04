@@ -65,8 +65,8 @@
     "semantic_hash": ""
   },
   "frontend/app/login/page.tsx": {
-    "mtime": 1785049426.644463,
-    "ast_hash": "b30aaa282ad88e6b59aeeb640c700073",
+    "mtime": 1785139300.5944045,
+    "ast_hash": "890a974c7681a492d5e33dde657b3bc1",
     "semantic_hash": ""
   },
   "frontend/app/my-requests/page.tsx": {
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "frontend/app/register/page.tsx": {
-    "mtime": 1785050079.5980127,
-    "ast_hash": "5ef9c6980f10e62aa92fd609ec4d4300",
+    "mtime": 1785139409.4195445,
+    "ast_hash": "2ddf22abc2f6a7397f7cbb7fe297ed23",
     "semantic_hash": ""
   },
   "frontend/app/requests/[id]/page.tsx": {
@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   "frontend/app/api/admin/requests/[id]/estimate/route.ts": {
-    "mtime": 1784922123.9295352,
-    "ast_hash": "15e643d1e6252521f0d4dbbdab3b3798",
+    "mtime": 1785140734.1486402,
+    "ast_hash": "e2aebcd318dfa2fc5f6570caf91c5f72",
     "semantic_hash": ""
   },
   "frontend/app/api/admin/requests/[id]/status/route.ts": {
@@ -250,13 +250,13 @@
     "semantic_hash": ""
   },
   "frontend/app/api/intake/submit/route.ts": {
-    "mtime": 1785138047.7918062,
-    "ast_hash": "a6bb63e7cf9a7f769502f4ff23082a85",
+    "mtime": 1785140780.6379974,
+    "ast_hash": "7a269f818e872afc0b53f87783c8d213",
     "semantic_hash": ""
   },
   "frontend/app/api/ledger/route.ts": {
-    "mtime": 1784911684.6959114,
-    "ast_hash": "2f10d59fe44c5f5bd16257469b522294",
+    "mtime": 1785140753.3610055,
+    "ast_hash": "d9b0439db3cb945343ebb9002ca52a3e",
     "semantic_hash": ""
   },
   "frontend/app/api/requests/[id]/comments/route.ts": {
@@ -315,8 +315,8 @@
     "semantic_hash": ""
   },
   "frontend/lib/calculations.ts": {
-    "mtime": 1784911284.15002,
-    "ast_hash": "40b8987d7218dde0c6e51be65ef3ee26",
+    "mtime": 1785140701.2806237,
+    "ast_hash": "8d8e6af2395c653a69b80fa627413b02",
     "semantic_hash": ""
   },
   "frontend/models/RequestComment.ts": {
@@ -340,8 +340,8 @@
     "semantic_hash": ""
   },
   "frontend/lib/calculations.test.ts": {
-    "mtime": 1784922187.491837,
-    "ast_hash": "92f35e0045208832a3d2ce8bcc5bbd46",
+    "mtime": 1785140741.750319,
+    "ast_hash": "076a2c2656cf956e272249d56b4e9f23",
     "semantic_hash": ""
   },
   "frontend/vitest.config.ts": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "frontend/components/components2/input.tsx": {
-    "mtime": 1785049426.5199673,
-    "ast_hash": "9cebede70fdb3e0a6be764e9bd09e628",
+    "mtime": 1785139293.1967888,
+    "ast_hash": "e33959eaf4f9823b681f326c8421e67c",
     "semantic_hash": ""
   },
   "frontend/components/ui/avatar.tsx": {
@@ -517,6 +517,16 @@
   "frontend/middleware.ts": {
     "mtime": 1785077139.4156458,
     "ast_hash": "dbc03c6b999b615839a375ca57538de0",
+    "semantic_hash": ""
+  },
+  "frontend/lib/settings.ts": {
+    "mtime": 1785140798.2156951,
+    "ast_hash": "1c11bd3449ba15b7579123888be922b3",
+    "semantic_hash": ""
+  },
+  "frontend/vercel.json": {
+    "mtime": 1785141237.4568555,
+    "ast_hash": "06edfe9bc7fb9d674612b4667ae7c0e7",
     "semantic_hash": ""
   }
 }
