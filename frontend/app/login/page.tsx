@@ -1,11 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { AtSign, Lock, Eye, EyeOff, ArrowRight, AlertCircle } from 'lucide-react';
 import Input from '@/components/components2/input';
-
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -13,6 +12,20 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const errParam = urlParams.get('error');
+      if (errParam === 'Configuration') {
+        setError('Server authentication error. Please verify MONGODB_URI and AUTH_SECRET are set in Vercel environment variables.');
+      } else if (errParam === 'CredentialsSignin') {
+        setError('Invalid username, email, or password.');
+      } else if (errParam) {
+        setError(errParam);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +40,13 @@ export default function LoginPage() {
       });
 
       if (res?.error) {
-        setError(res.error);
+        if (res.error === 'Configuration') {
+          setError('Server authentication error. Please verify MONGODB_URI and AUTH_SECRET are set in Vercel environment variables.');
+        } else if (res.error === 'CredentialsSignin') {
+          setError('Invalid username, email, or password.');
+        } else {
+          setError(res.error);
+        }
         setLoading(false);
         return;
       }

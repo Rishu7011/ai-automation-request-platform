@@ -97,5 +97,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: {
     strategy: 'jwt',
   },
-  secret: process.env.SESSION_SECRET || 'super-secret-random-key-change-in-production',
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || process.env.SESSION_SECRET || '9f8c14e7a25b3901d8e3c4f6b21a8d05e9c731b4028fa65e123d4e5f6789abcd',
+  trustHost: true,
 });

@@ -2,6 +2,8 @@ import type { NextAuthConfig } from 'next-auth';
 import NextAuth from 'next-auth';
 
 export const authConfig = {
+  trustHost: true,
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || process.env.SESSION_SECRET || '9f8c14e7a25b3901d8e3c4f6b21a8d05e9c731b4028fa65e123d4e5f6789abcd',
   pages: {
     signIn: '/login',
     error: '/login',
@@ -32,7 +34,6 @@ export const authConfig = {
   session: {
     strategy: 'jwt',
   },
-  secret: process.env.SESSION_SECRET || 'super-secret-random-key-change-in-production',
 } satisfies NextAuthConfig;
 
 export const { auth } = NextAuth(authConfig);
