@@ -43,5 +43,6 @@
   "41": "route.ts",
   "42": "collapsible.tsx",
   "43": "route.ts",
-  "44": "page.tsx"
+  "44": "page.tsx",
+  "45": "auth.config.ts"
 }
