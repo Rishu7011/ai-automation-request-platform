@@ -4,14 +4,94 @@
   "graph": {},
   "nodes": [
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_app_login_page",
+      "community": 44,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "LoginPage()",
+      "file_type": "code",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "frontend_app_login_page_loginpage",
+      "community": 44,
+      "norm_label": "loginpage()"
+    },
+    {
+      "label": "auth.config.ts",
+      "file_type": "code",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_auth_config",
+      "community": 18,
+      "norm_label": "auth.config.ts"
+    },
+    {
+      "label": "jwt()",
+      "file_type": "code",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_auth_config_jwt",
+      "community": 18,
+      "norm_label": "jwt()"
+    },
+    {
+      "label": "session()",
+      "file_type": "code",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "frontend_auth_config_session",
+      "community": 18,
+      "norm_label": "session()"
+    },
+    {
+      "label": "{ auth }",
+      "file_type": "code",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "frontend_auth_config_auth",
+      "community": 18,
+      "norm_label": "{ auth }"
+    },
+    {
+      "label": "auth.ts",
+      "file_type": "code",
+      "source_file": "frontend/auth.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_auth",
+      "community": 18,
+      "norm_label": "auth.ts"
+    },
+    {
+      "label": "{ handlers, auth, signIn, signOut }",
+      "file_type": "code",
+      "source_file": "frontend/auth.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_auth_handlers_auth_signin_signout",
+      "community": 18,
+      "norm_label": "{ handlers, auth, signin, signout }"
+    },
+    {
       "label": "app-sidebar.tsx",
       "file_type": "code",
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar",
       "community": 35,
-      "norm_label": "app-sidebar.tsx"
+      "norm_label": "app-sidebar.tsx",
+      "id": "frontend_components_app_sidebar"
     },
     {
       "label": "NavItem",
@@ -19,9 +99,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_navitem",
       "community": 35,
-      "norm_label": "navitem"
+      "norm_label": "navitem",
+      "id": "frontend_components_app_sidebar_navitem"
     },
     {
       "label": "employeeItems",
@@ -29,9 +109,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_employeeitems",
       "community": 35,
-      "norm_label": "employeeitems"
+      "norm_label": "employeeitems",
+      "id": "frontend_components_app_sidebar_employeeitems"
     },
     {
       "label": "engineeringItems",
@@ -39,9 +119,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_engineeringitems",
       "community": 35,
-      "norm_label": "engineeringitems"
+      "norm_label": "engineeringitems",
+      "id": "frontend_components_app_sidebar_engineeringitems"
     },
     {
       "label": "systemItems",
@@ -49,9 +129,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L41",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_systemitems",
       "community": 35,
-      "norm_label": "systemitems"
+      "norm_label": "systemitems",
+      "id": "frontend_components_app_sidebar_systemitems"
     },
     {
       "label": "isActive()",
@@ -59,9 +139,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_isactive",
       "community": 35,
-      "norm_label": "isactive()"
+      "norm_label": "isactive()",
+      "id": "frontend_components_app_sidebar_isactive"
     },
     {
       "label": "NavigationItem()",
@@ -69,9 +149,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L51",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_navigationitem",
       "community": 35,
-      "norm_label": "navigationitem()"
+      "norm_label": "navigationitem()",
+      "id": "frontend_components_app_sidebar_navigationitem"
     },
     {
       "label": "NavigationGroup()",
@@ -79,9 +159,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L76",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_navigationgroup",
       "community": 35,
-      "norm_label": "navigationgroup()"
+      "norm_label": "navigationgroup()",
+      "id": "frontend_components_app_sidebar_navigationgroup"
     },
     {
       "label": "AppSidebar()",
@@ -89,9 +169,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L93",
       "_origin": "ast",
-      "id": "frontend_components_app_sidebar_appsidebar",
       "community": 35,
-      "norm_label": "appsidebar()"
+      "norm_label": "appsidebar()",
+      "id": "frontend_components_app_sidebar_appsidebar"
     },
     {
       "label": "route.ts",
@@ -2576,26 +2656,6 @@
     {
       "label": "page.tsx",
       "file_type": "code",
-      "source_file": "frontend/app/login/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "page.tsx",
-      "id": "frontend_app_login_page"
-    },
-    {
-      "label": "LoginPage()",
-      "file_type": "code",
-      "source_file": "frontend/app/login/page.tsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "loginpage()",
-      "id": "frontend_app_login_page_loginpage"
-    },
-    {
-      "label": "page.tsx",
-      "file_type": "code",
       "source_file": "frontend/app/register/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
@@ -3994,66 +4054,6 @@
       "id": "frontend_app_api_requests_route_get"
     },
     {
-      "label": "auth.config.ts",
-      "file_type": "code",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "auth.config.ts",
-      "id": "frontend_auth_config"
-    },
-    {
-      "label": "jwt()",
-      "file_type": "code",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "jwt()",
-      "id": "frontend_auth_config_jwt"
-    },
-    {
-      "label": "session()",
-      "file_type": "code",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "session()",
-      "id": "frontend_auth_config_session"
-    },
-    {
-      "label": "{ auth }",
-      "file_type": "code",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "{ auth }",
-      "id": "frontend_auth_config_auth"
-    },
-    {
-      "label": "auth.ts",
-      "file_type": "code",
-      "source_file": "frontend/auth.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "auth.ts",
-      "id": "frontend_auth"
-    },
-    {
-      "label": "{ handlers, auth, signIn, signOut }",
-      "file_type": "code",
-      "source_file": "frontend/auth.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 18,
-      "norm_label": "{ handlers, auth, signin, signout }",
-      "id": "frontend_auth_handlers_auth_signin_signout"
-    },
-    {
       "label": "vitest.config.ts",
       "file_type": "code",
       "source_file": "frontend/vitest.config.ts",
@@ -4876,6 +4876,111 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/login/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "frontend_app_login_page",
+      "target": "frontend_app_login_page_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/auth.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "frontend_auth",
+      "target": "frontend_auth_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "frontend_auth_config",
+      "target": "frontend_auth_config_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_auth_config",
+      "target": "frontend_auth_config_jwt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/auth.config.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "frontend_auth_config",
+      "target": "frontend_auth_config_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/[id]/assign/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_api_admin_requests_id_assign_route",
+      "target": "frontend_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/admin/requests/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_api_admin_requests_route",
+      "target": "frontend_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/requests/[id]/comments/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_api_requests_id_comments_route",
+      "target": "frontend_auth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/app/api/requests/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_app_api_requests_route",
+      "target": "frontend_auth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/auth.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_auth",
+      "target": "frontend_auth_handlers_auth_signin_signout",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -4892,9 +4997,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_appsidebar",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_appsidebar"
     },
     {
       "relation": "contains",
@@ -4902,9 +5007,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_employeeitems",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_employeeitems"
     },
     {
       "relation": "contains",
@@ -4912,9 +5017,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_engineeringitems",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_engineeringitems"
     },
     {
       "relation": "contains",
@@ -4922,9 +5027,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_isactive",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_isactive"
     },
     {
       "relation": "contains",
@@ -4932,9 +5037,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_navigationgroup",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_navigationgroup"
     },
     {
       "relation": "contains",
@@ -4942,9 +5047,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_navigationitem",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_navigationitem"
     },
     {
       "relation": "contains",
@@ -4952,9 +5057,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_navitem",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_navitem"
     },
     {
       "relation": "contains",
@@ -4962,9 +5067,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar",
-      "target": "frontend_components_app_sidebar_systemitems",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_systemitems"
     },
     {
       "relation": "calls",
@@ -4973,9 +5078,9 @@
       "source_file": "frontend/components/app-sidebar.tsx",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_components_app_sidebar_navigationitem",
-      "target": "frontend_components_app_sidebar_isactive",
-      "confidence_score": 1.0
+      "target": "frontend_components_app_sidebar_isactive"
     },
     {
       "relation": "imports",
@@ -7842,27 +7947,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/app/login/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_login_page",
-      "target": "frontend_app_login_page_loginpage"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/login/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_login_page",
-      "target": "frontend_components_components2_input"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/app/register/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
@@ -9631,17 +9715,6 @@
       "target": "frontend_app_api_admin_requests_id_assign_route_requireadmin"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/[id]/assign/route.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_id_assign_route",
-      "target": "frontend_auth"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -9672,17 +9745,6 @@
       "confidence_score": 1.0,
       "source": "frontend_app_api_admin_requests_route",
       "target": "frontend_app_api_admin_requests_route_get"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/admin/requests/route.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_admin_requests_route",
-      "target": "frontend_auth"
     },
     {
       "relation": "contains",
@@ -9735,17 +9797,6 @@
       "target": "frontend_app_api_requests_id_comments_route_post"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/requests/[id]/comments/route.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_requests_id_comments_route",
-      "target": "frontend_auth"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -9776,68 +9827,6 @@
       "confidence_score": 1.0,
       "source": "frontend_app_api_requests_route",
       "target": "frontend_app_api_requests_route_get"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/app/api/requests/route.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_app_api_requests_route",
-      "target": "frontend_auth"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/auth.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_auth",
-      "target": "frontend_auth_config"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_auth_config",
-      "target": "frontend_auth_config_auth"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_auth_config",
-      "target": "frontend_auth_config_jwt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/auth.config.ts",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_auth_config",
-      "target": "frontend_auth_config_session"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/auth.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_auth",
-      "target": "frontend_auth_handlers_auth_signin_signout"
     },
     {
       "relation": "contains",
@@ -11060,5 +11049,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5cdf612be86b5a45f6b3f0085b25a58469a10645"
+  "built_at_commit": "7cc4e598e5cc717d1e91674f5921668e073e80f7"
 }

@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 105 files · ~46,026 words
+- 105 files · ~46,133 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 487 nodes · 595 edges · 44 communities (33 shown, 11 thin omitted)
+- 487 nodes · 594 edges · 45 communities (34 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5cdf612b`
+- Built from commit: `7cc4e598`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,7 +80,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (44 total, 11 thin omitted)
+## Communities (45 total, 11 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -187,7 +187,7 @@ Cohesion: 0.40
 Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstimateSchema
 
 ## Knowledge Gaps
-- **158 isolated node(s):** `NavItem`, `employeeItems`, `engineeringItems`, `systemItems`, `ROIResult` (+153 more)
+- **158 isolated node(s):** `{ auth }`, `{ handlers, auth, signIn, signOut }`, `NavItem`, `employeeItems`, `engineeringItems` (+153 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -200,7 +200,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **What connects `NavItem`, `employeeItems`, `engineeringItems` to the rest of the system?**
+- **What connects `{ auth }`, `{ handlers, auth, signIn, signOut }`, `NavItem` to the rest of the system?**
   _158 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._

@@ -22,49 +22,51 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
 
-        await connectToDatabase();
+        try {
+          await connectToDatabase();
 
-        const input = (credentials.username as string).toLowerCase().trim();
-        const user = await User.findOne({
-          $or: [{ username: input }, { email: input }],
-        });
+          const input = (credentials.username as string).toLowerCase().trim();
+          const user = await User.findOne({
+            $or: [{ username: input }, { email: input }],
+          });
 
-        if (!user) {
-          throw new Error('No user found with these credentials');
-        }
+          if (!user) {
+            console.warn('[AUTH] No user found for:', input);
+            return null;
+          }
 
-        const isValidPassword = await bcrypt.compare(
-          credentials.password as string,
-          user.passwordHash
-        );
-
-        if (!isValidPassword) {
-          throw new Error('Invalid password');
-        }
-
-        if (user.status === 'pending_approval') {
-          throw new Error(
-            'Your account is pending backend approval. Please wait for an admin to approve your account.'
+          const isValidPassword = await bcrypt.compare(
+            credentials.password as string,
+            user.passwordHash
           );
+
+          if (!isValidPassword) {
+            console.warn('[AUTH] Invalid password for user:', input);
+            return null;
+          }
+
+          if (user.status === 'pending_approval' || user.status === 'deactivated') {
+            console.warn('[AUTH] User status not active:', user.status);
+            return null;
+          }
+
+          // Update last login timestamp
+          user.lastLoginAt = new Date();
+          await user.save();
+
+          return {
+            id: user._id.toString(),
+            name: user.name,
+            email: user.email,
+            username: user.username,
+            department: user.department,
+            role: user.role,
+            status: user.status,
+          };
+        } catch (err) {
+          console.error('[AUTH_AUTHORIZE_ERROR]:', err);
+          return null;
         }
-
-        if (user.status === 'deactivated') {
-          throw new Error('Your account has been deactivated.');
-        }
-
-        // Update last login timestamp
-        user.lastLoginAt = new Date();
-        await user.save();
-
-        return {
-          id: user._id.toString(),
-          name: user.name,
-          email: user.email,
-          username: user.username,
-          department: user.department,
-          role: user.role,
-          status: user.status,
-        };
       },
     }),
   ],
