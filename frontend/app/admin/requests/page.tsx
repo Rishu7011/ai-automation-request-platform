@@ -63,6 +63,7 @@ export default function AdminRequestsPage() {
   const [selectedDepartment, setSelectedDepartment] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
   const [showDuplicatesOnly, setShowDuplicatesOnly] = useState(false);
+  const [sortBy, setSortBy] = useState('priority');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [duplicateModalData, setDuplicateModalData] = useState<{ requestId: string; title: string; department: string } | null>(null);
@@ -76,7 +77,7 @@ export default function AdminRequestsPage() {
   useEffect(() => {
     async function fetchAdminRequests() {
       try {
-        const res = await fetch('/api/admin/requests');
+        const res = await fetch(`/api/admin/requests?sortBy=${sortBy}`);
         if (!res.ok) {
           setError(res.status === 403 ? 'Admin permissions required.' : 'Failed to fetch requests.');
           return;
@@ -90,10 +91,10 @@ export default function AdminRequestsPage() {
       }
     }
     fetchAdminRequests();
-  }, []);
+  }, [sortBy]);
 
   const filteredRequests = useMemo(() => {
-    return requests.filter((req) => {
+    const list = requests.filter((req) => {
       const q = searchQuery.toLowerCase();
       const matchesSearch =
         req.title.toLowerCase().includes(q) ||
@@ -104,7 +105,23 @@ export default function AdminRequestsPage() {
       const matchesDuplicates = !showDuplicatesOnly || req.isDuplicateFlagged === true;
       return matchesSearch && matchesDept && matchesStatus && matchesDuplicates;
     });
-  }, [requests, searchQuery, selectedDepartment, selectedStatus, showDuplicatesOnly]);
+
+    list.sort((a, b) => {
+      if (sortBy === 'priority') {
+        if ((b.priorityScore || 0) !== (a.priorityScore || 0)) {
+          return (b.priorityScore || 0) - (a.priorityScore || 0);
+        }
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      } else if (sortBy === 'newest') {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      } else if (sortBy === 'oldest') {
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+      }
+      return 0;
+    });
+
+    return list;
+  }, [requests, searchQuery, selectedDepartment, selectedStatus, showDuplicatesOnly, sortBy]);
 
   const allSelected = filteredRequests.length > 0 && filteredRequests.every((r) => selected.has(r._id));
   const someSelected = selected.size > 0;
@@ -242,6 +259,12 @@ export default function AdminRequestsPage() {
           <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className={selectClass}>
             <option value="all">All Statuses</option>
             {Object.entries(STATUS_BADGES).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
+          </select>
+
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={selectClass}>
+            <option value="priority">Sort: Priority Score (High to Low)</option>
+            <option value="newest">Sort: Newly Added (Newest)</option>
+            <option value="oldest">Sort: Oldest First</option>
           </select>
 
           <button

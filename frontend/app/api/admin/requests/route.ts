@@ -5,7 +5,7 @@ import connectToDatabase from '@/lib/db';
 import Request from '@/models/Request';
 import User from '@/models/User';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   const session = await auth();
   if (!session?.user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -16,11 +16,23 @@ export async function GET() {
     return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
   }
 
+  const { searchParams } = new URL(request.url);
+  const sortBy = searchParams.get('sortBy') || 'priority';
+
+  let sortOption: Record<string, 1 | -1> = { priorityScore: -1, createdAt: -1 };
+  if (sortBy === 'newest') {
+    sortOption = { createdAt: -1 };
+  } else if (sortBy === 'oldest') {
+    sortOption = { createdAt: 1 };
+  } else if (sortBy === 'priority') {
+    sortOption = { priorityScore: -1, createdAt: -1 };
+  }
+
   await connectToDatabase();
 
   const requests = await Request.find({ deletedAt: null })
     .populate({ path: 'requesterId', select: 'name email department username', model: User })
-    .sort({ updatedAt: -1 })
+    .sort(sortOption)
     .lean();
 
   return NextResponse.json({ requests });
