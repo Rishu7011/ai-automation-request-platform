@@ -113,14 +113,14 @@ export default function MyRequestsPage() {
       <main className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
 
         {/* Page header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#464554]/30 pb-6 gap-4">
+        <div className="flex flex-col gap-4 border-b border-[#464554]/30 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="text-[28px] font-bold font-outfit text-[#c0c1ff] leading-tight">My Requests</h1>
             <p className="text-sm text-[#908fa0] mt-1 font-inter">Manage and track your AI automation initiatives across departments.</p>
           </div>
           <button
             onClick={() => router.push('/intake/new')}
-            className="bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-xs px-6 py-2.5 rounded-full flex items-center gap-2 transition-all shadow-md shadow-[#6366f1]/30 active:scale-95 cursor-pointer w-fit"
+            className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-xs px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-all shadow-md shadow-[#6366f1]/30 active:scale-95 cursor-pointer"
           >
             <Plus className="h-4 w-4" />
             <span>New Automation Request</span>
@@ -166,8 +166,9 @@ export default function MyRequestsPage() {
         </div>
 
         {/* Search & Filter Toolbar */}
-        <div className="glass-panel p-4 rounded-xl border border-[#464554]/30 flex flex-col gap-3 md:flex-row md:items-center">
-          <div className="relative w-full md:flex-1">
+        <div className="glass-panel rounded-xl border border-[#464554]/30 p-4 flex flex-col gap-3">
+          {/* Search row */}
+          <div className="relative w-full">
             <Search className="absolute top-1/2 left-3.5 -translate-y-1/2 h-4 w-4 text-[#908fa0]" />
             <input
               type="text"
@@ -178,12 +179,13 @@ export default function MyRequestsPage() {
             />
           </div>
 
-          <div className="flex w-full flex-wrap items-center gap-2 md:w-auto md:flex-nowrap">
+          {/* Filters row — horizontally scrollable on mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none -mx-1 px-1">
             {/* Department Dropdown */}
             <select
               value={selectedDepartment}
               onChange={(e) => setSelectedDepartment(e.target.value)}
-              className="bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-xs font-semibold rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer"
+              className="shrink-0 bg-[#1f1f27] border border-[#464554]/40 text-[#e4e1ed] text-xs font-semibold rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#6366f1] cursor-pointer"
             >
               <option value="All">All Departments</option>
               {Object.keys(DEPARTMENT_ICONS).map((dept) => (
@@ -192,17 +194,17 @@ export default function MyRequestsPage() {
             </select>
 
             {/* Status Filter Pills */}
-            <div className="flex items-center gap-1 rounded-lg border border-[#464554]/40 bg-[#1f1f27] p-1">
+            <div className="shrink-0 flex items-center gap-1 rounded-lg border border-[#464554]/40 bg-[#1f1f27] p-1">
               {[
                 { value: 'All', label: 'All' },
                 { value: 'approved', label: 'Approved' },
-                { value: 'roi_calculated', label: 'ROI Evaluated' },
+                { value: 'roi_calculated', label: 'ROI Eval' },
                 { value: 'draft', label: 'Drafts' },
               ].map(({ value, label }) => (
                 <button
                   key={value}
                   onClick={() => setSelectedStatusFilter(value)}
-                  className={`h-7 rounded-md px-3 text-xs font-semibold transition-all cursor-pointer ${
+                  className={`h-7 rounded-md px-3 text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
                     selectedStatusFilter === value
                       ? 'bg-[#6366f1] text-white shadow-xs'
                       : 'text-[#908fa0] hover:text-white'
@@ -216,7 +218,7 @@ export default function MyRequestsPage() {
             {/* Sort Toggle */}
             <button
               onClick={() => setSortBy(sortBy === 'newest' ? 'score' : 'newest')}
-              className="flex items-center gap-1.5 rounded-lg border border-[#464554]/40 bg-[#1f1f27] px-3 py-2 text-xs font-semibold text-[#c0c1ff] hover:bg-[#34343d] transition-all cursor-pointer"
+              className="shrink-0 flex items-center gap-1.5 rounded-lg border border-[#464554]/40 bg-[#1f1f27] px-3 py-2 text-xs font-semibold text-[#c0c1ff] hover:bg-[#34343d] transition-all cursor-pointer whitespace-nowrap"
             >
               <ArrowUpDown className="h-3.5 w-3.5 text-[#c0c1ff]" />
               <span>{sortBy === 'score' ? 'Highest Score' : 'Newest First'}</span>

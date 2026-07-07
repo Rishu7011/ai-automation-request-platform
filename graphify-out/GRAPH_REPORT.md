@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 105 files · ~46,286 words
+- 105 files · ~46,613 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 487 nodes · 592 edges · 47 communities (35 shown, 12 thin omitted)
+- 487 nodes · 585 edges · 48 communities (36 shown, 12 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `76607156`
+- Built from commit: `8e33214b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -58,13 +58,13 @@
 1. `cn()` - 43 edges
 2. `callLlm()` - 15 edges
 3. `parseJsonSafe()` - 14 edges
-4. `calculatePriorityScore()` - 8 edges
-5. `calculateROI()` - 6 edges
-6. `useSidebar()` - 6 edges
-7. `scripts` - 6 edges
-8. `react` - 6 edges
-9. `PATCH()` - 5 edges
-10. `getSystemSettingsConfig()` - 5 edges
+4. `calculatePriorityScore()` - 6 edges
+5. `useSidebar()` - 6 edges
+6. `scripts` - 6 edges
+7. `react` - 6 edges
+8. `PATCH()` - 5 edges
+9. `writeAuditLog()` - 5 edges
+10. `calculateROI()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `SidebarMenuSkeleton()` --references--> `react`  [EXTRACTED]
@@ -81,7 +81,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (47 total, 12 thin omitted)
+## Communities (48 total, 12 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -129,11 +129,11 @@ Nodes (22): AUTOMATION_TYPES, CategorizationResult, runCategorizationAgent(), Ef
 
 ### Community 15 - "calculations.ts"
 Cohesion: 0.17
-Nodes (18): GET(), PATCH(), requireAdmin(), POST(), GET(), LEDGER_STATUSES, calculatePriorityScore(), calculateROI() (+10 more)
+Nodes (17): GET(), PATCH(), requireAdmin(), GET(), LEDGER_STATUSES, calculatePriorityScore(), calculateROI(), EFFORT_COST_MAP (+9 more)
 
 ### Community 16 - "page.tsx"
-Cohesion: 0.12
-Nodes (11): Comment, CONFIDENCE_COLORS, DEPT_ICONS, Engineer, Estimate, PriorityInputs, REASON_REQUIRED, RequestDetail (+3 more)
+Cohesion: 0.13
+Nodes (12): Comment, CONFIDENCE_COLORS, DEPT_ICONS, Engineer, EngineeringReviewPage(), Estimate, PriorityInputs, REASON_REQUIRED (+4 more)
 
 ### Community 17 - "page.tsx"
 Cohesion: 0.17
@@ -188,7 +188,7 @@ Cohesion: 0.40
 Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstimateSchema
 
 ## Knowledge Gaps
-- **158 isolated node(s):** `AdminRequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS`, `BULK_STATUSES`, `{ handlers, auth, signIn, signOut }` (+153 more)
+- **157 isolated node(s):** `Engineer`, `Comment`, `PriorityInputs`, `Estimate`, `Summary` (+152 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -201,8 +201,8 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **What connects `AdminRequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS` to the rest of the system?**
-  _158 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Engineer`, `Comment`, `PriorityInputs` to the rest of the system?**
+  _157 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**

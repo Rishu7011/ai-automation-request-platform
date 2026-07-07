@@ -106,7 +106,7 @@ function PaginationBar({ pagination, onPage }: { pagination: Pagination; onPage:
   }
 
   const btn = (active: boolean, disabled?: boolean) =>
-    `px-3.5 py-1.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${
+    `px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
       active
         ? 'bg-[#6366f1] text-white shadow-sm'
         : disabled
@@ -115,15 +115,15 @@ function PaginationBar({ pagination, onPage }: { pagination: Pagination; onPage:
     }`;
 
   return (
-    <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#1e1e3a]">
+    <div className="flex flex-col sm:flex-row items-center justify-between mt-6 pt-4 border-t border-[#1e1e3a] gap-3">
       <p className="text-sm text-[#908fa0] font-medium">
         {totalCount.toLocaleString()} request{totalCount !== 1 ? 's' : ''} total
       </p>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 flex-wrap justify-center">
         <button onClick={() => onPage(page - 1)} disabled={!hasPrevPage} className={btn(false, !hasPrevPage)}>← Prev</button>
         {pages.map((p, i) =>
           p === '…' ? (
-            <span key={`e-${i}`} className="px-1 text-[#4b5563] text-sm font-bold">…</span>
+            <span key={`e-${i}`} className="px-1 text-[#4b5563] text-xs font-bold">…</span>
           ) : (
             <button key={p} onClick={() => onPage(p as number)} className={btn(p === page)}>{p}</button>
           )
@@ -215,56 +215,74 @@ export default function LedgerPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#464554]/30 pb-6">
+        <div className="flex flex-col gap-4 border-b border-[#464554]/30 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold font-outfit text-[#c0c1ff] tracking-tight mb-1">Organization Automation Ledger</h1>
+            <h1 className="text-2xl font-bold font-outfit text-[#c0c1ff] tracking-tight mb-1">Organization Automation Ledger</h1>
             <p className="text-sm text-[#908fa0] max-w-2xl">
               Cross-departmental view of all submitted AI automation proposals and their current status.
             </p>
           </div>
           <Link
             href="/intake/new"
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-sm transition-all shadow-md shadow-[#6366f1]/30 flex items-center gap-2 w-fit active:scale-95 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-sm transition-all shadow-md shadow-[#6366f1]/30 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
           >
             <Plus className="h-4 w-4" /> Submit Request
           </Link>
         </div>
 
         {/* Filters Bar */}
-        <div className="glass-panel border border-[#464554]/30 rounded-xl p-5 flex flex-wrap items-end gap-4">
-          {/* Department */}
-          <div className="flex flex-col gap-1.5 flex-1 min-w-[140px]">
-            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Department</label>
-            <select value={department} onChange={(e) => handleFilterChange('department', e.target.value)} className={selectClass}>
-              <option value="">All Departments</option>
-              {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
-            </select>
+        <div className="glass-panel border border-[#464554]/30 rounded-xl p-4 space-y-3">
+          {/* Scrollable filter row */}
+          <div className="flex items-end gap-3 overflow-x-auto scrollbar-none pb-0.5">
+            {/* Department */}
+            <div className="flex flex-col gap-1.5 shrink-0 min-w-[140px]">
+              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Department</label>
+              <select value={department} onChange={(e) => handleFilterChange('department', e.target.value)} className={selectClass}>
+                <option value="">All Departments</option>
+                {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
+              </select>
+            </div>
+
+            {/* Status */}
+            <div className="flex flex-col gap-1.5 shrink-0 min-w-[140px]">
+              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Status</label>
+              <select value={status} onChange={(e) => handleFilterChange('status', e.target.value)} className={selectClass}>
+                <option value="">All Statuses</option>
+                {Object.entries(LEDGER_STATUSES).map(([val, label]) => (
+                  <option key={val} value={val}>{label}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Priority Tier */}
+            <div className="flex flex-col gap-1.5 shrink-0 min-w-[130px]">
+              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Priority</label>
+              <select value={priorityTier} onChange={(e) => handleFilterChange('priorityTier', e.target.value)} className={selectClass}>
+                <option value="">All Tiers</option>
+                {['Critical', 'High', 'Medium', 'Low'].map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Sort */}
+            <div className="flex flex-col gap-1.5 shrink-0 min-w-[150px]">
+              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Sort By</label>
+              <select value={sortBy} onChange={(e) => handleFilterChange('sortBy', e.target.value)} className={selectClass}>
+                <option value="newest">Newest First</option>
+                <option value="priority">Priority Score ↓</option>
+              </select>
+            </div>
+
+            {hasFilters && (
+              <button onClick={handleClear} className="shrink-0 text-sm text-[#c0c1ff] font-semibold hover:text-white transition-colors pb-2.5 cursor-pointer whitespace-nowrap">
+                Clear filters
+              </button>
+            )}
           </div>
 
-          {/* Status */}
-          <div className="flex flex-col gap-1.5 flex-1 min-w-[140px]">
-            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Status</label>
-            <select value={status} onChange={(e) => handleFilterChange('status', e.target.value)} className={selectClass}>
-              <option value="">All Statuses</option>
-              {Object.entries(LEDGER_STATUSES).map(([val, label]) => (
-                <option key={val} value={val}>{label}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Priority Tier */}
-          <div className="flex flex-col gap-1.5 flex-1 min-w-[140px]">
-            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Priority Tier</label>
-            <select value={priorityTier} onChange={(e) => handleFilterChange('priorityTier', e.target.value)} className={selectClass}>
-              <option value="">All Tiers</option>
-              {['Critical', 'High', 'Medium', 'Low'].map((t) => (
-                <option key={t} value={t}>{t}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Date From & To Range */}
-          <div className="flex flex-col gap-1.5 flex-1 min-w-[220px]">
+          {/* Date Range row — always full-width */}
+          <div className="flex flex-col gap-1.5">
             <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Date Range</label>
             <div className="flex items-center bg-[#0d0d15] border border-[#464554]/30 rounded-lg overflow-hidden">
               <input
@@ -282,21 +300,6 @@ export default function LedgerPage() {
               />
             </div>
           </div>
-
-          {/* Sort */}
-          <div className="flex flex-col gap-1.5 min-w-[150px]">
-            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Sort By</label>
-            <select value={sortBy} onChange={(e) => handleFilterChange('sortBy', e.target.value)} className={selectClass}>
-              <option value="newest">Newest First</option>
-              <option value="priority">Priority Score ↓</option>
-            </select>
-          </div>
-
-          {hasFilters && (
-            <button onClick={handleClear} className="text-sm text-[#c0c1ff] font-semibold hover:text-white transition-colors pb-2 cursor-pointer">
-              Clear filters
-            </button>
-          )}
         </div>
 
         {/* Loading state */}

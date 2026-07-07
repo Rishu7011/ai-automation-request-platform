@@ -92,7 +92,7 @@ export default function AdminUsersPage() {
 
         {/* Page header */}
         <div className="border-b border-[#464554]/30 pb-6">
-          <h1 className="text-2xl font-bold font-outfit text-[#c0c1ff] tracking-tight">User Account Governance & Approvals</h1>
+          <h1 className="text-xl sm:text-2xl font-bold font-outfit text-[#c0c1ff] tracking-tight">User Account Governance &amp; Approvals</h1>
           <p className="text-xs text-[#908fa0] mt-1">
             Review registration requests, assign organization roles, and manage system access states.
           </p>
@@ -182,18 +182,16 @@ export default function AdminUsersPage() {
             />
           </div>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto justify-between">
-            <button
-              onClick={() => setFilterStatus('all')}
-              className={`px-3 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
-                filterStatus === 'all'
-                  ? 'bg-[#6366f1] text-white border-[#6366f1]'
-                  : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
-              }`}
-            >
-              Show All ({users.length})
-            </button>
-          </div>
+          <button
+            onClick={() => setFilterStatus('all')}
+            className={`w-full sm:w-auto px-3 py-2 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
+              filterStatus === 'all'
+                ? 'bg-[#6366f1] text-white border-[#6366f1]'
+                : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
+            }`}
+          >
+            Show All ({users.length})
+          </button>
         </div>
 
         {/* Users Table */}

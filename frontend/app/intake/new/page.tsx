@@ -58,7 +58,7 @@ export default function NewIntakePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+    <div className="min-h-screen bg-[#13131b] text-[#e4e1ed] font-inter">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
 
         {/* Page header */}

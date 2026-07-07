@@ -38,10 +38,10 @@ export default function AnalyticsDashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center">
+      <div className="min-h-screen bg-[#13131b] flex items-center justify-center">
         <div className="text-center space-y-3">
           <Loader2 className="w-10 h-10 text-[#6366f1] animate-spin mx-auto" />
-          <p className="text-[#6b7280] text-sm font-medium">Loading enterprise analytics…</p>
+          <p className="text-[#908fa0] text-sm font-medium">Loading enterprise analytics…</p>
         </div>
       </div>
     );
@@ -49,10 +49,10 @@ export default function AnalyticsDashboardPage() {
 
   if (error || !data) {
     return (
-      <div className="min-h-screen bg-[#0a0a12] flex items-center justify-center p-8">
+      <div className="min-h-screen bg-[#13131b] flex items-center justify-center p-8">
         <div className="p-6 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-center max-w-md space-y-3">
           <p className="font-bold text-base">{error || 'Analytics unavailable'}</p>
-          <Link href="/admin/requests" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#818cf8] hover:underline">
+          <Link href="/admin/requests" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c0c1ff] hover:underline">
             ← Return to Pipeline
           </Link>
         </div>
@@ -64,20 +64,20 @@ export default function AnalyticsDashboardPage() {
   const maxDeptCount = Math.max(...departmentBreakdown.map((d) => d.count), 1);
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#e0e0e0] font-sans">
+    <div className="min-h-screen bg-[#13131b] text-[#e4e1ed] font-inter">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col gap-4 border-b border-[#464554]/30 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-extrabold text-white tracking-tight">Enterprise Automation Performance</h1>
-            <p className="text-sm text-[#9ca3af] mt-1">
-              ROI metrics, department velocity, and request approval rollups. eng_admin / sys_admin only.
+            <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Enterprise Automation Performance</h1>
+            <p className="text-sm text-[#908fa0] mt-1">
+              ROI metrics, department velocity, and request approval rollups.
             </p>
           </div>
           <Link
             href="/admin/requests"
-            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] text-white font-bold text-xs transition-all shadow-md shadow-[#6366f1]/20 flex items-center gap-2 w-fit"
+            className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e0] hover:to-[#7c4fdb] text-white font-bold text-xs transition-all shadow-md shadow-[#6366f1]/20 flex items-center justify-center gap-2"
           >
             <span>View Backlog</span>
             <ArrowRight className="w-4 h-4" />

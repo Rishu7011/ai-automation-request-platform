@@ -124,3 +124,26 @@
   }
 }
 
+/* Utility: hide scrollbar but keep scroll behavior */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive table helper */
+.table-mobile-card {
+  display: block;
+}
+@media (min-width: 768px) {
+  .table-mobile-card {
+    display: table-row;
+  }
+}
+
+/* Mobile safe-area bottom padding */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

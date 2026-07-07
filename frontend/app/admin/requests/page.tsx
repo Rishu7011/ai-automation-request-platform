@@ -176,17 +176,17 @@ export default function AdminRequestsPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* Page header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#464554]/30 pb-6">
+        <div className="flex flex-col gap-4 border-b border-[#464554]/30 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold font-outfit text-[#c0c1ff] tracking-tight mb-1">Engineering Prioritization Backlog</h1>
+            <h1 className="text-xl sm:text-3xl font-bold font-outfit text-[#c0c1ff] tracking-tight mb-1">Engineering Prioritization Backlog</h1>
             <p className="text-xs text-[#908fa0] max-w-2xl">
-              Precision-ranked automation requests driven by AI ROI & effort modeling.
+              Precision-ranked automation requests driven by AI ROI &amp; effort modeling.
             </p>
           </div>
 
           <Link
             href="/intake/new"
-            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-xs transition-all shadow-md shadow-[#6366f1]/30 flex items-center gap-2 w-fit active:scale-95 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 text-white font-semibold text-xs transition-all shadow-md shadow-[#6366f1]/30 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
           >
             <PlusCircle className="h-4 w-4" />
             <span>Submit Request</span>
@@ -239,8 +239,9 @@ export default function AdminRequestsPage() {
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="glass-panel p-4 rounded-xl border border-[#464554]/30 flex flex-col md:flex-row items-center gap-3">
-          <div className="relative w-full md:flex-1">
+        <div className="glass-panel p-4 rounded-xl border border-[#464554]/30 space-y-3">
+          {/* Search */}
+          <div className="relative w-full">
             <Search className="absolute left-3.5 top-3 h-4 w-4 text-[#908fa0]" />
             <input
               type="text"
@@ -251,33 +252,36 @@ export default function AdminRequestsPage() {
             />
           </div>
 
-          <select value={selectedDepartment} onChange={(e) => setSelectedDepartment(e.target.value)} className={selectClass}>
-            <option value="all">All Departments</option>
-            {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
-          </select>
+          {/* Horizontally scrollable filter row */}
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-0.5">
+            <select value={selectedDepartment} onChange={(e) => setSelectedDepartment(e.target.value)} className={`${selectClass} shrink-0`}>
+              <option value="all">All Departments</option>
+              {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
+            </select>
 
-          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className={selectClass}>
-            <option value="all">All Statuses</option>
-            {Object.entries(STATUS_BADGES).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
-          </select>
+            <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className={`${selectClass} shrink-0`}>
+              <option value="all">All Statuses</option>
+              {Object.entries(STATUS_BADGES).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
+            </select>
 
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={selectClass}>
-            <option value="priority">Sort: Priority Score (High to Low)</option>
-            <option value="newest">Sort: Newly Added (Newest)</option>
-            <option value="oldest">Sort: Oldest First</option>
-          </select>
+            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={`${selectClass} shrink-0`}>
+              <option value="priority">Priority ↓</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
 
-          <button
-            onClick={() => setShowDuplicatesOnly(!showDuplicatesOnly)}
-            className={`px-3.5 py-2.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 ${
-              showDuplicatesOnly
-                ? 'bg-[#ffb95f]/20 text-[#ffb95f] border-[#ffb95f]/40'
-                : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
-            }`}
-          >
-            <AlertTriangle className="h-3.5 w-3.5 text-[#ffb95f]" />
-            <span>Duplicates Only</span>
-          </button>
+            <button
+              onClick={() => setShowDuplicatesOnly(!showDuplicatesOnly)}
+              className={`shrink-0 px-3.5 py-2.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap ${
+                showDuplicatesOnly
+                  ? 'bg-[#ffb95f]/20 text-[#ffb95f] border-[#ffb95f]/40'
+                  : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
+              }`}
+            >
+              <AlertTriangle className="h-3.5 w-3.5 text-[#ffb95f]" />
+              <span>Duplicates</span>
+            </button>
+          </div>
         </div>
 
         {/* Bulk Action Bar */}

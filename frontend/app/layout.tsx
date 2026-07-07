@@ -26,14 +26,16 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("h-full antialiased", "font-sans", geist.variable)}
     >
-      <body className="enterprise-theme h-full bg-background text-foreground">
+      <body className="enterprise-theme h-full bg-background text-foreground overflow-x-hidden">
         <Providers>
           <TooltipProvider>
             <SidebarProvider>
               <AppSidebar />
-              <div className="flex min-h-svh w-full flex-col">
+              <div className="flex min-h-svh w-full min-w-0 flex-col">
                 <MobileHeader />
-                {children}
+                <div className="flex-1 pb-safe">
+                  {children}
+                </div>
               </div>
             </SidebarProvider>
           </TooltipProvider>
