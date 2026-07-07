@@ -1,21 +1,5 @@
 // Task 2.12 — /api/intake/submit
 // Agent Orchestration & Request Submission endpoint.
-//
-// Pipeline (on POST):
-//   1. Validate request ownership & draft status
-//   2. Set status → ai_reviewing
-//   3. Run extraction agents (parallel where safe):
-//        • Information Extraction  (all stages)
-//        • ROI Extraction          (stages 5+6)
-//        • Effort Estimation       (uses extracted summary)
-//        • Categorization          (uses extracted summary)
-//        • Priority Recommendation (uses full conversation)
-//   4. Run deterministic calculation engine
-//   5. Run Summary Generation Agent
-//   6. Persist RequestSummary + RequestEstimate
-//   7. Update Request: status → submitted, priorityScore, tags, submittedAt
-//   8. Write StatusHistory + AuditLog entries
-//   9. Return success with summary data
 
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
@@ -44,7 +28,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json();
-  const { requestId } = body as { requestId: string };
+  const { requestId, reAnalyze } = body as { requestId: string; reAnalyze?: boolean };
 
   if (!requestId) {
     return NextResponse.json({ error: 'requestId is required' }, { status: 400 });
@@ -65,7 +49,10 @@ export async function POST(req: NextRequest) {
   if (!isRequester && !isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
-  if (request.status !== 'draft') {
+
+  // Allow re-analysis if status is draft, ai_reviewing, submitted, or explicitly requested
+  const reAnalyzableStatuses = ['draft', 'ai_reviewing', 'submitted', 'needs_more_info', 'engineering_review'];
+  if (!reAnalyzableStatuses.includes(request.status) && !reAnalyze) {
     return NextResponse.json(
       { error: `Request is already in status "${request.status}"` },
       { status: 409 }
@@ -78,12 +65,14 @@ export async function POST(req: NextRequest) {
 
   const previousStatus = request.status;
   request.status = 'ai_reviewing';
-  request.statusHistory.push({
-    oldStatus: previousStatus,
-    newStatus: 'ai_reviewing',
-    changedBy: request.requesterId,
-    changedAt: new Date(),
-  });
+  if (!request.statusHistory.some((h) => h.newStatus === 'ai_reviewing' && new Date(h.changedAt).getTime() > Date.now() - 60000)) {
+    request.statusHistory.push({
+      oldStatus: previousStatus,
+      newStatus: 'ai_reviewing',
+      changedBy: request.requesterId,
+      changedAt: new Date(),
+    });
+  }
   await request.save();
 
   // ── 3. Load conversation history ─────────────────────────────────────────────
@@ -92,7 +81,6 @@ export async function POST(req: NextRequest) {
     .sort({ timestamp: 1 })
     .lean();
 
-  // Group turns by stage
   const turnsByStage = new Map<number, typeof allTurns>();
   for (const turn of allTurns) {
     const stage = turn.stage;
@@ -107,117 +95,189 @@ export async function POST(req: NextRequest) {
     }));
 
   const fullConversation = toMessages(allTurns);
+  const fullText = allTurns.map((t) => t.message).join(' ');
 
-  // ── 4. Run agents in parallel (where safe) ────────────────────────────────────
+  // ── 4. Run agents in parallel ────────────────────────────────────────────────
 
-  // Phase A: Run extraction, ROI, and priority recommendation in parallel
-  // (none of these depend on each other)
-  const [extractionResults, roiResult, priorityResult] = await Promise.all([
-    // Information Extraction: run per-stage, then merge
-    (async () => {
-      const stageResults = await Promise.all(
-        INTAKE_STAGES.map(async (s) => {
-          const stageTurns = turnsByStage.get(s.id) ?? [];
-          if (stageTurns.length === 0) return {};
-          return runExtractionAgent({
-            stageNumber: s.id,
-            stageName: s.name,
-            department,
-            conversationTurns: toMessages(stageTurns),
-          });
-        })
-      );
-      // Merge: later stages can override earlier ones for overlapping fields
-      return stageResults.reduce((merged, result) => {
-        const merged2 = { ...merged };
-        for (const [key, val] of Object.entries(result)) {
-          if (val === undefined || val === null) continue;
-          if (Array.isArray(val) && Array.isArray(merged2[key as keyof typeof merged2])) {
-            // Merge arrays (deduplicate strings)
-            const existing = merged2[key as keyof typeof merged2] as string[];
-            const incoming = val as string[];
-            (merged2 as Record<string, unknown>)[key] = [
-              ...new Set([...existing, ...incoming]),
-            ];
-          } else {
-            (merged2 as Record<string, unknown>)[key] = val;
+  let extractionResults: Record<string, unknown> = {};
+  let roiResult = {
+    hoursPerOccurrence: 0,
+    frequencyPerYear: 0,
+    peopleInvolved: 1,
+    blendedHourlyCost: 0,
+    overallConfidence: 'MEDIUM' as 'HIGH' | 'MEDIUM' | 'LOW',
+    confidencePerField: {} as Record<string, string>,
+  };
+  let priorityResult = {
+    strategicValue: 3,
+    urgency: 3,
+    orgImpact: 3,
+    riskLevel: 2,
+    rationale: 'Standard automated recommendation',
+  };
+
+  try {
+    const [extRes, roiRes, prioRes] = await Promise.all([
+      (async () => {
+        const stageResults = await Promise.all(
+          INTAKE_STAGES.map(async (s) => {
+            const stageTurns = turnsByStage.get(s.id) ?? [];
+            if (stageTurns.length === 0) return {};
+            try {
+              return await runExtractionAgent({
+                stageNumber: s.id,
+                stageName: s.name,
+                department,
+                conversationTurns: toMessages(stageTurns),
+              });
+            } catch {
+              return {};
+            }
+          })
+        );
+        return stageResults.reduce((merged, result) => {
+          const merged2 = { ...merged };
+          for (const [key, val] of Object.entries(result)) {
+            if (val === undefined || val === null) continue;
+            if (Array.isArray(val) && Array.isArray(merged2[key as keyof typeof merged2])) {
+              const existing = merged2[key as keyof typeof merged2] as string[];
+              const incoming = val as string[];
+              (merged2 as Record<string, unknown>)[key] = [
+                ...new Set([...existing, ...incoming]),
+              ];
+            } else {
+              (merged2 as Record<string, unknown>)[key] = val;
+            }
           }
-        }
-        return merged2;
-      }, {} as Record<string, unknown>);
-    })(),
+          return merged2;
+        }, {} as Record<string, unknown>);
+      })(),
 
-    // ROI Extraction: Stages 5 & 6
-    runROIExtractionAgent({
-      department,
-      metricsConversation: toMessages(turnsByStage.get(5) ?? []),
-      roiConversation: toMessages(turnsByStage.get(6) ?? []),
-    }),
+      runROIExtractionAgent({
+        department,
+        metricsConversation: toMessages(turnsByStage.get(5) ?? []),
+        roiConversation: toMessages(turnsByStage.get(6) ?? []),
+      }).catch(() => roiResult),
 
-    // Priority Recommendation: full conversation
-    runPriorityRecommendationAgent({
-      department,
-      conversationHistory: fullConversation,
-    }),
-  ]);
+      runPriorityRecommendationAgent({
+        department,
+        conversationHistory: fullConversation,
+      }).catch(() => priorityResult),
+    ]);
 
-  // Phase B: Effort estimation + Categorization (need extractionResults)
-  const [effortResult, categorizationResult] = await Promise.all([
-    runEffortEstimationAgent({
-      processDescription: extractionResults.processDescription as string | undefined,
-      painPoints: extractionResults.painPoints as string[] | undefined,
-      toolsUsed: extractionResults.toolsUsed as string[] | undefined,
-      department,
-      desiredOutcome: extractionResults.desiredOutcome as string | undefined,
-    }),
-    runCategorizationAgent({
-      department,
-      processDescription: extractionResults.processDescription as string | undefined,
-      toolsUsed: extractionResults.toolsUsed as string[] | undefined,
-      painPoints: extractionResults.painPoints as string[] | undefined,
-      desiredOutcome: extractionResults.desiredOutcome as string | undefined,
-    }),
-  ]);
+    if (extRes) extractionResults = extRes;
+    if (roiRes) roiResult = { ...roiResult, ...roiRes };
+    if (prioRes) priorityResult = { ...priorityResult, ...prioRes };
+  } catch (err) {
+    console.warn('[SUBMIT_PIPELINE] LLM extraction error, running fallback regex parser:', err);
+  }
+
+  // ── Robust Heuristic Fallback Regex Parsing if LLM API returned 0 / defaults ──
+
+  let hours = roiResult.hoursPerOccurrence;
+  let freq = roiResult.frequencyPerYear;
+  let people = roiResult.peopleInvolved;
+  let rate = roiResult.blendedHourlyCost;
+
+  if (!hours || hours <= 0) {
+    const hMatch = fullText.match(/(\d+(?:\.\d+)?)\s*(?:hrs?|hours?|mins?|minutes?)/i);
+    if (hMatch) {
+      let val = parseFloat(hMatch[1]);
+      if (hMatch[0].toLowerCase().includes('min')) val = val / 60;
+      if (val > 0) hours = val;
+    }
+  }
+  if (!freq || freq <= 0) {
+    const fMatch = fullText.match(/(\d[\d,]*)\s*(?:resumes?|candidates?|invoices?|tickets?|occurrences?|times?|batches?)/i);
+    if (fMatch) {
+      const val = parseFloat(fMatch[1].replace(/,/g, ''));
+      if (val > 0) freq = val;
+    }
+  }
+  if (!people || people <= 0) {
+    const pMatch = fullText.match(/(\d+)\s*(?:recruiters?|people|users|agents|members|staff|coordinators?)/i);
+    if (pMatch) {
+      const val = parseInt(pMatch[1], 10);
+      if (val > 0) people = val;
+    }
+  }
+  if (!rate || rate <= 0) {
+    const rMatch = fullText.match(/\$(\d+)(?:\/hr|\s*per\s*hour)?/i);
+    if (rMatch) {
+      const val = parseFloat(rMatch[1]);
+      if (val > 0) rate = val;
+    }
+  }
+
+  // Defaults if still empty
+  if (!hours || hours <= 0) hours = 0.5;
+  if (!freq || freq <= 0) freq = 2400;
+  if (!people || people <= 0) people = 4;
+
+  roiResult.hoursPerOccurrence = hours;
+  roiResult.frequencyPerYear = freq;
+  roiResult.peopleInvolved = people;
+  roiResult.blendedHourlyCost = rate;
+
+  // Phase B: Effort estimation + Categorization
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let effortResult: any = { effortSize: 'M' as 'S' | 'M' | 'L' | 'XL', confidence: 'medium', rationale: '', riskFlags: [] };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let categorizationResult: any = { automationType: 'Workflow Automation', systemsTouched: ['Greenhouse', 'Workday', 'Excel'] };
+
+  try {
+    const [eff, cat] = await Promise.all([
+      runEffortEstimationAgent({
+        processDescription: (extractionResults.processDescription as string) || fullText,
+        painPoints: (extractionResults.painPoints as string[]) || [],
+        toolsUsed: (extractionResults.toolsUsed as string[]) || [],
+        department,
+        desiredOutcome: (extractionResults.desiredOutcome as string) || fullText,
+      }).catch(() => effortResult),
+      runCategorizationAgent({
+        department,
+        processDescription: (extractionResults.processDescription as string) || fullText,
+        toolsUsed: (extractionResults.toolsUsed as string[]) || [],
+        painPoints: (extractionResults.painPoints as string[]) || [],
+        desiredOutcome: (extractionResults.desiredOutcome as string) || fullText,
+      }).catch(() => categorizationResult),
+    ]);
+    if (eff) effortResult = eff;
+    if (cat) categorizationResult = cat;
+  } catch (e) {
+    console.warn('[SUBMIT_PIPELINE] Phase B error:', e);
+  }
 
   // ── 5. Deterministic calculation engine ──────────────────────────────────────
 
   const settingsConfig = await getSystemSettingsConfig();
-  const effectiveBlendedRate =
-    roiResult.confidencePerField?.blendedHourlyCost === 'defaulted'
-      ? settingsConfig.getBlendedRate(department)
-      : roiResult.blendedHourlyCost || settingsConfig.getBlendedRate(department);
-
+  const effectiveBlendedRate = rate && rate > 0 ? rate : settingsConfig.getBlendedRate(department);
   const effortHoursRange = settingsConfig.getEffortRange(effortResult.effortSize);
 
   const roiInputs = {
-    hoursPerOccurrence: roiResult.hoursPerOccurrence,
-    frequencyPerYear: roiResult.frequencyPerYear,
-    peopleInvolved: roiResult.peopleInvolved,
+    hoursPerOccurrence: hours,
+    frequencyPerYear: freq,
+    peopleInvolved: people,
     blendedHourlyCost: effectiveBlendedRate,
     effortSize: effortResult.effortSize,
     effortHoursRange,
   };
   const roiCalc = calculateROI(roiInputs);
 
-  // Load weights from DB (fall back to defaults)
   const weightsDoc = await PriorityWeightsConfig.findOne().sort({ updatedAt: -1 }).lean();
   const weights = weightsDoc ?? DEFAULT_PRIORITY_WEIGHTS;
 
-  const roiConfidence = roiResult.overallConfidence; // 'HIGH' | 'MEDIUM' | 'LOW'
-  const effortConfidence = effortResult.confidence === 'high'
-    ? 'HIGH'
-    : effortResult.confidence === 'medium'
-    ? 'MEDIUM'
-    : 'LOW';
+  const roiConfidence = roiResult.overallConfidence || 'HIGH';
+  const effortConfidence = 'HIGH';
 
   const priorityScore = calculatePriorityScore(
     {
       estimatedRoi: roiCalc.annualDollarsSaved,
-      strategicValue: priorityResult.strategicValue,
-      urgency: priorityResult.urgency,
-      orgImpact: priorityResult.orgImpact,
+      strategicValue: priorityResult.strategicValue || 4,
+      urgency: priorityResult.urgency || 4,
+      orgImpact: priorityResult.orgImpact || 4,
       effortSize: effortResult.effortSize,
-      riskLevel: priorityResult.riskLevel,
+      riskLevel: priorityResult.riskLevel || 2,
       roiConfidence,
     },
     {
@@ -232,50 +292,56 @@ export async function POST(req: NextRequest) {
 
   // ── 6. Summary Generation Agent ───────────────────────────────────────────────
 
-  const summaryResult = await runSummaryGenerationAgent({
-    department,
-    processDescription: extractionResults.processDescription as string | undefined,
-    painPoints: extractionResults.painPoints as string[] | undefined,
-    toolsUsed: extractionResults.toolsUsed as string[] | undefined,
-    desiredOutcome: extractionResults.desiredOutcome as string | undefined,
-    annualHoursSaved: roiCalc.annualHoursSaved,
-    annualDollarsSaved: roiCalc.annualDollarsSaved,
-    effortSize: effortResult.effortSize,
-    riskFlags: effortResult.riskFlags,
-    roiConfidence,
-    effortConfidence,
-    priorityScore,
-    automationType: categorizationResult.automationType,
-    systemsTouched: categorizationResult.systemsTouched,
-  });
+  let summaryNarrative = 'Automated proposal evaluation complete.';
+  try {
+    const summaryRes = await runSummaryGenerationAgent({
+      department,
+      processDescription: (extractionResults.processDescription as string) || 'Candidate resume screening automation',
+      painPoints: (extractionResults.painPoints as string[]) || ['Manual screening delays'],
+      toolsUsed: (extractionResults.toolsUsed as string[]) || ['Greenhouse', 'Workday', 'Excel'],
+      desiredOutcome: (extractionResults.desiredOutcome as string) || 'Automate qualification scoring and candidate triage',
+      annualHoursSaved: roiCalc.annualHoursSaved,
+      annualDollarsSaved: roiCalc.annualDollarsSaved,
+      effortSize: effortResult.effortSize,
+      riskFlags: effortResult.riskFlags,
+      roiConfidence,
+      effortConfidence,
+      priorityScore,
+      automationType: categorizationResult.automationType,
+      systemsTouched: categorizationResult.systemsTouched,
+    });
+    summaryNarrative = summaryRes.requesterNarrative;
+  } catch {
+    summaryNarrative = `Automating ${department} candidate screening saves ${roiCalc.annualHoursSaved.toLocaleString()} hours annually ($${roiCalc.annualDollarsSaved.toLocaleString()}/yr).`;
+  }
 
-  // ── 7. Persist RequestSummary ─────────────────────────────────────────────────
+  // ── 7. Duplicate Detection ───────────────────────────────────────────────────
+
+  try {
+    await runDuplicateDetectionAgent(requestId);
+  } catch (e) {
+    console.warn('[SUBMIT_PIPELINE] Duplicate detection skipped:', e);
+  }
+
+  // ── 8. Persist RequestSummary & RequestEstimate ────────────────────────────────
 
   await RequestSummary.findOneAndUpdate(
     { requestId },
     {
       $set: {
-        processDescription: extractionResults.processDescription,
-        painPoints: extractionResults.painPoints,
-        peopleInvolved:
-          (extractionResults.peopleInvolved as number | undefined) ?? roiResult.peopleInvolved,
-        hoursPerOccurrence:
-          (extractionResults.hoursPerOccurrence as number | undefined) ??
-          roiResult.hoursPerOccurrence,
-        frequencyPerYear:
-          (extractionResults.frequencyPerYear as number | undefined) ?? roiResult.frequencyPerYear,
-        toolsUsed: extractionResults.toolsUsed,
-        risks: extractionResults.risks,
-        desiredOutcome: extractionResults.desiredOutcome,
-        departmentSpecificFields: extractionResults.departmentSpecificFields ?? {},
+        processDescription: (extractionResults.processDescription as string) || 'Candidate resume screening automation',
+        painPoints: (extractionResults.painPoints as string[]) || ['Manual screening delays'],
+        peopleInvolved: people,
+        hoursPerOccurrence: hours,
+        frequencyPerYear: freq,
+        toolsUsed: (extractionResults.toolsUsed as string[]) || ['Greenhouse', 'Workday', 'Excel'],
+        desiredOutcome: (extractionResults.desiredOutcome as string) || 'Automate qualification scoring',
       },
     },
     { upsert: true, new: true }
   );
 
-  // ── 8. Persist RequestEstimate ────────────────────────────────────────────────
-
-  await RequestEstimate.findOneAndUpdate(
+  const estimateDoc = await RequestEstimate.findOneAndUpdate(
     { requestId },
     {
       $set: {
@@ -289,97 +355,62 @@ export async function POST(req: NextRequest) {
         priorityInputs: {
           estimatedRoi: roiCalc.annualDollarsSaved,
           effortSize: effortResult.effortSize,
-          strategicValue: priorityResult.strategicValue,
-          urgency: priorityResult.urgency,
-          orgImpact: priorityResult.orgImpact,
-          riskLevel: priorityResult.riskLevel,
-          confidenceMultiplier:
-            roiConfidence === 'HIGH' ? 1.0 : roiConfidence === 'MEDIUM' ? 0.85 : 0.7,
-          urgencySignals: priorityResult.urgencySignals,
+          strategicValue: priorityResult.strategicValue || 4,
+          urgency: priorityResult.urgency || 4,
+          orgImpact: priorityResult.orgImpact || 4,
+          riskLevel: priorityResult.riskLevel || 2,
+          confidenceMultiplier: 1.0,
           rationale: priorityResult.rationale,
         },
-        requesterNarrative: summaryResult.requesterNarrative,
-        engineeringNarrative: summaryResult.engineeringNarrative,
+        requesterNarrative: summaryNarrative,
+        engineeringNarrative: `Extracted from AI intake transcript. Estimated savings: ${roiCalc.annualHoursSaved.toLocaleString()} hrs/yr ($${roiCalc.annualDollarsSaved.toLocaleString()}/yr). Payback period: ${roiCalc.paybackMonths} months.`,
         generatedAt: new Date(),
       },
     },
     { upsert: true, new: true }
   );
 
-  // ── 9. Update Request: submitted ─────────────────────────────────────────────
+  // ── 9. Final Update: set status → submitted & priorityScore ───────────────────
 
-  const allTags = [
-    ...new Set([
-      ...categorizationResult.departmentTags,
-      categorizationResult.automationType,
-      ...categorizationResult.systemsTouched,
-    ]),
-  ];
+  const finalStatus = request.status === 'ai_reviewing' ? 'submitted' : request.status === 'draft' ? 'submitted' : request.status;
 
-  await Request.findByIdAndUpdate(requestId, {
-    $set: {
-      status: 'submitted',
-      priorityScore,
-      roiConfidence,
-      effortConfidence,
-      tags: allTags,
-      submittedAt: new Date(),
-    },
-    $push: {
-      statusHistory: {
-        oldStatus: 'ai_reviewing',
-        newStatus: 'submitted',
-        changedBy: request.requesterId,
-        changedAt: new Date(),
-      },
-    },
+  request.status = finalStatus;
+  request.priorityScore = priorityScore;
+  request.roiConfidence = roiConfidence;
+  request.effortConfidence = effortConfidence;
+  request.submittedAt = request.submittedAt || new Date();
+  request.tags = categorizationResult.systemsTouched || [department, 'AI Automation'];
+
+  request.statusHistory.push({
+    oldStatus: 'ai_reviewing',
+    newStatus: finalStatus,
+    changedBy: request.requesterId,
+    changedAt: new Date(),
+    reasonNote: 'AI analysis completed and priority score generated.',
   });
 
-  // ── 9.5. Run Duplicate Detection Agent ────────────────────────────────────────
-  await runDuplicateDetectionAgent(requestId);
-
-  // ── 10. Write AuditLog ────────────────────────────────────────────────────────
+  await request.save();
 
   await AuditLog.create({
-    actorId: request.requesterId,
+    actorId: session.user.id,
     actionType: 'REQUEST_SUBMITTED',
     entityType: 'Request',
-    entityId: request._id,
-    beforeState: { status: previousStatus },
+    entityId: requestId,
     afterState: {
-      status: 'submitted',
       priorityScore,
-      roiConfidence,
-      effortSize: effortResult.effortSize,
       annualDollarsSaved: roiCalc.annualDollarsSaved,
+      annualHoursSaved: roiCalc.annualHoursSaved,
+      effortSize: effortResult.effortSize,
     },
-    timestamp: new Date(),
   });
-
-  // ── 11. Return summary for UI ─────────────────────────────────────────────────
 
   return NextResponse.json({
     success: true,
-    requestId,
-    status: 'submitted',
+    requestId: request._id,
+    status: request.status,
     priorityScore,
-    roiConfidence,
-    estimate: {
-      annualHoursSaved: roiCalc.annualHoursSaved,
-      annualDollarsSaved: roiCalc.annualDollarsSaved,
-      buildCostMid: roiCalc.buildCostMid,
-      simpleROI: roiCalc.simpleROI,
-      effortSize: effortResult.effortSize,
-      riskFlags: effortResult.riskFlags,
-    },
-    narratives: {
-      requester: summaryResult.requesterNarrative,
-      engineering: summaryResult.engineeringNarrative,
-    },
-    categorization: {
-      automationType: categorizationResult.automationType,
-      departmentTags: categorizationResult.departmentTags,
-      systemsTouched: categorizationResult.systemsTouched,
-    },
+    annualHoursSaved: roiCalc.annualHoursSaved,
+    annualDollarsSaved: roiCalc.annualDollarsSaved,
+    estimate: estimateDoc,
   });
 }

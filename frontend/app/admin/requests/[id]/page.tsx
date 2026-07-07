@@ -362,6 +362,7 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
   // Assignee state
   const [selectedAssignee, setSelectedAssignee] = useState('');
   const [isAssigning, setIsAssigning] = useState(false);
+  const [isReAnalyzing, setIsReAnalyzing] = useState(false);
 
   const load = useCallback(async () => {
     setIsLoading(true);
@@ -540,6 +541,28 @@ export default function EngineeringReviewPage({ params }: { params: Promise<{ id
           </div>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={async () => {
+                setIsReAnalyzing(true);
+                try {
+                  const res = await fetch('/api/intake/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ requestId, reAnalyze: true }),
+                  });
+                  if (res.ok) {
+                    await load();
+                  }
+                } finally {
+                  setIsReAnalyzing(false);
+                }
+              }}
+              disabled={isReAnalyzing}
+              className="text-xs font-semibold text-white bg-gradient-to-r from-indigo-600 to-[#8083ff] hover:brightness-110 px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+            >
+              <span>{isReAnalyzing ? '⚡ Analyzing...' : '⚡ Run AI Analysis'}</span>
+            </button>
+
             <Link href={`/requests/${requestId}`}
               className="text-xs font-semibold text-[#c0c1ff] bg-[#6366f1]/15 border border-[#6366f1]/30 hover:bg-[#6366f1] hover:text-white px-3.5 py-2 rounded-lg transition-all">
               Requester View →
