@@ -1,16 +1,16 @@
 # Graph Report - AI Automation  (2026-07-27)
 
 ## Corpus Check
-- 105 files · ~46,613 words
+- 105 files · ~46,680 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 487 nodes · 585 edges · 48 communities (36 shown, 12 thin omitted)
+- 487 nodes · 578 edges · 50 communities (39 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e33214b`
+- Built from commit: `7db2eaca`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -53,6 +53,7 @@
 - RequestEstimate.ts
 - route.ts
 - auth.config.ts
+- app-sidebar.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 43 edges
@@ -67,6 +68,8 @@
 10. `calculateROI()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `SidebarProvider()` --references--> `react`  [EXTRACTED]
+  frontend/components/ui/sidebar.tsx → frontend/package.json
 - `SidebarMenuSkeleton()` --references--> `react`  [EXTRACTED]
   frontend/components/ui/sidebar.tsx → frontend/package.json
 - `useIsMobile()` --references--> `react`  [EXTRACTED]
@@ -75,13 +78,11 @@
   frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
 - `AvatarImage()` --calls--> `cn()`  [EXTRACTED]
   frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
-- `AvatarFallback()` --calls--> `cn()`  [EXTRACTED]
-  frontend/components/ui/avatar.tsx → frontend/lib/utils.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (48 total, 12 thin omitted)
+## Communities (50 total, 11 thin omitted)
 
 ### Community 0 - "dependencies"
 Cohesion: 0.04
@@ -176,32 +177,40 @@ Cohesion: 0.29
 Nodes (8): DocumentAnalysisInput, DocumentAnalysisResult, runDocumentAnalysisAgent(), STAGE_QUERIES, ChunkingOptions, chunkText(), DocumentChunk, selectRelevantChunks()
 
 ### Community 35 - "page.tsx"
-Cohesion: 0.05
-Nodes (24): geist, metadata, Providers(), AppSidebar(), employeeItems, engineeringItems, isActive(), NavigationItem() (+16 more)
+Cohesion: 0.08
+Nodes (13): Sidebar(), SidebarContext, SidebarContextProps, SidebarMenuButton(), sidebarMenuButtonVariants, SidebarMenuSkeleton(), SidebarProvider(), SidebarRail() (+5 more)
 
 ### Community 36 - "middleware.ts"
 Cohesion: 0.40
 Nodes (4): ADMIN_PATHS, config, PUBLIC_PATHS, SYS_ADMIN_ONLY_PATHS
 
+### Community 38 - "Navbar.tsx"
+Cohesion: 0.25
+Nodes (4): geist, metadata, MobileHeader(), NotificationItem
+
 ### Community 40 - "RequestEstimate.ts"
 Cohesion: 0.40
 Nodes (4): IPriorityInputs, IRequestEstimate, PriorityInputsSchema, RequestEstimateSchema
 
+### Community 48 - "app-sidebar.tsx"
+Cohesion: 0.25
+Nodes (6): employeeItems, engineeringItems, isActive(), NavigationItem(), NavItem, systemItems
+
 ## Knowledge Gaps
-- **157 isolated node(s):** `Engineer`, `Comment`, `PriorityInputs`, `Estimate`, `Summary` (+152 more)
+- **157 isolated node(s):** `AdminRequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS`, `BULK_STATUSES`, `IUserItem` (+152 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `dependencies` to `page.tsx`, `package.json`?**
-  _High betweenness centrality (0.055) - this node is a cross-community bridge._
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **Why does `react` connect `page.tsx` to `dependencies`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
-- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **What connects `Engineer`, `Comment`, `PriorityInputs` to the rest of the system?**
+- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **What connects `AdminRequestItem`, `STATUS_BADGES`, `DEPARTMENT_ICONS` to the rest of the system?**
   _157 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._

@@ -108,50 +108,50 @@ export default function AnalyticsDashboardPage() {
         )}
 
         {/* Overview Metric Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/20 flex items-center justify-center text-[#818cf8] shrink-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 bg-[#1f1f27] flex items-center gap-4">
+            <div className="h-11 w-11 shrink-0 rounded-lg bg-[#6366f1]/15 border border-[#6366f1]/30 flex items-center justify-center text-[#c0c1ff]">
               <Layers className="w-5 h-5" />
             </div>
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Total Requests</p>
-              <p className="text-2xl font-bold text-white mt-0.5">{overview.totalRequests}</p>
-              <p className="text-[11px] text-[#4b5563] font-medium">{overview.submittedCount} active</p>
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Total Requests</p>
+              <p className="text-2xl font-bold text-white mt-0.5 font-outfit">{overview.totalRequests}</p>
+              <p className="text-[11px] text-[#908fa0] font-medium">{overview.submittedCount} active</p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 bg-[#1f1f27] flex items-center gap-4">
+            <div className="h-11 w-11 shrink-0 rounded-lg bg-[#00a572]/15 border border-[#00a572]/30 flex items-center justify-center text-[#4edea3]">
               <DollarSign className="w-5 h-5" />
             </div>
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Annual $ Saved</p>
-              <p className="text-2xl font-bold text-emerald-400 mt-0.5">
+            <div className="min-w-0 overflow-hidden">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Annual $ Saved</p>
+              <p className="text-lg sm:text-2xl font-bold text-[#4edea3] mt-0.5 font-outfit truncate">
                 ${overview.totalAnnualDollarsSaved.toLocaleString()}
               </p>
-              <p className="text-[11px] text-[#4b5563] font-medium">High-confidence only</p>
+              <p className="text-[11px] text-[#908fa0] font-medium">High-confidence only</p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 bg-[#1f1f27] flex items-center gap-4">
+            <div className="h-11 w-11 shrink-0 rounded-lg bg-[#6366f1]/15 border border-[#6366f1]/30 flex items-center justify-center text-[#c0c1ff]">
               <Clock className="w-5 h-5" />
             </div>
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Hours Saved / yr</p>
-              <p className="text-2xl font-bold text-white mt-0.5">{overview.totalAnnualHoursSaved.toLocaleString()}</p>
-              <p className="text-[11px] text-[#4b5563] font-medium">Automated capacity</p>
+            <div className="min-w-0 overflow-hidden">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Hours Saved / yr</p>
+              <p className="text-lg sm:text-2xl font-bold text-white mt-0.5 font-outfit truncate">{overview.totalAnnualHoursSaved.toLocaleString()}</p>
+              <p className="text-[11px] text-[#908fa0] font-medium">Automated capacity</p>
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] flex items-center gap-4">
-            <div className="h-11 w-11 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0">
+          <div className="glass-panel p-5 rounded-xl border border-[#464554]/30 bg-[#1f1f27] flex items-center gap-4">
+            <div className="h-11 w-11 shrink-0 rounded-lg bg-[#00a572]/15 border border-[#00a572]/30 flex items-center justify-center text-[#4edea3]">
               <CheckCircle2 className="w-5 h-5" />
             </div>
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-[#6b7280]">Approval Rate</p>
-              <p className="text-2xl font-bold text-white mt-0.5">{overview.approvalRate}%</p>
-              <p className="text-[11px] text-[#4b5563] font-medium">
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#908fa0] font-outfit">Approval Rate</p>
+              <p className="text-2xl font-bold text-white mt-0.5 font-outfit">{overview.approvalRate}%</p>
+              <p className="text-[11px] text-[#908fa0] font-medium truncate">
                 {overview.approvedCount} approved · {overview.rejectedCount} rejected
               </p>
             </div>
@@ -161,28 +161,28 @@ export default function AnalyticsDashboardPage() {
         {/* Department Breakdown & Status Distribution */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Department Volume Bar Chart */}
-          <div className="lg:col-span-2 p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-6">
+          <div className="lg:col-span-2 glass-panel p-6 rounded-xl border border-[#464554]/30 space-y-6">
             <div>
-              <h2 className="text-base font-bold text-white">Department Request Volume & Approvals</h2>
-              <p className="text-xs text-[#6b7280] mt-0.5">Breakdown of automation requests by department</p>
+              <h2 className="text-base font-bold font-outfit text-white">Department Request Volume &amp; Approvals</h2>
+              <p className="text-xs text-[#908fa0] mt-0.5">Breakdown of automation requests by department</p>
             </div>
 
             <div className="space-y-5">
               {departmentBreakdown.length === 0 ? (
-                <p className="text-xs text-[#4b5563] italic py-8 text-center">No department request data yet.</p>
+                <p className="text-xs text-[#908fa0] italic py-8 text-center">No department request data yet.</p>
               ) : (
                 departmentBreakdown.map((dept) => {
                   const percent = Math.round((dept.count / maxDeptCount) * 100);
                   return (
                     <div key={dept.department} className="space-y-1.5">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-white">{dept.department}</span>
-                        <span className="text-[#6b7280] font-medium">
+                      <div className="flex items-center justify-between text-xs gap-2">
+                        <span className="font-bold text-white font-outfit truncate">{dept.department}</span>
+                        <span className="text-[#908fa0] font-medium shrink-0">
                           {dept.count} total ·{' '}
-                          <span className="text-emerald-400 font-bold">{dept.approvedCount} approved</span>
+                          <span className="text-[#4edea3] font-bold">{dept.approvedCount} approved</span>
                         </span>
                       </div>
-                      <div className="w-full h-3 bg-[#1a1a2e] rounded-full overflow-hidden">
+                      <div className="w-full h-2.5 bg-[#34343d] rounded-full overflow-hidden">
                         <div
                           className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] h-full transition-all duration-500 rounded-full"
                           style={{ width: `${percent}%` }}
@@ -196,17 +196,17 @@ export default function AnalyticsDashboardPage() {
           </div>
 
           {/* Status Distribution */}
-          <div className="p-6 rounded-2xl bg-[#0f0f1e] border border-[#1e1e3a] space-y-5">
+          <div className="glass-panel p-6 rounded-xl border border-[#464554]/30 space-y-5">
             <div>
-              <h2 className="text-base font-bold text-white">Pipeline Status Distribution</h2>
-              <p className="text-xs text-[#6b7280] mt-0.5">Current state of all active requests</p>
+              <h2 className="text-base font-bold font-outfit text-white">Pipeline Status Distribution</h2>
+              <p className="text-xs text-[#908fa0] mt-0.5">Current state of all active requests</p>
             </div>
 
             <div className="space-y-2">
               {statusDistribution.map((st) => (
-                <div key={st.status} className="flex items-center justify-between p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a4e]">
-                  <span className="text-xs font-bold text-[#d1d5db] capitalize">{st.status.replace(/_/g, ' ')}</span>
-                  <span className="px-3 py-0.5 rounded-full text-xs font-extrabold bg-[#6366f1]/15 text-[#818cf8] border border-[#6366f1]/25">
+                <div key={st.status} className="flex items-center justify-between p-3 rounded-xl bg-[#0d0d15] border border-[#464554]/30">
+                  <span className="text-xs font-bold text-[#e4e1ed] capitalize">{st.status.replace(/_/g, ' ')}</span>
+                  <span className="px-3 py-0.5 rounded-full text-xs font-extrabold bg-[#6366f1]/15 text-[#c0c1ff] border border-[#6366f1]/30">
                     {st.count}
                   </span>
                 </div>

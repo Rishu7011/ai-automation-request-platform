@@ -46,5 +46,7 @@
   "44": "page.tsx",
   "45": "auth.config.ts",
   "46": "route.ts",
-  "47": "route.ts"
+  "47": "route.ts",
+  "48": "app-sidebar.tsx",
+  "49": "providers.tsx"
 }
