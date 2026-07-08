@@ -232,20 +232,20 @@ export default function LedgerPage() {
 
         {/* Filters Bar */}
         <div className="glass-panel border border-[#464554]/30 rounded-xl p-4 space-y-3">
-          {/* Scrollable filter row */}
-          <div className="flex items-end gap-3 overflow-x-auto scrollbar-none pb-0.5">
+          {/* 2x2 grid on mobile → 4-col on desktop */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Department */}
-            <div className="flex flex-col gap-1.5 shrink-0 min-w-[140px]">
-              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Department</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[#908fa0] text-[10px] font-bold uppercase tracking-wider font-outfit px-1">Department</label>
               <select value={department} onChange={(e) => handleFilterChange('department', e.target.value)} className={selectClass}>
-                <option value="">All Departments</option>
+                <option value="">All Depts</option>
                 {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
               </select>
             </div>
 
             {/* Status */}
-            <div className="flex flex-col gap-1.5 shrink-0 min-w-[140px]">
-              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Status</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[#908fa0] text-[10px] font-bold uppercase tracking-wider font-outfit px-1">Status</label>
               <select value={status} onChange={(e) => handleFilterChange('status', e.target.value)} className={selectClass}>
                 <option value="">All Statuses</option>
                 {Object.entries(LEDGER_STATUSES).map(([val, label]) => (
@@ -255,8 +255,8 @@ export default function LedgerPage() {
             </div>
 
             {/* Priority Tier */}
-            <div className="flex flex-col gap-1.5 shrink-0 min-w-[130px]">
-              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Priority</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[#908fa0] text-[10px] font-bold uppercase tracking-wider font-outfit px-1">Priority</label>
               <select value={priorityTier} onChange={(e) => handleFilterChange('priorityTier', e.target.value)} className={selectClass}>
                 <option value="">All Tiers</option>
                 {['Critical', 'High', 'Medium', 'Low'].map((t) => (
@@ -266,24 +266,18 @@ export default function LedgerPage() {
             </div>
 
             {/* Sort */}
-            <div className="flex flex-col gap-1.5 shrink-0 min-w-[150px]">
-              <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Sort By</label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[#908fa0] text-[10px] font-bold uppercase tracking-wider font-outfit px-1">Sort By</label>
               <select value={sortBy} onChange={(e) => handleFilterChange('sortBy', e.target.value)} className={selectClass}>
                 <option value="newest">Newest First</option>
-                <option value="priority">Priority Score ↓</option>
+                <option value="priority">Priority ↓</option>
               </select>
             </div>
-
-            {hasFilters && (
-              <button onClick={handleClear} className="shrink-0 text-sm text-[#c0c1ff] font-semibold hover:text-white transition-colors pb-2.5 cursor-pointer whitespace-nowrap">
-                Clear filters
-              </button>
-            )}
           </div>
 
-          {/* Date Range row — always full-width */}
+          {/* Date Range — full width */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-[#908fa0] text-xs font-bold uppercase tracking-wider font-outfit px-1">Date Range</label>
+            <label className="text-[#908fa0] text-[10px] font-bold uppercase tracking-wider font-outfit px-1">Date Range</label>
             <div className="flex items-center bg-[#0d0d15] border border-[#464554]/30 rounded-lg overflow-hidden">
               <input
                 type="date"
@@ -300,6 +294,13 @@ export default function LedgerPage() {
               />
             </div>
           </div>
+
+          {/* Clear filters */}
+          {hasFilters && (
+            <button onClick={handleClear} className="text-xs text-[#c0c1ff] font-semibold hover:text-white transition-colors cursor-pointer">
+              ✕ Clear all filters
+            </button>
+          )}
         </div>
 
         {/* Loading state */}

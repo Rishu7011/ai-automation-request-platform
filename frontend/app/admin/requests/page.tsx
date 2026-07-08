@@ -252,19 +252,19 @@ export default function AdminRequestsPage() {
             />
           </div>
 
-          {/* Horizontally scrollable filter row */}
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-0.5">
-            <select value={selectedDepartment} onChange={(e) => setSelectedDepartment(e.target.value)} className={`${selectClass} shrink-0`}>
-              <option value="all">All Departments</option>
+          {/* 2x2 grid on mobile → single row on lg */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+            <select value={selectedDepartment} onChange={(e) => setSelectedDepartment(e.target.value)} className={selectClass}>
+              <option value="all">All Depts</option>
               {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
             </select>
 
-            <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className={`${selectClass} shrink-0`}>
+            <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className={selectClass}>
               <option value="all">All Statuses</option>
               {Object.entries(STATUS_BADGES).map(([v, { label }]) => <option key={v} value={v}>{label}</option>)}
             </select>
 
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={`${selectClass} shrink-0`}>
+            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={selectClass}>
               <option value="priority">Priority ↓</option>
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
@@ -272,13 +272,13 @@ export default function AdminRequestsPage() {
 
             <button
               onClick={() => setShowDuplicatesOnly(!showDuplicatesOnly)}
-              className={`shrink-0 px-3.5 py-2.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap ${
+              className={`px-3 py-2.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                 showDuplicatesOnly
                   ? 'bg-[#ffb95f]/20 text-[#ffb95f] border-[#ffb95f]/40'
                   : 'bg-[#1f1f27] border-[#464554]/40 text-[#c7c4d7] hover:bg-[#34343d]'
               }`}
             >
-              <AlertTriangle className="h-3.5 w-3.5 text-[#ffb95f]" />
+              <AlertTriangle className="h-3.5 w-3.5 text-[#ffb95f] shrink-0" />
               <span>Duplicates</span>
             </button>
           </div>

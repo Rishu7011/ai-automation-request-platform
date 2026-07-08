@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "frontend/app/admin/analytics/page.tsx": {
-    "mtime": 1785161297.9316068,
-    "ast_hash": "7c14f85924f32685ac482cf3fe749f5b",
+    "mtime": 1785161806.7023902,
+    "ast_hash": "b6afa3ffc25d324b47d41f414febe302",
     "semantic_hash": ""
   },
   "frontend/app/api/admin/analytics/route.ts": {
