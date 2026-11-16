@@ -45,7 +45,7 @@ export interface DepartmentQuestionSet {
 
 // ─── Multi-Key Groq / Ollama Model Provider ───────────────────────────────────
 
-const GROQ_MODEL = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+const GROQ_MODEL = process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL || 'http://localhost:11434';
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen3.5:9b';
 
